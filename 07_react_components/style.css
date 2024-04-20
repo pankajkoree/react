@@ -1,0 +1,31 @@
+.card{
+    width: 250px;
+    border: 1px solid red;
+    border-radius: 8px ;
+    overflow: hidden;
+    -webkit-border-radius: 8px ;
+    -moz-border-radius: 8px ;
+    -ms-border-radius: 8px ;
+    -o-border-radius: 8px ;
+}
+.card img{
+    width: 100%;
+    max-height: 150px;
+    max-width: 250px;
+}
+.card h3,p{
+    margin: 6px 0;
+}
+
+.card-content{
+    padding: 0 8px;
+}
+
+.container{
+    display: flex;
+    flex-wrap:wrap ;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: flex-start
+    ;
+}
