@@ -27,29 +27,26 @@ const AppleCounter = () => {
   };
 
   return (
-    // this <Fragment>, <> is known as fragments which is used to wrap and return to or main components, we can also do this by adding a div as parent container but it adds a extra div in html
-    <>
-      <section>
-        <AppleBasket appleCount={leftAppleCount} basketName="Basket 1" />
-        <Button
-          imageURL={leftArrow}
-          onClick={onClickLeft}
-          imageText="left-Arrow"
-        />
-        <Button
-          imageURL={rightArrow}
-          onClick={onClickRight}
-          imageText="right-Arrow"
-        />
-        <AppleBasket appleCount={rightAppleCount} basketName="Basket 2" />
-      </section>
-      <p
-        style={{
-          textAlign: "center",
-          marginTop: "32px",
-        }}
-      >Hi</p>
-    </>
+    <section>
+      <AppleBasket appleCount={leftAppleCount} basketName="Basket 1" />
+      <Button
+        imageURL={leftArrow}
+        onClick={onClickLeft}
+        imageText="left-Arrow"
+      >
+        {
+          function hello(){
+            console.log("hello")
+          }
+        }
+      </Button>
+      <Button
+        imageURL={rightArrow}
+        onClick={onClickRight}
+        imageText="right-Arrow"
+      />
+      <AppleBasket appleCount={rightAppleCount} basketName="Basket 2" />
+    </section>
   );
 };
 
