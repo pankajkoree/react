@@ -30,10 +30,11 @@ const AppleCounter = () => {
     <section>
       <AppleBasket appleCount={leftAppleCount} basketName="Basket 1" />
       <Button imageURL={leftArrow} onClick={onClickLeft}>
-        leftArrow
+        {/* leftArrow */}
       </Button>
       <Button imageURL={rightArrow} onClick={onClickRight}
-      children="rightArrow"
+     
+      // children="rightArrow"
       />
       <AppleBasket appleCount={rightAppleCount} basketName="Basket 2" />
     </section>
