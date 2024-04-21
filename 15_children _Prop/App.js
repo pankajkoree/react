@@ -5,13 +5,15 @@
 // we can't directly add image so we import
 
 import AppleCounter from "./components/AppleCounter";
-// import { Counter } from "./components/Counter";
+import { Counter } from "./components/Counter";
 
 const App = () => {
   return (
     <div>
-      {/* <Counter counterName="Timer" /> */}
-      <AppleCounter />
+      <Counter counterName="Timer">
+        
+      </Counter>
+      {/* <AppleCounter /> */}
     </div>
   );
 };
