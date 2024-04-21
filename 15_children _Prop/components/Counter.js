@@ -1,17 +1,13 @@
 import { useState } from "react";
 
-export const Counter = ({ counterName }) => {
+export const Counter = ({ counterName, children: AppleCounter}) => {
   const [count, setCount] = useState(0);
-  const [name, setName] = useState(counterName);
-  console.log("rendering");
-
+  console.log(AppleCounter);
   return (
     <div style={{ textAlign: "center" }}>
       <h1>{count}</h1>
-      <h2>{name}</h2>
       <button
         onClick={() => {
-          setName("pankaj kori");
           setCount((previousState) => previousState + 1);
           setCount((previousState) => previousState + 1);
           setCount((previousState) => previousState + 1);
@@ -19,6 +15,7 @@ export const Counter = ({ counterName }) => {
       >
         Increase count
       </button>
+      {AppleCounter}
     </div>
   );
 };
