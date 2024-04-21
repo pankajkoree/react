@@ -7,7 +7,7 @@ section{
     align-items: center;
 }
 button{
-    display: flex;
+    display: inline flex;
     align-items: center;
 }
 button img{
