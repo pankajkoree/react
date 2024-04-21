@@ -6,6 +6,10 @@ section{
     margin-top: 4rem;
     align-items: center;
 }
+button{
+    display: flex;
+    align-items: center;
+}
 button img{
     max-width: 40px;
 }
