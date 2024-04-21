@@ -29,21 +29,11 @@ const AppleCounter = () => {
   return (
     <section>
       <AppleBasket appleCount={leftAppleCount} basketName="Basket 1" />
-      <Button
-        imageURL={leftArrow}
-        onClick={onClickLeft}
-        imageText="left-Arrow"
-      >
-        {
-          function hello(){
-            console.log("hello")
-          }
-        }
+      <Button imageURL={leftArrow} onClick={onClickLeft}>
+        leftArrow
       </Button>
-      <Button
-        imageURL={rightArrow}
-        onClick={onClickRight}
-        imageText="right-Arrow"
+      <Button imageURL={rightArrow} onClick={onClickRight}
+      children="rightArrow"
       />
       <AppleBasket appleCount={rightAppleCount} basketName="Basket 2" />
     </section>

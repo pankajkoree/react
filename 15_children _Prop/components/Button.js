@@ -1,9 +1,8 @@
-const Button = ({ imageURL, imageText, onClick, children }) => {
-  console.log(children)
+const Button = ({ imageURL, onClick, children }) => {
   return (
-    <button title={imageText} onClick={onClick}>
-      {imageText}
-      <img src={imageURL} alt={imageText} />
+    <button title={children} onClick={onClick}>
+      {children}
+      <img src={imageURL} alt={children} />
     </button>
   );
 };
