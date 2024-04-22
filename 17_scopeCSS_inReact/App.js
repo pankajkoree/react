@@ -10,7 +10,7 @@ import { Counter } from "./components/Counter";
 const App = () => {
   return (
     <div>
-      {false? <Counter counterName="Timer"></Counter> : <AppleCounter />}
+      <Counter counterName="Timer"></Counter> : <AppleCounter />
       
     </div>
   );
