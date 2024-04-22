@@ -1,6 +1,6 @@
 const Button = ({ imageURL, onClick, children }) => {
   return (
-    <button title={children} onClick={onClick}>
+    <button className="button" title={children} onClick={onClick}>
       {children}
       <img src={imageURL} alt={children} />
     </button>
