@@ -32,9 +32,11 @@ const AppleCounter = () => {
       <Button imageURL={leftArrow} onClick={onClickLeft}>
         {/* leftArrow */}
       </Button>
-      <Button imageURL={rightArrow} onClick={onClickRight}
-     
-      // children="rightArrow"
+      <Button
+        imageURL={rightArrow}
+        onClick={onClickRight}
+
+        // children="rightArrow"
       />
       <AppleBasket appleCount={rightAppleCount} basketName="Basket 2" />
     </section>
