@@ -6,10 +6,12 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="search-filter-container">
-        <SearchBar />
-        <SelectMenu />
-      </div>
+      <main>
+        <div className="search-filter-container">
+          <SearchBar />
+          <SelectMenu />
+        </div>
+      </main>
     </>
   );
 };
