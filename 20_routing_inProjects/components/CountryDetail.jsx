@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./CountryDetail.css";
 
 export default function CountryDetail() {
   const countryName = new URLSearchParams(location.search).get("name");
-  console.log(countryName);
-  return (
+
+  const [countryData, setCountryData] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+      .then((res) => res.json())
+      .then(([data]) => {
+        console.log(data);
+        setCountryData({
+          name: data.name.common,
+          nativeName: Object.values(data.name.nativeName)[0].common,
+          population: data.population,
+          region: data.region,
+          subregion: data.subregion,
+          capital: data.capital,
+          flag: data.flags.svg,
+          tld: data.tld,
+          languages: Object.values(data.languages).join(", "),
+          currencies: Object.values(data.currencies)
+            .map((currency) => currency.name)
+            .join(", "),
+        });
+      });
+  }, []);
+
+  return countryData === null ? (
+    "loading..."
+  ) : (
     <main>
       <div className="country-details-container">
         <span className="back-button">
