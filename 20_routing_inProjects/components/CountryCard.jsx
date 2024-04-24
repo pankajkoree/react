@@ -8,7 +8,7 @@ export default function CountryCard({
   region,
 }) {
   return (
-    <a className="country-card" href="/country-html?name=Barbados">
+    <a className="country-card" href={`/country?name=${name}`}>
       <img src={flag} alt={name + "flag"} />
       <div className="card-text">
         <h3 className="card-title">{name}</h3>
