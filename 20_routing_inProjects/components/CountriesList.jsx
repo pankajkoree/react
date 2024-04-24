@@ -4,8 +4,6 @@ import CountryCard from "./CountryCard";
 
 export default function CountriesList({ query }) {
   const [countriesData, setCountriesData] = useState([]);
-  const [count, setCount] = useState(0);
-
   // useEffect enables to run a things only once when array is empty, used to monitor when state changes
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -13,26 +11,10 @@ export default function CountriesList({ query }) {
       .then((data) => {
         setCountriesData(data);
       });
-
-    const intervalId = setInterval(() => {
-      console.log("running countriesList component");
-    }, [1000]);
-
-    console.log(intervalId);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log("hi");
-  }, [count]);
+  });
 
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increase Count</button>
       <div className="countries-container">
         {countriesData
           .filter(
