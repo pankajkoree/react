@@ -15,7 +15,7 @@ const App = () => {
           <SearchBar setQuery={setQuery} />
           <SelectMenu />
         </div>
-        <CountriesList query={query} />
+        {query === "unmount" ? "" : <CountriesList query={query} />}
       </main>
     </>
   );
