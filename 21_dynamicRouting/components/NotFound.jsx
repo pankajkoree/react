@@ -15,8 +15,9 @@ export default function () {
                   <span className="display-1 fw-bold bsb-flip-h">4</span>
                 </h2>
                 <h3 className="h2 mb-2">Oops! You're lost.</h3>
-                <p className="mb-5">The page you are looking for was not found.</p>
-                
+                <p className="mb-5">
+                  The page you are looking for was not found.
+                </p>
               </div>
             </div>
           </div>
