@@ -12,7 +12,7 @@ export default function CountriesList({ query }) {
       .then((data) => {
         setCountriesData(data);
       });
-  });
+  },[]);
   if (countriesData.length === 0) {
     return <CountriesListShimmer />;
   }
@@ -34,6 +34,7 @@ export default function CountriesList({ query }) {
                 population={country.population}
                 region={country.region}
                 capital={country.capital?.[0]}
+                data={country}
               />
             );
           })}
