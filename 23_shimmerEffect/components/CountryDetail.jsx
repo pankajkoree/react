@@ -120,13 +120,19 @@
 import React, { useEffect, useState } from "react";
 
 import "./CountryDetail.css";
-import { Link, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 
 export default function CountryDetail() {
+  const [theme] = useOutletContext();
+  console.log(theme)
   const params = useParams();
   const location = useLocation();
 
-  console.log(location);
   const countryName = params.country;
 
   const [countryData, setCountryData] = useState(null);
@@ -160,26 +166,31 @@ export default function CountryDetail() {
           .then(([borderCountry]) => borderCountry.name.common);
       })
     ).then((borders) => {
-      setTimeout(() => setCountryData((prevState) => ({ ...prevState, borders })))
+      setTimeout(() =>
+        setCountryData((prevState) => ({ ...prevState, borders }))
+      );
     });
   }
 
-  useEffect((state) => {
-    if (state) {
-      updateCountryData(state);
-      return;
-    }
+  useEffect(
+    (state) => {
+      if (state) {
+        updateCountryData(state);
+        return;
+      }
 
-    fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
-      .then((res) => res.json())
-      .then(([data]) => {
-        updateCountryData(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        setNotFound(true);
-      });
-  }, [countryName]);
+      fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+        .then((res) => res.json())
+        .then(([data]) => {
+          updateCountryData(data);
+        })
+        .catch((err) => {
+          console.log(err);
+          setNotFound(true);
+        });
+    },
+    [countryName]
+  );
 
   if (notFound) {
     return <div>Country Not Found</div>;
@@ -188,7 +199,7 @@ export default function CountryDetail() {
   return countryData === null ? (
     "loading..."
   ) : (
-    <main>
+    <main >
       <div className="country-details-container">
         <span className="back-button" onClick={() => history.back()}>
           <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
