@@ -7,9 +7,10 @@ export default function CountryCard({
   capital,
   population,
   region,
+  data,
 }) {
   return (
-    <Link className="country-card" to={`/${name}`}>
+    <Link className="country-card" to={`/${name}`} state={{ data }}>
       <img src={flag} alt={name + "flag"} />
       <div className="card-text">
         <h3 className="card-title">{name}</h3>
