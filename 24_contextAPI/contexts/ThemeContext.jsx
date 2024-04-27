@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState } from "react";
 
-export const themeContext = createContext();
+export const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   console.log(children);
@@ -11,9 +11,9 @@ export function ThemeProvider({ children }) {
 
   return (
     <>
-      <themeContext.Provider value={[isDark, setIsDark]}>
+      <ThemeContext.Provider value={[isDark, setIsDark]}>
         {children}
-      </themeContext.Provider>
+      </ThemeContext.Provider>
 
       {/* <themeContext.Provider></themeContext.Provider> */}
     </>
