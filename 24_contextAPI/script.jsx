@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Contact from "./components/Contact";
 import Home from "./components/Home";
 import Error from "./components/Error";
 import CountryDetail from "./components/CountryDetail";
@@ -16,25 +16,18 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: "/:country",
+        element: <CountryDetail />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
     ],
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
-  {
-    path: "/:country",
-    element: <CountryDetail />,
   },
 ]);
 
 const root = createRoot(document.querySelector("#root"));
 
-root.render(
-  <>
-    {/*
-      <Header />
-       // this is also a way to reuse existing comoponent but not a good way */}
-    <RouterProvider router={router} />
-  </>
-);
+root.render(<RouterProvider router={router} />);
