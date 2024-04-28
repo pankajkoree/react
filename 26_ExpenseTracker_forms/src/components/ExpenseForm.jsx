@@ -6,9 +6,9 @@ export default function ExpenseForm({ setExpenses }) {
     category: "",
     amount: "",
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(expense);
     setExpenses((prevState) => [
       ...prevState,
       { ...expense, id: crypto.randomUUID() },
@@ -18,21 +18,8 @@ export default function ExpenseForm({ setExpenses }) {
       category: "",
       amount: "",
     });
-
-    // e.target.reset();
-    // const expense = { ...getFormData(e.target), id: crypto.randomUUID() };
-    // setExpenses((prevState) => [...prevState, expense]);
-    // e.target.reset();
   };
 
-  // const getFormData = (form) => {
-  //   const formData = new FormData(form);
-  //   const data = {};
-  //   for (const [key, value] of formData.entries()) {
-  //     data[key] = value;
-  //   }
-  //   return data;
-  // };
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
       <div className="input-container">
@@ -59,7 +46,9 @@ export default function ExpenseForm({ setExpenses }) {
             }))
           }
         >
-          <option hidden>Select Category</option>
+          <option value="" hidden>
+            Select Category
+          </option>
           <option value="Grocery">Grocery</option>
           <option value="Clothes">Clothes</option>
           <option value="Bills">Bills</option>
