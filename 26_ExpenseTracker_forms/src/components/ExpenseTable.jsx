@@ -43,10 +43,10 @@ export default function ExpenseTable({ expenses }) {
       </thead>
       <tbody>
         {expenses.map(({ id, title, category, amount }) => (
-          <tr>
+          <tr key={id}>
             <td>{title}</td>
             <td>{category}</td>
-            <td>{amount}</td>
+            <td>₹{amount}</td>
           </tr>
         ))}
         <tr>
