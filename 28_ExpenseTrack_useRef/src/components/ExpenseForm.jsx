@@ -12,17 +12,35 @@ export default function ExpenseForm({ setExpenses }) {
 
   const [errors, setErrors] = useState({});
 
-  const validate = (FormData) => {
+  const validationConfig = {
+    title: [
+      { required: true, message: "please enter title" },
+      { minLength: 5, message: "Title should be five characters long" },
+    ],
+    category: [
+      { required: true, message: "please select category" },
+      { minLength: 5, message: "Title should be five characters long" },
+    ],
+    amount: [
+      { required: true, message: "please enter amount" },
+      { minLength: 5, message: "Title should be five characters long" },
+    ],
+  };
+
+  const validate = (formData) => {
     const errorsData = {};
-    if (!FormData.title) {
-      errorsData.title = "Title is required";
-    }
-    if (!FormData.category) {
-      errorsData.category = "Category is required";
-    }
-    if (!FormData.amount) {
-      errorsData.amount = "Amount is required";
-    }
+    Object.entries(formData).forEach(([key, value]) => {
+      validationConfig[key].some((rule) => {
+        if (rule.required && !value) {
+          errorsData[key] = rule.message;
+          return true;
+        }
+        if (rule.minLength && value.length < 5) {
+          errorsData[key] = rule.message;
+          return true;
+        }
+      });
+    });
 
     setErrors(errorsData);
     return errorsData;
