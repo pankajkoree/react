@@ -70,6 +70,8 @@ export default function ExpenseForm({ setExpenses }) {
         name="category"
         value={expense.category}
         onChange={handleChange}
+        options={["Grocery", "Clothes", "Bills", "Education", "Medicine"]}
+        defaultOption="Select category"
         error={errors.category}
       />
 
