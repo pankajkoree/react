@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Input from "./Input";
+import PropTypes from "prop-types";
 
 export default function ExpenseForm({ setExpenses }) {
   const [expense, setExpense] = useState({
@@ -42,10 +44,6 @@ export default function ExpenseForm({ setExpenses }) {
     });
   };
 
-  // useEffect(() => {
-  //   console.log("rendering");
-  // });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setExpense((prevState) => ({
@@ -56,16 +54,14 @@ export default function ExpenseForm({ setExpenses }) {
   };
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
-      <div className="input-container">
-        <label htmlFor="title">Title</label>
-        <input
-          id="title"
-          name="title"
-          value={expense.title}
-          onChange={handleChange}
-        />
-        <p className="error">{errors.title}</p>
-      </div>
+      <Input
+        label="Title"
+        id="title"
+        name="title"
+        value={expense.title}
+        onChange={handleChange}
+        error={errors.title}
+      />
       <div className="input-container">
         <label htmlFor="category">Category</label>
         <select
@@ -85,17 +81,20 @@ export default function ExpenseForm({ setExpenses }) {
         </select>
         <p className="error">{errors.category}</p>
       </div>
-      <div className="input-container">
-        <label htmlFor="amount">Amount</label>
-        <input
-          id="amount"
-          name="amount"
-          value={expense.amount}
-          onChange={handleChange}
-        />
-        <p className="error">{errors.amount}</p>
-      </div>
+
+      <Input
+        label="Amount"
+        id="amount"
+        name="amount"
+        value={expense.amount}
+        onChange={handleChange}
+        error={errors.amount}
+      />
       <button className="add-btn">Add</button>
     </form>
   );
 }
+
+ExpenseForm.propTypes = {
+  setExpenses: PropTypes.func.isRequired,
+};
