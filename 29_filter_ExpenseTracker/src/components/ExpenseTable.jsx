@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 import { useFliter } from "../hooks/useFliter";
 import ContextMenu from "./ContextMenu";
 import { useState } from "react";
-export default function ExpenseTable({ expenses }) {
+
+export default function ExpenseTable({ expenses, setExpenses }) {
   const [filteredData, setQuery] = useFliter(expenses, (data) => data.category);
   const [menuPosition, setMenuPosition] = useState({});
-
+  const [rowId, setRowId] = useState("");
   const total = filteredData.reduce(
     (accumulator, current) => accumulator + current.amount,
     0
@@ -13,7 +14,12 @@ export default function ExpenseTable({ expenses }) {
 
   return (
     <>
-      <ContextMenu menuPosition={menuPosition} />
+      <ContextMenu
+        menuPosition={menuPosition}
+        setMenuPosition={setMenuPosition}
+        setExpenses={setExpenses}
+        rowId={rowId}
+      />
       <table className="expense-table" onClick={() => setMenuPosition({})}>
         <thead>
           <tr>
@@ -60,6 +66,7 @@ export default function ExpenseTable({ expenses }) {
               onContextMenu={(e) => {
                 e.preventDefault();
                 setMenuPosition({ left: e.clientX + 4, top: e.clientY + 4 });
+                setRowId(rowId);
               }}
             >
               <td>{title}</td>
@@ -80,4 +87,5 @@ export default function ExpenseTable({ expenses }) {
 
 ExpenseTable.propTypes = {
   expenses: PropTypes.array,
+  setExpenses: PropTypes.func,
 };
