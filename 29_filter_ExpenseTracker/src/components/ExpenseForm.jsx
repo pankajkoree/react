@@ -24,6 +24,7 @@ export default function ExpenseForm({ setExpenses }) {
     amount: [
       { required: true, message: "please enter amount" },
       { minLength: 5, message: "Title should be five characters long" },
+      { isNaN: true, message: "Amount should be number" },
     ],
   };
 
