@@ -1,13 +1,20 @@
-import React from "react";
-
+import PropTypes from "prop-types";
+import { useFliter } from "../hooks/useFliter";
 export default function ExpenseTable({ expenses }) {
+  const [filteredData, setQuery] = useFliter(expenses, (data) => data.category);
+
+  const total = filteredData.reduce(
+    (accumulator, current) => accumulator + current.amount,
+    0
+  );
+
   return (
     <table className="expense-table">
       <thead>
         <tr>
           <th>Title</th>
           <th>
-            <select>
+            <select onChange={(e) => setQuery(e.target.value.toLowerCase())}>
               <option value="">All</option>
               <option value="grocery">Grocery</option>
               <option value="clothes">Clothes</option>
@@ -42,7 +49,7 @@ export default function ExpenseTable({ expenses }) {
         </tr>
       </thead>
       <tbody>
-        {expenses.map(({ id, title, category, amount }) => (
+        {filteredData.map(({ id, title, category, amount }) => (
           <tr key={id}>
             <td>{title}</td>
             <td>{category}</td>
@@ -52,9 +59,13 @@ export default function ExpenseTable({ expenses }) {
         <tr>
           <th>Total</th>
           <th></th>
-          <th>₹8100</th>
+          <th>{total}</th>
         </tr>
       </tbody>
     </table>
   );
 }
+
+ExpenseTable.propTypes = {
+  expenses: PropTypes.array,
+};
