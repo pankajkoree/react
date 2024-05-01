@@ -14,7 +14,7 @@ Input.propTypes = {
   label: PropTypes.node,
   id: PropTypes.node,
   name: PropTypes.node,
-  value: PropTypes.string,
+  value: PropTypes.node,
   onChange: PropTypes.func,
   error: PropTypes.node,
 };
