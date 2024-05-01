@@ -3,7 +3,12 @@ import Input from "./Input";
 import PropTypes from "prop-types";
 import Select from "./Select";
 
-export default function ExpenseForm({ setExpenses, setExpense, expense }) {
+export default function ExpenseForm({
+  setExpenses,
+  setExpense,
+  expense,
+  editingRowId,
+}) {
   const [errors, setErrors] = useState({});
 
   const validationConfig = {
@@ -96,7 +101,7 @@ export default function ExpenseForm({ setExpenses, setExpense, expense }) {
         onChange={handleChange}
         error={errors.amount}
       />
-      <button className="add-btn">Add</button>
+      <button className="add-btn">{editingRowId ? "Save" : "Add"}</button>
     </form>
   );
 }
@@ -105,4 +110,5 @@ ExpenseForm.propTypes = {
   setExpenses: PropTypes.func.isRequired,
   expense: PropTypes.object,
   setExpense: PropTypes.func,
+  editingRowId: PropTypes.node,
 };
