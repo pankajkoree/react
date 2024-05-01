@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 export default function ContextMenu(
   menuPosition,
   setMenuPosition,
@@ -28,3 +29,10 @@ export default function ContextMenu(
     </div>
   );
 }
+
+ContextMenu.propTypes = {
+  menuPosition: PropTypes.object,
+  setMenuPosition: PropTypes.func,
+  setExpenses: PropTypes.func,
+  rowId: PropTypes.string,
+};

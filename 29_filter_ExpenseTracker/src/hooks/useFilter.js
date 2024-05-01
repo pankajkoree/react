@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useFliter(dataList, callback) {
+export function useFilter(dataList, callback) {
   const [query, setQuery] = useState("");
   const filteredData = dataList.filter((data) =>
     callback(data).toLowerCase().includes(query)

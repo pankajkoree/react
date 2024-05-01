@@ -3,13 +3,7 @@ import Input from "./Input";
 import PropTypes from "prop-types";
 import Select from "./Select";
 
-export default function ExpenseForm({ setExpenses }) {
-  const [expense, setExpense] = useState({
-    title: "",
-    category: "",
-    amount: "",
-  });
-
+export default function ExpenseForm({ setExpenses, setExpense, expense }) {
   const [errors, setErrors] = useState({});
 
   const validationConfig = {
@@ -109,4 +103,6 @@ export default function ExpenseForm({ setExpenses }) {
 
 ExpenseForm.propTypes = {
   setExpenses: PropTypes.func.isRequired,
+  expense: PropTypes.object,
+  setExpense: PropTypes.func,
 };
