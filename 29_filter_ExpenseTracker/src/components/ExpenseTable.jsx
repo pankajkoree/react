@@ -13,7 +13,7 @@ export default function ExpenseTable({
   const [menuPosition, setMenuPosition] = useState({});
   const [rowId, setRowId] = useState("");
   const total = filteredData.reduce(
-    (accumulator, current) => accumulator + parseFloat(current.amount),
+    (accumulator, current) => accumulator + parseInt(current.amount),
     0
   );
 
