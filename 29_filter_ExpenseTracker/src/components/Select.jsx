@@ -6,9 +6,9 @@ export default function Select({
   name,
   value,
   onChange,
-  error,
   options,
   defaultOption,
+  error,
 }) {
   return (
     <div className="input-container">
