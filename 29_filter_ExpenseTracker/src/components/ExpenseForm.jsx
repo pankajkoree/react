@@ -1,44 +1,51 @@
+import PropTypes from "prop-types";
+
 import { useState } from "react";
 import Input from "./Input";
-import PropTypes from "prop-types";
 import Select from "./Select";
 
 export default function ExpenseForm({
-  setExpenses,
-  setExpense,
   expense,
+  setExpense,
+  setExpenses,
   editingRowId,
   setEditingRowId,
 }) {
   const [errors, setErrors] = useState({});
 
   const validationConfig = {
-    title: [{ required: true, message: "please enter title" }],
-    category: [{ required: true, message: "please select category" }],
+    title: [
+      { required: true, message: "Please enter title" },
+      { minLength: 2, message: "Title should be at least 2 characters long" },
+    ],
+    category: [{ required: true, message: "Please select a category" }],
     amount: [
       {
         required: true,
-        message: "please enter amount",
+        message: "Please enter an amount",
       },
       {
         pattern: /^[1-9]\d*(\.\d+)?$/,
-        message: "only number please",
+        message: "Please enter a valid number",
       },
     ],
   };
 
   const validate = (formData) => {
     const errorsData = {};
+
     Object.entries(formData).forEach(([key, value]) => {
       validationConfig[key].some((rule) => {
         if (rule.required && !value) {
           errorsData[key] = rule.message;
           return true;
         }
+
         if (rule.minLength && value.length < rule.minLength) {
           errorsData[key] = rule.message;
           return true;
         }
+
         if (rule.pattern && !rule.pattern.test(value)) {
           errorsData[key] = rule.message;
           return true;
@@ -54,6 +61,7 @@ export default function ExpenseForm({
     e.preventDefault();
 
     const validateResult = validate(expense);
+
     if (Object.keys(validateResult).length) return;
 
     if (editingRowId) {
@@ -65,7 +73,6 @@ export default function ExpenseForm({
           return prevExpense;
         })
       );
-
       setExpense({
         title: "",
         category: "",
@@ -94,6 +101,7 @@ export default function ExpenseForm({
     }));
     setErrors({});
   };
+
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
       <Input
@@ -104,7 +112,6 @@ export default function ExpenseForm({
         onChange={handleChange}
         error={errors.title}
       />
-
       <Select
         label="Category"
         id="category"
@@ -112,10 +119,9 @@ export default function ExpenseForm({
         value={expense.category}
         onChange={handleChange}
         options={["Grocery", "Clothes", "Bills", "Education", "Medicine"]}
-        defaultOption="Select category"
+        defaultOption="Select Category"
         error={errors.category}
       />
-
       <Input
         label="Amount"
         id="amount"
