@@ -21,7 +21,7 @@ function App() {
           expense={expense}
           setExpense={setExpense}
         />
-        <ExpenseTable expenses={expenses} setExpenses={setExpenses} />
+        <ExpenseTable expenses={expenses} setExpense={setExpense} setExpenses={setExpenses} />
       </div>
     </main>
   );
