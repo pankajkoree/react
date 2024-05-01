@@ -3,7 +3,12 @@ import { useFilter } from "../hooks/useFilter";
 import ContextMenu from "./ContextMenu";
 import { useState } from "react";
 
-export default function ExpenseTable({ expenses, setExpenses, setExpense }) {
+export default function ExpenseTable({
+  expenses,
+  setExpenses,
+  setExpense,
+  setEditingRowId,
+}) {
   const [filteredData, setQuery] = useFilter(expenses, (data) => data.category);
   const [menuPosition, setMenuPosition] = useState({});
   const [rowId, setRowId] = useState("");
@@ -21,6 +26,7 @@ export default function ExpenseTable({ expenses, setExpenses, setExpense }) {
         expenses={expenses}
         setExpense={setExpense}
         rowId={rowId}
+        setEditingRowId={setEditingRowId}
       />
       <table className="expense-table" onClick={() => setMenuPosition({})}>
         <thead>
@@ -91,4 +97,5 @@ ExpenseTable.propTypes = {
   expenses: PropTypes.array,
   setExpenses: PropTypes.func,
   setExpense: PropTypes.func,
+  setEditingRowId: PropTypes.func,
 };
