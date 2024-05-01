@@ -1,16 +1,22 @@
 import PropTypes from "prop-types";
-export default function ContextMenu(
+export default function ContextMenu({
   menuPosition,
   setMenuPosition,
   setExpenses,
-  rowId
-) {
+  setExpense,
+  expenses,
+  rowId,
+}) {
   if (!menuPosition.left) return;
   return (
     <div className="context-menu" style={{ ...menuPosition }}>
       <div
         onClick={() => {
           console.log("Editing");
+          const { title, category, amount } = expenses.find(
+            (expense) => (expense.id = rowId)
+          );
+          setExpense({ title, category, amount });
           setMenuPosition({});
         }}
       >
@@ -34,5 +40,7 @@ ContextMenu.propTypes = {
   menuPosition: PropTypes.object,
   setMenuPosition: PropTypes.func,
   setExpenses: PropTypes.func,
+  setExpense: PropTypes.func,
   rowId: PropTypes.string,
+  expenses: PropTypes.array,
 };
