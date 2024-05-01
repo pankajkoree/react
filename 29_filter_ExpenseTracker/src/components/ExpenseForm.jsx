@@ -8,22 +8,22 @@ export default function ExpenseForm({
   setExpense,
   expense,
   editingRowId,
+  setEditingRowId,
 }) {
   const [errors, setErrors] = useState({});
 
   const validationConfig = {
-    title: [
-      { required: true, message: "please enter title" },
-      { minLength: 5, message: "Title should be five characters long" },
-    ],
-    category: [
-      { required: true, message: "please select category" },
-      { minLength: 5, message: "Title should be five characters long" },
-    ],
+    title: [{ required: true, message: "please enter title" }],
+    category: [{ required: true, message: "please select category" }],
     amount: [
-      { required: true, message: "please enter amount" },
-      { minLength: 5, message: "Title should be five characters long" },
-      { isNaN: true, message: "Amount should be number" },
+      {
+        required: true,
+        message: "please enter amount",
+      },
+      {
+        pattern: /^[1-9]\d*(\.\d+)?$/,
+        message: "only number please",
+      },
     ],
   };
 
@@ -35,7 +35,11 @@ export default function ExpenseForm({
           errorsData[key] = rule.message;
           return true;
         }
-        if (rule.minLength && value.length < 5) {
+        if (rule.minLength && value.length < rule.minLength) {
+          errorsData[key] = rule.message;
+          return true;
+        }
+        if (rule.pattern && !rule.pattern.test(value)) {
           errorsData[key] = rule.message;
           return true;
         }
@@ -51,6 +55,25 @@ export default function ExpenseForm({
 
     const validateResult = validate(expense);
     if (Object.keys(validateResult).length) return;
+
+    if (editingRowId) {
+      setExpenses((prevState) =>
+        prevState.map((prevExpense) => {
+          if (prevExpense.id === editingRowId) {
+            return { ...expense, id: editingRowId };
+          }
+          return prevExpense;
+        })
+      );
+
+      setExpense({
+        title: "",
+        category: "",
+        amount: "",
+      });
+      setEditingRowId("");
+      return;
+    }
 
     setExpenses((prevState) => [
       ...prevState,
@@ -111,4 +134,5 @@ ExpenseForm.propTypes = {
   expense: PropTypes.object,
   setExpense: PropTypes.func,
   editingRowId: PropTypes.node,
+  setEditingRowId: PropTypes.func,
 };
