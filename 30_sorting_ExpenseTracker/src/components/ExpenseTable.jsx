@@ -13,7 +13,7 @@ export default function ExpenseTable({
   const [filteredData, setQuery] = useFilter(expenses, (data) => data.category);
   const [menuPosition, setMenuPosition] = useLocalStorage("menuPosition", {});
   const [rowId, setRowId] = useState("");
-  const [sortCallback, setSortCallback] = useLocalStorage(() => () => {});
+  const [sortCallback, setSortCallback] = useState(() => () => {});
 
   const total = filteredData.reduce(
     (accumulator, current) => accumulator + parseInt(current.amount),
