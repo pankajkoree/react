@@ -9,7 +9,9 @@ main {
   max-width: 900px;
   margin-inline: auto;
 }
-
+.clear-sort {
+  cursor: pointer;
+}
 * {
   box-sizing: border-box;
 }
