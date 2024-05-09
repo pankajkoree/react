@@ -2,7 +2,8 @@ import Car from "../src/components/Car";
 function App() {
   return (
     <>
-      <Car />
+      {/* <Car propName="only props" /> */}
+      <Car propColor="red" />
     </>
   );
 }
