@@ -1,4 +1,4 @@
-import viteLogo from "../../public/vite.svg";
+import viteLogo from "vite.svg";
 
 export default function Header() {
   return (
