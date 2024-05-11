@@ -1,9 +1,5 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import viteLogo from "../../public/vite.svg";
-// import { NavLink } from "react-router-dom";
-// import Home from "./Home";
-// import About from "./About";
-// import Contact from "./Contact";
 
 export default function Header() {
   return (
@@ -12,16 +8,49 @@ export default function Header() {
       <ul className="flex gap-2 md:gap-4">
         <li>
           {/* <NavLink to={Home}>Home</NavLink> */}
-          <Link to="./Home">Home</Link>
+          {/* <NavLink
+            className={({ isActive }) => {
+              if (isActive) return "underline text-green-400";
+            }}
+            to="./Home"
+          > */}
+          <NavLink
+            className={({ isActive }) => isActive && "underline text-green-400"}
+            to="/Home"
+          >
+            Home
+          </NavLink>
         </li>
         <li>
           {/* <NavLink to={About}>About</NavLink> */}
 
-          <Link to="./About">About</Link>
+          {/* <NavLink
+            className={({ isActive }) => {
+              if (isActive) return "underline text-green-400";
+            }}
+            to="./About"
+          > */}
+          <NavLink
+            className={({ isActive }) => isActive && "underline text-green-400"}
+            to="/About"
+          >
+            About
+          </NavLink>
         </li>
         <li>
           {/* <NavLink to={Contact}>Contact</NavLink> */}
-          <Link to="./Contact">Contact</Link>
+          {/* <NavLink
+            className={({ isActive }) => {
+              if (isActive) return "underline text-green-400";
+            }}
+            to="./Contact"
+          > */}
+          <NavLink
+            className={({ isActive }) => isActive && "underline text-green-400"}
+            to="/Contact"
+          >
+            Contact
+          </NavLink>
         </li>
       </ul>
     </header>
