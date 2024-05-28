@@ -50,3 +50,11 @@ console.log(+undefined);
 // -----Null------------
 console.log(null);
 console.log(typeof null);
+
+// -----BigInt-----------
+let num1 = 12345678961986489; //this is also the integer but its too large so its gives suggestion as "Numeric literals with absolute values equal to 2^53 or greater are too large to be represented accurately as integers" so to avoid that suggestion, use BigInt
+console.log(num1);
+console.log(typeof num1);
+let num2 = 12345678961986489n;
+console.log(num2);
+console.log(typeof num2);
