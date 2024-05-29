@@ -52,3 +52,12 @@ const padStartDigit = lastFourDigit.padStart(16, "#"); // .padStart(no_of_digits
 
 // padEnd() - adds the some special character at the end of to be added string eg:'5744************'
 const padEndDigit = lastFourDigit.padEnd(16, "*");
+
+// charAt() - with the index value, we can access the value in string
+const charAtString = string1.charAt(6);
+
+// charCodeAt() - with the index value, we know the ASCII value of that index string
+const charCodeAtString = string1.charCodeAt(12); // if we don't give any value, by default it takes 0 as argument
+
+// split - returns the array of that string
+const splittedString = string1.split(" "); //if we don't pass anything, by default it takes whole string as a single array
