@@ -30,3 +30,9 @@ const trimmedEnd = spaceString.trimEnd();
 const includeString = string1.includes("nothing"); //comparing with original lowercase string
 
 const includeString2 = string1.includes("Nothing");
+
+// indexOf() - to check the index of some letters
+const letterIndex = string1.indexOf("j"); // returns the index of the letter if present otherwise -1
+
+// replace - replace some existing word with new one
+const replacedString = string1.replace("indexing", "numbering"); // if to be replaced string isn't available in original string, then no changes occurs
