@@ -61,3 +61,17 @@ const charCodeAtString = string1.charCodeAt(12); // if we don't give any value, 
 
 // split - returns the array of that string
 const splittedString = string1.split(" "); //if we don't pass anything, by default it takes whole string as a single array
+
+// String template literals
+const accountLastFourDigit = "7001";
+const accountMoney = "774";
+const templateString = `Last four digit of my account number : `.concat(
+  accountLastFourDigit
+);
+
+const templateString2 = `Account number : ${accountLastFourDigit.padStart(
+  16,
+  "*"
+)}`;
+
+const bankBalance = `Bank balance : $${accountMoney}`;
