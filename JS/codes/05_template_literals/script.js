@@ -6,7 +6,7 @@ console.log(string1[5]); //index value of string at index 6
 // checking the length of the string
 const stringLength = string1.length;
 
-// METHOD of the string
+// METHOD WITHOUT ARGUMENT of the string
 
 // uppercase of the string
 const upperCaseString = string1.toUpperCase();
@@ -20,3 +20,13 @@ const trimmedString = spaceString.trim();
 
 // trimStart() - to remove extra spaces from front
 const trimmedStart = spaceString.trimStart();
+
+// trimEnd() = to remove the extra spaces in the end
+const trimmedEnd = spaceString.trimEnd();
+
+// METHOD WITH ARGUMENT of the string
+
+//checking whether some string is present in the string or not using includes()
+const includeString = string1.includes("nothing"); //comparing with original lowercase string
+
+const includeString2 = string1.includes("Nothing");
