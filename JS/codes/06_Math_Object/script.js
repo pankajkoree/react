@@ -22,3 +22,13 @@ const floorValNeg = Math.floor(-2.66666); // result will be 3
 // Math.ceil() - add 1 to the before decimal value Eg: Math.ceil(4.07) will be 5 & Math.ceil(-5.87) will be 5
 const ceilValPos = Math.ceil(4.07);
 const ceilValNeg = Math.ceil(-5.87);
+
+// Math.round - makes the number closest to it's nearest integer
+const roundPosUp = Math.round(2.51); // gives 3 coz its more closer to 3 than 2
+const roundPosLow = Math.round(2.49); //gives 2
+
+const roundNegLow = Math.round(-2.51); // gives -3
+const roundNegUp = Math.round(-2.49); // gives -2
+
+// Math.random() - gives a random value between 0 and 1
+const randomNum = Math.random();
