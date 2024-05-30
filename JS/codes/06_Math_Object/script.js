@@ -32,3 +32,22 @@ const roundNegUp = Math.round(-2.49); // gives -2
 
 // Math.random() - gives a random value between 0 and 1
 const randomNum = Math.random();
+
+//  random value with in a specific range i.e. from 5 to 10
+
+const spRandomRange = (min, max) => {
+  const randomValStart = Math.random();
+  const diffVal = max - min;
+  const randomRoundVal = Math.round(diffVal * randomValStart);
+  const randomInRange = randomRoundVal + min;
+  return randomInRange;
+};
+
+// other language's gives error when dividing by zero but in JS it gives infinity for positive and -infinity for negative, as it has predefined keywords EG: -3/0 gives -Infinity
+
+const infinityRes = 3 / 0;
+
+const numerator = +prompt("Enter the numerator : ");
+const denominator = +prompt("Enter the denominator : ");
+
+console.log(numerator / denominator);
