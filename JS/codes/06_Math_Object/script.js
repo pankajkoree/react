@@ -47,7 +47,22 @@ const spRandomRange = (min, max) => {
 
 const infinityRes = 3 / 0;
 
-const numerator = +prompt("Enter the numerator : ");
-const denominator = +prompt("Enter the denominator : ");
+function infinChecker() {
+  const numerator = +prompt("Enter the numerator : ");
+  const denominator = +prompt("Enter the denominator : ");
 
-console.log(numerator / denominator);
+  console.log(numerator / denominator);
+}
+
+// Truthy and Falsy Value
+
+// Incase of number
+// Falsy values = 0,-0, NaN
+// Truthy values = any number
+
+// In case of string
+// any string is true expect without string EG: Boolean('') gives False, and everything gives true EG: Boolean(' ') gives true
+
+// In case of keyword
+// Falsy values are : undefined, null
+// Truthy values : every keyword except above falsy value
