@@ -27,3 +27,42 @@ if (marks >= 40) {
 
 // Switch Case
 // Room allotment
+const floorNo = +prompt("Enter the floor no : ");
+const roomNo = Math.floor(Math.random() * 100) + floorNo * 100;
+const roomObject = {
+  0: "Ground",
+  1: "First",
+  2: "Second",
+  3: "Third",
+  4: "Fourth",
+};
+switch (floorNo) {
+  case 0:
+    console.log(
+      `Your room is in ${roomObject[floorNo]} floor and Your room no is : ${roomNo}`
+    );
+    break;
+  case 1:
+    console.log(
+      `Your room is in ${roomObject[floorNo]} floor and Your room no is : ${roomNo}`
+    );
+    break;
+
+  case 2:
+    console.log(
+      `Your room is in ${roomObject[floorNo]} floor and Your room no is : ${roomNo}`
+    );
+    break;
+  case 3:
+    console.log(
+      `Your room is in ${roomObject[floorNo]} floor and Your room no is : ${roomNo}`
+    );
+    break;
+  case 4:
+    console.log(
+      `Your room is in ${roomObject[floorNo]} floor and Your room no is : ${roomNo}`
+    );
+    break;
+  default:
+    console.log("Sorry, your room allotment process isn't done");
+}
