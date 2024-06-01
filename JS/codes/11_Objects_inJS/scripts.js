@@ -13,3 +13,9 @@ const user = {
   age: 15,
   isGraduate: false,
 };
+
+// deleting some property
+// delete user.age;
+
+// using seal property - to avoid the feature of deleting or adding the property but the property can be modified
+Object.seal(user);
