@@ -19,3 +19,9 @@ const user = {
 
 // using seal property - to avoid the feature of deleting or adding the property but the property can be modified
 Object.seal(user);
+
+// using freeze - its more powerful than seal, it won't allow to modify too
+Object.freeze(user);
+
+// in keyword - to check the key exists in objects or not? - to check the key should be given in quotes
+const inCheck = "fname" in user;
