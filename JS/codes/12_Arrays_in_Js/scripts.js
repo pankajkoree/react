@@ -71,5 +71,11 @@ const includeItem = oddNumber.includes(5);
 // reverse() - reverse the original array
 const reverseArrayItem = oddNumber.reverse();
 
-// sort() - sorts the array in alphabetically, and numerically where, 0 means 1st and 9 means last
+// sort() - sorts the array in alphabetically, and numerically where, 0 means 1st and 9 means last as per the ASCII code
 const sortedArray = concatArray.sort();
+
+// slice() - with the index it slices the array - 1st argument means the start and 2nd argument means the ending
+const slicedArray = concatArray.slice(4);
+
+// splice() - removes the element from the array using splice(start,deleteCount,modified value) - modified value is optional whether u want to replace the deleted value or not
+const splicedArray = concatArray.splice(3, 2, "splicedValue");
