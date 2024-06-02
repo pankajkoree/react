@@ -37,3 +37,10 @@ user3.fname = "Lalit";
 // using spread operator
 const user4 = { ...user2 };
 user4.fname = "ravi";
+
+// array copying
+const actor = ["Rajkumar", "Ritik", "Shahid"];
+const actress = ["Rakul", "Reeti", "Nidhi"];
+
+const stars = [];
+// Object.assign(stars, actress); not a good way so
