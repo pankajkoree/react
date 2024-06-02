@@ -49,3 +49,24 @@ const rainbowColor = [
   "Yellow",
   "Red",
 ];
+
+// Array methods
+const oddNumber = [1, 3, 5, 7, 9];
+// shift() - removes the element from the front
+oddNumber.shift();
+
+// unshift()  - adds the element in the front of the array
+const evenNumber = [2, 4, 6, 8];
+evenNumber.unshift(10);
+
+// concat() - adds two array in one
+const concatArray = oddNumber.concat(evenNumber);
+
+// indexOf() - gives the index of the item
+const indexOfItem = oddNumber.indexOf(3);
+
+// includes() - gives true if number exist
+const includeItem = oddNumber.includes(5);
+
+// reverse()
+const reverseArrayItem = oddNumber.reverse();
