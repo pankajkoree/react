@@ -42,5 +42,14 @@ user4.fname = "ravi";
 const actor = ["Rajkumar", "Ritik", "Shahid"];
 const actress = ["Rakul", "Reeti", "Nidhi"];
 
-const stars = [];
+// const stars = [];
 // Object.assign(stars, actress); not a good way so
+
+// using spread operator
+// const stars = [...actor];
+
+// using concat()
+// const stars = [].concat(actor);
+
+// using slice()
+const stars = actor.slice();
