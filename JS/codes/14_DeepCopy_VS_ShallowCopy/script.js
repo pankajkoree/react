@@ -53,3 +53,19 @@ const actress = ["Rakul", "Reeti", "Nidhi"];
 
 // using slice()
 const stars = actor.slice();
+
+// Object inside object
+const employee = {
+  fname: "sunil",
+  lname: "gawaskar",
+  location: {
+    state: "CG",
+    pinCode: "84783",
+  },
+  subject: ["DAA", "CP"],
+};
+
+const dupsEmp = { ...employee }; //copies only the object, means memory address of copied object will be different but its inside element will still be of same address
+
+// ------Shallow Copy End------------
+// Deep copy
