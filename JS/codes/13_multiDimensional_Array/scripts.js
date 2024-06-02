@@ -14,3 +14,10 @@ const accessElem = nameAndNumberList[1][0]; //accessing only the name of the 2nd
 
 // skiping some array element and adding a item after that
 const skipElem = (nameAndNumberList[1][5] = "Rohit");
+
+// tictactoe array - 'X' for cross, null for empty and "O" for circle
+const tictactoeArray = [
+  ["X", null, null],
+  [null, null, "O"],
+  ["O", null, "X"],
+];
