@@ -68,5 +68,8 @@ const indexOfItem = oddNumber.indexOf(3);
 // includes() - gives true if number exist
 const includeItem = oddNumber.includes(5);
 
-// reverse()
+// reverse() - reverse the original array
 const reverseArrayItem = oddNumber.reverse();
+
+// sort() - sorts the array in alphabetically, and numerically where, 0 means 1st and 9 means last
+const sortedArray = concatArray.sort();
