@@ -19,4 +19,14 @@ function test() {
   const a = 14; // for the function, it creates its own local execution context
   const b = 12;
   console.log(a, b);
+  add(4, 5);
+}
+
+function add(x, y) {
+  sub(x, y);
+  return x + y;
+}
+
+function sub(x, y) {
+  return x - y;
 }
