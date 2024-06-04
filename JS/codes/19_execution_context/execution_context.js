@@ -9,7 +9,7 @@
 // const yearOfBirth = 2000;
 
 // let userIntro = "Hi, my name is " + firstName + " " + lastName;
-debugger;
+// debugger;
 test(); //calling the function before , doesn't throw error if it's initialized
 const userName = "pankaj"; // at first this line, it creates a memory for the variable userName and initialize the value as undefined
 console.log(userName);
