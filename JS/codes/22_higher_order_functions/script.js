@@ -24,8 +24,10 @@ function sayHi() {
 aa(sayHi);
 
 // creating an anonymous function
-// callback function
+// callback function    // the function passed inside higher order function i.e. aa is higherorder function and other is callback function
 aa(function () {
   // is there any use of ananymous function then yes
   console.log("function with no name i.e. ananymous");
 });
+
+// example
