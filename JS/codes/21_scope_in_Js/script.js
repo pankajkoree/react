@@ -1,3 +1,4 @@
+"use strict"; //prevents using those unvariablized variable which means variable don't have name
 // debugger;
 const userName = "Ritik"; //both let and const goes in gloabl scope under script section and can't be accessed by window.varName
 let useAge = 24;
@@ -11,7 +12,7 @@ var aesehi = 23; // declared with var, goes in Global under window and can be ac
 //   console.log(x + y);
 // }
 function subtract() {
-  debugger;
+  // debugger;
   const aa = 15;
   const ab = 18;
   const ac = 20;
@@ -35,6 +36,8 @@ function subtract() {
   {
     let num1 = 23;
     console.log(num1);
+    num2 = 45; // not declared with any type of variable means it is declared as global scope
+    console.log(num2);
   }
   // block scope till here
 
@@ -44,5 +47,5 @@ function subtract() {
 // add();
 subtract();
 // console.log(x); // thorws the error coz of its scope
-
+console.log(num2);
 console.log("program ended");
