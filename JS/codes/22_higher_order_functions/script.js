@@ -1,4 +1,5 @@
 function aa(b) {
+  //now its a higher function means it contains another function
   console.dir(b);
   //   console.log(typeof b);
 
@@ -21,3 +22,10 @@ function sayHi() {
 }
 
 aa(sayHi);
+
+// creating an anonymous function
+// callback function
+aa(function () {
+  // is there any use of ananymous function then yes
+  console.log("function with no name i.e. ananymous");
+});
