@@ -1,14 +1,14 @@
 // setTimeout isn't the part of the js, its a part of web browser but used in js
 // setTimeout("hii"); //doesn;t a expect a string, but a js code
 
-setTimeout("console.log('hi')"); // in output this output is shown but the source file won't be this, it will create its own file based on this code file
+// setTimeout("console.log('hi')"); // in output this output is shown but the source file won't be this, it will create its own file based on this code file
 
 // uses
 // to add some time, so that code runs after some delay
-setTimeout('console.log("delay in printing")', 2000);
+// setTimeout('console.log("delay in printing")', 2000);
 
 // multiple lines of console in a single line
-setTimeout("console.log('hi my name is '); console.log('your name is ')", 5000); // this also throws error when we remove any semicolon after each console finish
+// setTimeout("console.log('hi my name is '); console.log('your name is ')", 5000); // this also throws error when we remove any semicolon after each console finish
 
 // ---------------------------------
 // what if we write above lines in two line in source code
@@ -38,9 +38,21 @@ setTimeout("console.log('hi my name is '); console.log('your name is ')", 5000);
 // VM2678:1 hi000
 // clearTimeout(9)  // passed the id of the last console
 
+// ------------------------
 // getting the same id from the vs code editor  -//the variable stores
-const timer1 = setTimeout("console.log('hi1')", 3000);
-const timer2 = setTimeout("console.log('hi2')", 6000);
-const timer3 = setTimeout("console.log('hi3')", 9000);
+// const timer1 = setTimeout("console.log('hi1')", 3000);
+// const timer2 = setTimeout("console.log('hi2')", 6000);
+// const timer3 = setTimeout("console.log('hi3')", 9000);
+// ------------------------
 
-clearTimeout(timer3); // doesn't execute the timer3
+// clearTimeout(timer3); // doesn't execute the timer3
+
+// ------------------------
+// passing a function in the setTimeout
+const timera1 = setTimeout(setTimeoutFunction, 4000);
+
+function setTimeoutFunction() {
+  console.log("running it in setTimeout function");
+}
+
+// ------------------------
