@@ -58,10 +58,24 @@
 // ------------------------
 
 // passing a function in the setTimeout and more  arguments in it although argumnets has been depreceated but still
-const timera2 = setTimeout(setTimeoutFunction, 4000, 34, 789, "dhiod", "ooear"); // why not calling the function as usual call coz setTimeout internally calls the function itself
+// const timera2 = setTimeout(setTimeoutFunction, 4000, 34, 789, "dhiod", "ooear"); // why not calling the function as usual call coz setTimeout internally calls the function itself
 
-function setTimeoutFunction() {
-  console.log("running it in setTimeout function");
-}
+// function setTimeoutFunction() {
+//   console.log("running it in setTimeout function");
+// }
 
+// ------------------------
+// const set1 = setTimeout('console.log("hi")');    // printed after the normal console code
+
+// console.log("value....");    // gets printed first
+
+// in these two lines- the below lines get printed first, reasons: 1. first the 2nd console value is getting loaded directly from the main script file where as setTimout console is being loaded from its own created VM file  2. second reason is about synchronous and asynchronous
+
+// ------------------------
+// but what if we passed the direct console value in setTimeout  with using quotation
+const set2 = setTimeout(console.log("hi"));
+
+console.log("value....");
+
+// in this case upper console in setTimeout function will be printed first as it comes before the normal console and both are being loaded from the same script file
 // ------------------------
