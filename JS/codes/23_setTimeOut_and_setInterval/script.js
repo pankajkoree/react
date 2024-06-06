@@ -47,9 +47,18 @@
 
 // clearTimeout(timer3); // doesn't execute the timer3
 
-// ------------------------
+// -----------------function in setTimeout---------------
 // passing a function in the setTimeout
-const timera1 = setTimeout(setTimeoutFunction, 4000);
+// const timera1 = setTimeout(setTimeoutFunction, 4000); // why not calling the function as usual call coz setTimeout internally calls the function itself
+
+// function setTimeoutFunction() {
+//   console.log("running it in setTimeout function");
+// }
+
+// ------------------------
+
+// passing a function in the setTimeout and more  arguments in it although argumnets has been depreceated but still
+const timera2 = setTimeout(setTimeoutFunction, 4000, 34, 789, "dhiod", "ooear"); // why not calling the function as usual call coz setTimeout internally calls the function itself
 
 function setTimeoutFunction() {
   console.log("running it in setTimeout function");
