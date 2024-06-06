@@ -1,3 +1,4 @@
+// -------------------SETTIMEOUT-------------------------
 // setTimeout isn't the part of the js, its a part of web browser but used in js
 // setTimeout("hii"); //doesn;t a expect a string, but a js code
 
@@ -73,9 +74,48 @@
 
 // ------------------------
 // but what if we passed the direct console value in setTimeout  with using quotation
-const set2 = setTimeout(console.log("hi"));
+// const set2 = setTimeout(console.log("hi"));
 
-console.log("value....");
+// console.log("value....");
 
 // in this case upper console in setTimeout function will be printed first as it comes before the normal console and both are being loaded from the same script file
-// ------------------------
+// -------------------SETTIMEOUT-------------------------
+// ------------------------SETINTERVAL--------------
+
+// ---------------------------
+// SetInterval
+// const setInt = setInterval("console.log('hi')", 1000); //if clearinterval isn't used, it keeps printing
+
+// clearInterval(setInt);
+// ----------------------------
+
+// testing whether the setinterval will stop printing from cleartimeout or not, as settimeout was being stopped using clearinterva;
+
+// const setin2 = setInterval("console.log('setinterval')", 1000);
+
+// clearTimeout(setin2); // it works perfectly fine to stop the setinterval
+
+// but its not a proper way to do, so better not do
+// ----------------------------
+// passing a function in the setInterval----------------------
+
+// const fnsetInterval = setInterval(fnforSetInterval, 1000);
+
+// function fnforSetInterval() {
+//   console.log(
+//     "using the funtion inside the setIntveral as higher order functions"
+//   );
+// }
+
+// clearInterval(fnsetInterval); // stopping setinterval
+// ----------------------------
+
+// using the anonymous function in setTimeout
+debugger;
+setTimeout(function () {
+  console.log("anonymous function in setTimeout"); //asynchronous
+});
+
+console.log("hi"); //synchronous
+
+// ------------------------SETINTERVAL--------------
