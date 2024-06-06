@@ -10,15 +10,18 @@ setTimeout('console.log("delay in printing")', 2000);
 // multiple lines of console in a single line
 setTimeout("console.log('hi my name is '); console.log('your name is ')", 5000); // this also throws error when we remove any semicolon after each console finish
 
+// ---------------------------------
 // what if we write above lines in two line in source code
 // setTimeout("console.log('hi my name is ');
 //     console.log('your name is ')", 5000);    //throws the error if we do like this
 // so the correct way is using string literals
-setTimeout(
-  `console.log('hi my name is ') 
-    console.log('your name is ')`,
-  5000
-); // but it doesn't throws any error when we remove the semicolor after a console
+// setTimeout()
+//   `console.log('hi my name is ')
+//     console.log('your name is ')`,
+//   5000
+// ); // but it doesn't throws any error when we remove the semicolor after a console
+
+// -------------------------------
 
 // passing these codes directly in console returns a id eg: setTimeout("console.log('hi')",4000)
 // setTimeout("console.log('hi444')",5000)
@@ -34,3 +37,10 @@ setTimeout(
 // VM2656:1 hi
 // VM2678:1 hi000
 // clearTimeout(9)  // passed the id of the last console
+
+// getting the same id from the vs code editor  -//the variable stores
+const timer1 = setTimeout("console.log('hi1')", 3000);
+const timer2 = setTimeout("console.log('hi2')", 6000);
+const timer3 = setTimeout("console.log('hi3')", 9000);
+
+clearTimeout(timer3); // doesn't execute the timer3
