@@ -69,7 +69,7 @@
 
 // console.log("value....");    // gets printed first
 
-// in these two lines- the below lines get printed first, reasons: 1. first the 2nd console value is getting loaded directly from the main script file where as setTimout console is being loaded from its own created VM file  2. second reason is about synchronous and asynchronous
+// in these two lines- the below lines get printed first, reasons: 1. first the 2nd console value is getting loaded directly from the main script file where as setTimout console is being loaded from its own created VM file  2. second reason is about synchronous and asynchronous i.e. setTimeout is asynchronous means it gets resided in the memory and when the times comes it gets executed where as normal console is synchronous
 
 // ------------------------
 // but what if we passed the direct console value in setTimeout  with using quotation
