@@ -49,8 +49,15 @@ const months = [
 // ---------------FILTER----------------------------
 // filter returns either the same original array or the array little bit less than the original array
 // but the result of comparison of the filter result and the original result won't be true as they are created at different locations
-const filteredMonths = months.filter((month, index, Array) => {
+// const filteredMonths = months.filter((month, index, Array) => {
+//   console.log(month);
+//   return month.toUpperCase(); //if the return value is truty value then it return the array but if it's falsy value then it won't return anything
+// });
+// ---------------------------------------------
+// returning the specific conditioned result which means the filter will make the array of that value for whose it is true
+const spFiltereMonths = months.filter((month, index, array) => {
   console.log(month);
-  return month.toUpperCase(); //if the return value is truty value then it return the array but if it's falsy value then it won't return anything
+  return month.length > 5; // getting the return array whose length is greater than 5
 });
+console.log(spFiltereMonths);
 // -----------------****************---------------------
