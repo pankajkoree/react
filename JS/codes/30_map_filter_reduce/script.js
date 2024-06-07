@@ -55,9 +55,23 @@ const months = [
 // });
 // ---------------------------------------------
 // returning the specific conditioned result which means the filter will make the array of that value for whose it is true
-const spFiltereMonths = months.filter((month, index, array) => {
-  console.log(month);
-  return month.length > 5; // getting the return array whose length is greater than 5
+// const spFiltereMonths = months.filter((month, index, array) => {
+//   console.log(month);
+//   return month.length > 5; // getting the return array whose length is greater than 5
+// });
+// console.log(spFiltereMonths);
+
+// ---------------------------------------------
+// const lessfilteredMonths = months.filter((month, index, array) => {
+//   console.log(month);
+//   return month.length <= 5;
+// });
+// console.log(lessfilteredMonths);
+
+// ---------------------------------------------
+const notOfM = months.filter((month) => {
+  return month.toLowerCase().includes("m");
+  //   return month.includes("m") || month.includes("M");
 });
-console.log(spFiltereMonths);
+console.log(notOfM);
 // -----------------****************---------------------
