@@ -26,5 +26,8 @@ const mathsfn = {
   pow1(a, b) {
     return a ** b;
   },
+  cube(num) {
+    return num * num * num;
+  },
 };
 // ---------------***********--------------------
