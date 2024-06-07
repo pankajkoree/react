@@ -69,9 +69,41 @@ const months = [
 // console.log(lessfilteredMonths);
 
 // ---------------------------------------------
-const notOfM = months.filter((month) => {
-  return month.toLowerCase().includes("m");
-  //   return month.includes("m") || month.includes("M");
-});
-console.log(notOfM);
+// const notOfM = months.filter((month) => {
+//   return month.toLowerCase().includes("m");
+//   //   return month.includes("m") || month.includes("M");
+// });
+// console.log(notOfM);
+
+// ---------------------------------------------
+
+const students = [
+  {
+    name: "Akash",
+    age: 17,
+  },
+  {
+    name: "Ritik",
+    age: 23,
+  },
+  {
+    name: "Ashish",
+    age: 19,
+  },
+  {
+    name: "Ritika",
+    age: 20,
+  },
+];
+
+const isVoteable = students.filter((student) => {
+  return student.age >= 18;
+}); // adding the below map functions here means chaining
+console.log(isVoteable);
+
+const votableStudentName = isVoteable.map((names) => {
+  return names.name;
+}); // fetching only the name of the voteable students
+
+// ---------------------------------------------
 // -----------------****************---------------------
