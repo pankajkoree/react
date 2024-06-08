@@ -111,17 +111,31 @@ const students = [
 // ---------------FILTER----------------------------
 // reduce means reducing the multiple values into a single one
 
-const numbers = [1, 1, 2, 1, 1, 1];
+const numbers = [1, 2, 3, 4, 5, 6];
 
 // reduce(1st_arg,2nd_arg,3rd_arg)  // 1- accumulator, 2-currentValue , 3 - index
 
 // ---------------------------------------------
 // numbers.reduce((accumulator, currentValue) => {
 //   console.log(currentValue);
-// }); // this will run till the n-1 value
+// }); // this will run for n-1 times, as it starts from 2nd value not the 0th item
 // ---------------------------------------------
 
-numbers.reduce((accumulator, currentValue) => {
-  console.log(currentValue);
-}, 11); // this will run till last value
+// numbers.reduce((accumulator, currentValue, index) => {
+//   console.log(`${index} : ${currentValue}`);
+// }, 11); // this will run for n times, as passing a value at last either string or number, makes it run from start i.e. 0th index
+
+// ---------------------------------------------
+// numbers.reduce((accumulator, currentValue, index) => {
+//   console.log(accumulator);
+// }, "startvalue"); // this will print startvalue as 1st value and then n-1 times of undefined coz we aren;t returning anything
+
+// ---------------------------------------------
+// accumulator already takes a value from the start and returns or stores the result of all the array value i.e. n1+n2+.....+n
+const sumUsingReduce = numbers.reduce((accumulator, currentValue, index) => {
+  // console.log(accumulator, currentValue);
+  debugger;
+  return accumulator + currentValue;
+}, 0); // this 0 is the starting value which means it will be added to the result in the reduce before its start
+
 // -----------------****************---------------------
