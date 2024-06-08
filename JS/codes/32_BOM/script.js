@@ -46,7 +46,8 @@
 // opens the a new window and if we pass the some url , it opens the that same site
 // by default the name from open is an empty string i.e. ''
 // passing the second argumnet in the open represents as name which overrites the default name
-
+// the 3rd argument represents whether the window should be resizeable or not
+// EG: open('https://www.youtube.com/','pk','resizeable')
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // -----------------close()----------------
@@ -54,4 +55,37 @@
 // VM2091:1 Scripts may close only the windows that were opened by them.
 // ---------------------------------------------------------
 // ---------------------------------------------------------
+
+// -----------------resizeTo()----------------
+// resizes the window size by the height and width you provide
+// but needs to follow the certain conditions
+// the window should have been opened using open method
+// EG: resizeTo(400,400)
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
+// -----------------momveTo()----------------
+// moves the opened window using the x,y pixel
+//EG: moveTo(600,700)
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
+// -----------------scroll()----------------
+// it scrolls the window by x,y
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
+// -----------------print()----------------
+// prints the page using print() function
+// the same we do using ctrl+P
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
+// -----------------documnet()----------------
+// it is the DOM
+// its a part of the BOM but it itself is a huge part
+
 // ----------------------*************----------------------
