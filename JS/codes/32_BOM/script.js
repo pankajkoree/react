@@ -33,9 +33,25 @@
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 
-// ----------------------innerHeight----------------------
+// -----------------innerHeight and outerHeight----------------
+// innerHeight calculates the height inside the browser where contents are visible
+// outerHeight means the total height of the screen
 
+// -----------------innerWidth and outerWidth----------------
+// its same as height content
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 
+// -----------------open()----------------
+// opens the a new window and if we pass the some url , it opens the that same site
+// by default the name from open is an empty string i.e. ''
+// passing the second argumnet in the open represents as name which overrites the default name
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+// -----------------close()----------------
+// closes the opened window only that which is being opened by that scripts
+// VM2091:1 Scripts may close only the windows that were opened by them.
+// ---------------------------------------------------------
+// ---------------------------------------------------------
 // ----------------------*************----------------------
