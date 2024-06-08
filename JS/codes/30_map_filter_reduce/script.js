@@ -95,15 +95,33 @@ const students = [
     age: 20,
   },
 ];
+// ---------------------------------------------
 
-const isVoteable = students.filter((student) => {
-  return student.age >= 18;
-}); // adding the below map functions here means chaining
-console.log(isVoteable);
+// const isVoteable = students.filter((student) => {
+//   return student.age >= 18;
+// }); // adding the below map functions here means chaining
+// console.log(isVoteable);
 
-const votableStudentName = isVoteable.map((names) => {
-  return names.name;
-}); // fetching only the name of the voteable students
+// const votableStudentName = isVoteable.map((names) => {
+//   return names.name;
+// }); // fetching only the name of the voteable students
 
 // ---------------------------------------------
+
+// ---------------FILTER----------------------------
+// reduce means reducing the multiple values into a single one
+
+const numbers = [1, 1, 2, 1, 1, 1];
+
+// reduce(1st_arg,2nd_arg,3rd_arg)  // 1- accumulator, 2-currentValue , 3 - index
+
+// ---------------------------------------------
+// numbers.reduce((accumulator, currentValue) => {
+//   console.log(currentValue);
+// }); // this will run till the n-1 value
+// ---------------------------------------------
+
+numbers.reduce((accumulator, currentValue) => {
+  console.log(currentValue);
+}, 11); // this will run till last value
 // -----------------****************---------------------
