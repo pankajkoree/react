@@ -1,6 +1,7 @@
 // --------------BOM - browser object model -----------------
 
 // ---------------location---------------------------------
+// ---------------will explore the most used property---------
 
 // can use either window.location or location only
 // console.log(location); // gives output as
@@ -18,4 +19,23 @@
 //   "https://youtube.com/watch?v=hyIBB48aAws&list=PLfEr2kn3s-bo4LwlbyZugHPavhcdW8YMC&index=53";    // this will direct the browser to that youtube link
 
 // ---------------------------------------------------------
+// ---------------------------------------------------------
+
+// -------------------------history------------------------
+// history - back,forward - gives details about backward and forward pages from the current pages
+
+// history.back();  // takes you back to the page from current page
+
+// history.forward();
+
+// history.go(-1); // - means backward and + means forward
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
+// ----------------------innerHeight----------------------
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
 // ----------------------*************----------------------
