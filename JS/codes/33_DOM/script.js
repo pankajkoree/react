@@ -93,4 +93,24 @@ const image1 = document.querySelectorAll("img");
 // we can give any attribute in html manually, which isn't defined by html EG: <h1 faltuAttribute="pk">PK</h1>  //it can be selected by ['pk'] in CSS
 // in JS: document.querySelector('[pk]')
 
+// -----------getAttribute--------------------------
+document.querySelector("#js-image").getAttribute("class"); //fetches all the class name in that #js-image
+
+// -----------------setAttribute-------------------
+
+document
+  .querySelector("#js-image")
+  .setAttribute("title", "nothing but a image");
+// add the attribute in the selected elements
+
+// adding an id in the tags
+document.querySelector(".vue").setAttribute("id", "vue");
+
+// we can set the attribute like this too but it only set the attributes for those only which is inbuilt in html but can's set our own
+document.querySelector("#vue").href = "www.google.com";
+
+document.querySelector("#vue").class = "vueclass";
+
+document.querySelector("#vue").faltu = "faltu";
+
 // ------------**************************------------------
