@@ -53,5 +53,32 @@ const jsimg = document.querySelector("[id='js-image']");
 // -----------------------------------------------------
 
 // changing all three images
+const imgURL = [
+  "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg",
+  "https://images.pexels.com/photos/45863/frog-butterfly-pond-mirroring-45863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/41004/alaska-wilderness-sky-aurora-borealis-41004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+];
+const image1 = document.querySelectorAll("img");
 
+// image1[0].src = imgURL[0];
+// image1[1].src = imgURL[1];
+// image1[2].src = imgURL[2];
+
+// changing using for loop
+// for (let i = 0; i < image1.length; i++) {
+//   image1[i].src = imgURL[i];
+// }
+
+// -----------------------------------------------------
+// using forEach()
+// image1.forEach((img, i) => {
+//   img.src = imgURL[i];
+// });
+
+// -----------------------------------------------------
+
+// when using document.querySelector searches element in whole document page
+// so its better to search using querySelector for children
+
+// getElementById is only usable for the document
 // ------------**************************------------------
