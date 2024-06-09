@@ -114,3 +114,9 @@ document.querySelector("#vue").class = "vueclass";
 document.querySelector("#vue").faltu = "faltu";
 
 // ------------**************************------------------
+// ---------styling using JS------------------------
+// giving style in external CSS doesn't seems in console checking but when we style using inline, it seems in console properties
+
+// like external css style has been overritten by inline ones, inline has specificity of 1000
+
+// ------------**************************------------------
