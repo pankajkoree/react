@@ -81,4 +81,10 @@ const image1 = document.querySelectorAll("img");
 // so its better to search using querySelector for children
 
 // getElementById is only usable for the document
+
+// -----------------------------------------------------
+
+// Difference between innerText and textContent
+// innerText shows only the text as it seems in the browser as space is considered as a single space only but in textContent it is same as it is originally in the sourceCode
+
 // ------------**************************------------------
