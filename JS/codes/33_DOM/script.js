@@ -88,3 +88,9 @@ const image1 = document.querySelectorAll("img");
 // innerText shows only the text as it seems in the browser as space is considered as a single space only but in textContent it is same as it is originally in the sourceCode
 
 // ------------**************************------------------
+
+// -----------getAttribute and setAttribute--------------
+// we can give any attribute in html manually, which isn't defined by html EG: <h1 faltuAttribute="pk">PK</h1>  //it can be selected by ['pk'] in CSS
+// in JS: document.querySelector('[pk]')
+
+// ------------**************************------------------
