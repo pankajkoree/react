@@ -119,4 +119,23 @@ document.querySelector("#vue").faltu = "faltu";
 
 // like external css style has been overritten by inline ones, inline has specificity of 1000
 
+// -------------------------------------------------------
+document.querySelector("#html-id").style.color = "red";
+document.querySelector("#html-id").style.backgroundColor = "gold";
+
+// changint the backgroundcolor of all the anchor tag
+const allLinks = document.querySelectorAll("a");
+
+//using for loop
+// for (let i = 0; i < allLinks.length; i++) {
+//   allLinks[i].style.color = "red";
+//   allLinks[i].style.backgroundColor = "green";
+// }
+
+// using for of
+for (const link of allLinks) {
+  link.style.fontFamily = "cursive";
+  link.style.color = "purple";
+}
+
 // ------------**************************------------------
