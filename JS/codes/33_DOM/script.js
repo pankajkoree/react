@@ -178,4 +178,58 @@ document.querySelector("body > ul").children;
 
 // accessing the siblings
 document.querySelector("body > ul > li:nth-child(3)"); // accessing it's sibling
+document.querySelector("body > ul > li:nth-child(3)").nextElementSibling;
+// result will be this and again searching for its sibling
+{
+  /* <li>
+        <p>
+          <b>JavaScript</b>: JavaScript often abbreviated JS, is a programming
+          language that is one of the core technologies of the World Wide Web,
+          alongside HTML and CSS. It is use to add functionality in the website.
+        </p>
+        <img
+          src="/images/javascript.png"
+          alt="javascript roadmap"
+          style="width: 100%; max-width: 600px"
+          id="js-image"
+          class="img imgg img1"
+        />
+
+        <ol type="a">
+          <li><p>Vanilla JS</p></li>
+          <li>
+            <p>jQuery <i>(Library)</i></p>
+          </li>
+          <li>
+            <p>React <i>(Framework)</i></p>
+          </li>
+          <li>
+            <p>Angular <i>(Framework)</i></p>
+          </li>
+          <li style="color: red" class="vue">
+            <p>Vue <i>(Framework)</i></p>
+          </li>
+          <li>
+            <p>Typescript <i>(Preprocessor)</i></p>
+          </li>
+        </ol>
+      </li> */
+}
+
+// console.log(
+//   document.querySelector("body > ul > li:nth-child(3)").nextElementSibling
+//     .nextElementSibling
+// );
+// its nextSibling is null  // it means it's the end of the sibling
+// we can also search for the previous element sibling too as:
+//  document.querySelector("body > ul > li:nth-child(3)").previousElementSibling
+
+// -------------------------------------------------------
+// -------------------------------------------------------
+
+// nextElementSibling skips the node and nextSibling gives the result of the nodes
+
+// -------------------------------------------------------
+// -------------------------------------------------------
+
 // ------------**************************------------------
