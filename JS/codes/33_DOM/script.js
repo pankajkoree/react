@@ -132,10 +132,28 @@ const allLinks = document.querySelectorAll("a");
 //   allLinks[i].style.backgroundColor = "green";
 // }
 
+// -------------------------------------------------------
 // using for of
-for (const link of allLinks) {
-  link.style.fontFamily = "cursive";
-  link.style.color = "purple";
-}
+// for (const link of allLinks) {
+//   link.style.fontFamily = "cursive";
+//   link.style.color = "purple";
+// } //but repeating the style for multiple thing is a headache so another way is
 
+// we can  apply the  same style as in CSS  // but still it's not the good way
+// for (const link of allLinks) {
+//   link.style.cssText = `color: green;
+//     background-color: red;
+//     font-size: 18px;
+//     font-family: 'Courier New', Courier, monospace; `;
+// } // it works perfectly fine
+
+// 3rd way is:
+// for (const link of allLinks) {
+//   //adding the class and using already add css style in css file
+//   link.className = "faltu-css"; //when  we add  another class from script normally, then previous existing inline class gets overritten
+// }
+
+// what if we want to add another class too
+for (const link of allLinks) {
+}
 // ------------**************************------------------
