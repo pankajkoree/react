@@ -155,5 +155,7 @@ const allLinks = document.querySelectorAll("a");
 
 // what if we want to add another class too
 for (const link of allLinks) {
+  // adds a new class in an existing class, and it can be removed using remove
+  link.classList.add("faltu-css");
 }
 // ------------**************************------------------
