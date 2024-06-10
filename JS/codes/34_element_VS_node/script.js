@@ -60,4 +60,13 @@ document.body.childNodes;
 
 // --------------------------------------------------
 
+// -------------updating the code which is on fly-----------
+
+// code on the fly means those code which isn't inside any tags, so updating those code isn't easy but can be done using below technique
+
+document.body.childNodes[6].nodeValue = "Namaste";
+// the original text in html file is still hello world but if you see the text in element section its Namaste
+
+// ----------------------------------------------------------
+
 // -------------------******************-------------------
