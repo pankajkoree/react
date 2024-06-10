@@ -47,4 +47,17 @@ document.body.childNodes;
 
 // --------------------------------------------------
 
+// --------------------Nodetype--------------------------
+
+// the type of the node will be determined by the table
+// EG:
+// fetching : document.body.children[0]     // this we get the result as
+//<h1>Element VS Node</h1>
+// and the type of this h1 will be 1 which means its element node
+
+// lets give a class to above h1 element and fetch its type
+// its not necessary to know the node type of node but remember that there are different types of nodes
+
+// --------------------------------------------------
+
 // -------------------******************-------------------
