@@ -37,4 +37,14 @@ const card = document.querySelector(".card");
 //   container.appendChild(newCard);
 // }
 
+// --------------------------------------------------------
+
+// appendChild return the same thing which is being apended but append only appends the element but doesn't reutrn anything, by default the return in it is undefined
+
+// --------------------------------------------------------
+// using the appendChild we can append the element as well as on the fly things but can't append the text only but append can does
+
+// using append, we can append multiple element using appennd as
+container.append("hello", h1, "world");
+
 // --------------*****************-------------------------
