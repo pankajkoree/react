@@ -160,3 +160,22 @@ for (const link of allLinks) {
   link.classList.toggle("faltu-css");
 }
 // ------------**************************------------------
+
+// fetches the parent element of that anchor tag
+document.querySelector("body > p:nth-child(3) > a:nth-child(2)").parentElement
+  .parentElement.parentElement.parentNode;
+
+// fetching the children of a selected element
+// document.querySelector("body > ul") it children's children will be
+
+// -------------------------------------------------------
+
+document.querySelector("body > ul").children;
+// the result is below's commented output
+// HTMLCollection(4) [li#html-id, br, li, li, html-id: li#html-id]
+
+// -------------------------------------------------------
+
+// accessing the siblings
+document.querySelector("body > ul > li:nth-child(3)"); // accessing it's sibling
+// ------------**************************------------------
