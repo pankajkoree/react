@@ -107,6 +107,39 @@ const container = document.querySelector(".container");
 //---------------------------------------------------------
 //---------------------------------------------------------
 
+// one of the best way but it's not recommended
+// for (let i = 1; i <= 100; i++) {
+//   const imgContainer = document.createElement("div");
+//   imgContainer.className = "img-container";
+//   const hhtml = `
+//   <img
+//   src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png"
+//   />
+//   <p>${i}</p>
+//   `;
+
+//   imgContainer.innerHTML = hhtml;
+//   container.append(imgContainer);
+// }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+//some developers also use this way
+let myHTML = ``;
+for (let i = 1; i <= 100; i++) {
+  myHTML += `
+  <div class="img-container">
+  <img
+  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png"
+  />
+  <p>${i}</p>
+  </div>
+  `;
+}
+
+container.innerHTML = myHTML;
+
 //---------------------------------------------------------
 //---------------------------------------------------------
 
