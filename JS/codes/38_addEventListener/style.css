@@ -21,4 +21,14 @@ h1{
 
 .add-card{
     cursor: pointer;
+    position: absolute;
+    background-color: #57addf;
+    bottom: 33px;
+    right: 32px;
+    border-radius: 50%;
+    color: black;
+    font-weight: bold;
+    font-size: 80px;
+    height: 90px;
+    width: 90px;
 }

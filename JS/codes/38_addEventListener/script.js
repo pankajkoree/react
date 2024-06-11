@@ -59,10 +59,32 @@ function sayHi2() {
 
 // --------------------------Task----------------------
 //adding event on card using addEventListener
-const card = document.querySelector(".card");
+// const card = document.querySelector(".card");
 
+// card.addEventListener("click", () => {
+//   console.log("hello for the card click");
+// });
+
+// --------------------------Task----------------------
+
+// 1st method i.e. cloneNode
+// const card = document.querySelector(".card");
+// const container = document.querySelector(".container");
+// card.addEventListener("click", () => {
+//   const addCard = card.cloneNode();
+//   container.append(addCard);
+// });
+
+// 2nd method by using createElement
+const card = document.querySelector(".card");
+const container = document.querySelector(".container");
+
+let iterate = 1;
 card.addEventListener("click", () => {
-  console.log("hello for the card click");
+  const newCard = document.createElement("div");
+  newCard.className = "card";
+  newCard.innerText = iterate++;
+  container.append(newCard);
 });
 
 // -------------------------------------------------------
