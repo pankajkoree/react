@@ -71,19 +71,43 @@ const container = document.querySelector(".container");
 
 // creating the img tag and each img tag's below there's should be a p tag indicating the number of image
 
+// my way - not so good
+
+// const div = document.createElement("div");
+// div.className = "image-container";
+// div.style.textAlign = "center";
+// container.append(div);
+
+// for (let i = 1; i <= 100; i++) {
+//   const img = document.createElement("img");
+//   const p = document.createElement("p");
+//   img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+//   p.innerText = i;
+//   div.append(img, p);
+// }
+
 //---------------------------------------------------------
 //---------------------------------------------------------
 
-const div = document.createElement("div");
-div.className = "image-container";
-div.style.textAlign = "center";
-container.append(div);
+// good way
 
-for (let i = 1; i <= 100; i++) {
-  const img = document.createElement("img");
-  const p = document.createElement("p");
+// for (let i = 1; i <= 100; i++) {
+//   const imgContainer = document.createElement("div");
+//   imgContainer.className = "img-container";
 
-  div.append(img, p);
-}
+//   const newImg = document.createElement("img");
+//   newImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+
+//   const p = document.createElement("p");
+//   p.innerText = i;
+
+//   imgContainer.append(newImg, p);
+//   container.append(imgContainer);
+// }
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+//---------------------------------------------------------
+//---------------------------------------------------------
 
 // ----------------*****************------------------------
