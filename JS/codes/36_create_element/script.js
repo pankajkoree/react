@@ -35,28 +35,55 @@ const container = document.querySelector(".container");
 
 // creating a tag and displaying it in file
 
-const paragraph = document.createElement("p");
-paragraph.innerText = "hello";
-paragraph.classList.add("paragraphElement");
-paragraph.id = "para";
-container.append(paragraph);
+// const paragraph = document.createElement("p");
+// paragraph.innerText = "hello";
+// paragraph.classList.add("paragraphElement");
+// paragraph.id = "para";
+// container.append(paragraph);
 
 // paragraph.innerText = "hello"; //this will instantly gets reflected coz DOM already have loaded that element in memory  //but its not a good practice to add innertext after appending  //so will do before appending
 
 //---------------------------------------------------------
-
+// ---------------important exercise---------------------
 // creating an img tag and giving src attribute
 
-const img = document.createElement("img");
-img.src =
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
-container.append(img);
+// const img = document.createElement("img");
+// img.src =
+//   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
+// container.append(img);
 
 // making the above image 100 times
-for (let i = 2; i <= 100; i++) {
-  const newImg = img.cloneNode();
-  newImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
-  container.appendChild(newImg);
+// for (let i = 2; i <= 100; i++) {
+//   const newImg = img.cloneNode();
+//   newImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+//   container.appendChild(newImg);
+// }
+
+// another good way
+// for (let i = 1; i <= 200; i++) {
+//   const img = document.createElement("img");
+//   img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+//   container.append(img);
+// }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+// creating the img tag and each img tag's below there's should be a p tag indicating the number of image
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+const div = document.createElement("div");
+div.className = "image-container";
+div.style.textAlign = "center";
+container.append(div);
+
+for (let i = 1; i <= 100; i++) {
+  const img = document.createElement("img");
+  const p = document.createElement("p");
+
+  div.append(img, p);
 }
 
 // ----------------*****************------------------------
