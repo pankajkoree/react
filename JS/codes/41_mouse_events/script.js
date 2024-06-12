@@ -148,7 +148,17 @@ let count = 0;
 
 // it gets triggered whenever we drag the item
 // it works on desktop only not on phone
-h1.addEventListener("drag", (e) => {
+// h1.addEventListener("drag", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("card");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// -----------------------pointer move----------------------
+// it is used when some event need to be worked on both phone and pc
+addCardButton.addEventListener("pointermove", (e) => {
   console.log(e);
   const newCard = document.createElement("div");
   newCard.classList.add("card");
