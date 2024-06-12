@@ -126,7 +126,29 @@ let count = 0;
 
 // ----------------touch end-------------------------
 // touch end means when release the touch it gets triggered
-addCardButton.addEventListener("touchend", (e) => {
+// addCardButton.addEventListener("touchend", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("card");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// ----------------touch move-------------------------
+// it is like how we move something up and down on phone
+// addCardButton.addEventListener("touchmove", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("card");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// -----------------------drag-------------------------
+
+// it gets triggered whenever we drag the item
+// it works on desktop only not on phone
+h1.addEventListener("drag", (e) => {
   console.log(e);
   const newCard = document.createElement("div");
   newCard.classList.add("card");
