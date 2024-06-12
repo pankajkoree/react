@@ -7,6 +7,10 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Keyboard Events</h1>
+    <!-- h1 isn't a default focusable event so to focus on h1, we add some property as tabindex -->
+    <!-- but normally we don't add such things on h1, it usually goes on window -->
+    <h1 tabindex="0">Keyboard Events</h1>
+    <!-- input is already a focusable event so nothing to add extra on input  -->
+    <!-- <input type="text" /> -->
   </body>
 </html>
