@@ -49,13 +49,42 @@ let count = 0;
 // });
 
 // ------------------mouse leave-------------------------
+// when mouse leaves the element area, it gets fired
+// addCardButton.addEventListener("mouseleave", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
 
-addCardButton.addEventListener("mouseleave", (e) => {
+// ------------------mouse move-------------------------
+// when the mouse moves in the area of the element
+// addCardButton.addEventListener("mousemove", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// ------------------mouse out---------------------------
+
+// addCardButton.addEventListener("mouseout", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// ------------------mouse over---------------------------
+
+addCardButton.addEventListener("mouseover", (e) => {
   console.log(e);
   const newCard = document.createElement("div");
   newCard.classList.add("addCardButton");
   newCard.innerText = count++;
   container.append(newCard);
 });
-
 // -------------------********************-----------------
