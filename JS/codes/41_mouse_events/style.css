@@ -8,7 +8,7 @@
 .card {
     width: 100px;
     height: 120px;
-    background-color: pink;
+    background-color: rgb(153, 56, 72);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,94 +1,61 @@
-// ---------------addEventListener-----------------------
+// -----------------mouse events-----------------------
 
-// -------------------------------------------------------
-// *******************************************************
-// this way of doing has some drawbacks, as we have to write some js code in html file which is a headache
-// -------------------------------------------------------
-
-// normally this is the way how a Angular developer uses event
-// function sayHi() {
-//   console.log("hiii");
-// }
-
-// -------------------------------------------------------
-// -------------------------------------------------------
-
-// adding onclick event on the container
-// function container() {
-//   console.log("container clicked");
-// }
-
-// -------------------------------------------------------
-
-// adding function for ondoubleclick
-// function container() {
-//   console.log("double clicked on container");
-// }
-
-// -------------------------------------------------------
-// *******************************************************
-// -------------------------------------------------------
-
-// second way
-
-// we can add only a single function for the click event, although if we pass two function then it overrites the 1st and uses the latest function only
-// const h1 = document.querySelector("h1");
-// h1.onclick = sayHi;
-
-// function sayHi() {
-//   console.log("using the second way to add click event");
-// }
-
-// -------------------------------------------------------
-// *******************************************************
-// -------------------------------------------------------
-
-// 3rd way - little bit long way but best way
-// allows to add multiple events for a sinlge element
 const h1 = document.querySelector("h1");
-h1.addEventListener("click", sayHi);
-h1.addEventListener("click", sayHi2);
-
-function sayHi() {
-  console.log("hi");
-}
-
-function sayHi2() {
-  console.log("hiiiiiiiiiiii");
-}
-
-// --------------------------Task----------------------
-//adding event on card using addEventListener
-// const card = document.querySelector(".card");
-
-// card.addEventListener("click", () => {
-//   console.log("hello for the card click");
-// });
-
-// --------------------------Task----------------------
-
-// 1st method i.e. cloneNode
-// const card = document.querySelector(".card");
-// const container = document.querySelector(".container");
-// card.addEventListener("click", () => {
-//   const addCard = card.cloneNode();
-//   container.append(addCard);
-// });
-
-// 2nd method by using createElement
-const card = document.querySelector(".card");
+const addCardButton = document.querySelector(".card");
 const container = document.querySelector(".container");
 
-let iterate = 1;
-card.addEventListener("click", () => {
+let count = 0;
+
+// addCardButton.addEventListener("click", () => {
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+// ------------------mouse down-------------------------
+// when we click down the mouse it gets fired
+
+// addCardButton.addEventListener("mousedown", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// ------------------mouse up-------------------------
+// when we release the mouse, it gets fired
+// addCardButton.addEventListener("mouseup", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// ------------------mouse enter-------------------------
+// when mouse get over the that element, it gets fired
+
+// addCardButton.addEventListener("mouseenter", (e) => {
+//   console.log(e);
+//   const newCard = document.createElement("div");
+//   newCard.classList.add("addCardButton");
+//   newCard.innerText = count++;
+//   container.append(newCard);
+// });
+
+// ------------------mouse leave-------------------------
+
+addCardButton.addEventListener("mouseleave", (e) => {
+  console.log(e);
   const newCard = document.createElement("div");
-  newCard.className = "card";
-  newCard.innerText = iterate++;
+  newCard.classList.add("addCardButton");
+  newCard.innerText = count++;
   container.append(newCard);
 });
 
-// -------------------------------------------------------
-// *******************************************************
-// -------------------------------------------------------
-
-// -------------------*****************--------------------
+// -------------------********************-----------------
