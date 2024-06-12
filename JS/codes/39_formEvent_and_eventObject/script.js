@@ -74,15 +74,33 @@
 // --------------------------------------------------------
 // --------------------------------------------------------
 
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const myFormData = new FormData(form);
+
+//   for (const p of myFormData.entries()) {
+//     console.log(p);
+//   }
+// });
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+// checking on what the click event is being triggered
+
+// e.target changes as per the click on the item happens
+// but e.currentTarget never changes, it remains same for what element it is being used
+
 const form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("click", (e) => {
   e.preventDefault();
-  const myFormData = new FormData(form);
-
-  for (const p of myFormData.entries()) {
-    console.log(p);
-  }
+  console.log("Target on which it is triggered");
+  console.log(e.target);
+  console.log("Target on which triggered is implemented");
+  console.log(e.currentTarget);
 });
 
 // ---------------*****************-------------------------
