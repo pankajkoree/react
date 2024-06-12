@@ -1,10 +1,10 @@
 // --------form Event and event Object-----------------------
 
 // -----------------normal click events-----------------
-const usernameInput = document.querySelector("#username");
-usernameInput.addEventListener("click", () => {
-  console.log("clicked");
-});
+// const usernameInput = document.querySelector("#username");
+// usernameInput.addEventListener("click", () => {
+//   console.log("clicked");
+// });
 // --------------------------------------------------------
 
 // -------------form events--------------------------------
@@ -53,21 +53,36 @@ usernameInput.addEventListener("click", () => {
 // --------------------------------------------------------
 // --------------------------------------------------------
 
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", (e) => {
+//   // this is good but form isn't clicked,  its elements are clicked, the form can only be submitted or cancelled so submit event for form is below:
+//   // so the 3rd way to see that consoled item is
+//   // e.preventDefault();
+//   // console.log(e);
+//   //getting the formData
+//   e.preventDefault();
+//   const myFormData = new FormData(form);
+
+//   // it seems to be empty but it contains these details, so to get we need to iterate over it as below:
+//   for (const p of myFormData.entries()) {
+//     console.log(p);
+//   }
+// });
+// once the form will be submitted, it will redirect us to another link so consoled item will be changed, so not to change we can use "preserve log " to see consoled item
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
-  // this is good but form isn't clicked,  its elements are clicked, the form can only be submitted or cancelled so submit event for form is below:
-  // so the 3rd way to see that consoled item is
-  // e.preventDefault();
-  // console.log(e);
-  //getting the formData
   e.preventDefault();
   const myFormData = new FormData(form);
 
-  // it seems to be empty but it contains these details, so to get we need to iterate over it as below:
   for (const p of myFormData.entries()) {
     console.log(p);
   }
 });
-// once the form will be submitted, it will redirect us to another link so consoled item will be changed, so not to change we can use "preserve log " to see consoled item
+
 // ---------------*****************-------------------------
