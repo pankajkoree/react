@@ -85,3 +85,65 @@
   background-color: rgb(113, 196, 113);
   border-radius: 15px;
 }
+
+#form_field label {
+  position: absolute;
+  width: 320px;
+  height: 22px;
+  top: 190px;
+  left: 40px;
+  color: red;
+  font: arial;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+/* input 1 */
+.input_field_div_1 {
+  position: absolute;
+  width: 570px;
+  height: 82px;
+  top: 220px;
+  left: 40px;
+  border: 1px solid black;
+}
+.input_field_div_1 #radio {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 29px;
+  left: 17px;
+}
+.input_field_div_1 #goal_1 {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 25px;
+  left: 60px;
+  border: 1px solid grey;
+}
+
+/* input 2 */
+.input_field_div_2 {
+  position: absolute;
+  width: 570px;
+  height: 82px;
+  top: 348px;
+  left: 40px;
+  border: 1px solid black;
+}
+.input_field_div_1 #radio2 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 29px;
+  left: 17px;
+}
+.input_field_div_1 #goal_2 {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 25px;
+  left: 60px;
+  border: 1px solid grey;
+}
