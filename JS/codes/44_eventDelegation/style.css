@@ -18,9 +18,13 @@ h1 {
     justify-content: center;
     border-radius: 4px;
     font-size: 36px;
+    cursor: pointer;
 }
 
 .add-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     background-color: cadetblue;
     color: black;
@@ -28,7 +32,8 @@ h1 {
     bottom: 33px;
     right: 32px;
     border-radius: 100%;
-    height: 50px;
-    width: 50px;
+    font-size: 80px;
+    height: 90px;
+    width: 90px;
     line-height: 10px;
 }
