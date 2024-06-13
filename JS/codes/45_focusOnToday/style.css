@@ -60,13 +60,28 @@
   width: 50px;
   height: 50px;
   top: 30px;
-  left: 130px;
+  left: 135px;
   /* this below top and left is from the main container */
   /* top: 198px;
   left: 554px; */
 }
 
 #today_container .sub_today p {
+  position: absolute;
   width: 320px;
   height: 28px;
+  top: 105px;
+  left: 44px;
+  /* top: 284px;
+  left: 434px; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+#today_container .sub_today .line {
+  position: absolute;
+  width: 574px;
+  height: 30px;
+  top: 151px;
+  left: 40px;
+  background-color: rgb(113, 196, 113);
+  border-radius: 15px;
 }
