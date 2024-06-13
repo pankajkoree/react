@@ -9,7 +9,7 @@ html {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(113, 196, 113);
+  background-color: #b8fadd;
 }
 
 /* style for the heading i.e. Focus on Today */
@@ -83,11 +83,11 @@ html {
   height: 30px;
   top: 151px;
   left: 40px;
-  background-color: rgb(113, 196, 113);
+  background-color: #b8fadd;
   border-radius: 15px;
 }
 
-#form_field label {
+#form_field #select {
   position: absolute;
   width: 320px;
   height: 22px;
@@ -178,3 +178,25 @@ html {
   border: hidden;
 }
 /* ---------------**************************------------------------- */
+/* motivation  quote */
+#some_motivation {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 633px;
+  left: 138px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* footer */
+#footer {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 727px;
+  left: 136px;
+  text-align: center;
+}
