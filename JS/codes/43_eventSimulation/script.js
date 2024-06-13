@@ -3,6 +3,7 @@
 const addCardBtn = document.querySelector(".card");
 const container = document.querySelector(".container");
 const input = document.querySelector("input");
+const form = document.querySelector("form");
 
 let count = 1;
 
@@ -39,5 +40,15 @@ addCardBtn.addEventListener("click", () => {
 
 // ----------------------------------------------------------
 // -------------------submit form event----------------------
+
+// submitting the form at 3 second
+
+// setTimeout(() => {
+//   form.submit();
+//   console.log("form submitted");
+// }, 3000);
+
+// ----------------------------------------------------------
+// -------------------resetting form event-------------------
 
 //---------------------**************------------------------
