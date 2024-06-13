@@ -28,7 +28,8 @@ h1 {
     bottom: 33px;
     right: 32px;
     border-radius: 100%;
-    height: 50px;
-    width: 50px;
+    font-size: 80px;
+    height: 90px;
+    width: 90px;
     line-height: 10px;
 }
