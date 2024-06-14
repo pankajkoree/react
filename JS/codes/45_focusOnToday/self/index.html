@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus on Today</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- start of the whole visible area i.e. main-container -->
+    <div class="main-container">
+      <!-- statr of the heading -->
+      <h1 id="main_heading">
+        <!-- main heading a complete phrase i.e. Focus on Today but focus on has different color and today has different so spanning them in two -->
+        <span id="focus_on_heading">Focus on</span>
+        <span id="today_heading">Today</span>
+      </h1>
+      <!-- end of the heading -->
+      <div id="today_container">
+        <div class="sub_today">
+          <h2>Today</h2>
+          <img src="/images/Sun.png" alt="sun image" class="sun" />
+          <p>Raise the bar by completing your goals!</p>
+          <!-- <progress min="0" max="100" class="line"></progress> -->
+          <div class="line"></div>
+          <div id="form_field">
+            <h3 id="select">Please set all the 3 goals!</h3>
+            <div class="input_field_div_1">
+              <input type="radio" id="radio" />
+              <input
+                type="text"
+                placeholder="Add new goal"
+                id="goal_1"
+                name="goal_1"
+              />
+            </div>
+            <div class="input_field_div_2">
+              <input type="radio" id="radio2" />
+              <input
+                type="text"
+                placeholder="Add new goal"
+                id="goal_2"
+                name="goal_2"
+              />
+            </div>
+            <div class="input_field_div_3">
+              <input type="radio" id="radio3" />
+              <input
+                type="text"
+                placeholder="Add new goal"
+                id="goal_3"
+                name="goal_3"
+              />
+            </div>
+          </div>
+        </div>
+        <article id="some_motivation">“Move one step ahead, today!”</article>
+        <footer id="footer">Made with ❤️ by pankaj kori</footer>
+      </div>
+    </div>
+    <!-- end of the main container -->
+  </body>
+</html>

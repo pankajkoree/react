@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #b8fadd;
+}
+
+/* style for the heading i.e. Focus on Today */
+
+#main_heading {
+  position: relative;
+  width: 511px;
+  height: 96px;
+  top: 36px;
+  left: 465px;
+  text-align: center;
+  font-size: 64px;
+}
+
+#focus_on_heading {
+  color: rgb(64, 204, 64);
+}
+#today_heading {
+  color: rgb(83, 40, 40);
+}
+
+/* Style for the Today section where we add three wishlist to do */
+#today_container {
+  position: absolute;
+  width: 660px;
+  height: 810px;
+  top: 179px;
+  left: 390px;
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+#today_container .sub_today h2 {
+  position: absolute;
+  width: 125px;
+  height: 30px;
+  top: 29px;
+  left: 42px;
+  /* this below top and left is from the main container */
+  /* top: 208px;
+  left: 432px; */
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+#today_container .sub_today img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 30px;
+  left: 135px;
+  /* this below top and left is from the main container */
+  /* top: 198px;
+  left: 554px; */
+}
+
+#today_container .sub_today p {
+  position: absolute;
+  width: 320px;
+  height: 28px;
+  top: 105px;
+  left: 44px;
+  /* top: 284px;
+  left: 434px; */
+}
+#today_container .sub_today .line {
+  position: absolute;
+  width: 574px;
+  height: 30px;
+  top: 151px;
+  left: 40px;
+  background-color: #b8fadd;
+  border-radius: 15px;
+}
+
+#form_field #select {
+  position: absolute;
+  width: 320px;
+  height: 22px;
+  top: 190px;
+  left: 40px;
+  color: red;
+  font: arial;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+/* ---------------**************************------------------------- */
+/* input 1 */
+.input_field_div_1 {
+  position: absolute;
+  width: 570px;
+  height: 82px;
+  top: 220px;
+  left: 40px;
+  border: 1px solid black;
+  border-radius: 17px;
+}
+.input_field_div_1 #radio {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 29px;
+  left: 17px;
+}
+.input_field_div_1 #goal_1 {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 25px;
+  left: 60px;
+  border: hidden;
+}
+/* ---------------**************************------------------------- */
+/* input 2 */
+.input_field_div_2 {
+  position: absolute;
+  width: 570px;
+  height: 82px;
+  top: 348px;
+  left: 40px;
+  border: 1px solid black;
+  border-radius: 17px;
+}
+.input_field_div_2 #radio2 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 29px;
+  left: 17px;
+}
+.input_field_div_2 #goal_2 {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 25px;
+  left: 60px;
+  border: hidden;
+}
+/* ---------------**************************------------------------- */
+/* input 3 */
+.input_field_div_3 {
+  position: absolute;
+  width: 570px;
+  height: 82px;
+  top: 476px;
+  left: 40px;
+  border: 1px solid black;
+  border-radius: 17px;
+}
+.input_field_div_3 #radio3 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 29px;
+  left: 17px;
+}
+.input_field_div_3 #goal_3 {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 25px;
+  left: 60px;
+  border: hidden;
+}
+/* ---------------**************************------------------------- */
+/* motivation  quote */
+#some_motivation {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 633px;
+  left: 138px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* footer */
+#footer {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  top: 727px;
+  left: 136px;
+  text-align: center;
+}
