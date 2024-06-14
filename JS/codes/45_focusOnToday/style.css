@@ -21,15 +21,14 @@ html {
   top: 36px;
   left: 465px;
   text-align: center;
-
   font-size: 64px;
 }
 
 #focus_on_heading {
-  color: green;
+  color: rgb(64, 204, 64);
 }
 #today_heading {
-  color: brown;
+  color: rgb(83, 40, 40);
 }
 
 /* Style for the Today section where we add three wishlist to do */
