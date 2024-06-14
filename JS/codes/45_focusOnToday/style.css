@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: #b9cfe8;
   font-family: "Poppins", sans-serif;
@@ -78,6 +81,15 @@ main {
   flex-shrink: 0;
   cursor: pointer;
   /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.completed .check-icon {
+  display: block;
+}
+.check-icon {
+  display: none;
 }
 .goal-input {
   border: none;
@@ -103,6 +115,10 @@ main {
   text-align: center;
   color: #858585;
   margin-top: 64px;
+}
+.completed .custom-checkbox {
+  background-color: #3bce42;
+  border-color: #3bce42;
 }
 /* media query for mobile devices at the screen size of 768px */
 
