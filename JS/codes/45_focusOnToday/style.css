@@ -35,10 +35,55 @@ main {
 .progress-label {
   font-size: 14px;
   color: #858585;
+  margin-bottom: 18px;
 }
 .progress-bar {
   height: 30px;
   background-color: #b9cfe8;
+  border-radius: 15px;
+}
+.progress-value {
+  height: 100%;
+  width: 66.66%;
+  background-color: #3bce42;
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 10px;
+  color: #eeeee8;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.error-label {
+  font-size: 14px;
+  color: red;
+}
+
+.goal-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 17px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  /* padding: 40px 22px; */
+}
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  /* display: inline-block; */
+}
+.goal-input {
+  border: none;
+  outline: none;
+  margin-left: 22px;
+  font-family: inherit;
+  font-size: 16px;
+}
+.goal-input::placeholder {
+  color: #d9d9d9;
 }
 /* media query for mobile devices at the screen size of 768px */
 
