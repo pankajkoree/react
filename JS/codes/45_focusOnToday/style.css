@@ -5,7 +5,7 @@ body {
 }
 
 main {
-  padding: 0 16px;
+  padding: 0 16px 32px;
 }
 .title {
   font-size: 4rem; /* 64px */
@@ -68,24 +68,41 @@ main {
   align-items: center;
   padding: 0 22px;
   /* padding: 40px 22px; */
-  margin-bottom: 46px;
+  margin-bottom: 42px;
 }
 .custom-checkbox {
   width: 24px;
   height: 24px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  flex-shrink: 0;
+  cursor: pointer;
   /* display: inline-block; */
 }
 .goal-input {
   border: none;
   outline: none;
-  margin-left: 22px;
+  padding-left: 22px;
   font-family: inherit;
   font-size: 16px;
+  /* height: 100%; */
+  align-self: stretch;
+  /* flex-grow: 1; */
+  width: 100%;
 }
 .goal-input::placeholder {
   color: #d9d9d9;
+}
+.quote {
+  font-weight: 500;
+  text-align: center;
+}
+.footer {
+  font-weight: 500;
+  font-size: 10px;
+  text-align: center;
+  color: #858585;
+  margin-top: 64px;
 }
 /* media query for mobile devices at the screen size of 768px */
 
@@ -95,5 +112,17 @@ main {
   }
   .app-container {
     padding: 16px 32px;
+  }
+  .goal-container {
+    height: 64px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+  }
+  .custom-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+  .footer {
+    margin-top: 32px;
   }
 }
