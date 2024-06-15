@@ -18,8 +18,27 @@ nameTag.innerText += localStorage.userName;
 const inputValue = document.querySelector(".input-value");
 
 //it sets the value at the time of input
+// inputValue.addEventListener("input", (e) => {
+//   localStorage.nameTag = e.target.value;
+//   nameTag.innerText = localStorage.nameTag;
+// });
+// but its not a good way
+
+// -------------------------------------------------------
+
+nameTag.innerText = localStorage.getItem("userName");
+
 inputValue.addEventListener("input", (e) => {
-  localStorage.inputtedValue = e.target.value;
+  localStorage.setItem("userName", e.target.value);
+  nameTag.innerText = localStorage.userName;
 });
+
+// -------------------------------------------------------
+
+// if we try to access those property which isn't present then there's two case
+
+console.log(localStorage.getItem("age")); //null
+console.log(localStorage.age); //undefined
+// this is the minor difference between these two
 
 // ---------------********************--------------------
