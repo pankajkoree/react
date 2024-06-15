@@ -101,6 +101,7 @@ main {
   align-self: stretch;
   /* flex-grow: 1; */
   width: 100%;
+  font-weight: 500;
 }
 .goal-input::placeholder {
   color: #d9d9d9;
@@ -138,7 +139,13 @@ main {
     width: 20px;
     height: 20px;
   }
+  .completed .goal-input {
+    color: #48a300;
+    text-decoration-line: line-through;
+  }
   .footer {
     margin-top: 32px;
+  }
+  .error-label {
   }
 }
