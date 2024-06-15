@@ -47,7 +47,7 @@ main {
 }
 .progress-value {
   height: 100%;
-  width: 66.66%;
+  width: 0;
   background-color: #3bce42;
   border-radius: 15px;
   font-weight: 500;
@@ -55,6 +55,10 @@ main {
   color: #eeeee8;
   display: flex;
   align-items: center;
+  display: flex;
+  overflow: hidden;
+}
+.progress-value span {
   padding-left: 20px;
 }
 .error-label {
