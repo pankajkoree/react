@@ -63,7 +63,9 @@ main {
   margin-top: 8px;
   display: none;
 }
-
+.show-error .error-label {
+  display: block;
+}
 .goal-container {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 17px;
@@ -140,6 +142,9 @@ main {
   .custom-checkbox {
     width: 20px;
     height: 20px;
+  }
+  .goal-input {
+    margin-left: 10px;
   }
   .completed .goal-input {
     color: #48a300;
