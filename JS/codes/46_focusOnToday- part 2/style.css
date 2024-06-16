@@ -61,6 +61,7 @@ main {
 }
 .progress-value span {
   padding-left: 20px;
+  min-width: max-content;
 }
 .error-label {
   font-size: 12px;

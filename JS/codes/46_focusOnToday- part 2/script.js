@@ -5,6 +5,7 @@ const errorLabel = document.querySelector(".error-label");
 const progressBar = document.querySelector(".progress-bar");
 const progressValue = document.querySelector(".progress-value");
 const progressLabel = document.querySelector(".progress-label");
+const footerQuote = document.querySelector(".quote");
 
 const allQuotes = [
   "Raise the bar by completing your goals!",
@@ -13,7 +14,50 @@ const allQuotes = [
   "Whoa! You just completed all the goals, time for chill :D",
 ];
 
-const allGoals = JSON.parse(localStorage.getItem("allGoals")) || {};
+const footerQuotes = [
+  "“Move one step ahead, today!”",
+  "“Keep Going, You’re making great progress!”",
+  "“Too close, yet too far!”",
+  "“Works paid off!”",
+];
+
+// first way
+// const allGoals = JSON.parse(localStorage.getItem("allGoals")) || {
+//   first: {
+//     name: "",
+//     completed: false,
+//   },
+//   second: {
+//     name: "",
+//     completed: false,
+//   },
+//   third: {
+//     name: "",
+//     completed: false,
+//   },
+// };
+// ----------------------------------------------------
+// second way
+const allGoals = JSON.parse(localStorage.getItem("allGoals")) || {
+  first: {
+    name: "",
+    completed: false,
+  },
+  second: {
+    name: "",
+    completed: false,
+  },
+  third: {
+    name: "",
+    completed: false,
+  },
+};
+
+// ----------------------------------------------------
+// localstorage data for the first time
+// {"first":{"name":"Complete this project by today","completed":true},"second":{"name":"Each and every functionality too","completed":true},"third":{"name":"Styles should be perfect","completed":true}}
+
+// ----------------------------------------------------
 let completedGoalsCount = Object.values(allGoals).filter(
   (goal) => goal.completed
 ).length;
@@ -51,6 +95,9 @@ checkBoxList.forEach((checkbox) => {
       // ------------------------------------------------
       // instructor method
       progressLabel.innerText = allQuotes[completedGoalsCount];
+
+      footerQuote.innerText = footerQuotes[completedGoalsCount];
+
       // i think its the good one
       // ------------------------------------------------
       localStorage.setItem("allGoals", JSON.stringify(allGoals));
