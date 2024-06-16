@@ -38,6 +38,16 @@ logo {
   width: 40px;
 }
 
-logo img {
+img {
   width: 100%;
+}
+.img-container {
+  max-width: 1290px;
+  margin: 0 auto;
+}
+.hero-section {
+  margin-top: 100px;
+}
+main {
+  padding: 0 24px;
 }
