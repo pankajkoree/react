@@ -38,20 +38,7 @@ const footerQuotes = [
 // };
 // ----------------------------------------------------
 // second way
-const allGoals = JSON.parse(localStorage.getItem("allGoals")) || {
-  first: {
-    name: "",
-    completed: false,
-  },
-  second: {
-    name: "",
-    completed: false,
-  },
-  third: {
-    name: "",
-    completed: false,
-  },
-};
+const allGoals = JSON.parse(localStorage.getItem("allGoals")) || {};
 
 // ----------------------------------------------------
 // localstorage data for the first time
@@ -108,23 +95,41 @@ checkBoxList.forEach((checkbox) => {
   });
 });
 inputFields.forEach((input) => {
-  input.value = allGoals[input.id].name;
-  if (allGoals[input.id].completed) {
-    input.parentElement.classList.add("completed");
+  if (allGoals[input.id]) {
+    input.value = allGoals[input.id].name;
+    if (allGoals[input.id].completed) {
+      input.parentElement.classList.add("completed");
+    }
   }
+
   input.addEventListener("focus", () => {
     progressBar.classList.remove("show-error");
   });
 
   input.addEventListener("input", (e) => {
-    if (allGoals[input.id].completed) {
+    if (allGoals[input.id] && allGoals[input.id].completed) {
       input.value = allGoals[input.id].name;
       return;
     }
-    allGoals[input.id] = {
-      name: input.value,
-      completed: false,
-    }; //or e.target.value
+
+    // ----------------------------------------------
+    // my method
+    // allGoals[input.id] = {
+    //   name: input.value,
+    //   completed: false,
+    // }; //or e.target.
+    // ----------------------------------------------
+    // instrcutor method
+
+    if (allGoals[input.id]) {
+      allGoals[input.id].name = input.value;
+    } else {
+      allGoals[input.id] = {
+        name: input.value,
+        completed: false,
+      };
+    }
+    // ----------------------------------------------
     localStorage.setItem("allGoals", JSON.stringify(allGoals));
   });
 });
