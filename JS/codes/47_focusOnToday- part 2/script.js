@@ -7,6 +7,8 @@ const progressValue = document.querySelector(".progress-value");
 const progressLabel = document.querySelector(".progress-label");
 const footerQuote = document.querySelector(".quote");
 const addGoals = document.querySelector(".addGoals");
+const goalContainer = document.querySelector(".goal-container");
+const appContainer = document.querySelector(".app-container");
 
 const allQuotes = [
   "Raise the bar by completing your goals!",
@@ -54,13 +56,37 @@ progressValue.style.width += `${
 }%`;
 progressValue.firstElementChild.innerText = `${completedGoalsCount} / ${inputFields.length} completed`;
 
+const newDiv = document.createElement("div");
+
+addGoals.addEventListener("click", () => {
+  let newInput = ``;
+  newInput += `
+  <div class="goal-container">
+          <div class="custom-checkbox">
+            <img src="./images/tick.svg" class="check-icon" alt="tick mark" />
+          </div>
+          <input
+            type="text"
+            class="goal-input"
+            id="fourth"
+            placeholder="Add new goal"
+          />
+        </div>
+        `;
+  newDiv.innerHTML = newInput;
+  appContainer.append(newDiv);
+  console.log(newInput);
+});
+
 checkBoxList.forEach((checkbox) => {
   checkbox.addEventListener("click", (e) => {
     const allGoalsAdded = [...inputFields].every((input) => {
       return input.value;
     });
+
     if (allGoalsAdded) {
       checkbox.parentElement.classList.toggle("completed");
+
       // progressValue.style.width = "33.33%";
       const inputId = checkbox.nextElementSibling.id;
       allGoals[inputId].completed = !allGoals[inputId].completed;
@@ -136,3 +162,13 @@ inputFields.forEach((input) => {
     localStorage.setItem("allGoals", JSON.stringify(allGoals));
   });
 });
+
+// addGoals.addEventListener("click", () => {
+//   const newInput = document.createElement("div");
+//   const innerNewInput = document.createElement("div");
+//   newInput.classList.add("goal-container");
+//   innerNewInput.classList.add("custom-checkbox");
+//   newInput.append(innerNewInput);
+//   console.log(newInput);
+//   appContainer.append(newInput);
+// });
