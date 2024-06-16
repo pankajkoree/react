@@ -137,7 +137,8 @@ main {
 }
 .addGoals {
   position: relative;
-  left: 38%;
+  left: 50%;
+  transform: translate(-50%);
   height: 40px;
 }
 
@@ -168,5 +169,11 @@ main {
   }
   .footer {
     margin-top: 32px;
+  }
+  .addGoals {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    height: 40px;
   }
 }
