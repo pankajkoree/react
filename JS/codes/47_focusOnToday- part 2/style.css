@@ -135,6 +135,12 @@ main {
   background-color: #3bce42;
   border-color: #3bce42;
 }
+.addGoals {
+  position: relative;
+  left: 38%;
+  height: 40px;
+}
+
 /* media query for mobile devices at the screen size of 768px */
 
 @media (max-width: 768px) {

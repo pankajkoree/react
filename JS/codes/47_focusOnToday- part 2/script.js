@@ -6,6 +6,7 @@ const progressBar = document.querySelector(".progress-bar");
 const progressValue = document.querySelector(".progress-value");
 const progressLabel = document.querySelector(".progress-label");
 const footerQuote = document.querySelector(".quote");
+const addGoals = document.querySelector(".addGoals");
 
 const allQuotes = [
   "Raise the bar by completing your goals!",
@@ -51,9 +52,7 @@ let completedGoalsCount = Object.values(allGoals).filter(
 progressValue.style.width += `${
   (completedGoalsCount / inputFields.length) * 100
 }%`;
-progressValue.firstElementChild.innerText = `${
-  completedGoalsCount / inputFields.length
-} completed`;
+progressValue.firstElementChild.innerText = `${completedGoalsCount} / ${inputFields.length} completed`;
 
 checkBoxList.forEach((checkbox) => {
   checkbox.addEventListener("click", (e) => {
