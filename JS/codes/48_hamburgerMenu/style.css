@@ -94,6 +94,30 @@ main {
   font-size: 24px;
   margin-top: 64px;
 }
+.close-icon {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  display: none;
+}
+.hamburger-menu-container {
+  /* overflow: hidden; */
+  position: relative;
+  /* width: 100px;
+  height: 100px; */
+}
+.hamburger-menu {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  background-color: #fff;
+}
+.hamburger-icon {
+  font-size: 32px;
+}
 /* at max  of 1200px */
 @media (max-width: 1200px) {
   nav a {
@@ -130,18 +154,25 @@ main {
 /* for mobile devices at the max of 768px */
 @media (max-width: 768px) {
   header {
-    background-color: transparent;
+    background-color: #f6f0ebb7;
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
   }
   nav {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.9);
     flex-direction: column;
     right: 24px;
     top: 24px;
     padding: 24px;
+    display: none;
   }
   nav a + a {
     margin: 0 0;
     margin-top: 16px;
+  }
+  .close-icon {
+    display: block;
   }
 }
