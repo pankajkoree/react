@@ -1,9 +1,11 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   background-color: #f6f0eb;
@@ -14,6 +16,7 @@ a {
   text-decoration-line: none;
   color: inherit;
 }
+
 header {
   background-color: #fff;
   padding: 24px 24px;
@@ -23,6 +26,7 @@ nav {
   display: flex;
   /* gap: 60px; */
 }
+
 .header-content {
   max-width: 1290px;
   display: flex;
@@ -30,6 +34,7 @@ nav {
   justify-content: space-between;
   margin: 0 auto;
 }
+
 nav a {
   font-weight: 700;
   font-size: 20px;
@@ -48,13 +53,16 @@ logo {
 img {
   width: 100%;
 }
+
 .img-container {
   max-width: 1290px;
   margin: 0 auto;
 }
+
 .hero-section {
   margin-top: 100px;
 }
+
 main {
   padding: 0 24px;
 }
@@ -64,9 +72,11 @@ main {
   text-align: center;
   font-size: 24px;
 }
+
 .section {
   margin-top: 120px;
 }
+
 .section .img-container {
   max-width: 960px;
 }
@@ -77,6 +87,7 @@ main {
   color: #492118;
   text-align: center;
 }
+
 .go-to-top {
   text-align: right;
   max-width: 960px;
@@ -88,12 +99,14 @@ main {
 .go-to-top a {
   text-decoration-line: underline;
 }
+
 .footer-text {
   text-align: center;
   color: #858585;
   font-size: 24px;
   margin-top: 64px;
 }
+
 .close-icon {
   position: absolute;
   top: 8px;
@@ -101,6 +114,7 @@ main {
   cursor: pointer;
   display: none;
 }
+
 .hamburger-menu-container {
   overflow: hidden;
   position: relative;
@@ -108,6 +122,7 @@ main {
   height: 100px;
   display: none;
 }
+
 .hamburger-menu {
   width: 200px;
   height: 200px;
@@ -116,46 +131,58 @@ main {
   right: -100px;
   background-color: #fff;
   cursor: pointer;
+  position: absolute;
 }
+
 .hamburger-icon {
   font-size: 32px;
   position: absolute;
   left: 40px;
   bottom: 32px;
 }
+
 /* at max  of 1200px */
 @media (max-width: 1200px) {
   nav a {
     font-size: 16px;
   }
+
   nav a + a {
     margin-left: 48px;
   }
+
   header {
     padding: 16px 24px;
   }
 }
+
 /* at max of 960px  */
 @media (max-width: 960px) {
   nav a {
     font-size: 12px;
   }
+
   nav a + a {
     margin-left: 32px;
   }
+
   .hero-section {
     margin-top: 32px;
   }
+
   .section {
     margin-top: 42px;
   }
+
   .hero-section p {
     font-size: 10px;
   }
+
   .section p {
     font-size: 14px;
   }
 }
+
 /* for mobile devices at the max of 768px */
 @media (max-width: 768px) {
   header {
@@ -164,6 +191,7 @@ main {
     position: sticky;
     top: 0;
   }
+
   nav {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.9);
@@ -173,10 +201,12 @@ main {
     padding: 24px;
     display: none;
   }
+
   nav a + a {
     margin: 0 0;
     margin-top: 16px;
   }
+
   .close-icon,
   .hamburger-menu-container {
     display: block;
