@@ -2,17 +2,17 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   background-color: #f6f0eb;
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
-
+.main-content {
+  overflow-x: hidden;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
 a {
   text-decoration-line: none;
   color: inherit;
@@ -222,5 +222,13 @@ main {
   }
   .header-content {
     min-height: 70px;
+  }
+  .go-to-top {
+    font-size: 10px;
+    margin-top: 40px;
+  }
+  .footer-text {
+    font-size: 10px;
+    margin-top: 32px;
   }
 }
