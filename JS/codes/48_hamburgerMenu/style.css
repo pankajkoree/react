@@ -102,10 +102,11 @@ main {
   display: none;
 }
 .hamburger-menu-container {
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
-  /* width: 100px;
-  height: 100px; */
+  width: 100px;
+  height: 100px;
+  display: none;
 }
 .hamburger-menu {
   width: 200px;
@@ -114,9 +115,13 @@ main {
   top: -100px;
   right: -100px;
   background-color: #fff;
+  cursor: pointer;
 }
 .hamburger-icon {
   font-size: 32px;
+  position: absolute;
+  left: 40px;
+  bottom: 32px;
 }
 /* at max  of 1200px */
 @media (max-width: 1200px) {
@@ -172,7 +177,8 @@ main {
     margin: 0 0;
     margin-top: 16px;
   }
-  .close-icon {
+  .close-icon,
+  .hamburger-menu-container {
     display: block;
   }
 }
