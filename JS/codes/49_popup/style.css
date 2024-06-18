@@ -16,7 +16,7 @@ body {
   top: 0;
   left: 0;
 }
-.popup.open {
+.popup-open .popup {
   /* display: block; */
   left: 50%;
   top: 50%;
@@ -30,7 +30,11 @@ body {
   cursor: pointer;
 }
 .overlay {
+  display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup-open .overlay {
+  display: block;
 }
