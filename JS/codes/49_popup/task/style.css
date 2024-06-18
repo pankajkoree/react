@@ -21,6 +21,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* display: none; */
+}
+.sub-main-content.close {
+  display: none;
 }
 .sub-main-content.open {
   display: block;
@@ -66,6 +70,9 @@
   transform: translate(-50%, -50%);
   display: none;
 }
+.popup-main-content.close {
+  display: none;
+}
 .popup-main-content.open {
   display: block;
 }
@@ -76,6 +83,34 @@
   height: 213px;
   left: 50px;
   top: -10%;
+}
+.popup-main-content h2 {
+  position: absolute;
+  width: 270px;
+  height: 52px;
+  font-size: 40px;
+  font-weight: 400;
+  top: 48px;
+  left: 320px;
+}
+.popup-main-content p {
+  position: absolute;
+  width: 289px;
+  height: 23px;
+  font-size: 21px;
+  font-weight: 400;
+  top: 100px;
+  left: 320px;
+}
+.popup-main-content .close-icon {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 40px;
+  top: 20px;
+  font-size: 30px;
+  font-weight: 900;
+  color: #c4def3;
 }
 
 /* ----------------***************------------------ */
