@@ -57,7 +57,7 @@
 
 /* ----------------***************------------------ */
 
-/* --------------------before---------------------- */
+/* --------------------after---------------------- */
 
 .popup-main-content {
   width: 690px;
@@ -92,15 +92,17 @@
   font-weight: 400;
   top: 48px;
   left: 320px;
+  font-family: "Inika";
 }
 .popup-main-content p {
   position: absolute;
   width: 289px;
   height: 23px;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 400;
   top: 100px;
   left: 320px;
+  font-family: "Inika";
 }
 .popup-main-content .close-icon {
   position: absolute;
@@ -121,6 +123,7 @@
   border-radius: 28px;
   top: 240px;
   left: 60px;
+  font-family: "Heebo";
 }
 .input-container .input-field {
   position: absolute;
@@ -142,15 +145,16 @@
   background-color: gold;
   right: 0;
   border-radius: 0px 28px 28px 0px;
+  cursor: pointer;
 }
 .input-container .input-button {
   position: absolute;
   width: 94px;
   height: 26px;
-  top: 20px;
+  top: 16px;
   left: 50px;
   font-size: 18px;
-  color: #fff;
+  color: #eeebeb;
 }
 
 /* ----------------***************------------------ */
