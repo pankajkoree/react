@@ -54,7 +54,7 @@ main {
 .form-container {
   position: absolute;
   width: 320px;
-  height: 200px;
+  height: 350px;
   background-color: #fff;
   top: 32%;
   left: 50%;
@@ -66,7 +66,7 @@ main {
   background-color: aquamarine;
   top: 5%;
   left: 50%;
-  height: 40px;
+  height: 50px;
   transform: translateX(-50%);
 }
 .id-container input {
@@ -91,9 +91,9 @@ main {
   position: absolute;
   width: 310px;
   background-color: rgb(140, 127, 255);
-  top: 35%;
+  top: 25%;
   left: 50%;
-  height: 40px;
+  height: 50px;
   transform: translateX(-50%);
 }
 .password-container input {
@@ -114,4 +114,86 @@ main {
   top: 50%;
   transform: translateY(-50%);
   right: 10px;
+}
+
+.form-container .sign-forget {
+  position: absolute;
+  width: 310px;
+  background-color: rgb(20, 179, 104);
+  top: 45%;
+  left: 50%;
+  height: 50px;
+  transform: translateX(-50%);
+  font-size: 10px;
+}
+
+.sign-forget .sign-in {
+  color: #fff;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #1a1818;
+}
+.sign-in .checkbox {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e6e3e3;
+}
+.sign-in p {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sign-forget .forget {
+  color: #fff;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #c01919;
+}
+.forget .checkbox {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e6e3e3;
+}
+.forget p {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.form-container .button-container {
+  position: absolute;
+  width: 310px;
+  background-color: rgb(20, 179, 104);
+  top: 65%;
+  left: 50%;
+  height: 40px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  background-color: greenyellow;
+}
+.form-container .new-account {
+  position: absolute;
+  width: 310px;
+  background-color: rgb(20, 179, 104);
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  text-align: center;
+  background-color: rgb(85, 47, 255);
 }
