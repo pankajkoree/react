@@ -11,14 +11,14 @@ const popupMainContent = document.querySelector(".popup-main-content");
 //   console.log("clicked");
 // });
 
-button.addEventListener("click", () => {
-  popupMainContent.classList.add("open");
-  subMainContent.classList.remove("open");
-  subMainContent.classList.add("close");
-});
+// button.addEventListener("click", () => {
+//   popupMainContent.classList.add("open");
+//   subMainContent.classList.remove("open");
+//   subMainContent.classList.add("close");
+// });
 
-popupMainContent.addEventListener("click", () => {
-  subMainContent.classList.add("open");
-  popupMainContent.classList.add("close");
-  popupMainContent.classList.remove("open");
-});
+// popupMainContent.addEventListener("click", () => {
+//   subMainContent.classList.add("open");
+//   popupMainContent.classList.add("close");
+//   popupMainContent.classList.remove("open");
+// });
