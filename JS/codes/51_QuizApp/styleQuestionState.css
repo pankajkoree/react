@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Poppins";
+}
+.mainQuestionState {
+  width: 100vw;
+  height: 100vh;
+  background-color: #a2fc9a;
+}
+.header-div {
+  position: absolute;
+  width: 75%;
+  height: 130px;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+}
+
+.header-div .quizTime {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 222px;
+  height: 92px;
+}
+.header-div .questionNumber {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 127px;
+  height: 62px;
+  font-size: 36px;
+  font-weight: 600;
+  background-color: #fec33d;
+}
+.header-div .volume {
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.footerDiv {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  font-size: 10px;
+  text-align: center;
+  top: 920px;
+  left: 50%;
+  transform: translateX(-50%);
+}
