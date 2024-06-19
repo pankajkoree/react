@@ -51,3 +51,67 @@ main {
   width: 50px;
   height: 50px;
 }
+.form-container {
+  position: absolute;
+  width: 320px;
+  height: 200px;
+  background-color: #fff;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.form-container .id-container {
+  position: absolute;
+  width: 310px;
+  background-color: aquamarine;
+  top: 5%;
+  left: 50%;
+  height: 40px;
+  transform: translateX(-50%);
+}
+.id-container input {
+  position: absolute;
+  width: 85%;
+  height: 80%;
+  left: 10px;
+  border: none;
+  outline: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.id-container img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.form-container .password-container {
+  position: absolute;
+  width: 310px;
+  background-color: rgb(140, 127, 255);
+  top: 35%;
+  left: 50%;
+  height: 40px;
+  transform: translateX(-50%);
+}
+.password-container input {
+  position: absolute;
+  width: 85%;
+  height: 80%;
+  left: 10px;
+  border: none;
+  outline: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.password-container img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
