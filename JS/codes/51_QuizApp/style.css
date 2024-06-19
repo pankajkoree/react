@@ -10,17 +10,28 @@ body {
 main {
   width: 100vw;
   height: 100vh;
-  background-color: #963535;
 }
 
 .form-div {
   position: absolute;
   width: 350px;
   height: 550px;
-  background-color: #0baa95;
+  background-color: #74b4ac;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 14px;
+  background: #fc466b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #3f5efb,
+    #fc466b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #3f5efb,
+    #fc466b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .welcome {
@@ -42,7 +53,6 @@ main {
   top: 15%;
   transform: translateX(-50%);
   height: 70px;
-  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +65,6 @@ main {
   position: absolute;
   width: 320px;
   height: 350px;
-  background-color: #fff;
   top: 32%;
   left: 50%;
   transform: translateX(-50%);
@@ -63,11 +72,12 @@ main {
 .form-container .id-container {
   position: absolute;
   width: 310px;
-  background-color: aquamarine;
   top: 5%;
   left: 50%;
   height: 50px;
   transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 10px;
 }
 .id-container input {
   position: absolute;
@@ -90,11 +100,12 @@ main {
 .form-container .password-container {
   position: absolute;
   width: 310px;
-  background-color: rgb(140, 127, 255);
+  background-color: #fff;
   top: 25%;
   left: 50%;
   height: 50px;
   transform: translateX(-50%);
+  border-radius: 10px;
 }
 .password-container input {
   position: absolute;
@@ -119,7 +130,6 @@ main {
 .form-container .sign-forget {
   position: absolute;
   width: 310px;
-  background-color: rgb(20, 179, 104);
   top: 45%;
   left: 50%;
   height: 50px;
@@ -134,7 +144,6 @@ main {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #1a1818;
 }
 .sign-in .checkbox {
   position: absolute;
@@ -144,6 +153,7 @@ main {
   top: 50%;
   transform: translateY(-50%);
   background-color: #e6e3e3;
+  cursor: pointer;
 }
 .sign-in p {
   position: absolute;
@@ -158,7 +168,6 @@ main {
   height: 100%;
   top: 0;
   right: 0;
-  background-color: #c01919;
 }
 .forget .checkbox {
   position: absolute;
@@ -168,6 +177,7 @@ main {
   top: 50%;
   transform: translateY(-50%);
   background-color: #e6e3e3;
+  cursor: pointer;
 }
 .forget p {
   position: absolute;
@@ -184,16 +194,28 @@ main {
   height: 40px;
   transform: translateX(-50%);
   font-size: 10px;
-  background-color: greenyellow;
+  background-color: #ed6478;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+.button-container p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: none;
+  outline: none;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
 }
 .form-container .new-account {
   position: absolute;
   width: 310px;
-  background-color: rgb(20, 179, 104);
   top: 80%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 10px;
   text-align: center;
-  background-color: rgb(85, 47, 255);
+  color: #fff;
+  cursor: pointer;
 }
