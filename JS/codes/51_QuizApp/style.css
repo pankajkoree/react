@@ -12,6 +12,8 @@ main {
   height: 100vh;
 }
 
+/* *****************Initial style of form ************************ */
+
 .form-div {
   position: absolute;
   width: 350px;
@@ -219,3 +221,5 @@ main {
   color: #fff;
   cursor: pointer;
 }
+
+/* **************************************************************** */
