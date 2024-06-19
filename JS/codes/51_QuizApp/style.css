@@ -6,3 +6,48 @@
 body {
   font-family: "Poppins";
 }
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #963535;
+}
+
+.form-div {
+  position: absolute;
+  width: 350px;
+  height: 550px;
+  background-color: #0baa95;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome {
+  position: absolute;
+  width: 100%;
+  line-height: 25px;
+  top: 10px;
+  color: #fff;
+  font-weight: 400;
+}
+.welcome h1 {
+  font-size: 24px;
+  text-align: center;
+}
+.person-icon {
+  position: absolute;
+  width: 70px;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.person-icon img {
+  width: 50px;
+  height: 50px;
+}
