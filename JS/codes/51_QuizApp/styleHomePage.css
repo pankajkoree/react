@@ -37,6 +37,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+.score {
+  position: absolute;
+  width: 251px;
+  height: 36px;
+  top: 800px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: none;
+}
+.score.alreadyPlayed {
+  display: block;
+}
 
 .footerDiv {
   position: absolute;
@@ -44,5 +57,7 @@ body {
   height: 28px;
   font-size: 10px;
   text-align: center;
-  bottom: 0;
+  top: 920px;
+  left: 50%;
+  transform: translateX(-50%);
 }
