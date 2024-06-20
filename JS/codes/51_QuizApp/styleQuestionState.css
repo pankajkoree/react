@@ -16,8 +16,9 @@ html {
   width: 75%;
   height: 130px;
   left: 50%;
-  top: 40px;
+  top: 5%;
   transform: translateX(-50%);
+  background-color: #fff;
 }
 
 .header-div .quizTime {
@@ -44,13 +45,25 @@ html {
   height: 36px;
 }
 
+.question-div {
+  position: absolute;
+  width: 70%;
+  height: 147px;
+  left: 50%;
+  top: 21%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  font-size: 24px;
+}
+
 .footerDiv {
   position: absolute;
   width: 364px;
   height: 28px;
   font-size: 10px;
   text-align: center;
-  top: 920px;
+  top: 910px;
   left: 50%;
+  color: #fff;
   transform: translateX(-50%);
 }
