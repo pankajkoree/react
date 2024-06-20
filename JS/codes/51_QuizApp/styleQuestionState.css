@@ -9,7 +9,8 @@ html {
 .mainQuestionState {
   width: 100vw;
   height: 100vh;
-  background-color: #a2fc9a;
+  /* background-color: #a2fc9a; */
+  background-color: #cce2c2;
 }
 .header-div {
   position: absolute;
@@ -18,7 +19,6 @@ html {
   left: 50%;
   top: 5%;
   transform: translateX(-50%);
-  background-color: #fff;
 }
 
 .header-div .quizTime {
@@ -119,11 +119,34 @@ html {
   top: 80%;
   left: 2%;
 }
-.option-div .options-1 p,
-.option-div .options-2 p,
-.option-div .options-3 p,
-.option-div .options-4 p {
+.option-div .options-1 .text-option1,
+.option-div .options-2 .text-option2,
+.option-div .options-3 .text-option3,
+.option-div .options-4 .text-option4 {
   padding: 0 0 0 15px;
+}
+.choose1,
+.choose2,
+.choose3,
+.choose4 {
+  position: absolute;
+  right: 5%;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.option-div .options-1 .correct,
+.option-div .options-1 .wrong,
+.option-div .options-2 .correct,
+.option-div .options-2 .wrong,
+.option-div .options-3 .correct,
+.option-div .options-3 .wrong,
+.option-div .options-4 .correct,
+.option-div .options-4 .wrong {
+  position: absolute;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .nextButton {
   position: absolute;
