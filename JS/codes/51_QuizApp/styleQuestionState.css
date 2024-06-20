@@ -37,6 +37,10 @@ html {
   font-size: 36px;
   font-weight: 600;
   background-color: #fec33d;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header-div .volume {
   position: absolute;
@@ -162,7 +166,7 @@ html {
   position: absolute;
   width: 364px;
   height: 28px;
-  font-size: 10px;
+  font-size: 16px;
   text-align: center;
   top: 910px;
   left: 50%;
