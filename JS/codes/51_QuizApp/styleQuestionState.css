@@ -13,8 +13,8 @@ html {
 }
 .header-div {
   position: absolute;
-  width: 75%;
-  height: 130px;
+  width: 71%;
+  height: 120px;
   left: 50%;
   top: 5%;
   transform: translateX(-50%);
@@ -48,14 +48,93 @@ html {
 .question-div {
   position: absolute;
   width: 70%;
-  height: 147px;
+  height: 120px;
   left: 50%;
   top: 21%;
   transform: translateX(-50%);
   background-color: #fff;
   font-size: 24px;
+  border-radius: 13px;
+}
+.question-div p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30px;
+}
+.timer {
+  position: absolute;
+  width: 127px;
+  height: 56px;
+  left: 81.5%;
+  top: 35%;
+  transform: translateX(-50%);
+  background-color: #12bb67;
+  font-size: 32px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
+.option-div {
+  position: absolute;
+  width: 70%;
+  height: 350px;
+  top: 42.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  font-size: 32px;
+  border-radius: 7px;
+}
+
+.option-div .options-1,
+.option-div .options-2,
+.option-div .options-3,
+.option-div .options-4 {
+  position: absolute;
+  width: 96%;
+  border-radius: 5px;
+  border: 3px solid #d9d9d9;
+}
+.option-div .options-1 {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+.option-div .options-2 {
+  position: absolute;
+  top: 30%;
+  left: 2%;
+}
+.option-div .options-3 {
+  position: absolute;
+  top: 55%;
+  left: 2%;
+}
+.option-div .options-4 {
+  position: absolute;
+  top: 80%;
+  left: 2%;
+}
+.option-div .options-1 p,
+.option-div .options-2 p,
+.option-div .options-3 p,
+.option-div .options-4 p {
+  padding: 0 0 0 15px;
+}
+.nextButton {
+  position: absolute;
+  width: 75px;
+  height: 36px;
+  font-size: 24px;
+  top: 770px;
+  right: 13%;
+  color: #fff;
+  transform: translateX(-50%);
+}
 .footerDiv {
   position: absolute;
   width: 364px;

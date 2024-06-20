@@ -1,7 +1,7 @@
 const questionArray = [
   [
     "Who is making the web standards?",
-    ["Mozilla", "Microsoft", "The World Wide Web Consortium"],
+    ["Mozilla", "Microsoft", "Google", "The World Wide Web Consortium"],
     "The World Wide Web Consortium",
   ],
   [
