@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins";
+}
+.resultMainDiv {
+  width: 100vw;
+  height: 100vh;
+  background-color: #a53f3f;
+}
+.header {
+  position: absolute;
+  width: 70%;
+  height: 200px;
+  top: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header .quizTime {
+  position: absolute;
+  width: 222px;
+  height: 92px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header .resultP {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 600;
+}
