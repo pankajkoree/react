@@ -139,6 +139,17 @@ html {
   top: 50%;
   transform: translateY(-50%);
 }
+.option-div .options-1 img,
+.option-div .options-2 img,
+.option-div .options-3 img,
+.option-div .options-4 img {
+  position: absolute;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  /* display: none; */
+}
+
 .option-div .options-1 .correct,
 .option-div .options-1 .wrong,
 .option-div .options-2 .correct,
@@ -159,7 +170,8 @@ html {
   font-size: 24px;
   top: 770px;
   right: 13%;
-  color: #fff;
+  color: #07df8c;
+  font-weight: 600;
   transform: translateX(-50%);
 }
 .footerDiv {
