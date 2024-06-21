@@ -34,6 +34,8 @@ main {
     #3f5efb,
     #fc466b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.form-div.close {
   display: none;
 }
 
@@ -245,7 +247,11 @@ main {
     #3f5efb,
     #fc466b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /* display: none; */
+  display: none;
+}
+
+.new_account_form.open {
+  display: block;
 }
 .new_account_heading {
   position: absolute;
@@ -296,4 +302,5 @@ main {
   align-items: center;
   background-color: #fc466b;
   color: #fff;
+  cursor: pointer;
 }
