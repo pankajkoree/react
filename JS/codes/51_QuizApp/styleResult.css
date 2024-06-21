@@ -41,6 +41,7 @@ body {
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
+  font-weight: 600;
 }
 .resultBar .bar {
   position: absolute;
@@ -87,5 +88,67 @@ body {
   position: absolute;
   top: 105px;
   right: -60px;
+  transform: translateX(-50%);
+}
+.score-motivation {
+  position: absolute;
+  width: 70%;
+  height: 48px;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.retry-div {
+  position: absolute;
+  width: 216px;
+  height: 61px;
+  font-size: 26px;
+  font-weight: 600;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #35bd3a;
+  border-radius: 5px;
+  box-shadow: 5px 3px #26a32a;
+  border: 2px solid #2eb432;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.share {
+  position: absolute;
+  width: 250px;
+  height: 90px;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.share p {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 5px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.share .img-list {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 40px;
+  gap: 20px;
+}
+.resultFooter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
   transform: translateX(-50%);
 }
