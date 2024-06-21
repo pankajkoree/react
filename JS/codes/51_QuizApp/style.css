@@ -34,6 +34,7 @@ main {
     #3f5efb,
     #fc466b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: none;
 }
 
 .welcome {
@@ -223,3 +224,76 @@ main {
 }
 
 /* **************************************************************** */
+
+.new_account_form {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 14px;
+  background: #fc466b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #3f5efb,
+    #fc466b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #3f5efb,
+    #fc466b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* display: none; */
+}
+.new_account_heading {
+  position: absolute;
+  width: 100%;
+  height: 36px;
+  top: 20px;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+}
+.input_container {
+  position: absolute;
+  height: 150px;
+  top: 22%;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.input_container .username_id {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  border: none;
+  outline: none;
+  height: 50px;
+  border-radius: 5px;
+}
+.input_container .password_new_account {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.button_div {
+  position: absolute;
+  height: 50px;
+  bottom: 3%;
+  font-size: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fc466b;
+  color: #fff;
+}
