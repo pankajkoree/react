@@ -1,9 +1,10 @@
+const main = document.querySelector("main");
 const newAccount = document.querySelector(".new-account");
 const newAccountForm = document.querySelector(".new_account_form");
 const newAccountButton = document.querySelector(".button_div");
 const formDiv = document.querySelector(".form-div");
-let loginID = document.querySelector("#username_id");
-let loginPWD = document.querySelector("#password");
+let loginID = document.querySelector("#loginID");
+let loginPWD = document.querySelector("#loginPWD");
 const loginLOGIN = document.querySelector(".button-container");
 
 // newAccount opens the new account form
@@ -45,23 +46,23 @@ let userDetailsFromNewAccount = {
 let mainFormLoginID = "";
 let mainFormLoginPWD = "";
 loginID.addEventListener("input", (e) => {
-  mainFormLoginID += e.target.value;
-  return mainFormLoginID;
+  mainFormLoginID = e.target.value;
 });
 loginPWD.addEventListener("input", (e) => {
-  mainFormLoginPWD += e.target.value;
-  return mainFormLoginPWD;
+  mainFormLoginPWD = e.target.value;
+  console.log(mainFormLoginPWD);
 });
 console.log(mainFormLoginID, mainFormLoginPWD);
 
 loginLOGIN.addEventListener("click", () => {
-  // if (
-  //   loginID.value == userDetailsFromNewAccount.userID &&
-  //   loginPWD == userDetailsFromNewAccount.userPassword
-  // ) {
-  //   console.log("Successful");
-  // } else {
-  //   console.log("Wrong user id or password");
-  // }
+  if (
+    mainFormLoginID == userDetailsFromNewAccount.userID &&
+    mainFormLoginPWD == userDetailsFromNewAccount.userPassword
+  ) {
+    console.log("Successful");
+    formDiv.style.display = "none";
+  } else {
+    console.log("Wrong user id or password");
+  }
   console.log(mainFormLoginID, mainFormLoginPWD);
 });
