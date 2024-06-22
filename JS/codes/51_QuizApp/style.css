@@ -34,6 +34,7 @@ main {
     #3f5efb,
     #fc466b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: none;
 }
 .form-div.close {
   display: none;
@@ -308,5 +309,198 @@ main {
   display: none;
 }
 .quizQuestionState {
-  display: none;
+  /* display: none; */
+  justify-content: center;
+}
+
+/*quizQuestion state styling */
+
+.mainQuestionState {
+  width: 900px;
+  height: 100%;
+  /* background-color: #a2fc9a; */
+  /* background-color: #cce2c2; */
+  background-color: #9feabf;
+}
+.mainQuestionState .header-div {
+  position: absolute;
+  width: 71%;
+  height: 120px;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  /* transform: scale(0.95); */
+  background-color: #fff;
+}
+/* 
+.header-div .quizTime {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 222px;
+  height: 92px;
+} */
+
+.quizTime {
+  position: absolute;
+  top: -50%;
+  width: 222px;
+  height: 92px;
+}
+.header-div .questionNumber {
+  position: absolute;
+  top: -30%;
+  right: 0;
+  width: 127px;
+  height: 62px;
+  font-size: 36px;
+  font-weight: 600;
+  background-color: #fec33d;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-div .volume {
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.question-div {
+  position: absolute;
+  width: 70%;
+  height: 120px;
+  left: 50%;
+  top: 21%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  font-size: 24px;
+  border-radius: 13px;
+}
+.question-div p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30px;
+}
+.timer {
+  position: absolute;
+  width: 127px;
+  height: 56px;
+  left: 81.5%;
+  top: 35%;
+  transform: translateX(-50%);
+  background-color: #12bb67;
+  font-size: 32px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.option-div {
+  position: absolute;
+  width: 70%;
+  height: 350px;
+  top: 42.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  font-size: 32px;
+  border-radius: 7px;
+}
+
+.option-div .options-1,
+.option-div .options-2,
+.option-div .options-3,
+.option-div .options-4 {
+  position: absolute;
+  width: 96%;
+  border-radius: 5px;
+  border: 3px solid #d9d9d9;
+}
+.option-div .options-1 {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+.option-div .options-2 {
+  position: absolute;
+  top: 30%;
+  left: 2%;
+}
+.option-div .options-3 {
+  position: absolute;
+  top: 55%;
+  left: 2%;
+}
+.option-div .options-4 {
+  position: absolute;
+  top: 80%;
+  left: 2%;
+}
+.option-div .options-1 .text-option1,
+.option-div .options-2 .text-option2,
+.option-div .options-3 .text-option3,
+.option-div .options-4 .text-option4 {
+  padding: 0 0 0 15px;
+}
+.choose1,
+.choose2,
+.choose3,
+.choose4 {
+  position: absolute;
+  right: 5%;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.option-div .options-1 img,
+.option-div .options-2 img,
+.option-div .options-3 img,
+.option-div .options-4 img {
+  position: absolute;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  /* display: none; */
+}
+
+.option-div .options-1 .correct,
+.option-div .options-1 .wrong,
+.option-div .options-2 .correct,
+.option-div .options-2 .wrong,
+.option-div .options-3 .correct,
+.option-div .options-3 .wrong,
+.option-div .options-4 .correct,
+.option-div .options-4 .wrong {
+  position: absolute;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nextButton {
+  position: absolute;
+  width: 75px;
+  height: 36px;
+  font-size: 24px;
+  top: 770px;
+  right: 13%;
+  color: #07df8c;
+  font-weight: 600;
+  transform: translateX(-50%);
+}
+.footerDiv {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  font-size: 16px;
+  text-align: center;
+  top: 910px;
+  left: 50%;
+  color: #fff;
+  transform: translateX(-50%);
 }

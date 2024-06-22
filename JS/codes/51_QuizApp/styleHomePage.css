@@ -1,6 +1,6 @@
 body {
   font-family: "Poppins";
-  background-color: #fffbeb;
+  background-color: #9feabf;
 }
 .homeMain {
   position: relative;
@@ -30,6 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .score {
   position: absolute;
