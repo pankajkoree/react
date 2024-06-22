@@ -304,3 +304,9 @@ main {
   color: #fff;
   cursor: pointer;
 }
+.quizHomePage {
+  display: none;
+}
+.quizQuestionState {
+  display: none;
+}

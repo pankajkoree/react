@@ -6,6 +6,7 @@ const formDiv = document.querySelector(".form-div");
 let loginID = document.querySelector("#loginID");
 let loginPWD = document.querySelector("#loginPWD");
 const loginLOGIN = document.querySelector(".button-container");
+const quizHomePage = document.querySelector(".quizHomePage");
 
 // newAccount opens the new account form
 newAccount.addEventListener("click", () => {
@@ -20,15 +21,15 @@ const passwordNewAccount = document.querySelector("#password_new_account");
 let iDNewAccount;
 let pwdNewAccount;
 
+// id and password while inputing
 userIDNewAccount.addEventListener("input", (e) => {
   iDNewAccount = e.target.value;
-  console.log(iDNewAccount);
 });
 passwordNewAccount.addEventListener("input", (e) => {
   pwdNewAccount = e.target.value;
-  console.log(pwdNewAccount);
 });
 
+// setting the value from new account to localstorage
 newAccountButton.addEventListener("click", () => {
   newAccountForm.classList.remove("open");
   formDiv.classList.remove("close");
@@ -50,9 +51,10 @@ loginID.addEventListener("input", (e) => {
 });
 loginPWD.addEventListener("input", (e) => {
   mainFormLoginPWD = e.target.value;
-  console.log(mainFormLoginPWD);
 });
 console.log(mainFormLoginID, mainFormLoginPWD);
+
+// checking whether user login credintials
 
 loginLOGIN.addEventListener("click", () => {
   if (
@@ -61,8 +63,10 @@ loginLOGIN.addEventListener("click", () => {
   ) {
     console.log("Successful");
     formDiv.style.display = "none";
+    quizHomePage.style.display = "block";
   } else {
     console.log("Wrong user id or password");
+    alert("please enter correct credentials");
   }
   console.log(mainFormLoginID, mainFormLoginPWD);
 });
