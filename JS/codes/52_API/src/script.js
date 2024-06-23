@@ -76,11 +76,17 @@
 // --------------------------------------------------------------------------
 
 // fetching the data on event
+
+const button = document.querySelector("button");
+
 const image = document.querySelector("img");
-fetch("https://dog.ceo/api/breeds/image/random")
-  .then((response) => response.json())
-  .then((json) => {
-    console.log("Got the data : ");
-    console.log(json.message);
-    image.src = json.message;
-  });
+
+button.addEventListener("click", () => {
+  fetch("https://dog.ceo/api/breeds/image/random")
+    .then((response) => response.json())
+    .then((json) => {
+      console.log("Got the data : ");
+      console.log(json.message);
+      image.src = json.message;
+    });
+});
