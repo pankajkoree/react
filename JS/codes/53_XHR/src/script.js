@@ -127,11 +127,16 @@ button.addEventListener("click", () => {
   // parsing into object before it loads
   xhr.responseType = "json";
 
-  xhr.addEventListener("load", () => {
-    image.src = xhr.response.message;
+  // xhr.addEventListener("load", () => {
+  //   image.src = xhr.response.message;
 
+  //   console.log(xhr);
+  // });
+
+  xhr.onload = () => {
+    image.src = xhr.response.message;
     console.log(xhr);
-  });
+  };
 
   xhr.open("GET", "https://dog.ceo/api/breeds/image/random");
   // xhr.open("GET", "https://httpbin.org/anything");
