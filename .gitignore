@@ -5,3 +5,4 @@ dist/
 .eslintrc.cjs
 videos/
 shortcut_cmd.txt
+cmd.txt
