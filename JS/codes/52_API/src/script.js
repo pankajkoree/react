@@ -63,12 +63,24 @@
 
 // sending the get request to fetch the real data
 
-const image = document.querySelector("img");
+// const image = document.querySelector("img");
 
+// fetch("https://dog.ceo/api/breeds/image/random")
+//   .then((response) => response.json())
+//   .then((json) => {
+//     console.log("Got the data : ");
+//     console.log(json.message);
+//     image.src = json.message;
+//   });
+
+// --------------------------------------------------------------------------
+
+// fetching the data on event
+const image = document.querySelector("img");
 fetch("https://dog.ceo/api/breeds/image/random")
   .then((response) => response.json())
   .then((json) => {
     console.log("Got the data : ");
     console.log(json.message);
-    image.src = JSON.message;
+    image.src = json.message;
   });
