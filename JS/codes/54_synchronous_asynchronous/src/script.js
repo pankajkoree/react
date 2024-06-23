@@ -169,3 +169,33 @@
 // });
 
 // --------------------------------------------------------------------------
+
+// doing like this gives warning as : Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/ .
+
+const blockButton = document.querySelector(".blocking-btn");
+const button = document.querySelector(".button");
+const image = document.querySelector("img");
+
+button.addEventListener("click", () => {
+  const xhr = new XMLHttpRequest();
+
+  console.log(xhr);
+  // console.log(xhr.response);
+
+  // xhr.responseType = "json";
+
+  xhr.addEventListener("load", () => {
+    // image.src = JSON.parse(xhr.response).message;
+    // console.log(xhr.response);
+    console.log(xhr);
+  });
+
+  // xhr.open("GET", "https://dog.ceo/api/breeds/image/random", false);
+
+  xhr.open(
+    "GET",
+    "https://6wrlmkp9u2.execute-api.us-east-1.amazonaws.com/?sleep=4000"
+  );
+
+  xhr.send();
+});
