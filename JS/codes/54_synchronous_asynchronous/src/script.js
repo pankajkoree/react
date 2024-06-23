@@ -118,27 +118,52 @@
 // --------------------------------------------------------------------------
 // again using dog api to update DOM
 
-const image = document.querySelector("img");
-const button = document.querySelector("button");
+// const image = document.querySelector("img");
+// const button = document.querySelector("button");
 
-button.addEventListener("click", () => {
-  const xhr = new XMLHttpRequest();
+// button.addEventListener("click", () => {
+//   const xhr = new XMLHttpRequest();
 
-  // parsing into object before it loads
-  xhr.responseType = "json";
+//   // parsing into object before it loads
+//   xhr.responseType = "json";
 
-  // xhr.addEventListener("load", () => {
-  //   image.src = xhr.response.message;
+//   // xhr.addEventListener("load", () => {
+//   //   image.src = xhr.response.message;
 
-  //   console.log(xhr);
-  // });
+//   //   console.log(xhr);
+//   // });
 
-  xhr.onload = () => {
-    image.src = xhr.response.message;
-    console.log(xhr);
-  };
+//   xhr.onload = () => {
+//     image.src = xhr.response.message;
+//     console.log(xhr);
+//   };
 
-  xhr.open("GET", "https://dog.ceo/api/breeds/image/random");
-  // xhr.open("GET", "https://httpbin.org/anything");
-  xhr.send();
+//   xhr.open("GET", "https://dog.ceo/api/breeds/image/random");
+//   // xhr.open("GET", "https://httpbin.org/anything");
+//   xhr.send();
+// });
+
+// synchronous uses main thread but async doesn't
+// async gives its code to browser for working on those code so that it can do other work till that time
+
+// --------------------------------------------------------------------------
+
+// alert("hello");
+
+// --------------------------------------------------------------------------
+
+// blocking the main thread using while loop
+// this will block the other thing while this loop runs which block the code
+const blockButton = document.querySelector("button");
+
+blockButton.addEventListener("click", () => {
+  const startTime = Date.now();
+
+  let currentTime = startTime;
+  let i = 1;
+
+  while (startTime + 10000 > currentTime) {
+    currentTime = Date.now();
+    console.log(Date.now());
+  }
 });
