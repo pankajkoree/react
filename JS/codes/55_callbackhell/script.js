@@ -32,7 +32,16 @@ makeHTTPRequest("GET", "https://dummyjson.com/users", (data) => {
     "GET",
     `https://dummyjson.com/posts/user/${data.users[0].id}`,
     (data) => {
-      console.log("posts : ", data);
+      console.log("posts : ", data.posts[0].id);
+      makeHTTPRequest(
+        "GET",
+        `https://dummyjson.com/comments/post/user/${data.posts[0].id}`,
+        (commentData) => {
+          console.log(commentData);
+        }
+      );
     }
   );
+
+  //   making such triangle shape, is callbackhell, which means, we fetch something with other fetch, which gets nested, this is the reason why "promises" was introduced
 }); // this is how we send request on data
