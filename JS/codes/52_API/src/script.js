@@ -75,7 +75,7 @@
 
 // --------------------------------------------------------------------------
 
-// fetching the data on event
+// fetching the data on event , API used : DOG API
 
 const button = document.querySelector("button");
 
