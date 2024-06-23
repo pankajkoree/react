@@ -9,4 +9,30 @@
 
 // ----------------------------------------------------
 
-const prom = new Promise(() => {});
+// const prom = new Promise((resolved, rejected) => {
+//   //   resolved(); //if we dont passanything here, the promiseResult will be undefined, so lets pass something
+
+//   resolved({ hi: "uk" }); // here as we pass the object, the type will be object
+// });
+
+// ---------------------------------------------------------
+
+// lets reject something too
+
+// const prom = new Promise((resolved, rejected) => {
+//   rejected("promise rejected");
+// });
+
+// but we are doing all these things instantly
+
+// ---------------------------------------------------------
+
+const resolvedButton = document.querySelector("#resolveButton");
+
+const p = new Promise((resolved, rejected) => {
+  resolvedButton.addEventListener("click", () => {
+    resolved("pk");
+  });
+});
+
+// here, the functionality is that, we make the pending to be fulfilled by clicking button
