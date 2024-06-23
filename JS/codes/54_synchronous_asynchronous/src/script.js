@@ -190,7 +190,7 @@ button.addEventListener("click", () => {
     console.log(xhr);
   });
 
-  // xhr.open("GET", "https://dog.ceo/api/breeds/image/random", false);
+  // xhr.open("GET", "https://dog.ceo/api/breeds/image/random", false); it's not recommended to use false, coz of user experience, user won't be able to do anything
 
   xhr.open(
     "GET",
