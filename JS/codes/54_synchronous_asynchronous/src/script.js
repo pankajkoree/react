@@ -154,16 +154,18 @@
 
 // blocking the main thread using while loop
 // this will block the other thing while this loop runs which block the code
-const blockButton = document.querySelector("button");
 
-blockButton.addEventListener("click", () => {
-  const startTime = Date.now();
+// const blockButton = document.querySelector("button");
 
-  let currentTime = startTime;
-  let i = 1;
+// blockButton.addEventListener("click", () => {
+//   const startTime = Date.now();
 
-  while (startTime + 10000 > currentTime) {
-    currentTime = Date.now();
-    console.log(Date.now());
-  }
-});
+//   let currentTime = startTime;
+
+//   while (startTime + 10000 > currentTime) {
+//     currentTime = Date.now();
+//     console.log(Date.now());
+//   }
+// });
+
+// --------------------------------------------------------------------------
