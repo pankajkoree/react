@@ -43,19 +43,63 @@ const p = new Promise((resolved, rejected) => {
 // ---------------------------------------------------------
 
 // then accepts a callback function which means what would be the next when promise would be resolved
-p.then((data) => {
-  console.log(data);
-})
-  .catch((error) => {
-    // catch also accepts a callback function which tells what would be next when promise is rejected
-    console.log(error);
-  })
-  .finally(() => {
-    console.log("Finally"); // will be executed either its resolve or rejected
-  });
+// p.then((data) => {
+//   console.log(data);
+// })
+//   .catch((error) => {
+//     // catch also accepts a callback function which tells what would be next when promise is rejected
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     console.log("Finally"); // will be executed either its resolve or rejected
+//   });
 
 // callback comes under microtask queue
 // the priority of microtask queue is greater than callback queue, which makes it be executed first
 // promise settled is a state when promise isn't pending, it can either be resolved or rejected, and then finally it runs
+
+// ---------------------------------------------------------
+// P2's result will be undefined coz we aren't returing anything
+// const p2 = p
+//   .then((data) => {
+//     console.log(data); //but it will print the resolved value which is up in the resolved section
+//   })
+//   .then((data) => {
+//     console.log(data); //so on this too undefined
+//   })
+//   .then((data) => {
+//     console.log(data); //so on this too undefined
+//   });
+
+// ---------------------------------------------------------
+
+// checking whether we can add then in catch too or not
+
+// const p2 = p
+//   .then((data) => {
+//     console.log(data); //but it will print the resolved value which is up in the resolved section
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .then(() => {
+//     console.log("hi");
+//   });
+
+// its possible to add .then after the catch too
+
+// ---------------------------------------------------------
+// catch also return a promise, which grows the shape horizontally not vertically, which resolves the problem of callback hell
+
+const p2 = p
+  .then((data) => {
+    console.log(data); //but it will print the resolved value which is up in the resolved section
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .then(() => {
+    console.log("hi");
+  });
 
 // ---------------------------------------------------------
