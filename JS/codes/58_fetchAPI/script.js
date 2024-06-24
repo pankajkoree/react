@@ -60,3 +60,29 @@
 //   .then(console.log);
 
 // ----------------------------------------------------------
+// function makeFetchRequest(url) {
+//     return fetch(url)
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//       });
+//   }
+
+//   makeFetchRequest("https://dummyjson.com/users")
+//     .then(usersData => {
+//       return makeFetchRequest(`https://dummyjson.com/posts/user/${usersData.users[0].id}`);
+//     })
+//     .then(postsData => {
+//       return makeFetchRequest(`https://dummyjson.com/comments/post/${postsData.posts[0].id}`);
+//     })
+//     .then(commentsData => {
+//       return makeFetchRequest(`https://dummyjson.com/users/${commentsData.comments[0].user.id}`);
+//     })
+//     .then(userData => {
+//       console.log(userData);
+//     })
+//     .catch(error => {
+//       console.error('Error:', error);
+//     });
