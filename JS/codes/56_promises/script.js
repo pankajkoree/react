@@ -45,7 +45,11 @@ const p = new Promise((resolved, rejected) => {
 // then accepts a callback function which means what would be the next when promise would be resolved
 p.then((data) => {
   console.log(data);
-}).catch((error) => {
-  // catch also accepts a callback function which tells what would be next when promise is rejected
-  console.log(error);
-});
+})
+  .catch((error) => {
+    // catch also accepts a callback function which tells what would be next when promise is rejected
+    console.log(error);
+  })
+  .finally(() => {
+    console.log("Finally"); // will be executed either its resolve or rejected
+  });
