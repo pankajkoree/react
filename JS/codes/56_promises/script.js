@@ -53,3 +53,9 @@ p.then((data) => {
   .finally(() => {
     console.log("Finally"); // will be executed either its resolve or rejected
   });
+
+// callback comes under microtask queue
+// the priority of microtask queue is greater than callback queue, which makes it be executed first
+// promise settled is a state when promise isn't pending, it can either be resolved or rejected, and then finally it runs
+
+// ---------------------------------------------------------
