@@ -28,11 +28,24 @@
 // ---------------------------------------------------------
 
 const resolvedButton = document.querySelector("#resolveButton");
-
+const rejectedButton = document.querySelector("#rejectButton");
 const p = new Promise((resolved, rejected) => {
   resolvedButton.addEventListener("click", () => {
-    resolved("pk");
+    resolved("Promise resolved");
+  });
+  rejectedButton.addEventListener("click", () => {
+    rejected("Promise rejected");
   });
 });
 
 // here, the functionality is that, we make the pending to be fulfilled by clicking button
+
+// ---------------------------------------------------------
+
+// then accepts a callback function which means what would be the next when promise would be resolved
+p.then((data) => {
+  console.log(data);
+}).catch((error) => {
+  // catch also accepts a callback function which tells what would be next when promise is rejected
+  console.log(error);
+});
