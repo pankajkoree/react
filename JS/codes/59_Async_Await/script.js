@@ -50,6 +50,30 @@
 
 // rejecting a promise using async
 
+// async function makeRequest() {
+//   throw new Error("error occurred");
+// }
+
+// --------------------------------------------------------
+
+//getting the data after 5 seconds of delay
+
 async function makeRequest() {
-  throw new Error("error occurred");
+  setTimeout(async () => {
+    const url = "https://dummyjson.com/users";
+
+    const responsePromise = await fetch(url); // await returns the result of the fetch
+
+    console.log(responsePromise);
+
+    console.log("hi");
+  }, 5000);
+
+  //   responsePromise.then((res) => res.json());
 }
+
+// this makes the code to behave like synchronous code, which means code will be executed line by line
+// if we'd used then, the hi would have run before the resonse comes
+// but its actually an asynchronous code
+
+makeRequest();
