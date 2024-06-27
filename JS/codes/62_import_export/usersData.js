@@ -1861,3 +1861,19 @@ const usersData = [
 ];
 
 export { usersData }; //named export
+
+// exporting a function
+
+export default function getFirstUser() {
+  return usersData[0];
+}
+
+// function can be exported with both way
+
+// --------------------------------------------------------
+
+// but we can't export two things as default as:
+// export default abc
+// export default xyz
+// it will throw the error
+// we need to export them in line for default export
