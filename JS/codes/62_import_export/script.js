@@ -73,3 +73,11 @@
 // console.log(user);
 
 // ---------------------------------------------------------
+
+// before this hi, another console value from import will get printed
+// why
+// thats because it gives first priority to imported things,and anything in imported will gets executed first so, this will be printed after
+
+console.log("hi");
+
+import { usersData } from "./usersData.js"; //named import

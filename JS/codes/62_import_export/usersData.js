@@ -1868,6 +1868,8 @@ export default function getFirstUser() {
   return usersData[0];
 }
 
+console.log("heeee");
+
 // function can be exported with both way
 
 // --------------------------------------------------------
