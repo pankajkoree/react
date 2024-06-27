@@ -44,3 +44,32 @@
 // console.log(user);
 
 // ---------------------------------------------------------
+
+// without defer attribute, accessing this will have a null value
+// const h1 = document.querySelector("h1");
+// console.log(h1);
+
+// ---------------------------------------------------------
+
+//but when we add type="module" defer gets automatically included
+// const h1 = document.querySelector("h1");
+// console.log(h1);
+
+// ---------------------------------------------------------
+// when we declare something without const, let , var, it gets declared in global scope
+// but we shouldn't use like this
+// so we use 'use strict'
+// and when we add 'use strict' in top of script, it thorws error
+// user = "hii";
+
+// console.log(user);
+
+// ---------------------------------------------------------
+// but when we use type="module", it automatically adds 'use strict'
+// in this case, it throws error as : ReferenceError: user is not defined
+
+// user = "hii";
+
+// console.log(user);
+
+// ---------------------------------------------------------
