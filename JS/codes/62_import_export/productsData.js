@@ -575,4 +575,4 @@ const productsData = [
   },
 ];
 
-export default productsData;
+export default productsData; // in default export case we can't export it from above line as : export default const productsData, it will throw error as : SyntaxError: Unexpected token 'const' (at productsData.js:1:16)
