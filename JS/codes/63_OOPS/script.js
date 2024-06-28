@@ -23,6 +23,8 @@ const user = {
   },
 };
 
+// ---------------------------------------------------------
+
 // factory function - so that we don't need to repeat the code
 
 function createUser(firstName, lastName, age) {
