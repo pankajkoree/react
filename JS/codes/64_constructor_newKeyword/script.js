@@ -113,6 +113,9 @@ function createUser(firstName, lastName, age) {
   this.lastName = lastName;
   this.age = age;
 }
+
+// but its good that we declare constrcutor function using Capital letter
+
 // this get resided into protoytpe
 createUser.prototype.getAgeYear = function () {
   return new Date().getFullYear() - this.age;
