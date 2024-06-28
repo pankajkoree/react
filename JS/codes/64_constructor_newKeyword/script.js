@@ -1,30 +1,55 @@
+// function getAgeYear() {
+//   return new Date().getFullYear() - user.age;
+// }
+
+// function createUser(firstName, lastName, age) {
+//   const user = {
+//     firstName,
+//     lastName,
+//     age,
+//     getAgeYear,
+//   };
+//   return user;
+// }
+
+// const user1 = createUser("Pk", "l", 22);
+// const user2 = createUser("Pk", "l", 22);
+
+// const a1 = [1, 2];
+// const a2 = [3, 4];
+
+// a1.pop === a2.pop;
+
+// solving its memory address problem using different approach
+
+// ---------------------------------------------------------
+
+// without using constructor function   - 1st way
+// changing user.age to this.age
+// this normally points to window object but when used with some other,it points to that
+
+function getAgeYear() {
+  return new Date().getFullYear() - this.age;
+}
+
 function createUser(firstName, lastName, age) {
   const user = {
-    // a trick, if the key name and property name are same, we dont need to write them as key:value pair, just writing key will work
-    firstName: firstName,
-    lastName: lastName,
-    age: age,
-    getAgeYear() {
-      return new Date().getFullYear() - user.age;
-    },
+    firstName,
+    lastName,
+    age,
+    getAgeYear,
   };
   return user;
 }
 
 const user1 = createUser("Pk", "l", 22);
-const user2 = createUser("Pk", "l", 22);
-
-// user1.getAgeYear === user2.getAgeYear()
-// comparing these two gives a drawback of storage, which means the things are same but still they are being stored in different places
-
-// ---------------------------------------------------------
-
-//  so to solve it we have a constructor functions
-
-// ---------------------------------------------------------
+const user2 = createUser("Ak", "m", 23);
 
 const a1 = [1, 2];
 const a2 = [3, 4];
 
 a1.pop === a2.pop;
-// this array functions comparision gives the result as true so this means the address of both of them are one
+
+// user1.getAgeYear === user2.getAgeYear
+// here this comparision gives true result, which means their memory address are same
+// but it also means the polymorphism, which means that have more than one form
