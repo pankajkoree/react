@@ -87,26 +87,39 @@
 // above logic is good, but the problem is we need to write extra code , so we have another logic as below:
 // ---------------------------------------------------------
 
-function createUser(firstName, lastName, age) {
-  const user = {
-    firstName,
-    lastName,
-    age,
-    getAgeYear: createUser.commonMethods.getAgeYear,
-  };
-  return user;
-}
+// function createUser(firstName, lastName, age) {
+//   const user = {
+//     firstName,
+//     lastName,
+//     age,
+//   };
+//   return user;
+// }
 
-createUser.commonMethods = {
-  getAgeYear() {
-    return new Date().getFullYear() - this.age;
-  },
+// const user1 = createUser("Pk", "l", 22);
+// const user2 = createUser("Ak", "m", 23);
+
+// function sayHi() {
+//   console.log(this);
+// }
+
+// this new keyword, automatically returns a object
+// console.log(new sayHi());
+
+// ---------------------------------------------------------
+
+function createUser(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+// this get resided into protoytpe
+createUser.prototype.getAgeYear = function () {
+  return new Date().getFullYear() - this.age;
 };
 
-const user1 = createUser("Pk", "l", 22);
-const user2 = createUser("Ak", "m", 23);
+const user1 = new createUser("Pk", "l", 22);
+const user2 = new createUser("Ak", "m", 23);
 
-const a1 = [1, 2];
-const a2 = [3, 4];
-
-a1.pop === a2.pop;
+// accessing the prototype of user1
+// user1.__proto__
