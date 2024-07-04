@@ -51,18 +51,46 @@
 // bubbling - inside out
 // capturing - outside in
 
-const mainDiv = document.querySelector(".main-div");
-const childDiv = document.querySelector(".child-div");
-const grandChildDiv = document.querySelector(".grand-child");
+// const mainDiv = document.querySelector(".main-div");
+// const childDiv = document.querySelector(".child-div");
+// const grandChildDiv = document.querySelector(".grand-child");
 
-grandChildDiv.addEventListener("click", () => {
-  console.log("grandchild clicked");
-});
+// grandChildDiv.addEventListener("click", () => {
+//   console.log("grandchild clicked");
+// });
 
-childDiv.addEventListener("click", () => {
-  console.log("child clicked");
-});
+// childDiv.addEventListener("click", () => {
+//   console.log("child clicked");
+// });
 
-mainDiv.addEventListener("click", () => {
-  console.log("mainDiv clicked");
-});
+// mainDiv.addEventListener("click", () => {
+//   console.log("mainDiv clicked");
+// });
+
+// -------------------------------------------------------
+
+// const user1 = {
+//   name: "John",
+//   age: 29,
+//   address: {
+//     city: "mumbai",
+//     state: "MH",
+//   },
+// };
+
+// const user2 = user1;
+
+// user2.name = "PK";
+
+// -------------------------------------------------------
+
+let arr = [0, 1, 2, 3, 4, 5];
+
+console.log(
+  arr
+    .filter((arrValue) => arrValue < 3)
+    .map((filterdValuetoMap) => filterdValuetoMap + 2)
+    .reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0)
+);
