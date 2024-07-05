@@ -121,5 +121,8 @@ const user = {
     isGraduate: false,
   };
 
+// this will freeze a single property of the object
+Object.defineProperties(user,{firstName:{writable:false}})
 
-user.age.define();
+
+// -------------------------------------------------------
