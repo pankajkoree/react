@@ -84,13 +84,42 @@
 
 // -------------------------------------------------------
 
-let arr = [0, 1, 2, 3, 4, 5];
+// let arr = [0, 1, 2, 3, 4, 5];
 
-console.log(
-  arr
-    .filter((arrValue) => arrValue < 3)
-    .map((filterdValuetoMap) => filterdValuetoMap + 2)
-    .reduce((accumulator, currentValue) => {
-      return accumulator + currentValue;
-    }, 0)
-);
+// console.log(
+//   arr
+//     .filter((arrValue) => arrValue < 3)
+//     .map((filterdValuetoMap) => filterdValuetoMap + 2)
+//     .reduce((accumulator, currentValue) => {
+//       return accumulator + currentValue;
+//     }, 0)
+// );
+
+// -------------------------------------------------------
+
+
+// console.log(a1);    // undefined
+// console.log(b1);    // error
+// var a1 = b1 = 5;
+
+
+// -------------------------------------------------------
+
+const user = {
+    firstName: "Adarsh",
+    lastName: "Singh",
+    location: {
+      city: "Bangalore",
+      pinCode: 876876,
+      state: "Karnataka",
+      moreDetails: {
+        population: 368763478,
+        area: "787 sq km",
+      },
+    },
+    age: 15,
+    isGraduate: false,
+  };
+
+
+user.age.define();
