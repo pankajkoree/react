@@ -139,7 +139,6 @@ fruits.forEach((fruit) => {
     li.innerText = fruit
     ul.append(li)
 })
-
 document.body.append(ul)
 
 
