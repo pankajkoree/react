@@ -97,32 +97,50 @@
 
 // -------------------------------------------------------
 
-
 // console.log(a1);    // undefined
 // console.log(b1);    // error
 // var a1 = b1 = 5;
 
+// -------------------------------------------------------
+
+// const user = {
+//     firstName: "Adarsh",
+//     lastName: "Singh",
+//     location: {
+//       city: "Bangalore",
+//       pinCode: 876876,
+//       state: "Karnataka",
+//       moreDetails: {
+//         population: 368763478,
+//         area: "787 sq km",
+//       },
+//     },
+//     age: 15,
+//     isGraduate: false,
+//   };
+
+// // this will freeze a single property of the object
+// Object.defineProperties(user,{firstName:{writable:false}})
 
 // -------------------------------------------------------
 
-const user = {
-    firstName: "Adarsh",
-    lastName: "Singh",
-    location: {
-      city: "Bangalore",
-      pinCode: 876876,
-      state: "Karnataka",
-      moreDetails: {
-        population: 368763478,
-        area: "787 sq km",
-      },
-    },
-    age: 15,
-    isGraduate: false,
-  };
+// DOM manipulation
 
-// this will freeze a single property of the object
-Object.defineProperties(user,{firstName:{writable:false}})
+const fruits = ["apple", "mango", "banana", "grapes"];
+const ul = document.createElement("ul")
+// for(let i=0;i<4;i++){
+//     const li = document.createElement('li')
+//     li.innerText = fruits[i]
+//     ul.append(li)
+// }
+
+fruits.forEach((fruit) => {
+    const li = document.createElement('li')
+    li.innerText = fruit
+    ul.append(li)
+})
+
+document.body.append(ul)
 
 
 // -------------------------------------------------------
