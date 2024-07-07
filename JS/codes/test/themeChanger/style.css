@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 5px;
+}
+.gray,
+.pink,
+.red,
+.green,
+.purple {
+  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+}
+.gray {
+  background-color: gray;
+}
+.pink {
+  background: pink;
+}
+.red {
+  background: red;
+}
+.green {
+  background: green;
+}
+.purple {
+  background: purple;
+}
