@@ -6,7 +6,7 @@
 
 ### index.html
 
-```JavaScript
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +28,7 @@
 
 ### style.css
 
-``` 
+```css
 * {
   margin: 0;
   padding: 0;
@@ -65,6 +65,17 @@ body{
 .purple {
   background: purple;
 }
+```
 
+
+### script.js
+```javascript
+const buttons = document.querySelectorAll("button")
+
+buttons.forEach((button) => {
+    button.addEventListener('click',(e) => {
+        document.body.style.backgroundColor = e.target.className
+    })
+})  
 
 ```
