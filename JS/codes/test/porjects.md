@@ -1,4 +1,4 @@
-### JavaScript Projects
+# JavaScript Projects
 
 # Project 1 : Theme Changer
 
