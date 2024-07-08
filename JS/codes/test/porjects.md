@@ -79,3 +79,90 @@ buttons.forEach((button) => {
 })  
 
 ```
+
+# Project 2 : BMI Calculator
+
+## Solution Code
+
+### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI calculator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>BMI calculator</h1>
+    <form action="">
+      <label for="weight">Weight : </label
+      ><input type="text" placeholder="enter the weight in kg" id="weight" />
+      <br>
+      <br>
+      <label for="height">Height : </label
+      ><input type="text" placeholder="enter the height in cm" id="height" />
+      
+      <br>
+      <br>
+
+      <button id="calcBMI">Calculate BMI</button>
+    </form>
+    <p class="bmiValue"></p>
+    <p class="range"></p>
+    <div id="weight-guide">
+      <h3>BMI Weight Guide</h3>
+      <p>Under Weight = Less than 18.6</p>
+      <p>Normal Range = 18.6 and 24.9</p>
+      <p>Overweight = Greater than 24.9</p>
+    </div>
+  </body>
+</html>
+```
+
+### style.css
+```css
+body {
+  font-family: Poppins;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%); 
+  text-align: center;
+}
+form input{
+    width: 250px;
+    height: 20px;
+}
+#calcBMI{
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+#weight-guide{
+    position: absolute;
+    top: 300px;
+}
+```
+### script.js
+``` js
+const button = document.querySelector("#calcBMI");
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+  let weight = parseInt(document.querySelector("#weight").value);
+  let height = parseInt(document.querySelector("#height").value);
+  const bmiValue = document.querySelector(".bmiValue");
+  const range = document.querySelector(".range");
+  const calcValue = (weight / ((height * height) / 10000)).toFixed(2);
+ 
+  range.innerText = calcValue<18.6 ? "Underweight": (calcValue>24.9? "Overweight":"Normal")
+  bmiValue.innerText = (weight / ((height * height) / 10000)).toFixed(2);
+});
+```

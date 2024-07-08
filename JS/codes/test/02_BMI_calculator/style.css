@@ -1,0 +1,22 @@
+body {
+  font-family: Poppins;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%); 
+  text-align: center;
+}
+
+form input{
+    width: 250px;
+    height: 20px;
+}
+#calcBMI{
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+
+#weight-guide{
+    position: absolute;
+    top: 300px;
+}
