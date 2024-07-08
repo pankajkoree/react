@@ -166,3 +166,62 @@ button.addEventListener("click", (e) => {
   bmiValue.innerText = (weight / ((height * height) / 10000)).toFixed(2);
 });
 ```
+
+# Project 3 : Digital Clock
+
+## Solution Code
+
+### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="clock"></div>
+  </body>
+</html>
+```
+
+### style.css
+```css
+*{
+    margin: 0;
+    padding: 0;
+}
+.clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 32px;
+    color: #fff;
+    border-radius: 10px;
+}
+```
+
+```js
+const clock = document.querySelector(".clock");
+
+setInterval(() => {
+  let time = new Date();
+  clock.innerText = time.toLocaleTimeString();
+}, 1000);
+```
