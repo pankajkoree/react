@@ -76,20 +76,45 @@ console.log(dayOfWeek(5));
 // task 5: program that uses switch case to assign the grade ("A","B","C","D","E") based on score and log the result
 
 const grade = (num) => {
-  switch (num) {
-    case 0 - 49:
+  switch (true) {
+    case num <= 49:
       return `F Grade`;
-    case 50 - 59:
+    case num <= 59:
       return "E Grade";
-    case 60 - 69:
+    case num <= 69:
       return "D Grade";
-    case 70 - 79:
+    case num <= 79:
       return "C Grade";
-    case 80 - 89:
+    case num <= 89:
       return "B Grade";
-    case 90 - 100:
+    case num <= 100:
       return "A Grade";
     default:
       return "Invalid number";
   }
 };
+
+console.log(grade(100));
+console.log(grade(49));
+
+// task 6: program to use the ternary operator to check if number is even or odd and log the result
+
+const evenOrOdd = (num) => `${num} is ${num % 2 == 0 ? "Even" : "Odd"}`;
+
+console.log(evenOrOdd(-4));
+console.log(evenOrOdd(8));
+console.log(evenOrOdd(5));
+
+// task 7: program to check if a year is leap and log the result
+const isLeapYear = (year) => {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return `${year} is a leap year`;
+  } else {
+    return `${year} isn't a leap year`;
+  }
+};
+
+console.log(isLeapYear(2000));
+console.log(isLeapYear(1700));
+console.log(isLeapYear(2024));
+console.log(isLeapYear(1921));
