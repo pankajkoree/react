@@ -58,25 +58,25 @@ progressValue.firstElementChild.innerText = `${completedGoalsCount} / ${inputFie
 
 const newDiv = document.createElement("div");
 
-addGoals.addEventListener("click", () => {
-  let newInput = ``;
-  newInput += `
-  <div class="goal-container">
-          <div class="custom-checkbox">
-            <img src="./images/tick.svg" class="check-icon" alt="tick mark" />
-          </div>
-          <input
-            type="text"
-            class="goal-input"
-            id="fourth"
-            placeholder="Add new goal"
-          />
-        </div>
-        `;
-  newDiv.innerHTML = newInput;
-  appContainer.append(newDiv);
-  console.log(newInput);
-});
+// addGoals.addEventListener("click", () => {
+//   let newInput = ``;
+//   newInput += `
+//   <div class="goal-container">
+//           <div class="custom-checkbox">
+//             <img src="./images/tick.svg" class="check-icon" alt="tick mark" />
+//           </div>
+//           <input
+//             type="text"
+//             class="goal-input"
+//             id="fourth"
+//             placeholder="Add new goal"
+//           />
+//         </div>
+//         `;
+//   newDiv.innerHTML = newInput;
+//   appContainer.append(newDiv);
+//   console.log(newInput);
+// });
 
 checkBoxList.forEach((checkbox) => {
   checkbox.addEventListener("click", (e) => {
