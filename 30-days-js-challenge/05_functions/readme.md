@@ -1,3 +1,12 @@
+# 30 Days JS Challenge - Day 5
+
+## Topic : Functions
+
+### Solution Code
+
+### script.js
+
+```js
 // task 1: function to check if a number is even or odd and log the result.
 console.log("<-------------task 1----------------->");
 function evenOrOdd(num) {
@@ -94,3 +103,4 @@ function hofWithTwoFun(firstFunction, secondFunction, num) {
   return secondFunction(fn1, 3);
 }
 console.log(hofWithTwoFun(firstFunction, secondFunction, 5));
+```
