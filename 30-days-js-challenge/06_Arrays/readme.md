@@ -1,3 +1,11 @@
+# 30 Days JS Challenge - Day 6
+## Topic : Arrays
+
+### Solution Code:
+
+### script.js
+
+```js
 // task 1: Create an array of numbers from 1 to 5 and log to the console
 console.log("<--------------task 1---------------->");
 const array1 = [1, 2, 3, 4, 5];
@@ -95,3 +103,4 @@ const accessedElementFromMatrix = (row, column) => {
   return matrix2D[row][column];
 };
 console.log(accessedElementFromMatrix(1, 3));
+```
