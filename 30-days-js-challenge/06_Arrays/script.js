@@ -68,3 +68,30 @@ console.log("<--------------task 9---------------->");
 const reducedArray = array1.reduce((acc, curr) => {
   return acc + curr;
 }, 0);
+
+// task 10: use a for loop to iterate over the array and log each element to the console
+console.log("<--------------task 10---------------->");
+for (let i = 0; i < array1.length; i++) {
+  console.log("Array Element : ", array1[i]);
+}
+
+// task 11: use the forEach method to iterate over the array and log the each element to the console
+
+console.log("<--------------task 11---------------->");
+
+array1.forEach((element) => console.log(element));
+
+// task 12: create a two-dimensional array(matrix) and log the entire array to the console
+console.log("<--------------task 12---------------->");
+const matrix2D = [
+  [21, 22, 23, 24, 25],
+  [31, 32, 33, 34, 35],
+];
+console.log(matrix2D);
+
+// task 13: access and log a specific element from the two-dimensional array
+console.log("<--------------task 13---------------->");
+const accessedElementFromMatrix = (row, column) => {
+  return matrix2D[row][column];
+};
+console.log(accessedElementFromMatrix(1, 3));
