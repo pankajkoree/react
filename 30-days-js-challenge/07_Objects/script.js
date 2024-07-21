@@ -30,7 +30,7 @@ book.updateYear = (year) => {
 };
 book.updateYear(1995);
 
-console.log(book);
+// console.log(book);
 
 // task 5: create a nested object representing a library with properties like name and book(an array of book objects), and log the library object
 console.log("<------------task 5--------------->");
@@ -38,7 +38,7 @@ book.library = {
   name: "libraryOfBooks",
   booksTitle: ["Chemistyr", "Maths", "Python", "DBMS"],
 };
-console.log(book.library);
+// console.log(book.library);
 
 // task 6: access and log the name of the library and the titles of all the books in the library
 console.log("<------------task 6--------------->");
@@ -53,7 +53,7 @@ console.log("<------------task 7--------------->");
 book.thisMethod = () => {
   return `Title of book is ${book.title} and year is ${book.year}`;
 };
-console.log(book.thisMethod());
+// console.log(book.thisMethod());
 
 // task 8: use a for...in loop to iterate over the properties of the book object and log each property and its value
 console.log("<------------task 8--------------->");
