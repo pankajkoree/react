@@ -6,3 +6,5 @@ dist/
 videos/
 shortcut_cmd.txt
 cmd.txt
+package.json
+package-lock.json
