@@ -24,17 +24,13 @@ import * as t5object from "./task5.js";
 
 console.log(t5object.a);
 
-// // importing loadsh modules for task 6
-// const _ = require('lodash');
 
-// const arr = [1, 2, 3];
-// const doubled = _.map(arr, x => x * 2);
-// console.log(doubled);
-
+// task 6:
 const arr = [1, 2, 3];
 const doubled = _.map(arr, (x) => x * 2);
 console.log(doubled);
 
+// task 7:
 // Define the URL you want to fetch data from
 const url = "https://dummyjson.com/posts";
 
