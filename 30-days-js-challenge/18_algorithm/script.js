@@ -138,4 +138,85 @@ function findLongestUniqueSubstring(str) {
 }
 findLongestUniqueSubstring("philinthropist");
 
-// task 8:
+// task 8: rotate an array by k
+function rotateArray(arr, k) {
+  const n = arr.length;
+  k = k % n;
+  const rotatedArray = arr.slice(-k).concat(arr.slice(0, -k));
+  console.log("Rotated array:", rotatedArray);
+}
+
+rotateArray([1, 2, 3, 4, 5, 6, 7], 3);
+
+// task 9: merge two sorted array
+function mergeSortedArrays(arr1, arr2) {
+  let mergedArray = [];
+  let i = 0,
+    j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      mergedArray.push(arr1[i]);
+      i++;
+    } else {
+      mergedArray.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    mergedArray.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    mergedArray.push(arr2[j]);
+    j++;
+  }
+  console.log("Merged array:", mergedArray);
+  return mergedArray;
+}
+mergeSortedArrays([1, 3, 5, 7], [2, 4, 6, 8]);
+
+// task 10: fibonacci sequence using DP
+function fibonacci(n) {
+  if (n <= 0) {
+    console.log([]);
+    return [];
+  } else if (n === 1) {
+    console.log([0]);
+    return [0];
+  }
+  const fib = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  console.log(fib);
+  return fib;
+}
+
+fibonacci(10);
+
+// task 11: knapsack problem using DP
+function knapsack(weights, values, capacity) {
+  const n = weights.length;
+  const dp = Array(n + 1)
+    .fill(0)
+    .map(() => Array(capacity + 1).fill(0));
+  for (let i = 1; i <= n; i++) {
+    for (let w = 0; w <= capacity; w++) {
+      if (weights[i - 1] <= w) {
+        dp[i][w] = Math.max(
+          values[i - 1] + dp[i - 1][w - weights[i - 1]],
+          dp[i - 1][w]
+        );
+      } else {
+        dp[i][w] = dp[i - 1][w];
+      }
+    }
+  }
+  console.log("Maximum value:", dp[n][capacity]);
+  return dp[n][capacity];
+}
+
+const weights = [2, 3, 4, 5];
+const values = [3, 4, 5, 6];
+const capacity = 5;
+knapsack(weights, values, capacity);
