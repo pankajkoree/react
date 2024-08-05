@@ -96,6 +96,14 @@ body {
     margin-top: -6px;
 }
 
+.fiveDay{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+}
+
 /* .weather{
     display: none;
 } *Thank you for your business! We look forward to working with you again.
+ */
