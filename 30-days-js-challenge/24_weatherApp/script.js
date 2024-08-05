@@ -69,11 +69,10 @@ function fetchForecastData(city) {
     .catch((error) => console.error("Error fetching forecast data:", error));
 }
 
-fetchForecastData("raipur")
-
+fetchForecastData("raipur");
 
 searchCityButton.addEventListener("click", () => {
   const getCityName = cityInput.value;
   checkWeather(getCityName);
-  fetchForecastData(getCityName)
+  fetchForecastData(getCityName);
 });
