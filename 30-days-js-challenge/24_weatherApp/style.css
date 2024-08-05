@@ -57,7 +57,7 @@ body {
 }
 
 .weather-icon{
-    width: 170px;
+    width: 100px;
     margin-top: 30px;
 }
 
@@ -96,12 +96,25 @@ body {
     margin-top: -6px;
 }
 
-.fiveDay{
+.forecast{
+    /* background-color: #00feba; */
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    gap: 50px;
     top: 30px;
+    text-align: center;
+    font-size: 24px;
 }
+.forecast div{
+    position: relative;
+    width: 350px;
+    height: 200px;
+    max-width: 350px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    border-radius: 25px;
+}
+
 
 /* .weather{
     display: none;

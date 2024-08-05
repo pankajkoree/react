@@ -38,17 +38,42 @@ async function checkWeather(city) {
     weatherName.textContent = weatherName.value;
   }
   console.log(weatherType);
+}
+checkWeather("raipur");
 
-  const fiveDayResponse = await fetch(fiveDayURL + city + `&appid=${apiKey} `);
-
-  const fiveDayJSOn = await fiveDayResponse.json();
-
-  console.log(fiveDayJSOn);
+function fetchForecastData(city) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      const forecastContainer = document.querySelector(".forecast");
+      forecastContainer.innerHTML = ""; // Clear previous forecast
+      data.list.forEach((forecast, index) => {
+        if (index % 8 === 0) {
+          // Display forecast for every 24 hours
+          const forecastElement = document.createElement("div");
+          forecastElement.innerHTML = `
+                  <p>Date : ${new Date(
+                    forecast.dt * 1000
+                  ).toLocaleDateString()}</p>
+                  <img src="images/cloudy.png" alt="weather Image" width="50px" height="50px">
+                  <p>Temperature : ${forecast.main.temp}°C</p>
+                  <p>Weather : ${forecast.weather[0].description} 
+          </p>
+                `;
+          forecastContainer.appendChild(forecastElement);
+        }
+      });
+    })
+    .catch((error) => console.error("Error fetching forecast data:", error));
 }
 
-checkWeather("raipur");
+fetchForecastData("raipur")
+
 
 searchCityButton.addEventListener("click", () => {
   const getCityName = cityInput.value;
   checkWeather(getCityName);
+  fetchForecastData(getCityName)
 });
