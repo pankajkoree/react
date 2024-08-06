@@ -296,12 +296,14 @@ img {
 }
 
 .btn1{
-    
   width: 50px;
   height: 70px;
   margin-left: 10px;
-  
-  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+}
+.btn1:hover{
+  cursor: pointer;
 }
 
 .btn1 .fa-solid{
@@ -332,4 +334,40 @@ margin-top: 20px;
 
 .card p{
   margin-top: 20px;
+}
+.getMoreInfo{
+  margin-left: 5px;
+  font-size: 24px;
+  border-radius: 10px;
+}
+.getMoreInfo:hover{
+  cursor: pointer;
+}
+
+.newCard{
+  position: relative;
+  display: none;
+  background-color: #d4aa11;
+  max-width: 350px;
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.newCard .newCardPlot{
+  margin-top: 10px;
+}
+
+.newCard .newCardActors{
+  margin-top: 20px;
+}
+
+.newCard .newCardDirector{
+  margin-top: 20px;
+}
+.cardSection{
+  position: relative;
+  display: flex;
+  gap: 50px;
 }
