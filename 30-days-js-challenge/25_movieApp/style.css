@@ -371,3 +371,32 @@ margin-top: 20px;
   display: flex;
   gap: 50px;
 }
+
+@media only screen and (max-width: 480px) {
+  #searchMovieH3{
+    position: relative;
+    color: green;
+    top: 10px;
+  }
+  #movie-search-box{
+    position: relative;
+    margin-left: -10px;
+    max-width: 80%;
+    border-radius: 10px;
+  }
+  #btn1{
+    position: relative;
+    top: -45px;
+    right: -230px;
+    width: 50px;
+    height: 45px;
+    background-color: #fff;
+    color: green;
+  }
+  #btn2{
+    position: relative;
+    top: -30px;
+    left: 60px;
+    width: 160px;
+  }
+}
