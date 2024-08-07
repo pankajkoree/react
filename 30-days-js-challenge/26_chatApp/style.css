@@ -36,11 +36,10 @@ span {
 }
 
 .feild {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
-  margin-top: 400px;
 }
 .input-feild {
   font-family: "Inter", sans-serif;
@@ -52,6 +51,8 @@ span {
   font-weight: bold;
   background-color: #e2e2b6;
   color: #53585c;
+  margin-top: 5px;
+  margin-left:25px;
 }
 .btn1 {
   padding: 10px;
@@ -60,4 +61,12 @@ span {
   background-color: #e2e2b6;
   font-weight: bold;
   color: #53585c;
+}
+#messageBlock{
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background-color: aqua;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
 }
