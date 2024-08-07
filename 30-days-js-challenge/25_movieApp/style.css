@@ -229,40 +229,22 @@ img {
   margin: 1rem 0.7rem 0 0;
 }
 
-@media (max-width: 450px) {
-  .logo p {
-    font-size: 1.4rem;
+@media only screen and (max-width: 450px) {
+  #movie-search-box {
+    position: relative;
+    border-radius: 10px;
+    width: 80%;
+    height: 45px;
   }
-  .search-element .form-control {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-  }
-  .search-element h3 {
-    font-size: 1.4rem;
-  }
-  .search-list {
-    width: 90%;
-    right: 50%;
-    -webkit-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    transform: translateX(50%);
-  }
-  .search-list .search-list-item {
-    width: 100%;
-  }
-  .movie-misc-info {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .movie-misc-info li:nth-child(2) {
-    margin: 0.8rem 0;
+  #btn1 {
+    position: relative;
+    width: 50px;
+    height: 45px;
+    margin-left: 40px;
   }
 }
 
-@media (min-width: 800px) {
+@media  (min-width: 800px) {
   .search-element {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -295,24 +277,24 @@ img {
   }
 }
 
-.btn1{
+.btn1 {
   width: 50px;
   height: 70px;
   margin-left: 10px;
   border-radius: 10px;
   font-size: 24px;
 }
-.btn1:hover{
+.btn1:hover {
   cursor: pointer;
 }
 
-.btn1 .fa-solid{
+.btn1 .fa-solid {
   font-size: larger;
   color: #171717;
   border-radius: 5px;
 }
 
-.card{
+.card {
   position: relative;
   background-color: #d4aa11;
   max-width: 350px;
@@ -322,69 +304,69 @@ img {
   justify-content: center;
   align-items: center;
 }
-.card h1{
-  font-size: 24px
+.card h1 {
+  font-size: 24px;
 }
-.card img{
+.card img {
   width: 200px;
   height: 250px;
-margin-left: 50px;
-margin-top: 20px;
-}
-
-.card p{
+  margin-left: 50px;
   margin-top: 20px;
 }
-.getMoreInfo{
+
+.card p {
+  margin-top: 20px;
+}
+.getMoreInfo {
   margin-left: 5px;
   font-size: 24px;
   border-radius: 10px;
 }
-.getMoreInfo:hover{
+.getMoreInfo:hover {
   cursor: pointer;
 }
 
-.newCard{
+.newCard {
   position: relative;
   display: none;
   background-color: #d4aa11;
   max-width: 350px;
   width: 300px;
-  height: 350px;
+  height: 300px;
   text-align: center;
   justify-content: center;
   align-items: center;
 }
-.newCard .newCardPlot{
+.newCard .newCardPlot {
   margin-top: 10px;
 }
 
-.newCard .newCardActors{
+.newCard .newCardActors {
   margin-top: 20px;
 }
 
-.newCard .newCardDirector{
+.newCard .newCardDirector {
   margin-top: 20px;
 }
-.cardSection{
+.cardSection {
   position: relative;
   display: flex;
   gap: 50px;
 }
 
-@media only screen and (max-width: 480px) {
-  #searchMovieH3{
+@media only screen and (max-width: 480px){
+  #searchMovieH3 {
     position: relative;
     color: green;
     top: 10px;
   }
-  #movie-search-box{
+  #movie-search-box {
     position: relative;
     margin-left: -10px;
     max-width: 80%;
     border-radius: 10px;
   }
-  #btn1{
+  #btn1 {
     position: relative;
     top: -45px;
     right: -230px;
@@ -393,10 +375,29 @@ margin-top: 20px;
     background-color: #fff;
     color: green;
   }
-  #btn2{
+  #btn2 {
     position: relative;
     top: -30px;
     left: 60px;
     width: 160px;
   }
+  .cardSection {
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  .cardSection .card {
+    position: relative;
+    width: 90%;
+    left: 40px;
+    border-radius: 10px;
+  }
+  .cardSection .newCard {
+    position: relative;
+    width: 90%;
+    left: 40px;
+    border-radius: 10px;
+  }
 }
+@
