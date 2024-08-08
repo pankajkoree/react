@@ -25,7 +25,6 @@ const countDigits = (n) => {
   let countArray = String(n).split("");
   return countArray.length;
 };
-
 console.log(countDigits(34252));
 
 // palindrome number
@@ -68,3 +67,31 @@ var missingNumber = function (nums) {
   return (nums.length * (nums.length + 1)) / 2 - sum;
 };
 console.log(missingNumber([3, 0, 1]));
+
+// find element in array
+const findElement = (arr, target) => {
+  for (let i of arr) {
+    if (i === target) {
+      return true;
+    }
+  }
+  return false;
+};
+console.log(findElement([45, 76, 89, 23, 66, 90], 23));
+console.log(findElement("elephant", "h"));
+
+// find element Index
+const findElementIndex = (arr, target) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === target) {
+      return i;
+    }
+  }
+  return -1;
+};
+console.log(findElementIndex([45, 76, 89, 23, 66, 90], 23));
+console.log(findElementIndex("elephant", "h"));
+
+console.log("elephant".indexOf("a"));// this line is the prebuilt method of above code
+
+console.log([3,4,6,8,9].splice(2,2))  // splice -> 1st parameter = position,2nd = count
