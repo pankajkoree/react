@@ -42,17 +42,29 @@ var palindromeNumber = function (x) {
 console.log(palindromeNumber(121));
 
 // fibonacci number using simple loop if don't know recursion
-var fibonacciNumber = function(n) {
-    // without recursion
-    if(n<2){
-        return n
-    }
-    let previous = 0,current =1,next
-    for(let i=2;i<=n;i++){
-        next = previous + current
-        previous = current
-        current = next
-    }
-    return next
+var fibonacciNumber = function (n) {
+  // without recursion
+  if (n < 2) {
+    return n;
+  }
+  let previous = 0,
+    current = 1,
+    next;
+  for (let i = 2; i <= n; i++) {
+    next = previous + current;
+    previous = current;
+    current = next;
+  }
+  return next;
 };
 console.log(fibonacciNumber(5));
+
+// missing number
+var missingNumber = function (nums) {
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+  return (nums.length * (nums.length + 1)) / 2 - sum;
+};
+console.log(missingNumber([3, 0, 1]));
