@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: "Poppins";
+}
+#taskMgmtApp {
+  position: relative;
+  width: 100vw;
+}
+#heading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#form-container {
+  position: absolute;
+  left: 100px;
+  width: 30%;
+  height: 440px;
+  top: 50px;
+  background-color: #0f7a8f;
+  color: #fff;
+  border-radius: 15px;
+}
+#taskDetailsEntry {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#headingForForm{
+  position: relative;
+  text-align: center;
+}
+#taskDetailsEntry #title,
+#taskDetailsEntry #description,
+#taskDetailsEntry #dueDate,
+#taskDetailsEntry #addTask {
+  width: 250px;
+  height: 40px;
+}
+#taskDetailsEntry #addTask{
+  background-color: #279a16;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+}

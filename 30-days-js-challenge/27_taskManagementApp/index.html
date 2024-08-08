@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <section id="taskMgmtApp">
+      <h1 id="heading">Task Management App</h1>
+      <section id="form-container">
+        <form id="taskDetailsEntry">
+          <h2 id="headingForForm">Task Details Entry</h2>
+          <label for="title">Title : </label><br />
+          <input type="text" id="title" placeholder="enter task title" />
+          <br /><br />
+          <label for="description">Description : </label><br />
+          <input
+            type="text"
+            id="description"
+            placeholder="enter task description"
+          />
+          <br /><br />
+          <label for="dueDate">Due Date : </label><br />
+          <input type="date" id="dueDate" />
+          <br /><br />
+          <button id="addTask">Add Task</button>
+        </form>
+      </section>
+      <section id="task-container">
+        <!-- task goes here -->
+      </section>
+    </section>
+  </body>
+</html>
