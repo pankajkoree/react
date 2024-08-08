@@ -6,6 +6,9 @@ const taskContainer = document.querySelector("#task-container");
 const dataHeading = document.querySelector("#headingForForm");
 let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
 let taskToUpdateIndex = null;
+if (taskList.values.length == 0) {
+  taskContainer.style.display = "none";
+}
 
 function renderTasks() {
   taskContainer.innerHTML = "";
@@ -52,6 +55,7 @@ function renderTasks() {
 
 addTask.addEventListener("click", (e) => {
   e.preventDefault();
+  taskContainer.style.display = "block";
   if (title.value && description.value && dueDate.value) {
     const updatedTask = {
       title: title.value,
