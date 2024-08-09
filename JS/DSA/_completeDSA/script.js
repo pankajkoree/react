@@ -138,3 +138,20 @@ const reverseArray = (arr) => {
   return arr;
 };
 console.log(reverseArray(arrayToReverse2));
+
+var twoSum = function (nums, target) {
+  let indices = [];
+  for (let i = 0; i < nums.length; i++) {
+    let remainingValue = target - nums[i];
+    for (let j = 0; j < indices.length; j++) {
+      if (indices[j][0] === remainingValue) {
+        return [indices[j][1], i];
+      }
+    }
+    indices.push([nums[i], i]);
+  }
+  return -1;
+};
+console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum([3, 2, 4], 6));
+console.log(twoSum([3, 3], 6));
