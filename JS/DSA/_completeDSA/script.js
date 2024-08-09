@@ -92,6 +92,49 @@ const findElementIndex = (arr, target) => {
 console.log(findElementIndex([45, 76, 89, 23, 66, 90], 23));
 console.log(findElementIndex("elephant", "h"));
 
-console.log("elephant".indexOf("a"));// this line is the prebuilt method of above code
+console.log("elephant".indexOf("a")); // this line is the prebuilt method of above code
 
-console.log([3,4,6,8,9].splice(2,2))  // splice -> 1st parameter = position,2nd = count
+console.log([3, 4, 6, 8, 9].splice(2, 2)); // splice -> 1st parameter = position,2nd = count
+
+const isArrayEqual = (arr1, arr2) => {
+  // if (arr1.length !== arr2.length) {
+  //   return false;
+  // }
+  // for (let i = 0; i < arr1.length; i++) {
+  //   if (arr1[i] !== arr2[i]) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+
+  // another method
+  return (
+    arr1.length === arr2.length &&
+    arr1.every((element, i) => arr1[i] === arr2[i])
+  );
+};
+
+console.log(isArrayEqual([2, 3, 4], [2, 6]));
+console.log(isArrayEqual([1, 2, 3], [1, 2, 4]));
+console.log(isArrayEqual([1, 2, 3], [1, 2, 3]));
+
+// sorting number in ascending order
+const arrayToSort = [3, 6, 1, -6, 4];
+console.log(arrayToSort.sort()); // ascending order
+console.log(arrayToSort.sort((a, b) => b - a)); // desending order
+
+// reversing the array
+const arrayToReverse = [3, 6, 1, -6, 4];
+console.log(arrayToReverse.reverse());
+
+// without using built in functions
+const arrayToReverse2 = [3, 6, 1, -6, 4];
+const reverseArray = (arr) => {
+  for (let i = 0; i < arr.length / 2; i++) {
+    let temp = arr[i];
+    arr[i] = arr[arr.length - 1 - i];
+    arr[arr.length - 1 - i] = temp;
+  }
+  return arr;
+};
+console.log(reverseArray(arrayToReverse2));
