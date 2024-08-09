@@ -1,3 +1,5 @@
+import apiKey from "./apis.js";
+
 let card = document.querySelector(".card");
 let movieTitle = document.querySelector(".movieTitle");
 let moviePoster = document.querySelector(".movieImage");
@@ -7,7 +9,6 @@ let searchButton = document.querySelector(".btn1");
 let getMoreInfo = document.querySelector(".getMoreInfo");
 let newSection = document.querySelector(".newCard");
 
-const apiKey = "ded916aa";
 const apiUrl = "https://www.omdbapi.com/?i=tt3896198";
 
 async function getMovieDetails(movieName) {
