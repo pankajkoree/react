@@ -39,6 +39,14 @@ body {
 .nav-links a:hover {
   color: #ff9800;
 }
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
 .card {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -54,9 +62,9 @@ body {
   transform: scale(1.05);
 }
 
-.images {
-  width: 40%;
-  height: auto;
+.card img {
+  width: 80px;
+  height: 80px;
   border-radius: 8px;
   margin-bottom: 0px;
 }

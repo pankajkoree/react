@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cartStyle.css" />
+    <script src="cartScript.js" type="module"></script>
+  </head>
+  <body>
+    <div class="cart-container">
+      <h1>Your Shopping Cart</h1>
+      <div class="cart-items">
+        <!-- Cart item example -->
+        <div class="cart-item">
+          <img src="" alt="Product Image" class="cart-item-image" />
+          <div class="cart-item-details">
+            <h2 class="cart-item-title">Product Title</h2>
+            <p class="cart-item-price">$19.99</p>
+            <div class="cart-item-quantity">
+              <button class="quantity-btn1">-</button>
+              <input type="number" value="1" class="quantity-input" />
+              <button class="quantity-btn2">+</button>
+            </div>
+            <button class="remove-btn">Remove</button>
+          </div>
+        </div>
+        <!-- Repeat .cart-item for each product in the cart -->
+      </div>
+      <div class="cart-summary">
+        <h2>Cart Summary</h2>
+        <p>Total Items: <span class="total-items">0</span></p>
+        <p>Total Price: <span class="total-price">$0</span></p>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </body>
+</html>
