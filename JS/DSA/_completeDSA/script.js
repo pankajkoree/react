@@ -156,8 +156,30 @@ console.log(twoSum([2, 7, 11, 15], 9));
 console.log(twoSum([3, 2, 4], 6));
 console.log(twoSum([3, 3], 6));
 
-let str = "HELLO HOW ARE YOU DOING"
+let str = "HELLO HOW ARE YOU DOING";
 console.log(str.toLocaleLowerCase());
 console.log(str);
 console.log(str.toLowerCase());
 console.log(str);
+
+// index of the first occurance of the string
+var strStr = function (haystack, needle) {
+  // using builtin methods
+  // return haystack.indexOf(needle)
+
+  // another solution
+  if (needle === "") return -1;
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    let j = 0;
+    while (j < needle.length && haystack[i + j] === needle[j]) {
+      j++;
+    }
+    if (j === needle.length) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+console.log(strStr("leetcode", "leeto"));
+console.log(strStr("sadbutsad", "sad"));
