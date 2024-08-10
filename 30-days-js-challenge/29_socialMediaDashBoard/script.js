@@ -19,9 +19,10 @@ signUp.addEventListener("click", (e) => {
   data.userpauserPassword = userPassword;
   const result = {
     userName: userName,
-    userName: userName,
+    userEmail: userEmail,
     userPassword: userPassword,
   };
+
   data.push(result);
-  console.log(data);
+localStorage.setItem("data", JSON.stringify(result));
 });
