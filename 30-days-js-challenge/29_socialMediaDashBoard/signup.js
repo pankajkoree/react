@@ -24,5 +24,9 @@ signUp.addEventListener("click", (e) => {
   };
 
   data.push(result);
-localStorage.setItem("data", JSON.stringify(result));
+  localStorage.setItem("data", JSON.stringify(result));
+  name.value = " ";
+  email.value = " ";
+  password.value = " ";
+  alert("succesfully signedup...");
 });
