@@ -214,11 +214,15 @@
 
 // longest common prefix
 var longestCommonPrefix = function (strs) {
-  
   for (let i = 0; i < strs.length; i++) {
-    console.log(strs[i]);
-    console.log(strs[i+]);
+    for (let j = 0; j < strs[i].length; j++) {
+      if (strs[i + 1].includes(strs[i][j])) {
+        while(strs.length){
+          if(strs[i].includes(strs[i][j])) return true
+        }
+      }
     }
-    return false;
+  }
+  return false;
 };
-longestCommonPrefix(["flower", "flow", "flight"]);
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));
