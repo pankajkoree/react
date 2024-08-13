@@ -1,4 +1,7 @@
+import "./style.css";
+
 function Card(key) {
+
   return (
     <div className="card" key={key}>
       <img
