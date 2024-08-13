@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   max-width: 250px;
   border: 1px solid red;
   border-radius: 8px;
@@ -8,9 +9,11 @@
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   margin-left: 10px;
+  margin-bottom: 10px;
 }
 .card img {
-  width: 100%;
+  width: 200px;
+  height: 200px;
 }
 .card h3,
 p {
@@ -27,7 +30,7 @@ p {
   gap: 12px;
   justify-content: space-between;
 }
-#root {
+#all {
   position: relative;
   display: flex;
 }

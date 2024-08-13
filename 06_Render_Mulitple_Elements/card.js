@@ -1,18 +1,20 @@
 import "./style.css";
 
-function Card(key) {
+
+
+function Card(key,imageURL,category,heading,price) {
 
   return (
     <div className="card" key={key}>
       <img
-        src="https://www.cnet.com/a/img/resize/b81ab3684470df1e57cf2523ef3a7d888c0cbff7/hub/2023/09/18/031f45e3-d1b7-490d-8765-af47213b5093/iphone15-pro-79.jpg?auto=webp&fit=crop&height=576&width=768"
+        src={imageURL}
         alt="iphone image"
       />
       <div className="card-content">
-        <h3>Iphone 13</h3>
-        <p>Apple</p>
+        <h3>{heading}</h3>
+        <p>{category}</p>
         <p>
-          <b>₹ 599</b>
+          <b>${price}</b>
         </p>
       </div>
     </div>
