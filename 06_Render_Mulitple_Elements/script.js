@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import "./style.css"
+import "./style.css";
 import Card from "./card";
 
 const root = createRoot(document.getElementById("root"));
