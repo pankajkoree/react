@@ -9,3 +9,4 @@ cmd.txt
 package.json
 package-lock.json
 apis.js
+.gitignore/
