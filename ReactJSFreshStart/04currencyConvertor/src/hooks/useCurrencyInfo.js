@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 
-function useCurrencyInfo(currency) {
+function useCurrencyInfo(from, to) {
   const [data, setData] = useState();
+
   useEffect(() => {
-    fetch(`https://api.frankfurter.app/latest?base=${currency}`)
+    setData(null);
+    fetch(`https://api.frankfurter.app/latest?base=${from}`)
       .then((res) => res.json())
-      .then((res) => setData(res.rates[currency]));
-    console.log(data);
-  }, [currency]);
-  console.log(data);
+      .then((res) => {
+        setData(res.rates[to]);
+      });
+  }, [from, to]);
+
   return data;
 }
 

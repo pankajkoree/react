@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputBox from "./components/InputBox";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
@@ -38,16 +38,21 @@ function App() {
   };
   const options = Object.keys(countryOptions);
   const [amount, setAmount] = useState(0);
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("INR");
+  let [from, setFrom] = useState("USD");
+  let [to, setTo] = useState("INR");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
-  const currencyInfo = useCurrencyInfo(from);
+  const currencyInfo = useCurrencyInfo(from, to);
   const getConvertedValue = () => {
-    setConvertedAmount(amount * currencyInfo[to]);
+    console.log(currencyInfo);
+    setConvertedAmount(amount * currencyInfo);
   };
   const swap = (e) => {
     e.preventDefault();
+    let temp = from;
+    from = to;
+    to = temp;
+
     setFrom(to);
     setTo(from);
     setConvertedAmount(amount);
@@ -61,10 +66,17 @@ function App() {
           <InputBox
             label="From"
             amount={amount}
+            className=""
+            onAmountChange={(amount) => {
+              console.log(amount);
+              setAmount(amount);
+            }}
             currencyOptions={options}
-            onCurrencyChange={(currency) => setAmount(amount)}
-            selectCurrency={from}
-            onAmountChange={(amount) => setAmount(amount)}
+            onCurrencyChange={(currency) => {
+              console.log(currency);
+              setFrom(currency);
+              console.log(from);
+            }}
             amountDisable={false}
             required
           />
@@ -78,8 +90,11 @@ function App() {
             label="To"
             amount={convertedAmount}
             currencyOptions={options}
-            onCurrencyChange={(currency) => setTo(currency)}
-            selectCurrency={from}
+            onCurrencyChange={(currency) => {
+              console.log(currency);
+              setTo(currency);
+              console.log(currency);
+            }}
             amountDisable
           />
           <button
