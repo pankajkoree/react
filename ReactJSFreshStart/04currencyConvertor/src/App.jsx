@@ -61,8 +61,8 @@ function App() {
 
   return (
     <>
-      <div className="relative flex justify-center top-[200px]">
-        <form className="w-[60%] h-[500px] bg-custom-gradient flex flex-col justify-center items-center gap-5 rounded-3xl">
+      <div className="relative flex justify-center top-20 md:top-[200px]">
+        <form className="w-[90%] md:w-[60%] h-[500px] bg-custom-gradient flex flex-col justify-center items-center gap-5 rounded-3xl">
           <InputBox
             label="From"
             amount={amount}
@@ -81,7 +81,7 @@ function App() {
             required
           />
           <button
-            className="absolute h-16 w-auto p-4 text-[32px] bg-pink-500 flex justify-center items-center text-white rounded-xl top-[167px]"
+            className="absolute h-12 md:h-16 w-auto p-4 text-[24px] md:text-[32px] bg-pink-500 flex justify-center items-center text-white rounded-xl top-[175px] md:top-[167px]"
             onClick={swap}
           >
             Swap
@@ -98,7 +98,7 @@ function App() {
             amountDisable
           />
           <button
-            className="w-[90%] h-[75px] text-3xl bg-green-500 rounded-xl text-white"
+            className="w-[90%] h-[75px] text-xl sm:text-2xl md:text-3xl bg-green-500 rounded-xl text-white "
             onClick={(e) => {
               e.preventDefault();
               getConvertedValue();
