@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 
 function Github() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("https://api.github.com/users/failedCoderrr")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  });
+  const data = useLoaderData();
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://api.github.com/users/failedCoderrr")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data);
+  //     });
+  // });
   return (
     <div>
       <div className="relative w-[30%] h-[300px] bg-gray-500 m-0 p-0 flex flex-col top-2 left-[35%] justify-center items-center rounded-lg text-white">
@@ -21,7 +22,7 @@ function Github() {
         />
         <div className="relative top-6 flex flex-row gap-10">
           <p>Followers : {data.followers}</p>
-          <p>Followers : {data.following}</p>
+          <p>Following : {data.following}</p>
         </div>
       </div>
     </div>
@@ -30,7 +31,7 @@ function Github() {
 
 export default Github;
 
-// export const gitInfo = async () => {
-//   const response = fetch("https://api.github.com/users/failedCoderrr");
-//   return response.json();
-// };
+export const gitInfo = async () => {
+  const response = await fetch("https://api.github.com/users/failedCoderrr");
+  return response.json();
+};
