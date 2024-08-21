@@ -4,7 +4,7 @@ function Card() {
   return (
     <div>
       <div className="relative flex justify-center top-[120px]">
-        <div className="relative w-[40%] h-[560px] flex flex-col bg-[#004953] rounded-[20px] text-white">
+        <div className="relative w-[40%] h-[560px] flex flex-col bg-white border-4 dark:bg-gray-800 rounded-[20px] text-black dark:text-white">
           <div className="relative flex justify-center top-5">
             <iframe
               width="560"

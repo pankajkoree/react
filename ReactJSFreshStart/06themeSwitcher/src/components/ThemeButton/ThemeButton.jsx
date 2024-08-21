@@ -1,17 +1,19 @@
 import React from "react";
 import lightImage from "../../assets/images/light.jpg";
+import darkImage from "../../assets/images/dark.jpg";
 import useTheme from "../context/theme";
 
 function ThemeButton() {
-  const { themeMode, lightTheme, darkTheme } = useTheme();
+  let { themeMode, lightTheme, darkTheme } = useTheme();
   const onClickButton = (e) => {
-    const darkModeStatus = e.currentTarget.checked;
-    if (darkModeStatus) {
-      console.log("dark mode applied");
+    const themeStatus = e.currentTarget.checked;
+    const imageIcon = document.querySelector("#imageIcon");
+    if (themeStatus) {
       darkTheme();
+      imageIcon.src = lightImage;
     } else {
-      console.log("light mode applied");
       lightTheme();
+      imageIcon.src = darkImage;
     }
   };
   return (
@@ -24,9 +26,10 @@ function ThemeButton() {
         checked={themeMode === "dark"}
       />
       <img
-        src={lightImage}
+        src={darkImage}
         alt="image"
-        className="relative w-[40px] h-[40px] top-20 left-[1250px] border-2 border-blue-500 rounded-full cursor-pointer"
+        className={`relative w-[40px] h-[40px] top-20 left-[1250px] border-2 border-blue-500 rounded-full cursor-pointer`}
+        id="imageIcon"
       />
     </div>
   );
