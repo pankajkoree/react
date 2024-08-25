@@ -1,5 +1,5 @@
 import conf from "../conf/conf";
-import { Client, ID, Database, Storage, Query, Account } from "appwrite";
+import { Client, ID, Databases, Storage, Query, Account } from "appwrite";
 
 export class Service {
   client = new Client();
@@ -11,7 +11,7 @@ export class Service {
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectId);
 
-    this.databases = new Database(this.client);
+    this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }
 
