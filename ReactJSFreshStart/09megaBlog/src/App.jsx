@@ -6,7 +6,7 @@ import { Footer, Header } from "./components";
 import { Outlet } from "react-router-dom";
 
 function App() {
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true); 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,12 +20,12 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log("error while logging...", error);
+        console.log("Error while logging in...", error);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [dispatch]);
 
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
@@ -37,7 +37,9 @@ function App() {
         <Footer />
       </div>
     </div>
-  ) : null;
+  ) : (
+    <div>Loading...</div>
+  );
 }
 
 export default App;
