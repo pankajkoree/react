@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   async login({ email, password }) {
-    console.log("clicked...")
+    console.log("clicked...");
     try {
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {

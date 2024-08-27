@@ -5,30 +5,27 @@ import { useNavigate } from "react-router-dom";
 export default function Protected({ children, authentication = true }) {
   const navigate = useNavigate();
   let authStatus = useSelector((state) => state.auth.status);
+  console.log(authStatus);
+  console.log(authentication);
 
   useEffect(() => {
-    console.log(authStatus);
-    console.log(authentication);
     // TODO make it more easy
-    if (authStatus === true) {
-      navigate("/");
-    } else if (authStatus === false) {
+    if (authStatus === true && authentication === false) {
       navigate("/login");
+    } else if (authStatus === true && authentication === true) {
+      navigate("/signup");
+    } else {
+      navigate("/");
     }
-
-    // if (authentication && authStatus !== authentication) {
-    //   navigate("/login");
-    // } else if (!authentication && authStatus !== authentication) {
-    //   navigate("/");
-    // }
   }, [authStatus, navigate, authentication]);
   if (children) {
     {
-      children;
+      return children;
     }
   } else {
-    <div
-      style="
+    retrun(
+      <div
+        style="
   .loader {
     width: 50px;
     aspect-ratio: 1;
@@ -44,6 +41,7 @@ export default function Protected({ children, authentication = true }) {
   @keyframes l11{ 
     100%{transform: rotate(1turn)}
   }"
-    ></div>;
+      ></div>
+    );
   }
 }
