@@ -213,16 +213,40 @@
 // console.log(isAnagram("eat", "tear"));
 
 // longest common prefix
-var longestCommonPrefix = function (strs) {
-  for (let i = 0; i < strs.length; i++) {
-    for (let j = 0; j < strs[i].length; j++) {
-      if (strs[i + 1].includes(strs[i][j])) {
-        while(strs.length){
-          if(strs[i].includes(strs[i][j])) return true
-        }
-      }
+// var longestCommonPrefix = function (strs) {
+//   for (let i = 0; i < strs.length; i++) {
+//     for (let j = 0; j < strs[i].length; j++) {
+//       if (strs[i + 1].includes(strs[i][j])) {
+//         while(strs.length){
+//           if(strs[i].includes(strs[i][j])) return true
+//         }
+//       }
+//     }
+//   }
+//   return false;
+// };
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+let array1 = [
+  [1, 2],
+  [1, 2],
+];
+let array2 = [
+  [1, 2],
+  [1, 2],
+];
+let result = [];
+
+for (let i = 0; i < array1.length; i++) {
+  result[i] = [];
+
+  for (let j = 0; j < array2[i].length; j++) {
+    let sum = 0;
+    for (let k = 0; k < array1[i].length; k++) {
+      sum += array1[i][k] * array2[k][j];
     }
+    result[i][j] = sum;
   }
-  return false;
-};
-console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+}
+
+console.log(result)
