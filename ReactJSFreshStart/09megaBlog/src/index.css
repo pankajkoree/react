@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes l11 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
