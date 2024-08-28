@@ -1,14 +1,18 @@
 import React from "react";
 import "../index.css";
 
-function InputBox() {
+function InputBox({ label, placeholder, type }) {
   return (
     <div>
-      <label className="text-3xl">Username : </label>
+      <label className="relative text-xl w-[177px] left-[10%]" htmlFor={label}>
+        {label}{" "}
+      </label>
+      <br />
       <input
-        type="text"
-        placeholder="enter your username"
-        className="w-auto text-2xl h-[36px] border-4 rounded-lg p-2"
+        type={type}
+        placeholder={placeholder}
+        id={label}
+        className="relative w-[80%] left-[10%] text-xl h-[36px] border-4 rounded-lg p-4"
       />
     </div>
   );
