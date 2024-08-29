@@ -1,7 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
+
 import "../index.css";
 
-function InputBox({ label, placeholder, type }) {
+const InputBox = forwardRef(({ label, type, placeholder, id }, ref) => {
   return (
     <div>
       <label className="relative text-xl w-[177px] left-[10%]" htmlFor={label}>
@@ -11,11 +12,12 @@ function InputBox({ label, placeholder, type }) {
       <input
         type={type}
         placeholder={placeholder}
-        id={label}
+        id={id}
+        ref={ref}
         className="relative w-[80%] left-[10%] text-xl h-[36px] border-4 rounded-lg p-4"
       />
     </div>
   );
-}
+});
 
 export default InputBox;
