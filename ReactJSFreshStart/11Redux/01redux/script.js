@@ -73,7 +73,7 @@ function reducer(state = initialState, action) {
 
 import { createStore } from "redux";
 
-const store = createStore(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
 // to get the current state of the store
 console.log(store.getState());
