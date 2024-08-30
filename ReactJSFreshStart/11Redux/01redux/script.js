@@ -3,7 +3,7 @@ import { productsList } from "./products";
 let initialState = {
   products: productsList,
   cartItems: [],
-  wishList: [],
+  wishLists: [],
 };
 
 const CART_ADD_ITEM = "cart/addItem";
@@ -11,8 +11,12 @@ const CART_REMOVE_ITEM = "cart/removeItem";
 const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
 const CART_DECREASE_ITEM_QUANTITY = "cart/decreaseItemQuantity";
 
+const WISHLIST_ADD_ITEM = "wishList/addItem";
+const WISHLIST_REMOVE_ITEM = "wishList/removeItem";
+
 function reducer(state = initialState, action) {
   switch (action.type) {
+    // cart functionality
     case CART_ADD_ITEM:
       return { ...state, cartItems: [...state.cartItems, action.payload] };
     case CART_REMOVE_ITEM:
@@ -44,6 +48,18 @@ function reducer(state = initialState, action) {
           }
         }),
       };
+
+    // wishlist functionality
+    case WISHLIST_ADD_ITEM:
+      return { ...state, wishLists: [...state.wishLists, action.payload] };
+    case WISHLIST_REMOVE_ITEM:
+      return {
+        ...state,
+        wishLists: state.wishLists.filter(
+          (item) => item.productId !== action.payload.productId
+        ),
+      };
+
     default:
       return state;
   }
@@ -91,4 +107,19 @@ store.dispatch({
 store.dispatch({
   type: CART_DECREASE_ITEM_QUANTITY,
   payload: { productId: 13 },
+});
+
+store.dispatch({
+  type: WISHLIST_ADD_ITEM,
+  payload: { productId: 2 },
+});
+
+store.dispatch({
+  type: WISHLIST_ADD_ITEM,
+  payload: { productId: 3 },
+});
+
+store.dispatch({
+  type: WISHLIST_REMOVE_ITEM,
+  payload: { productId: 2 },
 });
