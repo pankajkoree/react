@@ -1,122 +1,94 @@
-// let state = {
-//   count: 0,
-//   name: "failed",
-//   age: 23,
-// };
-
-// // function increment() {
-// //   // mutating the state
-// //   // state.count = state.count + 1;
-
-// //   // without mutating the state
-// //   // spreading the state object and updating only the specific value rest are same
-// //   state = { ...state, count: state.count + 1 };
-// // }
-
-// // increment();
-// // console.log(state);
-// // increment();
-// // console.log(state);
-// // increment();
-// // console.log(state);
-
-// // let initialState = {
-// //   count: 0,
-// //   name: "failed",
-// //   age: 23,
-// // };
-// // import { productsList } from "./products";
-// // let initialState = {
-// //   products: productsList,
-// //   cartItem: [{ productId: 1, quantity: 3 }],
-// //   wishList: [2, 4, 5],
-// // };
-// // in redux
-// // action is plain js object
-// function reducer(state = initialState, action) {
-//   //   if (action.type === "post/increment") {
-//   //     return { ...state, count: state.count + 1 };
-//   //   } else if (action.type === "post/decrement") {
-//   //     return { ...state, count: state.count - 1 };
-//   //   } else if (action.type === "post/incrementBy") {
-//   //     // return { ...state, count: state.count + payload };   when payload is out of action object
-
-//   //     return { ...state, count: state.count + action.payload };
-//   //   } else if (action.type === "post/decrementBy") {
-//   //     return { ...state, count: state.count - action.payload };
-//   //   }
-//   //   return state;
-
-//   switch (action.type) {
-//     case "post/increment":
-//       return { ...state, count: state.count + 1 };
-//     case "post/decrement":
-//       return { ...state, count: state.count - 1 };
-//     case "post/incrementBy":
-//       return { ...state, count: state.count + action.payload };
-//     case "post/decrementBy":
-//       return { ...state, count: state.count - action.payload };
-//     default:
-//       return state;
-//   }
-// }
-
-// // reduxState = reducer(reduxState, { type: "post/increment" });
-// // console.log(reduxState);
-
-// // reduxState = reducer(reduxState, { type: "post/increment" });
-// // console.log(reduxState);
-
-// // reduxState = reducer(reduxState, { type: "post/decrement" });
-// // console.log(reduxState);
-
-// // reduxState = reducer(reduxState, { type: "post/incrementBy", payload: 10 });
-// // console.log(reduxState);
-
-// // reduxState = reducer(reduxState, { type: "post/incrementBy", payload: 10 });
-// // console.log(reduxState);
-
-// import { myCreateStore } from "./my-redux";
-
-// const myStore = myCreateStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
-
-// const mymyStore = myCreateStore(reducer);
-// console.log(mymyStore);
-// // to get the current state of the myStore
-// console.log(myStore.getState());
-
-// // to avoid writing console again and again, we can use subscribe method
-// const unsubscribed1 = myStore.subscribe(() => {
-//   console.log(myStore.getState());
-// });
-// const unsubscribed2 = myStore.subscribe(() => {
-//   console.log("hi");
-// });
-// const unsubscribed3 = myStore.subscribe(() => {
-//   console.log("hello");
-// });
-
-// // when we want to call the reducer, we call dispatch and dispacth(should have actions)
-// myStore.dispatch({ type: "post/increment" });
-// unsubscribed2();
-// unsubscribed3();
-// myStore.dispatch({ type: "post/decrement" });
-
-// myStore.dispatch({ type: "post/incrementBy", payload: 10 });
-
-// myStore.dispatch({ type: "post/decrementBy", payload: 5 });
-
 import { createStore } from "redux";
 import { productsList } from "./products";
 let initialState = {
   products: productsList,
-  cartItem: [{ productId: 1, quantity: 3 }],
-  wishList: [2, 4, 5],
+  cartItems: [],
+  wishList: [],
 };
 
+const CART_ADD_ITEM = "cart/addItem";
+const CART_REMOVE_ITEM = "cart/removeItem";
+const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
+const CART_DECREASE_ITEM_QUANTITY = "cart/decreaseItemQuantity";
+
 function reducer(state = initialState, action) {
-  console.log(action)
+  switch (action.type) {
+    case CART_ADD_ITEM:
+      return { ...state, cartItems: [...state.cartItems, action.payload] };
+    case CART_REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) => item.productId !== action.payload.productId
+        ),
+      };
+    case CART_INCREASE_ITEM_QUANTITY:
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) => {
+          if (item.productId === action.payload.productId) {
+            return { ...item, quantity: item.quantity + 1 };
+          } else {
+            return item;
+          }
+        }),
+      };
+    case CART_DECREASE_ITEM_QUANTITY:
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) => {
+          if (item.productId === action.payload.productId) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return item;
+          }
+        }),
+      };
+    default:
+      return state;
+  }
 }
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
-console.log(store);
+store.dispatch({
+  type: CART_ADD_ITEM,
+  payload: { productId: 1, quantity: 1 },
+});
+
+store.dispatch({
+  type: CART_ADD_ITEM,
+  payload: { productId: 13, quantity: 1 },
+});
+
+store.dispatch({
+  type: CART_ADD_ITEM,
+  payload: { productId: 7, quantity: 1 },
+});
+
+store.dispatch({
+  type: CART_ADD_ITEM,
+  payload: { productId: 9, quantity: 1 },
+});
+
+store.dispatch({
+  type: CART_REMOVE_ITEM,
+  payload: { productId: 7 },
+});
+
+store.dispatch({
+  type: CART_INCREASE_ITEM_QUANTITY,
+  payload: { productId: 13 },
+});
+store.dispatch({
+  type: CART_INCREASE_ITEM_QUANTITY,
+  payload: { productId: 13 },
+});
+store.dispatch({
+  type: CART_INCREASE_ITEM_QUANTITY,
+  payload: { productId: 9 },
+});
+
+store.dispatch({
+  type: CART_DECREASE_ITEM_QUANTITY,
+  payload: { productId: 13 },
+});
