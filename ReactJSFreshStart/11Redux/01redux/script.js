@@ -71,23 +71,32 @@ function reducer(state = initialState, action) {
 // reduxState = reducer(reduxState, { type: "post/incrementBy", payload: 10 });
 // console.log(reduxState);
 
-import { createStore } from "redux";
+import { myCreateStore } from "./my-redux";
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
+const myStore = myCreateStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
-// to get the current state of the store
-console.log(store.getState());
+const mymyStore = myCreateStore(reducer);
+console.log(mymyStore);
+// to get the current state of the myStore
+console.log(myStore.getState());
 
 // to avoid writing console again and again, we can use subscribe method
-store.subscribe(() => {
-  console.log(store.getState());
+const unsubscribed1 = myStore.subscribe(() => {
+  console.log(myStore.getState());
+});
+const unsubscribed2 = myStore.subscribe(() => {
+  console.log("hi");
+});
+const unsubscribed3 = myStore.subscribe(() => {
+  console.log("hello");
 });
 
 // when we want to call the reducer, we call dispatch and dispacth(should have actions)
-store.dispatch({ type: "post/increment" });
+myStore.dispatch({ type: "post/increment" });
+unsubscribed2();
+unsubscribed3();
+myStore.dispatch({ type: "post/decrement" });
 
-store.dispatch({ type: "post/decrement" });
+myStore.dispatch({ type: "post/incrementBy", payload: 10 });
 
-store.dispatch({ type: "post/incrementBy", payload: 10 });
-
-store.dispatch({ type: "post/decrementBy", payload: 5 });
+myStore.dispatch({ type: "post/decrementBy", payload: 5 });
