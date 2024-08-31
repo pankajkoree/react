@@ -105,3 +105,16 @@
 // myStore.dispatch({ type: "post/incrementBy", payload: 10 });
 
 // myStore.dispatch({ type: "post/decrementBy", payload: 5 });
+
+// ------------------------------------
+
+// import { productsList } from "./products";
+
+// let initialState = {
+//   products: productsList,
+//   cartItems: [],
+//   wishLists: [],
+// };
+// function reducer(state = initialState, action) {
+
+// }

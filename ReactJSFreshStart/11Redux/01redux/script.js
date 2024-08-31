@@ -1,69 +1,22 @@
-import { createStore } from "redux";
-import { productsList } from "./products";
-let initialState = {
-  products: productsList,
-  cartItems: [],
-  wishLists: [],
-};
+import { combineReducers, createStore } from "redux";
+import {
+  CART_ADD_ITEM,
+  CART_DECREASE_ITEM_QUANTITY,
+  CART_INCREASE_ITEM_QUANTITY,
+  CART_REMOVE_ITEM,
+} from "./cartReducer";
 
-const CART_ADD_ITEM = "cart/addItem";
-const CART_REMOVE_ITEM = "cart/removeItem";
-const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
-const CART_DECREASE_ITEM_QUANTITY = "cart/decreaseItemQuantity";
+import { WISHLIST_ADD_ITEM, WISHLIST_REMOVE_ITEM } from "./wishlistReducer";
+import productReducer from "./productReducer";
+import cartReducer from "./cartReducer";
+import wishlistReducer from "./wishlistReducer";
 
-const WISHLIST_ADD_ITEM = "wishList/addItem";
-const WISHLIST_REMOVE_ITEM = "wishList/removeItem";
+const reducer = combineReducers({
+  products: productReducer,
+  cartItmes: cartReducer,
+  wishLists: wishlistReducer,
+});
 
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    // cart functionality
-    case CART_ADD_ITEM:
-      return { ...state, cartItems: [...state.cartItems, action.payload] };
-    case CART_REMOVE_ITEM:
-      return {
-        ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.productId !== action.payload.productId
-        ),
-      };
-    case CART_INCREASE_ITEM_QUANTITY:
-      return {
-        ...state,
-        cartItems: state.cartItems.map((item) => {
-          if (item.productId === action.payload.productId) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        }),
-      };
-    case CART_DECREASE_ITEM_QUANTITY:
-      return {
-        ...state,
-        cartItems: state.cartItems.map((item) => {
-          if (item.productId === action.payload.productId) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        }),
-      };
-
-    // wishlist functionality
-    case WISHLIST_ADD_ITEM:
-      return { ...state, wishLists: [...state.wishLists, action.payload] };
-    case WISHLIST_REMOVE_ITEM:
-      return {
-        ...state,
-        wishLists: state.wishLists.filter(
-          (item) => item.productId !== action.payload.productId
-        ),
-      };
-
-    default:
-      return state;
-  }
-}
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
 store.dispatch({
