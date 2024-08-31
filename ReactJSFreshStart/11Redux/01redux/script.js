@@ -35,7 +35,6 @@ store.dispatch(cartItemQuantiyIncrease(9));
 
 // cartitemquantitydecrease
 store.dispatch(cartItemQuantiyDecrease(13));
-store.dispatch(cartItemQuantiyDecrease(2));
 
 // wishlistadditem
 store.dispatch(wishListAddItem(3));

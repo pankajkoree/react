@@ -1,5 +1,5 @@
-export const WISHLIST_ADD_ITEM = "wishList/addItem";
-export const WISHLIST_REMOVE_ITEM = "wishList/removeItem";
+const WISHLIST_ADD_ITEM = "wishList/addItem";
+const WISHLIST_REMOVE_ITEM = "wishList/removeItem";
 
 export function wishListAddItem(productId) {
   return {

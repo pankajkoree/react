@@ -1,7 +1,7 @@
-export const CART_ADD_ITEM = "cart/addItem";
-export const CART_REMOVE_ITEM = "cart/removeItem";
-export const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
-export const CART_DECREASE_ITEM_QUANTITY = "cart/decreaseItemQuantity";
+const CART_ADD_ITEM = "cart/addItem";
+const CART_REMOVE_ITEM = "cart/removeItem";
+const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
+const CART_DECREASE_ITEM_QUANTITY = "cart/decreaseItemQuantity";
 
 export function cartAddItem(productId, quantity) {
   return {
