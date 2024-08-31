@@ -3,6 +3,32 @@ export const CART_REMOVE_ITEM = "cart/removeItem";
 export const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
 export const CART_DECREASE_ITEM_QUANTITY = "cart/decreaseItemQuantity";
 
+export function cartAddItem(productId, quantity) {
+  return {
+    type: CART_ADD_ITEM,
+    payload: { productId, quantity },
+  };
+}
+export function cartRemoveItem(productId) {
+  return {
+    type: CART_REMOVE_ITEM,
+    payload: { productId },
+  };
+}
+
+export function cartItemQuantiyIncrease(productId) {
+  return {
+    type: CART_INCREASE_ITEM_QUANTITY,
+    payload: { productId },
+  };
+}
+export function cartItemQuantiyDecrease(productId) {
+  return {
+    type: CART_DECREASE_ITEM_QUANTITY,
+    payload: { productId },
+  };
+}
+
 export default function cartReducer(state = [], action) {
   switch (action.type) {
     // cart functionality

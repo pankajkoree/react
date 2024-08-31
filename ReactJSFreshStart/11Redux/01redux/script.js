@@ -1,12 +1,12 @@
 import { combineReducers, createStore } from "redux";
 import {
-  CART_ADD_ITEM,
-  CART_DECREASE_ITEM_QUANTITY,
-  CART_INCREASE_ITEM_QUANTITY,
-  CART_REMOVE_ITEM,
+  cartAddItem,
+  cartItemQuantiyDecrease,
+  cartItemQuantiyIncrease,
+  cartRemoveItem,
 } from "./cartReducer";
 
-import { WISHLIST_ADD_ITEM, WISHLIST_REMOVE_ITEM } from "./wishlistReducer";
+import { wishListAddItem, wishListRemoveItem } from "./wishlistReducer";
 import productReducer from "./productReducer";
 import cartReducer from "./cartReducer";
 import wishlistReducer from "./wishlistReducer";
@@ -19,60 +19,26 @@ const reducer = combineReducers({
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
-store.dispatch({
-  type: CART_ADD_ITEM,
-  payload: { productId: 1, quantity: 1 },
-});
+// cartadditem
+store.dispatch(cartAddItem(3, 1));
+store.dispatch(cartAddItem(13, 1));
+store.dispatch(cartAddItem(7, 1));
+store.dispatch(cartAddItem(9, 1));
 
-store.dispatch({
-  type: CART_ADD_ITEM,
-  payload: { productId: 13, quantity: 1 },
-});
+//cartremoveItem
+store.dispatch(cartRemoveItem(7));
 
-store.dispatch({
-  type: CART_ADD_ITEM,
-  payload: { productId: 7, quantity: 1 },
-});
+// cartitemquatityincrease
+store.dispatch(cartItemQuantiyIncrease(13));
+store.dispatch(cartItemQuantiyIncrease(13));
+store.dispatch(cartItemQuantiyIncrease(9));
 
-store.dispatch({
-  type: CART_ADD_ITEM,
-  payload: { productId: 9, quantity: 1 },
-});
+// cartitemquantitydecrease
+store.dispatch(cartItemQuantiyDecrease(13));
+store.dispatch(cartItemQuantiyDecrease(2));
 
-store.dispatch({
-  type: CART_REMOVE_ITEM,
-  payload: { productId: 7 },
-});
+// wishlistadditem
+store.dispatch(wishListAddItem(3));
+store.dispatch(wishListAddItem(2));
 
-store.dispatch({
-  type: CART_INCREASE_ITEM_QUANTITY,
-  payload: { productId: 13 },
-});
-store.dispatch({
-  type: CART_INCREASE_ITEM_QUANTITY,
-  payload: { productId: 13 },
-});
-store.dispatch({
-  type: CART_INCREASE_ITEM_QUANTITY,
-  payload: { productId: 9 },
-});
-
-store.dispatch({
-  type: CART_DECREASE_ITEM_QUANTITY,
-  payload: { productId: 13 },
-});
-
-store.dispatch({
-  type: WISHLIST_ADD_ITEM,
-  payload: { productId: 2 },
-});
-
-store.dispatch({
-  type: WISHLIST_ADD_ITEM,
-  payload: { productId: 3 },
-});
-
-store.dispatch({
-  type: WISHLIST_REMOVE_ITEM,
-  payload: { productId: 2 },
-});
+store.dispatch(wishListRemoveItem(3));
