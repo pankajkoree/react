@@ -21,7 +21,7 @@ function Product({ productId, title, rating, price, imageUrl }) {
       <div className="cta-container">
         <button
           onClick={() => {
-            dispatch(cartAddItem(productId));
+            return dispatch(cartAddItem(productId));
           }}
         >
           Add to Cart
