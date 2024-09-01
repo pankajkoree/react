@@ -55,6 +55,7 @@ export default function cartReducer(state = [], action) {
         (item) => item.productId !== action.payload.productId
       );
     case CART_INCREASE_ITEM_QUANTITY:
+      console.log(state)
       return state.map((item) => {
         if (item.productId === action.payload.productId) {
           return { ...item, quantity: item.quantity + 1 };
