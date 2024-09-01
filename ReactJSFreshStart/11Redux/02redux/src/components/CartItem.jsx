@@ -5,7 +5,6 @@ import {
   cartItemQuantiyIncrease,
 } from "../../store/cartReducer.js";
 
-
 export default function CartItem({
   productId,
   title,

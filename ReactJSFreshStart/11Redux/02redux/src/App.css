@@ -35,7 +35,7 @@ button {
 
 .title-container {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 12px;
@@ -90,9 +90,6 @@ header {
 
 .header-contents {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   padding: 0 16px;
   gap: 24px;
   max-width: 1200px;
@@ -168,22 +165,32 @@ form button {
   gap: 12px;
 }
 
-.cart-icon {
+.mainDivIcon {
   position: relative;
+  width: 200px;
+  left: 72%;
+  display: flex;
+  gap: 80px;
 }
 
-.cart-items-count {
-  position: absolute;
-  font-size: 12px;
-  background-color: black;
-  border-radius: 100%;
-  color: white;
-  width: 16px;
-  height: 16px;
+.cart-icon {
+  position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  top: 0;
-  left: 50%;
-  transform: translate(-40%, -90%);
+  align-items: center;
+}
+.wishlist-icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  left: 40px;
+  top: 17px;
+}
+.wishlistIcon {
+  position: relative;
+  width: 30px;
+  height: 30px;
 }

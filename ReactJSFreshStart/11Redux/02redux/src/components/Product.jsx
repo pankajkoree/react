@@ -28,7 +28,7 @@ function Product({ productId, title, rating, price, imageUrl }) {
         >
           Add to Cart
         </button>
-        <button>Buy Now</button>
+        <button>Add to Wishlist</button>
       </div>
     </div>
   );
