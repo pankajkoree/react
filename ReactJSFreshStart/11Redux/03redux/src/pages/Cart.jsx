@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "../components/CartItem";
-import { useSelector } from "react-redux";
+import { useSelector } from "../../react-redux";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cartItems || []);

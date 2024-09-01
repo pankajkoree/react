@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "../../react-redux.jsx";
 import {
   cartItemQuantiyDecrease,
   cartItemQuantiyIncrease,

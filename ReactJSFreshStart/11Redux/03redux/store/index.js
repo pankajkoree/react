@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import { createStore } from "../react-redux";
 import {
   cartAddItem,
   cartItemQuantiyDecrease,
