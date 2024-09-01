@@ -1,4 +1,3 @@
-
 export const CART_ADD_ITEM = "cart/addItem";
 export const CART_REMOVE_ITEM = "cart/removeItem";
 export const CART_INCREASE_ITEM_QUANTITY = "cart/increaseItemQuantity";
@@ -33,19 +32,23 @@ export function cartItemQuantiyDecrease(productId) {
 export default function cartReducer(state = [], action) {
   switch (action.type) {
     // cart functionality
-   case CART_ADD_ITEM:
-  const existingItem = state.find((item) => {
-    return item.productData.productId === action.payload.productData.productId;
-  });
-  if (existingItem) {
-    return state.map((item) => {
-      if (item.productData.productId === existingItem.productData.productId) {
-        return { ...item, quantity: item.quantity + 1 };
+    case CART_ADD_ITEM:
+      const existingItem = state.find((item) => {
+        return (
+          item.productData.productId === action.payload.productData.productId
+        );
+      });
+      if (existingItem) {
+        return state.map((item) => {
+          if (
+            item.productData.productId === existingItem.productData.productId
+          ) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
       }
-      return item;
-    });
-  }
-  return [...state, action.payload];
+      return [...state, action.payload];
 
     case CART_REMOVE_ITEM:
       return state.filter(
@@ -60,13 +63,15 @@ export default function cartReducer(state = [], action) {
         }
       });
     case CART_DECREASE_ITEM_QUANTITY:
-      return state.map((item) => {
-        if (item.productId === action.payload.productId) {
-          return { ...item, quantity: item.quantity - 1 };
-        } else {
-          return item;
-        }
-      });
+      return state
+        .map((item) => {
+          if (item.productId === action.payload.productId) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return item;
+          }
+        })
+        .filter((item) => item.quantity > 0);
     default:
       return state;
   }
