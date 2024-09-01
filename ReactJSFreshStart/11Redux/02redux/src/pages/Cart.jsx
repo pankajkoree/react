@@ -4,6 +4,12 @@ import { useSelector } from "react-redux";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cartItems || []);
+  let totalAmount = 0;
+  cartItems.map((data) => {
+    totalAmount += data.productData.price;
+    return totalAmount;
+  });
+
   return (
     <div className="cart-container">
       <h2>Items in Your Cart</h2>
@@ -29,7 +35,7 @@ export default function Cart() {
           <div></div>
           <div></div>
           <div></div>
-          <div className="total">$500</div>
+          <div className="total">${totalAmount}</div>
         </div>
       </div>
     </div>

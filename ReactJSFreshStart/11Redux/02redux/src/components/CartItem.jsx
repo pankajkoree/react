@@ -14,7 +14,6 @@ export default function CartItem({
   imageUrl,
 }) {
   const dispatch = useDispatch();
-  console.log(dispatch);
   return (
     <div className="cart-item-container">
       <div className="cart-item">
