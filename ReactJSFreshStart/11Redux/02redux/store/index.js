@@ -13,7 +13,7 @@ import wishlistReducer from "./wishlistReducer";
 
 const reducer = combineReducers({
   products: productReducer,
-  cartItmes: cartReducer,
+  cartItems: cartReducer,
   wishLists: wishlistReducer,
 });
 

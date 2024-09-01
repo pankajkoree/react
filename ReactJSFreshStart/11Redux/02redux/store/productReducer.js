@@ -1,4 +1,4 @@
-import { productsList } from "./products";
+import { productsList } from "./productsList";
 
 // const initialState = productsList
 

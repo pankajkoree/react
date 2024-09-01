@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function CartItem({ title, rating, price, imageUrl, quantity }) {
+export default function CartItem({ title, rating, price, quantity, imageUrl }) {
+  console.log(title);
   return (
     <div className="cart-item-container">
       <div className="cart-item">
