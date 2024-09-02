@@ -45,10 +45,10 @@ const users = [
 //   return i == 1 ? { ...user, age: 5 } : user;
 // });
 
-const modifiedUser = produce(users, (usersCopy) => {
-  usersCopy[1].age = 5;
-  console.log(usersCopy);
-});
+// const modifiedUser = produce(users, (usersCopy) => {
+//   usersCopy[1].age = 5;
+//   console.log(usersCopy);
+// });
 
-console.log(modifiedUser);
-console.log(users);
+// console.log(modifiedUser);
+// console.log(users);
