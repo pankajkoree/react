@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { cartAddItem } from "../../store/cartReducer";
+import { cartAddItem } from "../../store/slices/cartSlice";
 
 function Product({ productId, title, rating, price, imageUrl }) {
   const dispatch = useDispatch();

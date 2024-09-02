@@ -15,7 +15,7 @@ export function wishListRemoveItem(productId) {
   };
 }
 
-export default function wishlistReducer(state = [], action) {
+export default function wishlistSlice(state = [], action) {
   switch (action.type) {
     // wishlist functionality
     case WISHLIST_ADD_ITEM:
