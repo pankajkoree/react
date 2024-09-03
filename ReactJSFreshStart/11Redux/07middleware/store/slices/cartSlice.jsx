@@ -11,16 +11,13 @@ const slice = createSlice({
       const existingItemIndex = findItemIndex(state, action);
       if (existingItemIndex !== -1) {
         state[existingItemIndex].quantity += 1;
-        console.log(`Item quantity increased:`, state[existingItemIndex]);
       } else {
         state.push({ ...action.payload, quantity: 1 });
-        console.log(`New item added:`, action.payload);
       }
     },
     cartRemoveItem(state, action) {
       const existingItemIndex = findItemIndex(state, action);
       if (existingItemIndex !== -1) {
-        console.log(`Item removed:`, state[existingItemIndex]);
         state.splice(existingItemIndex, 1);
       }
     },
@@ -28,7 +25,6 @@ const slice = createSlice({
       const existingItemIndex = findItemIndex(state, action);
       if (existingItemIndex !== -1) {
         state[existingItemIndex].quantity += 1;
-        console.log(`Quantity increased:`, state[existingItemIndex]);
       }
     },
     cartItemQuantiyDecrease(state, action) {
@@ -36,13 +32,7 @@ const slice = createSlice({
       if (existingItemIndex !== -1) {
         state[existingItemIndex].quantity -= 1;
         if (state[existingItemIndex].quantity === 0) {
-          console.log(
-            `Item removed due to zero quantity:`,
-            state[existingItemIndex]
-          );
           state.splice(existingItemIndex, 1);
-        } else {
-          console.log(`Quantity decreased:`, state[existingItemIndex]);
         }
       }
     },
