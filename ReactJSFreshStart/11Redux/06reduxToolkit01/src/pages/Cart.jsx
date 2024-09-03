@@ -6,7 +6,7 @@ export default function Cart() {
   const cartItems = useSelector((state) => state.cartItems || []);
   let totalAmount = 0;
   cartItems.forEach((data) => {
-    totalAmount += data.quantity * data.productData.price;
+    totalAmount += data.quantity * data.price;
   });
   let fixedTotal = parseFloat(totalAmount.toFixed(2));
 
@@ -22,13 +22,13 @@ export default function Cart() {
         </div>
         {cartItems.map((data) => (
           <CartItem
-            key={data.productData.productId}
-            productId={data.productData.productId}
-            title={data.productData.title}
-            price={data.productData.price}
+            key={data.productId}
+            productId={data.productId}
+            title={data.title}
+            price={data.price}
             quantity={data.quantity}
-            imageUrl={data.productData.imageUrl}
-            rating={data.productData.rating.rate}
+            imageUrl={data.imageUrl}
+            rating={data.rating.rate}
           />
         ))}
         <div className="cart-header cart-item-container">
