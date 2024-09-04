@@ -5,13 +5,15 @@ import { useSelector } from "react-redux";
 export default function Cart() {
   let totalAmount = 0;
   const cartItems = useSelector(({ products, cartItems }) => {
-    return cartItems.map(({ productId, quantity }) => {
-      const cartProduct = products.list.find(
-        (product) => product.id === productId
-      );
+    return cartItems.list
+      .map(({ productId, quantity }) => {
+        const cartProduct = products.list.find(
+          (product) => product.id === productId
+        );
 
-      return { ...cartProduct, quantity };
-    });
+        return { ...cartProduct, quantity };
+      })
+      .filter(({ title }) => title);
   });
   cartItems.map((element) => {
     totalAmount += element.quantity * element.price;

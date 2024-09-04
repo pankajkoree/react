@@ -5,34 +5,41 @@ const findItemIndex = (state, action) =>
 
 const slice = createSlice({
   name: "cart",
-  initialState: [],
+  initialState: {
+    loading: false,
+    list: [],
+    error: "",
+  },
   reducers: {
+    loadCartItems(state, action) {
+      state.list = action.payload.products;
+    },
     cartAddItem(state, action) {
-      const existingItemIndex = findItemIndex(state, action);
+      const existingItemIndex = findItemIndex(state.list, action);
       if (existingItemIndex !== -1) {
-        state[existingItemIndex].quantity += 1;
+        state.list[existingItemIndex].quantity += 1;
       } else {
-        state.push({ ...action.payload, quantity: 1 });
+        state.list.push({ ...action.payload, quantity: 1 });
       }
     },
     cartRemoveItem(state, action) {
-      const existingItemIndex = findItemIndex(state, action);
+      const existingItemIndex = findItemIndex(state.list, action);
       if (existingItemIndex !== -1) {
-        state.splice(existingItemIndex, 1);
+        state.list.splice(existingItemIndex, 1);
       }
     },
     cartItemQuantiyIncrease(state, action) {
-      const existingItemIndex = findItemIndex(state, action);
+      const existingItemIndex = findItemIndex(state.list, action);
       if (existingItemIndex !== -1) {
-        state[existingItemIndex].quantity += 1;
+        state.list[existingItemIndex].quantity += 1;
       }
     },
     cartItemQuantiyDecrease(state, action) {
-      const existingItemIndex = findItemIndex(state, action);
+      const existingItemIndex = findItemIndex(state / list, action);
       if (existingItemIndex !== -1) {
-        state[existingItemIndex].quantity -= 1;
-        if (state[existingItemIndex].quantity === 0) {
-          state.splice(existingItemIndex, 1);
+        state.list[existingItemIndex].quantity -= 1;
+        if (state.list[existingItemIndex].quantity === 0) {
+          state.list.splice(existingItemIndex, 1);
         }
       }
     },
@@ -40,6 +47,7 @@ const slice = createSlice({
 });
 
 export const {
+  loadCartItems,
   cartAddItem,
   cartRemoveItem,
   cartItemQuantiyIncrease,
