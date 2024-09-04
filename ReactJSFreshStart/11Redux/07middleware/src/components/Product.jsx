@@ -25,7 +25,7 @@ function Product({ productId, title, rating, price, imageUrl }) {
         <button
           onClick={() => {
             return dispatch(
-              cartAddItem({ productId, title, rating, price, imageUrl })
+              cartAddItem({ productId })
             );
           }}
         >

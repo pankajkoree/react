@@ -3,12 +3,14 @@ import CartItem from "../components/CartItem";
 import { useSelector } from "react-redux";
 
 export default function Cart() {
-  const cartItems = useSelector((state) => state.cartItems || []);
-  let totalAmount = 0;
-  cartItems.forEach((data) => {
-    totalAmount += data.quantity * data.price;
+  const cartItems = useSelector(({ products, cartItems }) => {
+    return cartItems.map(({ productId, quantity }) => {
+      const cartProduct = products.list.find(
+        (product) => product.id === productId
+      );
+      return cartProduct, quantity;
+    });
   });
-  let fixedTotal = parseFloat(totalAmount.toFixed(2));
 
   return (
     <div className="cart-container">
@@ -22,20 +24,20 @@ export default function Cart() {
         </div>
         {cartItems.map((data) => (
           <CartItem
-            key={data.productId}
-            productId={data.productId}
+            key={data.id}
+            productId={data.id}
             title={data.title}
             price={data.price}
-            quantity={data.quantity}
-            imageUrl={data.imageUrl}
-            rating={data.rating.rate}
+            quantity={cartItems.quantity}
+            imageUrl={data.image}
+            rating={data.rating}
           />
         ))}
         <div className="cart-header cart-item-container">
           <div></div>
           <div></div>
           <div></div>
-          <div className="total">${fixedTotal}</div>
+          <div className="total">${}</div>
         </div>
       </div>
     </div>

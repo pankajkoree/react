@@ -3,18 +3,25 @@ import { Link } from "react-router-dom";
 import CartIcon from "../assets/cart-icon.svg";
 import { useDispatch, useSelector } from "react-redux";
 import wishlistIcon from "../assets/wishlist.png";
-import { updateAllProducts } from "../../store/slices/productSlice";
+import {
+  fetchProducts,
+  fetchProductsError,
+  updateAllProducts,
+} from "../../store/slices/productSlice";
 
 export default function Header() {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(fetchProducts());
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         dispatch(updateAllProducts(data));
+      })
+      .catch(() => {
+        dispatch(fetchProductsError());
       });
-  });
+  }, []);
   const cartItems = useSelector((state) => state.cartItems || []);
   let itemCount = [];
   cartItems.map((data) => {
