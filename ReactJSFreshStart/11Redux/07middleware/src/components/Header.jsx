@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartIcon from "../assets/cart-icon.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import wishlistIcon from "../assets/wishlist.png";
+import { updateAllProducts } from "../../store/slices/productSlice";
 
 export default function Header() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(updateAllProducts(data));
+      });
+  });
   const cartItems = useSelector((state) => state.cartItems || []);
   let itemCount = [];
   cartItems.map((data) => {
@@ -13,7 +23,6 @@ export default function Header() {
   let value = itemCount.reduce((prev, curr) => {
     return prev + curr;
   }, 0);
-
 
   return (
     <header>
@@ -34,5 +43,4 @@ export default function Header() {
       </div>
     </header>
   );
-  
 }
