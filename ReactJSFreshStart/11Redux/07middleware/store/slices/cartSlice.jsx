@@ -11,7 +11,15 @@ const slice = createSlice({
     error: "",
   },
   reducers: {
+    fetchCartItems(state) {
+      state.loading = true;
+    },
+    fetchCartItemsError(state, action) {
+      state.loading = false;
+      state.error = action.payload || "Something went wrong!";
+    },
     loadCartItems(state, action) {
+      state.loading = false;
       state.list = action.payload.products;
     },
     cartAddItem(state, action) {
@@ -47,6 +55,8 @@ const slice = createSlice({
 });
 
 export const {
+  fetchCartItems,
+  fetchCartItemsError,
   loadCartItems,
   cartAddItem,
   cartRemoveItem,

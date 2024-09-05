@@ -8,7 +8,11 @@ import {
   fetchProductsError,
   updateAllProducts,
 } from "../../store/slices/productSlice";
-import { loadCartItems } from "../../store/slices/cartSlice";
+import {
+  fetchCartItems,
+  fetchCartItemsError,
+  loadCartItems,
+} from "../../store/slices/cartSlice";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -22,11 +26,15 @@ export default function Header() {
       .catch(() => {
         dispatch(fetchProductsError());
       });
+    dispatch(fetchCartItems());
     fetch("https://fakestoreapi.com/carts/5")
       .then((res) => res.json())
       .then((data) => {
         dispatch(loadCartItems(data));
       })
+      .catch(() => {
+        dispatch(fetchCartItemsError());
+      });
   }, []);
   const cartItems = useSelector((state) => state.cartItems.list || []);
   let itemCount = [];
