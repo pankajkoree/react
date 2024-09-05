@@ -1,27 +1,22 @@
 import React from "react";
 import CartItem from "../components/CartItem";
 import { useSelector } from "react-redux";
+import {
+  getAllCartItems,
+  getCartError,
+  getCartLoadingState,
+} from "../../store/slices/cartSlice";
 
 export default function Cart() {
   let totalAmount = 0;
-  const cartItems = useSelector(({ products, cartItems }) => {
-    return cartItems.list
-      .map(({ productId, quantity }) => {
-        const cartProduct = products.list.find(
-          (product) => product.id === productId
-        );
-
-        return { ...cartProduct, quantity };
-      })
-      .filter(({ title }) => title);
-  });
+  const cartItems = useSelector(getAllCartItems);
   cartItems.map((element) => {
     totalAmount += element.quantity * element.price;
   });
 
-  const isLoading = useSelector((state) => state.cartItems.loading);
+  const isLoading = useSelector(getCartLoadingState);
   console.log(isLoading);
-  const error = useSelector((state) => state.cartItems.error);
+  const error = useSelector(getCartError);
   return (
     <div className="cart-container">
       <h2>Items in Your Cart</h2>
@@ -53,7 +48,7 @@ export default function Cart() {
           <div></div>
           <div></div>
           <div></div>
-          {!isLoading || error && <div className="total">${totalAmount}</div>}
+          {!isLoading || (error && <div className="total">${totalAmount}</div>)}
         </div>
       </div>
     </div>
