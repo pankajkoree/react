@@ -1,10 +1,21 @@
 import React from "react";
-import CartItem from "../components/CartItem";
 import { useSelector } from "react-redux";
 import WishListItem from "../components/WishlistItem";
 
 export default function Wishlist() {
-  const cartItems = useSelector((state) => state.cartItems || []);
+  const cartItems = useSelector(({ products, cartItems }) => {
+    console.log(products);
+    console.log(cartItems);
+    return cartItems.list
+      .map(({ productId, quantity }) => {
+        const cartProduct = products.list.find(
+          (product) => product.id === productId
+        );
+
+        return { ...cartProduct, quantity };
+      })
+      .filter(({ title }) => title);
+  });
   return (
     <div className="cart-container">
       <h2>Items in Your WishList</h2>

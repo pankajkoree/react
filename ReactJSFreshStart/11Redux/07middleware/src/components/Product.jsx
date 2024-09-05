@@ -1,9 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  cartAddItem,
-  cartItemQuantiyIncrease,
-} from "../../store/slices/cartSlice";
+import { cartAddItem } from "../../store/slices/cartSlice";
+import { wishListAddItem } from "../../store/slices/wishlistSlice";
 
 function Product({ productId, title, rating, price, imageUrl }) {
   const dispatch = useDispatch();
@@ -24,14 +22,18 @@ function Product({ productId, title, rating, price, imageUrl }) {
       <div className="cta-container">
         <button
           onClick={() => {
-            return dispatch(
-              cartAddItem({ productId })
-            );
+            return dispatch(cartAddItem(productId));
           }}
         >
           Add to Cart
         </button>
-        <button>Add to Wishlist</button>
+        <button
+          onClick={() => {
+            return dispatch(wishListAddItem(productId));
+          }}
+        >
+          Add to Wishlist
+        </button>
       </div>
     </div>
   );
