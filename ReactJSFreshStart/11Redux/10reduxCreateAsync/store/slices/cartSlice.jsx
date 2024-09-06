@@ -114,7 +114,6 @@ export const getCartError = (state) => state.cartItems.error;
 //     });
 // };
 
-
 export const {
   cartAddItem,
   cartRemoveItem,
