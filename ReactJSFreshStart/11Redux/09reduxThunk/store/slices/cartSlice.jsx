@@ -80,10 +80,21 @@ export const getAllCartItems = createSelector(getCartItems, (state) => state);
 export const getCartLoadingState = (state) => state.cartItems.loading;
 export const getCartError = (state) => state.cartItems.error;
 
+const { fetchCartItems, fetchCartItemsError, loadCartItems } = slice.actions;
+
+export const fetchCartItemsData = () => (dispatch) => {
+  dispatch(fetchCartItems());
+  fetch(`https://dummyjson.com/products/2`)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(loadCartItems(data));
+    })
+    .catch(() => {
+      dispatch(fetchCartItemsError());
+    });
+};
+
 export const {
-  fetchCartItems,
-  fetchCartItemsError,
-  loadCartItems,
   cartAddItem,
   cartRemoveItem,
   cartItemQuantiyIncrease,

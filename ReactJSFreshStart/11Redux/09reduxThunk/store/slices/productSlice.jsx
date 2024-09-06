@@ -27,6 +27,19 @@ export const getAllProducts = (state) => state.products.list.products;
 export const getProductLoadingState = (state) => state.products.loading;
 export const getProductError = (state) => state.products.error;
 
-export const { updateAllProducts, fetchProducts, fetchProductsError } =
+const { updateAllProducts, fetchProducts, fetchProductsError } =
   slice.actions;
+
+export const fetchProductsData = () => (dispatch) => {
+  dispatch(fetchProducts());
+  fetch(`https://dummyjson.com/products`)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(updateAllProducts(data));
+    })
+    .catch(() => {
+      dispatch(fetchProductsError());
+    });
+};
+
 export default slice.reducer;
