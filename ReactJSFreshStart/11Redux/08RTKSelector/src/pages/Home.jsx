@@ -4,9 +4,7 @@ import Product from "../components/Product";
 import {
   getAllProducts,
   getProductError,
-  getProductLoadingState,
 } from "../../store/slices/productSlice";
-// import {productsList} from "../../store/productsList"
 export default function Home() {
   const getProducts = useSelector(getAllProducts);
   let productsList;
@@ -16,34 +14,12 @@ export default function Home() {
     productsList = [];
     productsList.push(getProducts);
   }
-  console.log(productsList);
 
-  const isLoading = useSelector(getProductLoadingState);
   const error = useSelector(getProductError);
 
-  // return isLoading ? (
-  //   <h1 style={{ textAlign: "center" }}>Loading...</h1>
-  // ) : error ? (
-  //   <h2 style={{ textAlign: "center" }}>{error}</h2>
-  // ) : (
-  //   <div className="products-container">
-  //     {productsList[0].map(({ id, title, rating, price, image }) => (
-  //       <Product
-  //         key={id}
-  //         productId={id}
-  //         title={title}
-  //         rating={rating}
-  //         price={price}
-  //         imageUrl={image}
-  //       />
-  //     ))}
-  //   </div>
-  // );
-
   return productsList.length > 0 ? (
-    
     <div className="products-container">
-      {productsList[0].map(({ id, title, rating, price,images }) => (
+      {productsList[0].map(({ id, title, rating, price, images }) => (
         <Product
           key={id}
           productId={id}
@@ -54,6 +30,8 @@ export default function Home() {
         />
       ))}
     </div>
+  ) : error ? (
+    <h2 style={{ textAlign: "center" }}>{error}</h2>
   ) : (
     <h1 style={{ textAlign: "center" }}>Loading...</h1>
   );

@@ -20,18 +20,10 @@ function Product({ productId, title, rating, price, imageUrl }) {
         <p className="price">${price}</p>
       </div>
       <div className="cta-container">
-        <button
-          onClick={() => {
-            return dispatch(cartAddItem(productId));
-          }}
-        >
+        <button onClick={() => dispatch(cartAddItem(productId))}>
           Add to Cart
         </button>
-        <button
-          onClick={() => {
-            return dispatch(wishListAddItem(productId));
-          }}
-        >
+        <button onClick={() => dispatch(wishListAddItem(productId))}>
           Add to Wishlist
         </button>
       </div>

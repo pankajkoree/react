@@ -1,5 +1,3 @@
-import { fetchProductsError } from "../slices/productSlice";
-
 export const apiMiddleware =
   ({ dispatch }) =>
   (next) =>
@@ -18,11 +16,9 @@ export const apiMiddleware =
           const data = await response.json();
           dispatch({ type: onSuccess, payload: data });
         } catch (err) {
-          dispatch(
-            onError({
-              type: onError,
-            })
-          );
+          dispatch({
+            type: onError,
+          });
           console.error("Error fetching products:", err);
         }
       };
@@ -32,3 +28,8 @@ export const apiMiddleware =
       next(action);
     }
   };
+
+export const fetchData = (payload) => ({
+  type: "api/makeCall",
+  payload,
+});
