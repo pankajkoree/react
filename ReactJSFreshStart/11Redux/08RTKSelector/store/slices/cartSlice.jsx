@@ -57,7 +57,7 @@ const slice = createSlice({
 export const getCartItems = ({ products, cartItems }) => {
   return cartItems.list
     .map(({ productId, quantity }) => {
-      const cartProduct = products.list.find(
+      const cartProduct = products.list.products.find(
         (product) => product.id === productId
       );
 
