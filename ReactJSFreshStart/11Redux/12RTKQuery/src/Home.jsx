@@ -10,7 +10,6 @@ import {
 
 export default function Home() {
   const [newTask, setNewTask] = useState("");
-
   const {
     data: tasksList,
     isError,
@@ -18,9 +17,7 @@ export default function Home() {
     error,
     refetch,
   } = useGetTasksQuery();
-
   const [addTask] = useAddTaskMutation();
-
   const [updateTask] = useUpdateTaskMutation();
   const [deleteTask] = useDeleteTaskMutation();
 
