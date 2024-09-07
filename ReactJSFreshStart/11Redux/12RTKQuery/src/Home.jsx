@@ -1,61 +1,38 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import TaskItem from "./TaskItem";
+import {
+  useAddTaskMutation,
+  useDeleteTaskMutation,
+  useGetTasksQuery,
+  useUpdateTaskMutation,
+} from "./apiSlice";
 
 export default function Home() {
-  const [tasksList, setTasksList] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [error, setError] = useState(null);
 
-  const BASE_URL = "http://localhost:3000";
+  const {
+    data: tasksList,
+    isError,
+    isLoading,
+    error,
+    refetch,
+  } = useGetTasksQuery();
 
-  useEffect(() => {
-    setIsLoading(true);
-    getTasks().then(() => setIsLoading(false));
-  }, []);
+  const [addTask] = useAddTaskMutation();
 
-  const getTasks = async () => {
-    try {
-      const response = await fetch(`${BASE_URL}/tasks`);
-      const tasks = await response.json();
-      setTasksList(tasks.reverse());
-    } catch (err) {
-      setIsLoading(false);
-      setIsError(true);
-      setError(err);
-    }
-  };
+  const [updateTask] = useUpdateTaskMutation();
+  const [deleteTask] = useDeleteTaskMutation();
 
-  const addTask = async (task) => {
-    await fetch(`${BASE_URL}/tasks`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(task),
-    });
-    getTasks();
-  };
-
-  const updateTask = async ({ id, ...updatedTask }) => {
-    await fetch(`${BASE_URL}/tasks/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedTask),
-    });
-    getTasks();
-  };
-
-  const deleteTask = async (id) => {
-    await fetch(`${BASE_URL}/tasks/${id}`, {
-      method: "DELETE",
-    });
-    getTasks();
-  };
+  // const addTask = async (task) => {
+  //   await fetch(`${BASE_URL}/tasks`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(task),
+  //   });
+  // };
 
   return (
     <div className="flex h-screen flex-grow items-start justify-center bg-gray-900 p-4">
@@ -85,6 +62,7 @@ export default function Home() {
               completed: false,
             };
             addTask(task);
+            // refetch()
             setNewTask("");
           }}
           className="my-2 flex h-8 w-full items-center rounded border-2 border-solid border-gray-700 px-2 text-sm font-medium"
@@ -118,7 +96,7 @@ export default function Home() {
             <p className="text-center">Loading...</p>
           ) : isError ? (
             <p className="text-center">
-              {error.message || "Something went wrong"}
+              {error.error || "Something went wrong"}
             </p>
           ) : (
             tasksList.map((task) => (

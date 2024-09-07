@@ -24,16 +24,6 @@
       "id": 5,
       "value": "Exercise",
       "completed": false
-    },
-    {
-      "id": 6,
-      "value": "Complete Redux",
-      "completed": false
-    },
-    {
-      "value": "travel to mini goa tomorrow",
-      "completed": false,
-      "id": 7
     }
   ]
 }

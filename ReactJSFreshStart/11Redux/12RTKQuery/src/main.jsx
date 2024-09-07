@@ -4,11 +4,18 @@ import Home from "./Home.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./index.css";
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { api } from "./apiSlice.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <ApiProvider api={api}>
+        {" "}
+        <App />
+      </ApiProvider>
+    ),
     children: [
       {
         path: "/",
