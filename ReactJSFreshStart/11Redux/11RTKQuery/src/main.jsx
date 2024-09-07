@@ -1,13 +1,9 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
-import { Provider } from "react-redux";
-import { store } from "../store/index.js";
+import Home from "./Home.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home";
-import Wishlist from "./pages/Wishlist.jsx";
-import Cart from "./pages/Cart";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -19,19 +15,13 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/wishlist",
-        element: <Wishlist />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
+        path: "/contact",
+        element: <p>Contact Us</p>,
       },
     ],
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
 );
