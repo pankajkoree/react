@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Task from "./TaskItem";
 import { Link } from "react-router-dom";
+import TaskItem from "./TaskItem";
 
 export default function Home() {
   const [tasksList, setTasksList] = useState([]);
@@ -122,7 +122,7 @@ export default function Home() {
             </p>
           ) : (
             tasksList.map((task) => (
-              <Task
+              <TaskItem
                 key={task.id}
                 task={task}
                 updateTask={updateTask}
