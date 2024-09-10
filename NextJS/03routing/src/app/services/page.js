@@ -1,12 +1,12 @@
-"use client";
+'use client'
 import { useRouter } from "next/navigation";
 import React from "react";
 
 const page = () => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <>
-      <h1>contact us</h1>
+      <h1>Services pages</h1>
       {/* routing using navigation */}
       <button
         onClick={() => router.push("/home")}
