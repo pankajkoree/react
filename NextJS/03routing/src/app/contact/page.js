@@ -5,6 +5,9 @@ import React from "react";
 
 const page = () => {
   const router = useRouter();
+  const gotoEmployee = (address) => {
+    router.push(address);
+  };
   return (
     <>
       <div className="relative flex flex-col gap-4">
@@ -12,10 +15,19 @@ const page = () => {
 
         <Link
           href="/contact/company"
-          className="relative bg-gray-400 p-4 top-8 left-2 w-[200px]"
+          className="relative bg-gray-400 p-4 top-8 left-2 w-[200px] text-center"
         >
           Contact company
         </Link>
+
+        <button
+          className="relative bg-gray-400 p-4 top-8 left-2 w-[200px]"
+          onClick={() => {
+            gotoEmployee("/contact/employee");
+          }}
+        >
+          Contact Employee
+        </button>
 
         {/* routing using navigation */}
         <button
