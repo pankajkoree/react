@@ -11,7 +11,7 @@ const page = () => {
   return (
     <>
       <div className="relative flex flex-col gap-4">
-        <h1>contact us</h1>
+        <h1 className="relative top-4">contact us</h1>
 
         <Link
           href="/contact/company"
