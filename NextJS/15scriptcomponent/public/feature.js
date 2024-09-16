@@ -1,4 +1,4 @@
-export function Feature() {
+function Feature() {
   console.log("Feature script");
 }
 
