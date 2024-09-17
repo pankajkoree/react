@@ -18,19 +18,19 @@ const Register = () => {
   };
   return (
     <>
-      <div className="relative flex flex-col justify-center items-center">
+      <div className="relative flex flex-col items-center bg-blue-200 h-[250px] w-[20%] left-[40%] top-2 rounded-lg">
         <input
           type="text"
           placeholder="enter your username"
           value={username}
-          className="relative w-[300px] border-2 border-black rounded-lg p-2 text-xl top-2"
+          className="relative w-[300px] border-2 border-white rounded-lg p-2 text-xl top-4 bg-blue-200"
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           placeholder="enter your password"
           value={password}
-          className="relative w-[300px] border-2 border-black rounded-lg p-2 text-xl top-4"
+          className="relative w-[300px] border-2 border-white rounded-lg p-2 text-xl top-8 bg-blue-200"
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* <button className="relative w-[300px] border-2 border-black rounded-lg p-2 text-xl top-6">
@@ -38,7 +38,7 @@ const Register = () => {
         </button> */}
 
         <button
-          className="animated-button relative top-12"
+          className="animated-button relative top-16"
           onClick={registerUser}
         >
           <svg
