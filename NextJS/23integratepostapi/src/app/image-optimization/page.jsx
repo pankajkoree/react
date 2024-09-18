@@ -4,7 +4,7 @@ import windowImage from "../../assets/w11.png";
 const page = () => {
   return (
     <div>
-      <h1 className="relative flex justify-center text-3xl bg-green-600 text-white">
+      <h1 className="relative flex justify-center text-3xl bg-green-600 text-white p-2">
         Image component in Next JS for image optimization
       </h1>
       {/* Loading the image source from the local source */}

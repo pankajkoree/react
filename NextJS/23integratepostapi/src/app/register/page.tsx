@@ -8,7 +8,7 @@ const Register = () => {
 
   const registerUser = async () => {
     // console.log(username, password);
-    let data = await fetch("http://localhost:3002/api/integrate-post-api", {
+    let data = await fetch("http://localhost:3000/api/integrate-post-api", {
       method: "Post",
       body: JSON.stringify({ username, password }),
     });

@@ -245,9 +245,16 @@ import { NextResponse } from "next/server";
 // };
 
 // 3rd way
-export const GET = async (request: any) => {
-  //   let data = await fetch("https://jsonplaceholder.typicode.com/users");  //for users data
-  let data = await fetch("https://dummyjson.com/recipes"); //for recipes data
-  data = await data.json();
-  return NextResponse.json(data);
-};
+// export const GET = async (request: any) => {
+//   //   let data = await fetch("https://jsonplaceholder.typicode.com/users");  //for users data
+//   let data = await fetch("https://dummyjson.com/recipes"); //for recipes data
+//   data = await data.json();
+//   return NextResponse.json(data);
+// };
+
+
+import { recipes } from "../../../db/recipe"
+export const GET = () => {
+  const data = recipes
+  return NextResponse.json(data, {status: 200})
+}
