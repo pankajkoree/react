@@ -26,7 +26,7 @@ const DeleteButton = ({ id }: DeleteButtonProps) => {
   return (
     <button
       onClick={deleteProduct}
-      className="relative w-[30%] left-[35%] p-2 text-xl top-2 rounded-lg text-white bg-red-400 "
+      className="relative w-[30%] left-[20%] p-2 text-xl top-2 rounded-lg text-white bg-red-400 "
     >
       Delete
     </button>

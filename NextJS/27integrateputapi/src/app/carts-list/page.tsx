@@ -1,4 +1,5 @@
 import DeleteButton from "@/components/DeleteButton";
+import Link from "next/link";
 
 type Cart = {
   id: number;
@@ -37,16 +38,22 @@ const CartList = async () => {
                 key={cart.id}
                 className="p-4 border-2 border-red-200 rounded-lg shadow-md"
               >
-                <h3>{`Cart ID: ${cart.id} - User ID: ${cart.userId}`}</h3>
+                <h3>{`Cart ID: ${cart.id} ---------------- User ID: ${cart.userId}`}</h3>
                 <ul className="space-y-2">
                   {cart.products.map((product) => (
                     <li key={product.id}>
-                      {product.title} - Quantity: {product.quantity} - Price: $
-                      {product.price}
+                      {product.title} 
+                      -&gt; Quantity: {product.quantity}
                     </li>
                   ))}
                 </ul>
                 <DeleteButton id={cart.id} />
+                <Link
+                  href={`carts-list/${cart.id}/update`}
+                  className="relative left-[35%] p-2 text-xl top-2 rounded-lg text-white bg-red-400"
+                >
+                  Update
+                </Link>
               </div>
             ))}
           </div>
