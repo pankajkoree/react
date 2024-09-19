@@ -2,9 +2,16 @@
 
 import { useEffect, useState } from "react";
 import "./style.css";
-import { METHODS } from "http";
 
-const UpdateInfo = ({ params }) => {
+interface Params {
+  id: string;
+}
+
+interface ApiResponse {
+  success: boolean;
+}
+
+const UpdateInfo = ({ params }: { params: Params }) => {
   const cartID = params.id;
   const [userId, setUserId] = useState("");
 
@@ -18,13 +25,14 @@ const UpdateInfo = ({ params }) => {
   }, [cartID]);
 
   const update = async () => {
-    let data = await fetch(`http://localhost:3000/api/carts/${cartID}`, {
-      method: "PUT",
-      body: JSON.stringify({ userId }),
-    });
-    data = await data.json();
+    let data: ApiResponse = await fetch(
+      `http://localhost:3000/api/carts/${cartID}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({ userId }),
+      }
+    ).then((res) => res.json());
 
-    console.log(data);
     if (data.success) {
       alert("Updated successfully!!!");
     } else {
