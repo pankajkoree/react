@@ -17,12 +17,12 @@ export const DELETE = (req: any, res: any) => {
   const productId = res.params.productId;
   if (productId)
     return NextResponse.json(
-      { result: "product deleted successfully..." },
+      { result: "product deleted successfully...", success: true },
       { status: 200 }
     );
   else
     return NextResponse.json(
-      { result: "product not found..." },
+      { result: "product not found...", success: false },
       { status: 404 }
     );
 };

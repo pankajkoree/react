@@ -5,7 +5,7 @@ type DeleteButtonProps = {
 };
 
 const DeleteButton = ({ id }: DeleteButtonProps) => {
-  const deleteEmployee = async () => {
+  const deleteProduct = async () => {
     try {
       let response = await fetch(`http://localhost:3000/api/carts/${id}`, {
         method: "DELETE",
@@ -13,17 +13,24 @@ const DeleteButton = ({ id }: DeleteButtonProps) => {
       let data = await response.json();
 
       if (data.success) {
-        alert("Employee Deleted");
+        alert("Product Deleted");
       } else {
         alert("Failed to delete");
       }
     } catch (error) {
-      console.error("Error deleting employee:", error);
+      console.error("Error deleting product:", error);
       alert("Failed due to an error.");
     }
   };
 
-  return <button onClick={deleteEmployee} className="relative w-[200px] bg-green-400">Delete</button>;
+  return (
+    <button
+      onClick={deleteProduct}
+      className="relative w-[30%] left-[35%] p-2 text-xl top-2 rounded-lg text-white bg-red-400 "
+    >
+      Delete
+    </button>
+  );
 };
 
 export default DeleteButton;
