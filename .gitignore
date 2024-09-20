@@ -12,3 +12,4 @@ apis.js
 .gitignore/
 ReactJSFreshStart/09megaBlog/.env
 ReactJSFreshStart/10form/src/.env
+.env
