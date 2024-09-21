@@ -31,5 +31,5 @@ export const POST = async () => {
   });
 
   const response = await cartData.save();
-  return NextResponse.json({ result: response });
+  return NextResponse.json({ result: response, success: true });
 };
