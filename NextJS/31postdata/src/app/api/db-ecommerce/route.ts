@@ -17,3 +17,19 @@ export const GET = async () => {
   // return NextResponse.json({ result: "success" });
   return NextResponse.json({ result: cartData });
 };
+
+// POST
+
+export const POST = async () => {
+  await mongoose.connect(connectionString);
+
+  const cartData = new Ecommerce({
+    title: "Redmi pad pro 5g+",
+    price: 28999,
+    quantity: 1,
+    total: 28999,
+  });
+
+  const response = await cartData.save();
+  return NextResponse.json({ result: response });
+};
