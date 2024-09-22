@@ -1,3 +1,4 @@
+import DeleteSingleItem from "@/components/DeleteSingleItem";
 import Link from "next/link";
 
 type ApiResponse = {
@@ -31,7 +32,9 @@ const GetCartDataFromMongo = async () => {
             <th className="border border-gray-300 p-2">Price</th>
             <th className="border border-gray-300 p-2">Quantity</th>
             <th className="border border-gray-300 p-2">Total</th>
-            <th className="border border-gray-300 p-2">Action</th>
+            <th className="border border-gray-300 p-2" colSpan={2}>
+              Action
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -62,6 +65,9 @@ const GetCartDataFromMongo = async () => {
                   </td>
                   <td className="border border-gray-300 p-2 text-center">
                     <Link href={`integrate-get-mongo/${cart._id}`}>Edit</Link>
+                  </td>
+                  <td className="border border-gray-300 p-2 text-center">
+                    <DeleteSingleItem id={cart._id} />
                   </td>
                 </tr>
               )

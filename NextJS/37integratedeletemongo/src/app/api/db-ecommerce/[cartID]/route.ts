@@ -22,7 +22,6 @@ export const PUT = async (req: any, res: any) => {
   return NextResponse.json({ result, success: true });
 };
 
-
 export const GET = async (req: any, res: any) => {
   // <!---------fetching id---------!>
   const getCartId = res.params.cartID;
@@ -40,4 +39,16 @@ export const GET = async (req: any, res: any) => {
   const result = await Ecommerce.findById(id);
 
   return NextResponse.json({ result, success: true });
+};
+
+export const DELETE = async (req: any, res: any) => {
+  const getCartId = res.params.cartID;
+  const id = { _id: getCartId };
+  await mongoose.connect(connectionString);
+
+  const result = await Ecommerce.deleteOne(id);
+  return NextResponse.json({
+    result,
+    success: true,
+  });
 };
