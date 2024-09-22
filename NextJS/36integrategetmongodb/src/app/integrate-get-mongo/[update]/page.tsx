@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import "./buttonStyle.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type ApiResponse = {
   success: boolean;
@@ -10,13 +11,14 @@ type ApiResponse = {
 };
 
 const UpdatingCartPage = (props: any) => {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   // <!-------------calculating the total amount---------------!>
   const priceNumber = Number(price);
   const quantityNumber = Number(quantity);
-  let total;
+  let total: any;
   if (!isNaN(priceNumber) && !isNaN(quantityNumber)) {
     total = priceNumber * quantityNumber;
   } else {
@@ -24,7 +26,7 @@ const UpdatingCartPage = (props: any) => {
   }
   // <!-------------calculating the total amount---------------!>
 
-  console.log(props.params.update);
+  // console.log(props.params.update);
 
   let id = props.params.update;
 
@@ -46,6 +48,22 @@ const UpdatingCartPage = (props: any) => {
     cartDetails();
   }, [id]);
 
+  const updateCart = async () => {
+    const response = await fetch(
+      `http://localhost:3000/api/db-ecommerce/${id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({ title, price, quantity, total }),
+      }
+    );
+    const data: ApiResponse = await response.json();
+    if (data.success) {
+      alert("Cart update successfully... ❤️");
+      router.push("/integrate-get-mongo");
+    } else {
+      alert("Try again... 😭");
+    }
+  };
   return (
     <>
       <h1 className="relative flex justify-center text-center p-2 text-3xl bg-blue-100 text-fuchsia-600">
@@ -78,7 +96,10 @@ const UpdatingCartPage = (props: any) => {
           className="relative w-[80%] h-[15%] p-2 text-xl rounded-lg"
         />
 
-        <button className="animated-button relative top-8 w-[25%]">
+        <button
+          className="animated-button relative top-8 w-[25%]"
+          onClick={updateCart}
+        >
           <svg
             viewBox="0 0 24 24"
             className="arr-2"
