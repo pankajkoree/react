@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import "./buttonStyle.css";
+import Link from "next/link";
 
 type ApiResponse = {
   success: boolean;
@@ -93,6 +94,10 @@ const page = () => {
             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
           </svg>
         </button>
+      </div>
+
+      <div className="relative top-8 p-2 border-2 w-[15%] text-center rounded-lg border-purple-400 left-[42.5%]">
+        <Link href={"/home"}> ⬅️ Bact to Home</Link>
       </div>
     </>
   );

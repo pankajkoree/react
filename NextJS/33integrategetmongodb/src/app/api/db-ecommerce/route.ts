@@ -15,7 +15,7 @@ export const GET = async () => {
   const cartData = await Ecommerce.find();
 
   // return NextResponse.json({ result: "success" });
-  return NextResponse.json({ result: cartData });
+  return NextResponse.json({ result: cartData, success: true });
 };
 
 // POST

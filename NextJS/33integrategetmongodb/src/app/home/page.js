@@ -31,6 +31,13 @@ function Home() {
             Services
           </button>
         </div>
+
+        <div className="relative top-8 p-2 border-2 w-[20%] text-center rounded-lg left-4 border-purple-400">
+          <Link href={"/integrate-get-mongo"}>Get Cart Data ➡️</Link>
+        </div>
+        <div className="relative top-12 p-2 border-2 w-[20%] text-center rounded-lg left-4 border-purple-400">
+          <Link href={"/integrate-post-mongo"}>Post Data Cart ➡️</Link>
+        </div>
       </div>
     </>
   );
