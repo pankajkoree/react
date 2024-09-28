@@ -1,0 +1,50 @@
+import nodemailer from "nodemailer";
+import User from "../models/userModel";
+import bcryptjs from "bcryptjs";
+
+export const sendEmail = async ({ email, emailType, userId }) => {
+  try {
+    const hashedToken = await bcryptjs.hash(userId.toString(), 10);
+
+    if (emailType === "VERIFY") {
+      await User.findById(userId, {
+        verifyToken: hashedToken,
+        verifyTokenExpiry: Date.now() + 3600000,
+      });
+    } else if (emailType === "RESET") {
+      await User.findById(userId, {
+        forgotPassword: hashedToken,
+        forgotPasswordTokenExpiry: Date.now() + 3600000,
+      });
+    }
+
+    // Looking to send emails in production? Check out our Email API/SMTP product!
+    var transport = nodemailer.createTransport({
+      host: process.env.mailhost,
+      port: process.env.mailport,
+      auth: {
+        user: mailuser, // ❌
+        pass: mailpass, // ❌
+      },
+    });
+
+    const mailOptions = {
+      from: "tcsuk1998@gmail.com", // sender address
+      to: email, // list of receivers
+      subject: emailType === "VERIFY" ? "Verify your email" : "reset password",
+      html: ` <p>Click <a href="${
+        process.env.DOMAIN
+      }/verifyemail?token=${hashedToken}">here</a> to ${
+        emailType === "VERIFY" ? "verify your email" : "reset your password"
+      }
+      or copy and paste the link below in your browser. <br> ${
+        process.env.DOMAIN
+      }/verifyemail?token=${hashedToken}
+      </p>`, // html body
+    };
+
+    const maileResponse = await transport.sendMail(mailOptions);
+  } catch (err) {
+    alert("Error : ", err);
+  }
+};
