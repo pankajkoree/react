@@ -2,18 +2,18 @@ import mongoose from "mongoose";
 
 export async function connect() {
   try {
-    mongoose.connect(process.env.MONGOURL);
+    mongoose.connect(process.env.MONGO_URI);
     const connection = mongoose.connection;
 
     //
     connection.on("connected", () => {
-      alert("MongoDB connected successfully");
+      console.log("MongoDB connected successfully");
     });
 
     connection.on("error", (err) => {
-      alert("MongoDB connection error." + err);
+      console.log("MongoDB connection error." + err);
     });
   } catch (error) {
-    alert("Something went wrong : ", error);
+    console.log("Something went wrong : ", error);
   }
 }
