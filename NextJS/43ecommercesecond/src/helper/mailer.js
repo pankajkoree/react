@@ -23,14 +23,14 @@ export const sendEmail = async ({ email, emailType, userId }) => {
       host: process.env.mailhost,
       port: process.env.mailport,
       auth: {
-        user: mailuser, // ❌
-        pass: mailpass, // ❌
+        user: process.env.mailuser,
+        pass: process.env.mailpass,
       },
     });
 
     const mailOptions = {
-      from: "tcsuk1998@gmail.com", // sender address
-      to: email, // list of receivers
+      from: "tcsuk1998@gmail.com",
+      to: email,
       subject: emailType === "VERIFY" ? "Verify your email" : "reset password",
       html: ` <p>Click <a href="${
         process.env.DOMAIN
@@ -43,8 +43,10 @@ export const sendEmail = async ({ email, emailType, userId }) => {
       </p>`, // html body
     };
 
-    const maileResponse = await transport.sendMail(mailOptions);
+    const mailResponse = await transport.sendMail(mailOptions);
+
+    return mailResponse;
   } catch (err) {
-    alert("Error : ", err);
+    throw new Error(err.message);
   }
 };
