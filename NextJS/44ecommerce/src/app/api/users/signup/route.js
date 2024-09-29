@@ -12,7 +12,6 @@ export const POST = async (request) => {
     const reqBody = await request.json();
 
     const { username, email, password } = reqBody;
-    // validation
 
     console.log(reqBody);
 
@@ -42,7 +41,7 @@ export const POST = async (request) => {
     await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
 
     return NextResponse.json({
-      message: "User registered successfully",
+      message: "User created successfully",
       success: true,
       savedUser,
     });
