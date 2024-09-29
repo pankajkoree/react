@@ -10,8 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import camera from "../../assets/camera.jpeg"
-import cart from "../../assets/cart.png"
+import camera from "../../assets/camera.jpeg";
+import cart from "../../assets/cart.png";
 
 export function CarouselPage() {
   const images = [
