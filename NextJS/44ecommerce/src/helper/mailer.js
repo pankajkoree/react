@@ -7,14 +7,18 @@ export const sendEmail = async ({ email, emailType, userId }) => {
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
 
     if (emailType === "VERIFY") {
-      await User.findById(userId, {
-        verifyToken: hashedToken,
-        verifyTokenExpiry: Date.now() + 3600000,
+      await User.findByIdAndUpdate(userId, {
+        $set: {
+          verifyToken: hashedToken,
+          verifyTokenExpiry: Date.now() + 3600000,
+        },
       });
     } else if (emailType === "RESET") {
-      await User.findById(userId, {
-        forgotPassword: hashedToken,
-        forgotPasswordTokenExpiry: Date.now() + 3600000,
+      await User.findByIdAndUpdate(userId, {
+        $set: {
+          forgotPassword: hashedToken,
+          forgotPasswordTokenExpiry: Date.now() + 3600000,
+        },
       });
     }
 
@@ -39,7 +43,7 @@ export const sendEmail = async ({ email, emailType, userId }) => {
       or copy and paste the link below in your browser. <br> ${
         process.env.DOMAIN
       }/verifyemail?token=${hashedToken}
-      </p>`, 
+      </p>`,
     };
 
     const mailResponse = await transport.sendMail(mailOptions);

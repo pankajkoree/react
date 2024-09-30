@@ -1,7 +1,4 @@
 import { NextResponse } from "next/server";
-import { connect } from "../../../../dbConfig/dbConfig";
-
-connect();
 
 export const GET = async () => {
   try {

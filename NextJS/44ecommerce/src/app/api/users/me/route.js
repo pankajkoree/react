@@ -7,7 +7,7 @@ connect();
 
 export const POST = async (request) => {
   const userId = await getDataFromToken(request);
-  const user = User.findOne({ _id: userId }.select("-password"));
+  const user = User.findOne({ _id: userId }).select("-password");
 
   //   check if there is no user
 
