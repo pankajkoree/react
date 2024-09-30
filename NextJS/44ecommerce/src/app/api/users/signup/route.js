@@ -10,7 +10,7 @@ export const POST = async (request) => {
   try {
     const reqBody = await request.json();
 
-    const { username, email, password } = reqBody;
+    const { username, email, password, isAdmin } = reqBody;
 
     console.log(reqBody);
 
@@ -31,6 +31,7 @@ export const POST = async (request) => {
       username,
       email,
       password: hashedPassword,
+      isAdmin,
     });
 
     const savedUser = await newUser.save();

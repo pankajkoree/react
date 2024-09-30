@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 export async function connect() {
   try {
-    // Ensure mongoose.connect is awaited to establish a connection
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -16,11 +15,11 @@ export async function connect() {
 
     connection.on("error", (err) => {
       console.log("MongoDB connection error: " + err);
-      process.exit(1); // Exit the process with a failure code
+      process.exit(1); 
     });
   } catch (error) {
     console.log("Something went wrong during MongoDB connection: ");
     console.error(error);
-    process.exit(1); // Exit the process with a failure code
+    process.exit(1);
   }
 }
