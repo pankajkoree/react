@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 export async function connect() {
   try {
-    mongoose.connect(process.env.MONGO_URI);
+    // Ensure mongoose.connect is awaited to establish a connection
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
     const connection = mongoose.connection;
 
     connection.on("connected", () => {
@@ -10,11 +15,12 @@ export async function connect() {
     });
 
     connection.on("error", (err) => {
-      console.log("MongoDB connection error." + err);
-      process.exit();
+      console.log("MongoDB connection error: " + err);
+      process.exit(1); // Exit the process with a failure code
     });
   } catch (error) {
-    console.log("Something went wrong : ");
-    console.log(error);
+    console.log("Something went wrong during MongoDB connection: ");
+    console.error(error);
+    process.exit(1); // Exit the process with a failure code
   }
 }
