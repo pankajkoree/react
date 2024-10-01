@@ -22,16 +22,11 @@ export const POST = async (request) => {
         { status: 400 }
       );
     }
-
     console.log("User exists");
 
     const validPassword = await bcryptjs.compare(password, user.password);
-
     if (!validPassword) {
-      return NextResponse.json(
-        { error: "check your credentials" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "invalid password" }, { status: 400 });
     }
 
     const tokenData = {
@@ -51,6 +46,7 @@ export const POST = async (request) => {
 
     response.cookies.set("token", token, {
       httpOnly: true,
+      path: "/",
     });
     return response;
   } catch (error) {

@@ -10,6 +10,7 @@ export const GET = async () => {
     response.cookies.set("token", "", {
       httpOnly: true,
       expires: new Date(0),
+      path: "/",
     });
 
     return response;
