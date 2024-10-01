@@ -4,8 +4,28 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
-const AdminLogin = () => {
+const LoginPage = () => {
+  const router = useRouter();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const onLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/users/login", user);
+      console.log("login successfully", response.data);
+      toast.success("login successfully");
+      router.push("/profile");
+    } catch (error) {
+      console.log("login failed", error.message);
+      toast.error(error.message);
+    }
+  };
   return (
     <div className="relative flex flex-col justify-center items-center w-[30%] left-[35%] top-5 text-2xl border-2 border-yellow-300 rounded-lg">
       <h1>Login Page</h1>
@@ -15,19 +35,23 @@ const AdminLogin = () => {
         <Input
           type="email"
           placeholder="email"
+          value={user.email}
           className="relative left-[5%] w-[90%] text-xl"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
         <Label className="relative flex text-xl left-[5%]">Password</Label>
         <Input
           type="password"
           placeholder="password"
+          value={user.password}
           className="relative left-[5%] w-[90%] text-xl"
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
         <Button
           className="relative left-[5%] w-[90%] text-xl"
           variant="default"
           size="lg"
-          type="submit"
+          onClick={onLogin}
         >
           Login
         </Button>
@@ -36,4 +60,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default LoginPage;
