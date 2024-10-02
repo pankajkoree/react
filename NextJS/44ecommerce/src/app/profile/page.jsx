@@ -22,7 +22,6 @@ const ProfilePage = () => {
 
   const onGetUserData = async () => {
     const res = await axios.post("api/users/me");
-    // console.log(res.data.data.username);
     setData(res.data.data.username);
   };
   console.log(data);
