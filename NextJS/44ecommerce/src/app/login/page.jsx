@@ -18,12 +18,10 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/users/login", user);
-      console.log("login successfully", response.data);
       toast.success("login successfully");
       router.push("/profile");
     } catch (error) {
-      console.log("login failed", error.message);
-      toast.error(error.message);
+      toast.error("Invalid credentials");
     }
   };
   return (

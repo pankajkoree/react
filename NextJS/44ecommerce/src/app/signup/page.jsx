@@ -27,7 +27,7 @@ const Signup = () => {
       toast.success("Successfully signed up");
       router.push("/login");
     } catch (error) {
-      toast.error("Signup failed : ", error.message);
+      toast.error("Signup failed");
     } finally {
       setLoading(false);
     }
@@ -47,7 +47,8 @@ const Signup = () => {
 
   return (
     <div className="relative flex flex-col justify-center items-center w-[30%] left-[35%] top-5 text-2xl border-2 border-yellow-300 rounded-lg">
-      <h1>{loading ? "Processing" : " Signup"}</h1>
+      <p>{loading ? "on process..." : ""}</p>
+      <h1>Signup</h1>
 
       <form className="relative flex flex-col justify-center p-5 gap-4 w-full">
         <Label className="relative flex text-xl left-[5%]">Username</Label>
