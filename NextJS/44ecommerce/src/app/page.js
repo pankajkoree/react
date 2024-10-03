@@ -1,14 +1,13 @@
 import Image from "next/image";
 import ecommerceimage from "../app/assets/ecommerceimage.jpg";
+import NavigationBar from "./components/NavigationBar";
 
 export default function Home() {
   return (
     <>
-      <h1 className="relative flex justify-center text-center p-2 text-2xl text-white bg-green-500">
-        Ecommerce Main Page
-      </h1>
+      <NavigationBar />
 
-      <Image
+      {/* <Image
         src={ecommerceimage}
         alt="ecommerceimage"
         className="relative w-full"
@@ -16,7 +15,7 @@ export default function Home() {
 
       <h1 className="relative flex justify-center text-center p-2 text-xl text-white bg-green-500">
         Footer
-      </h1>
+      </h1> */}
     </>
   );
 }
