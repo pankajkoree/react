@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import "./globals.css";
+import "../../src/app/globals.css";
 import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="m-0 p-0">
         {children}
         <Toaster position="top-center" />
       </body>
