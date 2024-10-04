@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import logo from "../assets/logo.png";
+import logowhite from "../assets/logo-white.png";
+import logoblack from "../assets/logo-black.png";
 import { Input } from "@/components/ui/input";
 import searchBlack from "../assets/search-black.png";
 import cartBlack from "../assets/cart-black.png";
@@ -8,11 +9,11 @@ import userBlack from "../assets/user-black.png";
 
 const NavigationBar = () => {
   return (
-    <nav className="relative grid grid-cols-3 text-center border-2">
+    <nav className="relative grid grid-cols-3 text-center border-2 h-[64px] dark:bg-black">
       {/* logo div */}
-      <div>
+      <div className="relative flex items-center">
         <Image
-          src={logo}
+          src={logowhite}
           alt="logo"
           width={200}
           height={200}
