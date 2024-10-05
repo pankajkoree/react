@@ -8,6 +8,12 @@ export const GET = async () => {
   try {
     console.log("Fetching products data...");
     const productsData = await Product.find();
+    if (!productsData) {
+      return NextResponse.json(
+        { error: "Product not available" },
+        { status: 400 }
+      );
+    }
 
     return NextResponse.json({ results: productsData, success: true });
   } catch (error) {
