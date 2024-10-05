@@ -5,4 +5,6 @@ if (!username || !password) {
   throw new Error("Missing database credentials");
 }
 
-export const connectionString = `mongodb+srv://${username}:${password}@cluster0.u9aqx.mongodb.net/myDatabase?retryWrites=true&w=majority`;
+export const connectionString = `
+mongodb+srv://${username}:${password}@cluster0.u9aqx.mongodb.net/ecommerce
+`;

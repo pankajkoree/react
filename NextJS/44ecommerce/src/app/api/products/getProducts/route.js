@@ -1,11 +1,15 @@
-import toast from "react-hot-toast";
-import { connect } from "../../../../dbConfig/dbConfig";
+import { connect } from "@/dbConfig/dbConfig";
+import Product from "@/models/productModel";
+import { NextResponse } from "next/server";
 
 connect();
 
 export const GET = async () => {
   try {
+    const productsData = await Product.find();
+
+    return NextResponse.json({ results: productsData, success: true });
   } catch (error) {
-    toast.error(error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 };

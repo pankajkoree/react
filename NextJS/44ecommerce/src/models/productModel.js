@@ -1,4 +1,3 @@
-import { Weight } from "lucide-react";
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
@@ -26,6 +25,6 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product =
-  mongoose.models.productsData || mongoose.model("productsData", productSchema);
+  mongoose.models.productsdata || mongoose.model("productsdata", productSchema);
 
 export default Product;
