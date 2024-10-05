@@ -6,6 +6,7 @@ connect();
 
 export const GET = async () => {
   try {
+    console.log("Fetching products data...");
     const productsData = await Product.find();
 
     return NextResponse.json({ results: productsData, success: true });
