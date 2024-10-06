@@ -34,7 +34,7 @@ const UserView = () => {
   }, []);
 
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-4 top-4 px-2 max-w-full">
+    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 top-6 px-4 max-w-full">
       {products && products.length > 0 ? (
         products.map((product) => (
           <EcommerceCard

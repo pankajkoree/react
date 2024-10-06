@@ -5,7 +5,7 @@ const EcommerceCard = ({ src, alt, title, price, rating }) => {
   let floorRating = rating;
   floorRating = Math.floor(floorRating);
   return (
-    <div className="border rounded-lg p-4 shadow-lg shadow-indigo-400 dark:shadow-purple-900 dark:shadow-md dark:bg-gray-700 overflow-hidden">
+    <div className="border rounded-lg p-4 shadow-lg shadow-gray-600 dark:shadow-purple-900 dark:shadow-md dark:bg-gray-700 hover:shadow-lg transition-transform duration-200 ease-in-out hover:shadow-green-400 hover:scale-105 overflow-hidden">
       {/* Product thumbnail */}
       <div className="h-48 w-full mb-4">
         <Image
