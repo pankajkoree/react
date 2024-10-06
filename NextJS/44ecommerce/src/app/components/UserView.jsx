@@ -1,6 +1,8 @@
 "use client";
 
+import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import { EcommerceCard } from "./EcommerceCard";
 
 const getProductsData = async () => {
   try {
@@ -36,12 +38,12 @@ const UserView = () => {
 
   return (
     <div>
-      <h1>Page seen to user</h1>
+    
       {products && products.length > 0 ? (
         <ul>
           {products?.map((product) => (
             <div>
-              <li>${product.title}</li>
+             <EcommerceCard />
             </div>
           ))}
         </ul>
