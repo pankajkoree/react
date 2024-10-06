@@ -5,7 +5,7 @@ const EcommerceCard = ({ src, alt, title, price, rating }) => {
   let floorRating = rating;
   floorRating = Math.floor(floorRating);
   return (
-    <div className="border rounded-lg p-4 shadow-lg shadow-indigo-400 dark:shadow-purple-900 dark:shadow-md dark:bg-gray-700">
+    <div className="border rounded-lg p-4 shadow-lg shadow-indigo-400 dark:shadow-purple-900 dark:shadow-md dark:bg-gray-700 overflow-hidden">
       {/* Product thumbnail */}
       <div className="h-48 w-full mb-4">
         <Image
@@ -13,7 +13,7 @@ const EcommerceCard = ({ src, alt, title, price, rating }) => {
           alt={alt}
           width={1920}
           height={1080}
-          className="object-contain h-full w-full"
+          className="object-contain h-full w-full transition-transform duration-200 ease-in-out hover:scale-125"
         />
       </div>
 
@@ -26,8 +26,8 @@ const EcommerceCard = ({ src, alt, title, price, rating }) => {
       </div>
       {/* Buttons */}
       <div className="flex justify-between mt-4">
-        <Button>Add to cart</Button>
-        <Button>Buy now</Button>
+        <Button variant="carting">Add to cart</Button>
+        <Button variant="buy">Buy now</Button>
       </div>
     </div>
   );
