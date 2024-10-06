@@ -1,0 +1,50 @@
+.scene {
+  width: 400px;
+  height: 400px;
+  perspective: 1200px;
+  position: relative;
+}
+.scene * {
+  transform-style: preserve-3d;
+}
+.cylinder {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.cylinder > div {
+  --cylinderWidth: 200px;
+  transform-origin: center;
+  position: absolute;
+  top: calc(50% - calc(calc(var(--cylinderWidth) * calc(1 / 15)) / 2));
+  left: calc(50% - calc(var(--cylinderWidth) / 2));
+  // rotate: y -90deg;
+  // background: rgb(255,0,0,0.2);
+  width: var(--cylinderWidth);
+  aspect-ratio: 15/1;
+
+  animation: rotate 2.5s linear infinite;
+}
+
+@for $i from 0 to 12 {
+  .cylinder > div:nth-child(#{$i + 1}) {
+    background-image: linear-gradient(
+      90deg,
+      transparent calc(#{$i} * 8.3333%),
+      rgb(22, 206, 6) calc(#{$i} * 8.3333%) calc(#{$i + 1} * 8.3333%),
+      transparent calc(#{$i + 1} * 8.3333%)
+    );
+    transform: rotateX(calc(#{$i + 1} * 30deg)) translateZ(30px);
+  }
+}
+@keyframes rotate {
+  from {
+    rotate: x 0deg;
+    // rotate: y 0deg;
+  }
+  to {
+    rotate: x 360deg;
+    // transform: rotateX(360deg);
+    // rotate: y 360deg;
+  }
+}

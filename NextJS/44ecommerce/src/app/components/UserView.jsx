@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import EcommerceCard from "./EcommerceCard";
+import "./style.scss";
 
 const getProductsData = async () => {
   try {
@@ -47,7 +48,25 @@ const UserView = () => {
           />
         ))
       ) : (
-        <p>No products available</p>
+        <div className="relative flex flex-col items-center left-[700px]">
+          <h1 className="text-2xl">Loading...</h1>
+          <div class="scene">
+            <div class="cylinder">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
