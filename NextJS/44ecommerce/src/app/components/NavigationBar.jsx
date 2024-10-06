@@ -9,7 +9,7 @@ import userBlack from "../assets/user-black.png";
 
 const NavigationBar = () => {
   return (
-    <nav className="relative grid grid-cols-3 text-center h-[64px] dark:bg-black">
+    <nav className="relative grid grid-cols-3 text-center h-[64px] dark:bg-black border">
       {/* logo div */}
       <div className="relative flex items-center">
         <Image
