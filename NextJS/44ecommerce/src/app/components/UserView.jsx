@@ -1,8 +1,7 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import { EcommerceCard } from "./EcommerceCard";
+import EcommerceCard from "./EcommerceCard";
 
 const getProductsData = async () => {
   try {
@@ -34,19 +33,19 @@ const UserView = () => {
     fetchData();
   }, []);
 
-  products?.map((product) => console.log(product.title));
-
   return (
-    <div>
-    
+    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-4 shadow-md top-4 px-2 max-w-full">
       {products && products.length > 0 ? (
-        <ul>
-          {products?.map((product) => (
-            <div>
-             <EcommerceCard />
-            </div>
-          ))}
-        </ul>
+        products.map((product) => (
+          <EcommerceCard
+            key={product?.id}
+            src={product?.thumbnail}
+            alt={product?.title}
+            title={product?.title}
+            price={product?.price}
+            rating={product?.rating}
+          />
+        ))
       ) : (
         <p>No products available</p>
       )}
