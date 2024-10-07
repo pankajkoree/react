@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`m-0 p-0 dark`}>
+      <body className={`m-0 p-0`}>
         {children}
         <Toaster position="top-center" />
       </body>
