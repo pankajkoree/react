@@ -11,6 +11,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        border: {
+          "0%": { borderColor: "#bde4e4" },
+          "50%": { borderColor: "#67adf3" },
+          "100%": { borderColor: "#b8fad9" },
+        },
+      },
+      animation: {
+        "border-animation": "border 2s linear infinite",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
