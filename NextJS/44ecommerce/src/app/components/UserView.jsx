@@ -48,23 +48,59 @@ const UserView = () => {
           />
         ))
       ) : (
-        <div className="relative flex flex-col items-center left-[700px]">
-          <h1 className="text-2xl">Loading...</h1>
-          <div className="scene">
-            <div className="cylinder">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+        <div className="relative flex flex-col left-[700px] items-center w-full h-[800px] text-3xl">
+          <div className="hexagon" aria-label="Animated hexagonal ripples">
+            <div className="hexagon__group">
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
             </div>
+            <div className="hexagon__group">
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+            </div>
+            <div className="hexagon__group">
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+            </div>
+            <div className="hexagon__group">
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+            </div>
+            <div className="hexagon__group">
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+            </div>
+            <div className="hexagon__group">
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+              <div className="hexagon__sector"></div>
+            </div>
+          </div>
+          <div>
+            <h1>Loading...</h1>
           </div>
         </div>
       )}
