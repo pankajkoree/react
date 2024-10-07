@@ -1,9 +1,42 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 const EcommerceCard = ({ src, alt, title, price, rating }) => {
   let floorRating = rating;
   floorRating = Math.floor(floorRating);
+
+  const addedToCart = () => {
+    toast.success("added to cart", {
+      style: {
+        border: "1px solid purple",
+        padding: "8px",
+        color: "#ffffff",
+        background: "#19f57c",
+        fontSize: "16px",
+      },
+      iconTheme: {
+        primary: "#3177ff",
+        secondary: "#FFFAEE",
+      },
+    });
+  };
+
+  const addedToBuyNow = () => {
+    toast.success("item ordered", {
+      style: {
+        border: "1px solid purple",
+        padding: "8px",
+        color: "#ffffff",
+        background: "#19f57c",
+        fontSize: "16px",
+      },
+      iconTheme: {
+        primary: "#3177ff",
+        secondary: "#FFFAEE",
+      },
+    });
+  };
   return (
     <div className="border rounded-lg p-4 shadow-md shadow-indigo-400 dark:shadow-slate-400 dark:shadow-md dark:hover:shadow-lg dark:bg-silver-800 hover:shadow-lg transition-transform duration-200 ease-in-out hover:shadow-green-400 hover:scale-105 overflow-hidden dark:hover:shadow-green-500">
       {/* Product thumbnail */}
@@ -26,10 +59,18 @@ const EcommerceCard = ({ src, alt, title, price, rating }) => {
       </div>
       {/* Buttons */}
       <div className="flex justify-between mt-4">
-        <Button variant="carting" className="text-xl hover:text-white">
+        <Button
+          variant="carting"
+          className="text-xl hover:text-white"
+          onClick={addedToCart}
+        >
           Add to cart
         </Button>
-        <Button variant="buy" className="text-xl hover:text-white">
+        <Button
+          variant="buy"
+          className="text-xl hover:text-white"
+          onClick={addedToBuyNow}
+        >
           Buy now
         </Button>
       </div>

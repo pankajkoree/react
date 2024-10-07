@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import EcommerceCard from "./EcommerceCard";
+import EcommerceCard from "../EcommerceCard/page";
 import "./style.scss";
 
 const getProductsData = async () => {
