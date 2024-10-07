@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import EcommerceCard from "../EcommerceCard/page";
+import EcommerceCard from "./EcommerceCard";
 import "./style.scss";
 
 const getProductsData = async () => {
@@ -28,7 +28,6 @@ const UserView = () => {
     const fetchData = async () => {
       const data = await getProductsData();
       setProducts(data);
-      console.log(data);
     };
 
     fetchData();

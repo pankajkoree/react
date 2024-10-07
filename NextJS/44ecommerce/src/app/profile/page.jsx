@@ -17,7 +17,7 @@ const ProfilePage = () => {
       router.push("/login");
     } catch (error) {
       toast.error(error.message);
-    }
+    } 
   };
 
   const onGetUserData = async () => {
