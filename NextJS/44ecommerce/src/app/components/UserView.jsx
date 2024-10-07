@@ -50,8 +50,8 @@ const UserView = () => {
       ) : (
         <div className="relative flex flex-col items-center left-[700px]">
           <h1 className="text-2xl">Loading...</h1>
-          <div class="scene">
-            <div class="cylinder">
+          <div className="scene">
+            <div className="cylinder">
               <div></div>
               <div></div>
               <div></div>
