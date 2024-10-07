@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const EcommerceCard = ({ src, alt, title, price, rating }) => {
-  const [productTitle, setProductTitle] = useState();
+const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
+  const [productId, setProductId] = useState();
   const router = useRouter();
   let floorRating = rating;
   floorRating = Math.floor(floorRating);
@@ -44,11 +44,11 @@ const EcommerceCard = ({ src, alt, title, price, rating }) => {
   };
 
   const getData = () => {
-    setProductTitle(title);
+    setProductId(id);
   };
 
   const gotoProduct = () => {
-    router.push(`/${productTitle}`);
+    router.push(`/${productId}`);
   };
   return (
     <div
