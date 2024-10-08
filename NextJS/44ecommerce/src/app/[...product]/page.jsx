@@ -44,7 +44,7 @@ const SpecificProductPage = ({ params }) => {
   }, [products, params]);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="relative top-4 mb-8 container mx-auto p-4 border-2 border-red-400">
       {specificProduct ? (
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           {/* Product Image */}
@@ -52,7 +52,7 @@ const SpecificProductPage = ({ params }) => {
             <img
               src={specificProduct.images[0]}
               alt={specificProduct.title}
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full h-[600px] rounded-lg shadow-lg"
             />
           </div>
 
