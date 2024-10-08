@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const getProductsData = async () => {
   try {
@@ -14,7 +15,7 @@ const getProductsData = async () => {
       return false;
     }
   } catch (error) {
-    console.log(error);
+    toast.error(error);
     return false;
   }
 };
@@ -35,15 +36,13 @@ const SpecificProductPage = ({ params }) => {
   useEffect(() => {
     if (products && params?.product?.[0]) {
       const foundProduct = products.find(
-        (product) => product.id === params.product[0]
+        (product) => product._id === params.product[0]
       );
       if (foundProduct) {
         setSpecificProduct(foundProduct);
       }
     }
   }, [products, params]);
-
-  console.log(specificProduct);
   return (
     <div className="relative top-4 mb-8 container mx-auto p-4 shadow-sm shadow-green-800 dark:shadow-green-300 hover:shadow-lg hover:shadow-green-300 dark:hover:shadow-blue-200 rounded-lg text-gray-900 dark:text-white ">
       {specificProduct ? (

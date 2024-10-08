@@ -39,7 +39,7 @@ const UserView = () => {
         products.map((product) => (
           <EcommerceCard
             key={product?.id}
-            id={product.id}
+            id={product._id}
             src={product?.thumbnail}
             alt={product?.title}
             title={product?.title}
