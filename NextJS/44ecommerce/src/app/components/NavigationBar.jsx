@@ -35,7 +35,7 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <nav className="relative grid grid-cols-3 text-center h-[64px] dark:bg-black border">
+    <nav className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white">
       {/* logo div */}
       <div className="relative flex items-center">
         {isDarkMode ? (
