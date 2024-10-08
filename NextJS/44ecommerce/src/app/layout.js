@@ -1,17 +1,7 @@
-import localFont from "next/font/local";
 import "../../src/app/globals.css";
 import { Toaster } from "react-hot-toast";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "Ecommerce App",
@@ -21,8 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`m-0 p-0`}>
+      <body className={`m-0 p-0 font-poppins`}>
+        <NavigationBar />
         {children}
+        <Footer />
         <Toaster position="bottom-right" />
       </body>
     </html>
