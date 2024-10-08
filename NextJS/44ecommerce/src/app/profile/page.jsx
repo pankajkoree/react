@@ -17,7 +17,7 @@ const ProfilePage = () => {
       router.push("/login");
     } catch (error) {
       toast.error(error.message);
-    } 
+    }
   };
 
   const onGetUserData = async () => {
@@ -26,7 +26,7 @@ const ProfilePage = () => {
   };
   console.log(data);
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="relative flex flex-col items-center mb-8">
       <h1>Profile page</h1>
       <h2>
         {data === "nodata" ? (

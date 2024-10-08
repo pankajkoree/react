@@ -11,10 +11,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`m-0 p-0 font-poppins`}>
+      <body className="m-0 p-0 font-poppins min-h-screen flex flex-col">
+        {/* Navigation */}
         <NavigationBar />
-        {children}
+
+        {/* children */}
+        <main className="flex-grow">{children}</main>
+
+        {/* Footer */}
         <Footer />
+
+        {/* Toast notifications */}
         <Toaster position="bottom-right" />
       </body>
     </html>
