@@ -48,7 +48,7 @@ const UserView = () => {
           />
         ))
       ) : (
-        <div className="relative flex flex-col left-[700px] items-center w-full h-[800px] text-3xl">
+        <div className="relative flex flex-col left-[700px] items-center w-full h-[815px] text-3xl">
           <div className="hexagon" aria-label="Animated hexagonal ripples">
             <div className="hexagon__group">
               <div className="hexagon__sector"></div>
