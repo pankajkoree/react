@@ -59,6 +59,7 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
       {/* Product thumbnail */}
       <div className="h-48 w-full mb-4">
         <Image
+          loading="lazy"
           src={src}
           alt={alt}
           width={1920}

@@ -13,8 +13,10 @@ import userBlack from "../assets/user-black.png";
 import userColor from "../assets/user-color.png";
 import darkMode from "../assets/dark-mode.png";
 import lightMode from "../assets/light-mode.png";
+import { useRouter } from "next/navigation";
 
 const NavigationBar = () => {
+  const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const addDarkMode = () => {
@@ -33,6 +35,10 @@ const NavigationBar = () => {
       setIsDarkMode(document.body.classList.contains("dark"));
     }
   }, []);
+
+  const gotoLogin = () => {
+    router.push("/login");
+  };
 
   return (
     <nav className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white">
@@ -118,7 +124,10 @@ const NavigationBar = () => {
           <p>cart</p>
         </div>
         {/* login div */}
-        <div className="relative flex flex-row items-center gap-2">
+        <div
+          className="relative flex flex-row items-center gap-2 cursor-pointer"
+          onClick={gotoLogin}
+        >
           {isDarkMode ? (
             <Image
               src={userColor}
