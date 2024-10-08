@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -55,8 +56,18 @@ const LoginPage = () => {
         >
           Login
         </Button>
-        <p className="relative text-[16px]">Forgot username/password?</p>
-        <p className="relative text-[16px]">Don't have an account? Sign up</p>
+        <p className="relative text-[16px]">
+          Forgot{" "}
+          <Link href={`/forgotCredentials`} className="text-blue-500">
+            username/password?
+          </Link>
+        </p>
+        <p className="relative text-[16px]">
+          Don't have an account?{" "}
+          <Link href={`/signup`} className="text-blue-500">
+            Sign up
+          </Link>
+        </p>
       </form>
     </div>
   );
