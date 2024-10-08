@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 const Signup = () => {
   const router = useRouter();
@@ -84,6 +85,12 @@ const Signup = () => {
         >
           {buttonDisabled ? "No signup" : "Signup"}
         </Button>
+        <p className="text-center text-[16px]">
+          Already have an account?{" "}
+          <Link href={`/login`} className="text-blue-400">
+            Sign in
+          </Link>
+        </p>
       </form>
     </div>
   );
