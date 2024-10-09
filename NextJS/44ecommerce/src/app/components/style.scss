@@ -1,198 +1,102 @@
-:root {
-  --bg: #e3e4e8;
-  --fg: #17181c;
-  --dur: 8s;
-}
-.hexagon {
-  margin-bottom: 1.5em;
-  overflow: hidden;
-  position: relative;
-  width: 15em;
-  height: 15em;
-}
-.hexagon__group,
-.hexagon__sector,
-.hexagon__sector:before,
-.hexagon__sector:after {
-  position: absolute;
-}
-.hexagon__group {
-  width: 100%;
-  height: 100%;
-}
-.hexagon__group:nth-child(2) .hexagon__sector,
-.hexagon__group:nth-child(2) .hexagon__sector:before,
-.hexagon__group:nth-child(2) .hexagon__sector:after {
-  animation-delay: calc(var(--dur) * -1 / 6);
-}
-.hexagon__group:nth-child(3) .hexagon__sector,
-.hexagon__group:nth-child(3) .hexagon__sector:before,
-.hexagon__group:nth-child(3) .hexagon__sector:after {
-  animation-delay: calc(var(--dur) * -2 / 6);
-}
-.hexagon__group:nth-child(4) .hexagon__sector,
-.hexagon__group:nth-child(4) .hexagon__sector:before,
-.hexagon__group:nth-child(4) .hexagon__sector:after {
-  animation-delay: calc(var(--dur) * -3 / 6);
-}
-.hexagon__group:nth-child(5) .hexagon__sector,
-.hexagon__group:nth-child(5) .hexagon__sector:before,
-.hexagon__group:nth-child(5) .hexagon__sector:after {
-  animation-delay: calc(var(--dur) * -4 / 6);
-}
-.hexagon__group:nth-child(6) .hexagon__sector,
-.hexagon__group:nth-child(6) .hexagon__sector:before,
-.hexagon__group:nth-child(6) .hexagon__sector:after {
-  animation-delay: calc(var(--dur) * -5 / 6);
-}
-.hexagon__group:nth-child(odd) {
-  transform: rotate(30deg);
-}
-.hexagon__sector,
-.hexagon__sector:before,
-.hexagon__sector:after {
-  animation-duration: var(--dur);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  /*animation-play-state: paused;*/
-  width: 0.2em;
-  height: 0.2em;
-}
-.hexagon__sector {
-  animation-name: moveOut1;
-  top: calc(50% - 0.1em);
-  left: calc(50% - 0.1em);
-}
-.hexagon__sector:nth-child(2) {
-  animation-name: moveOut2;
-}
-.hexagon__sector:nth-child(3) {
-  animation-name: moveOut3;
-}
-.hexagon__sector:nth-child(4) {
-  animation-name: moveOut4;
-}
-.hexagon__sector:nth-child(5) {
-  animation-name: moveOut5;
-}
-.hexagon__sector:nth-child(6) {
-  animation-name: moveOut6;
-}
-.hexagon__sector:before,
-.hexagon__sector:after {
-  animation-name: ripple;
-  background-color: currentColor;
-  border-radius: 0.1em;
-  content: "";
-  display: block;
-  top: 0;
-  left: 0;
-  transform-origin: 0.1em 0.1em;
-}
-.hexagon__sector:before {
-  transform: rotate(-30deg);
-}
-.hexagon__sector:after {
-  transform: rotate(-150deg);
-}
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #17181c;
-    --fg: #e3e4e8;
+$--p-1: #d4aee0;
+$--p-2: #8975b4;
+$--p-3: #64518a;
+$--p-4: #565190;
+
+$--b-1: #44abac;
+$--b-2: #2ca7d8;
+$--b-3: #1482ce;
+$--b-4: #05597c;
+
+$--g-1: #b2dd57;
+$--g-2: #57c443;
+$--g-3: #05b853;
+$--g-4: #19962e;
+
+$--y-1: #fdc82e;
+$--y-2: #fd9c2e;
+$--y-3: #d5385a;
+$--y-4: #911750;
+
+$--s-1: #d9d9d9;
+$--s-2: #9e9e9e;
+$--s-3: #666666;
+$--s-4: #2b2b2b;
+
+$colors: (
+  $--p-1,
+  $--p-2,
+  $--p-3,
+  $--p-4,
+  $--b-1,
+  $--b-2,
+  $--b-3,
+  $--b-4,
+  $--g-1,
+  $--g-2,
+  $--g-3,
+  $--g-4,
+  $--y-1,
+  $--y-2,
+  $--y-3,
+  $--y-4
+);
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap");
+
+.mosaic-loader {
+  --cell-size: 64px;
+  --cell-spacing: 1px;
+  --border-width: 1px;
+  --cells: 4;
+  --total-size: calc(
+    var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing))
+  );
+
+  display: flex;
+  flex-wrap: wrap;
+  width: var(--total-size);
+  height: var(--total-size);
+
+  > .cell {
+    --cell-color: white;
+    flex: 0 0 var(--cell-size);
+    margin: var(--cell-spacing);
+    background-color: transparent;
+    box-sizing: border-box;
+    border: var(--border-width) solid var(--cell-color);
+
+    animation: 1.5s ripple ease infinite;
+
+    $delays: (2 * 4) - 2;
+    @for $i from 1 through $delays {
+      &.d-#{$i} {
+        animation-delay: $i * 100ms;
+      }
+    }
+
+    @for $i from 1 through length($colors) {
+      &:nth-child(#{$i}) {
+        --cell-color: #{nth($colors, $i)};
+      }
+    }
   }
 }
-/* Animations */
-@keyframes moveOut1 {
-  from {
-    transform: translateY(0) scale(0);
-  }
-  3% {
-    transform: translateY(0.2em) scale(1);
-  }
-  97% {
-    transform: translateY(7.3em) scale(1);
-  }
-  to {
-    transform: translateY(7.5em) scale(0);
-  }
-}
-@keyframes moveOut2 {
-  from {
-    transform: rotate(60deg) translateY(0) scale(0);
-  }
-  3% {
-    transform: rotate(60deg) translateY(0.2em) scale(1);
-  }
-  97% {
-    transform: rotate(60deg) translateY(7.3em) scale(1);
-  }
-  to {
-    transform: rotate(60deg) translateY(7.5em) scale(0);
-  }
-}
-@keyframes moveOut3 {
-  from {
-    transform: rotate(120deg) translateY(0) scale(0);
-  }
-  3% {
-    transform: rotate(120deg) translateY(0.2em) scale(1);
-  }
-  97% {
-    transform: rotate(120deg) translateY(7.3em) scale(1);
-  }
-  to {
-    transform: rotate(120deg) translateY(7.5em) scale(0);
-  }
-}
-@keyframes moveOut4 {
-  from {
-    transform: rotate(180deg) translateY(0) scale(0);
-  }
-  3% {
-    transform: rotate(180deg) translateY(0.2em) scale(1);
-  }
-  97% {
-    transform: rotate(180deg) translateY(7.3em) scale(1);
-  }
-  to {
-    transform: rotate(180deg) translateY(7.5em) scale(0);
-  }
-}
-@keyframes moveOut5 {
-  from {
-    transform: rotate(240deg) translateY(0) scale(0);
-  }
-  3% {
-    transform: rotate(240deg) translateY(0.2em) scale(1);
-  }
-  97% {
-    transform: rotate(240deg) translateY(7.3em) scale(1);
-  }
-  to {
-    transform: rotate(240deg) translateY(7.5em) scale(0);
-  }
-}
-@keyframes moveOut6 {
-  from {
-    transform: rotate(300deg) translateY(0) scale(0);
-  }
-  3% {
-    transform: rotate(300deg) translateY(0.2em) scale(1);
-  }
-  97% {
-    transform: rotate(300deg) translateY(7.3em) scale(1);
-  }
-  to {
-    transform: rotate(300deg) translateY(7.5em) scale(0);
-  }
-}
+
 @keyframes ripple {
-  from,
-  to {
-    width: 0.2em;
+  0% {
+    background-color: transparent;
   }
-  33% {
-    width: 2.4em;
+
+  30% {
+    background-color: var(--cell-color);
+  }
+
+  60% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
   }
 }

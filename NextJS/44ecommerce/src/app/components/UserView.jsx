@@ -24,6 +24,16 @@ const getProductsData = async () => {
 const UserView = () => {
   const [products, setProducts] = useState(null);
 
+  const cells = 4;
+  const cellsArray = [];
+
+  // Generate the grid cells and their classes
+  for (let i = 0; i < cells; i++) {
+    for (let j = 0; j < cells; j++) {
+      cellsArray.push(`d-${i + j}`);
+    }
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProductsData();
@@ -48,56 +58,11 @@ const UserView = () => {
           />
         ))
       ) : (
-        <div className="relative flex flex-col left-[700px] items-center w-full h-[815px] text-3xl">
-          <div className="hexagon" aria-label="Animated hexagonal ripples">
-            <div className="hexagon__group">
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-            </div>
-            <div className="hexagon__group">
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-            </div>
-            <div className="hexagon__group">
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-            </div>
-            <div className="hexagon__group">
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-            </div>
-            <div className="hexagon__group">
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-            </div>
-            <div className="hexagon__group">
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-              <div className="hexagon__sector"></div>
-            </div>
+        <div className="relative flex flex-col items-center left-[100%] top-[70%] gap-8 text-3xl">
+          <div className="mosaic-loader">
+            {cellsArray.map((cellClass, index) => (
+              <div key={index} className={`cell ${cellClass}`} />
+            ))}
           </div>
           <div>
             <h1>Loading...</h1>
