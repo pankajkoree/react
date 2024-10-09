@@ -40,8 +40,14 @@ const NavigationBar = () => {
     router.push("/login");
   };
 
+  const gotoMainPage = () => {
+    router.push("/");
+  };
   return (
-    <nav className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white">
+    <nav
+      className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white cursor-pointer"
+      onClick={gotoMainPage}
+    >
       {/* logo div */}
       <div className="relative flex items-center">
         {isDarkMode ? (
