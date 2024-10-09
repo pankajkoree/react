@@ -50,7 +50,7 @@ const SpecificProductPage = ({ params }) => {
           {/* Product Image */}
           <div className="w-full md:w-1/2 h-[745px]">
             <img
-            loading="lazy"
+              loading="lazy"
               src={specificProduct.images[0]}
               alt={specificProduct.title}
               className="relative left-[5%] top-[5%] w-[90%] h-[90%] rounded-lg shadow-lg transition-transform duration-200 ease-in-out hover:scale-105"
