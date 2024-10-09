@@ -41,6 +41,8 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
         secondary: "#FFFAEE",
       },
     });
+
+    router.push("/buyNow");
   };
 
   const getData = () => {

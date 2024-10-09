@@ -26,8 +26,6 @@ const UserView = () => {
 
   const cells = 4;
   const cellsArray = [];
-
-  // Generate the grid cells and their classes
   for (let i = 0; i < cells; i++) {
     for (let j = 0; j < cells; j++) {
       cellsArray.push(`d-${i + j}`);

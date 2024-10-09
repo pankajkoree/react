@@ -48,6 +48,8 @@ const NavigationBar = () => {
     router.push("/carts");
   };
 
+  
+
   return (
     <nav className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white">
       {/* logo div */}
