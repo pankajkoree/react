@@ -44,10 +44,7 @@ const NavigationBar = () => {
     router.push("/");
   };
   return (
-    <nav
-      className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white cursor-pointer"
-      onClick={gotoMainPage}
-    >
+    <nav className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white">
       {/* logo div */}
       <div className="relative flex items-center">
         {isDarkMode ? (
@@ -56,7 +53,8 @@ const NavigationBar = () => {
             alt="logo"
             width={200}
             height={200}
-            className="relative flex p-2"
+            className="relative flex p-2 cursor-pointer"
+            onClick={gotoMainPage}
           />
         ) : (
           <Image
@@ -64,7 +62,8 @@ const NavigationBar = () => {
             alt="logo"
             width={200}
             height={200}
-            className="relative flex p-2"
+            className="relative flex p-2 cursor-pointer"
+            onClick={gotoMainPage}
           />
         )}
       </div>
