@@ -48,7 +48,7 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
   };
 
   const gotoProduct = () => {
-    router.push(`/${productId}`);
+    router.push(`/porduct/${productId}`);
   };
   return (
     <div
