@@ -43,6 +43,11 @@ const NavigationBar = () => {
   const gotoMainPage = () => {
     router.push("/");
   };
+
+  const gotoCart = () => {
+    router.push("/carts");
+  };
+
   return (
     <nav className="sticky top-0 z-10 w-full grid grid-cols-3 text-center h-[64px] dark:bg-black border bg-white">
       {/* logo div */}
@@ -94,7 +99,7 @@ const NavigationBar = () => {
       <div className="relative flex flex-row justify-end items-center right-12 gap-12">
         {/* theme div */}
         <div
-          className="relative flex flex-row items-center gap-2"
+          className="relative flex flex-row items-center gap-2 cursor-pointer"
           onClick={addDarkMode}
         >
           {isDarkMode ? (
@@ -112,7 +117,10 @@ const NavigationBar = () => {
           )}
         </div>
         {/* cart div */}
-        <div className="relative flex flex-row items-center gap-2">
+        <div
+          className="relative flex flex-row items-center gap-2 cursor-pointer"
+          onClick={gotoCart}
+        >
           {isDarkMode ? (
             <Image
               src={cartColor}
