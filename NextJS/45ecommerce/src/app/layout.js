@@ -1,7 +1,4 @@
-import "../../src/app/globals.css";
-import { Toaster } from "react-hot-toast";
-import NavigationBar from "./components/NavigationBar";
-import Footer from "./components/Footer";
+import ClientLayout from "./ClientLayout";
 
 export const metadata = {
   title: "Ecommerce App",
@@ -12,17 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="m-0 p-0 font-poppins flex flex-col min-h-screen">
-        {/* Navigation */}
-        <NavigationBar />
-
-        {/* Main Content */}
-        <main className="flex-grow">{children}</main>
-
-        {/* Footer */}
-        <Footer />
-
-        {/* Toast notifications */}
-        <Toaster position="bottom-right" />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

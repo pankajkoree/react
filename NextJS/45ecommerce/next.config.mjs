@@ -5,7 +5,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.dummyjson.com",
         port: "",
-        pathname: "/**", // Allow all paths on this domain
+        pathname: "/**", 
       },
     ],
   },
