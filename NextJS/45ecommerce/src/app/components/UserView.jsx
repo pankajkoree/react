@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 const getProductsData = async (page = 0) => {
   const response = await fetch(
-    `http://localhost:3000/api/products/getProducts?page=${page}&limit=21`
+    `http://localhost:3000/api/products/getProductsByPage?page=${page}&limit=21`
   );
   if (!response.ok) throw new Error("Failed to fetch products");
   return await response.json();
