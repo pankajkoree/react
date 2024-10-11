@@ -12,7 +12,7 @@ const getProductsData = async () => {
 };
 
 const UserView = () => {
-  const { isPending, error, data } = useQuery({
+  const { isLoading, error, data } = useQuery({
     queryKey: ["getProducts"],
     queryFn: getProductsData,
   });
@@ -26,7 +26,7 @@ const UserView = () => {
     }
   }
 
-  if (isPending)
+  if (isLoading)
     return (
       <div className="relative flex flex-col items-center text-center text-3xl top-[273px]">
         <div className="min-h-[300px]">
@@ -45,7 +45,7 @@ const UserView = () => {
   if (error) return "error occured.. " + error.message;
 
   return (
-    <div className="relative grid md:grid-cols-3 gap-8 top-8 px-8 max-w-full">
+    <div className="relative grid md:grid-cols-3 gap-8 top-8 px-8 max-w-full mb-12">
       {data?.results.map((product) => (
         <EcommerceCard
           key={product?.id}

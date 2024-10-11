@@ -1,4 +1,5 @@
 import ClientLayout from "./ClientLayout";
+import "../../src/app/globals.css";
 
 export const metadata = {
   title: "Ecommerce App",
