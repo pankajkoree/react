@@ -44,7 +44,7 @@ const UserView = () => {
   if (error) return "error occured.. " + error.message;
 
   return (
-    <div className="relative grid md:grid-cols-3 gap-8 top-8 px-8 max-w-full mb-12">
+    <div className="relative grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:max-w-[80%] xl:left-[10%] xl:top-8 gap-8 px-4 md:px-8 max-w-full mb-12 top-4">
       {data?.results.map((product) => (
         <EcommerceCard
           key={product?.id}
