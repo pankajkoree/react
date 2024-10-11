@@ -19,7 +19,7 @@ const UserView = () => {
   const { isLoading, error, data, isFetching, isPreviousData } = useQuery({
     queryKey: ["getProducts", page],
     queryFn: () => getProductsData(page),
-    keepPreviousData: true, // Ensures previous data is retained while new data is loading
+    keepPreviousData: true,
   });
 
   const cells = 4;
@@ -69,8 +69,8 @@ const UserView = () => {
         <Button
           variant="primary"
           className="relative"
-          onClick={() => setPage((prev) => Math.max(prev - 1, 0))} // Prevent negative page number
-          disabled={page === 0 || isLoading} // Disable if on the first page or loading
+          onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
+          disabled={page === 0 || isLoading}
         >
           Previous Page
         </Button>
