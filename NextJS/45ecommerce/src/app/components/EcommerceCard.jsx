@@ -6,7 +6,6 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
-  const [productId, setProductId] = useState();
   const router = useRouter();
   let floorRating = rating;
   floorRating = Math.floor(floorRating);
@@ -45,17 +44,12 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
     router.push("/buyNow");
   };
 
-  const getData = () => {
-    setProductId(id);
-  };
-
   const gotoProduct = () => {
-    router.push(`/product/${productId}`);
+    router.push(`/product/${id}`);
   };
   return (
     <div
       className="border rounded-lg p-4 shadow-md shadow-indigo-400 dark:shadow-slate-400 dark:shadow-md dark:hover:shadow-lg dark:bg-silver-800 hover:shadow-lg transition-transform duration-200 ease-in-out hover:shadow-green-400 hover:scale-105 overflow-hidden dark:hover:shadow-green-500"
-      onClick={getData}
       onDoubleClick={gotoProduct}
     >
       {/* Product thumbnail */}
@@ -82,14 +76,20 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
         <Button
           variant="carting"
           className="text-xl hover:text-white"
-          onClick={addedToCart}
+          onClick={(e) => {
+            e.stopPropagation();
+            addedToCart();
+          }}
         >
           Add to cart
         </Button>
         <Button
           variant="buy"
           className="text-xl hover:text-white"
-          onClick={addedToBuyNow}
+          onClick={(e) => {
+            e.stopPropagation();
+            addedToBuyNow();
+          }}
         >
           Buy now
         </Button>

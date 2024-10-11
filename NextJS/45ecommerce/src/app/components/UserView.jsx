@@ -16,7 +16,6 @@ const UserView = () => {
     queryKey: ["getProducts"],
     queryFn: getProductsData,
   });
-  data?.results.map((product) => console.log(product));
 
   const cells = 4;
   const cellsArray = [];
