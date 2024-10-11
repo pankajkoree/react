@@ -4,32 +4,6 @@ import EcommerceCard from "./EcommerceCard";
 import "./style.scss";
 import { useQuery } from "@tanstack/react-query";
 
-// const getProductsData = async () => {
-//   try {
-//     let response = await fetch(
-//       "http://localhost:3000/api/products/getProducts"
-//     );
-//     response = await response.json();
-//     if (response.success) {
-//       return response.results;
-//     } else {
-//       return false;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return false;
-//   }
-// };
-
-// useEffect(() => {
-//   const fetchData = async () => {
-//     const data = await getProductsData();
-//     setProducts(data);
-//   };
-
-//   fetchData();
-// }, []);
-
 const getProductsData = async () => {
   const response = await fetch(
     "http://localhost:3000/api/products/getProducts"
