@@ -2,15 +2,14 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
   const router = useRouter();
-  let floorRating = rating;
-  floorRating = Math.floor(floorRating);
+  let floorRating = Math.floor(rating);
 
   const addedToCart = () => {
+    router.push("/carts");
     toast.success("added to cart", {
       style: {
         border: "1px solid purple",
