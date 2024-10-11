@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import EcommerceCard from "./EcommerceCard";
 import "./style.scss";
 import { useQuery } from "@tanstack/react-query";
@@ -43,8 +42,7 @@ const UserView = () => {
     queryKey: ["getProducts"],
     queryFn: getProductsData,
   });
-
-  console.log(data);
+  data?.results.map((product) => console.log(product));
 
   const cells = 4;
   const cellsArray = [];
@@ -73,24 +71,19 @@ const UserView = () => {
   if (error) return "error occured.. " + error.message;
 
   return (
-    // <div className="relative grid md:grid-cols-3 gap-8 top-8 px-8 max-w-full">
-    //   {products && products.length > 0 ? (
-    //     products.map((product) => (
-    //       <EcommerceCard
-    //         key={product?.id}
-    //         id={product._id}
-    //         src={product?.thumbnail}
-    //         alt={product?.title}
-    //         title={product?.title}
-    //         price={product?.price}
-    //         rating={product?.rating}
-    //       />
-    //     ))
-    //   ) : (
-
-    //   )}
-    // </div>
-    <h1>hi</h1>
+    <div className="relative grid md:grid-cols-3 gap-8 top-8 px-8 max-w-full">
+      {data?.results.map((product) => (
+        <EcommerceCard
+          key={product?.id}
+          id={product._id}
+          src={product?.thumbnail}
+          alt={product?.title}
+          title={product?.title}
+          price={product?.price}
+          rating={product?.rating}
+        />
+      ))}
+    </div>
   );
 };
 
