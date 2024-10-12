@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -21,7 +23,43 @@ const getProductsData = async () => {
 };
 
 const SpecificProductPage = ({ params }) => {
+  const router = useRouter();
   const [specificProduct, setSpecificProduct] = useState({});
+
+  const addedToCart = () => {
+    router.push("/carts");
+    toast.success("added to cart", {
+      style: {
+        border: "1px solid purple",
+        padding: "8px",
+        color: "#ffffff",
+        background: "#19f57c",
+        fontSize: "16px",
+      },
+      iconTheme: {
+        primary: "#3177ff",
+        secondary: "#FFFAEE",
+      },
+    });
+  };
+
+  const addedToBuyNow = () => {
+    toast.success("item ordered", {
+      style: {
+        border: "1px solid purple",
+        padding: "8px",
+        color: "#ffffff",
+        background: "#19f57c",
+        fontSize: "16px",
+      },
+      iconTheme: {
+        primary: "#3177ff",
+        secondary: "#FFFAEE",
+      },
+    });
+
+    router.push("/buyNow");
+  };
 
   const { isLoading, error, data, isFetching } = useQuery({
     queryKey: ["getProducts"],
@@ -115,6 +153,29 @@ const SpecificProductPage = ({ params }) => {
                 </tr>
               </tbody>
             </table>
+            {/* Buttons */}
+            <div className="flex flex-col gap-4 w-[50%]">
+              <Button
+                variant="carting"
+                className="text-2xl p-4 dark:hover:text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addedToCart();
+                }}
+              >
+                Add to cart
+              </Button>
+              <Button
+                variant="buy"
+                className="text-2xl p-4 dark:hover:text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addedToBuyNow();
+                }}
+              >
+                Buy now
+              </Button>
+            </div>
           </div>
         </div>
       </div>
