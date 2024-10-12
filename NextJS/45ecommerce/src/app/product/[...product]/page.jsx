@@ -39,8 +39,6 @@ const SpecificProductPage = ({ params }) => {
     }
   }, [data, params]);
 
-  console.log(specificProduct);
-
   if (isFetching) return "fetching the data";
 
   if (isLoading) return "Loading...";
