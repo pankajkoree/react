@@ -7,11 +7,21 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 
 const getProductsData = async (page = 0) => {
-  const response = await fetch(
-    `http://localhost:3000/api/products/getProductsByPage?page=${page}&limit=21`
-  );
-  if (!response.ok) throw new Error("Failed to fetch products");
-  return await response.json();
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/products/getProductsByPage?page=${page}&limit=21`
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error;
+  }
 };
 
 const UserView = () => {
