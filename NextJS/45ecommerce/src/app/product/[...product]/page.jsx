@@ -5,15 +5,7 @@ import toast from "react-hot-toast";
 
 const getProductsData = async () => {
   try {
-    let response = await fetch(
-      "http://localhost:3000/api/products/getProducts"
-    );
-    response = await response.json();
-    if (response.success) {
-      return response.results;
-    } else {
-      return false;
-    }
+    
   } catch (error) {
     toast.error(error);
     return false;

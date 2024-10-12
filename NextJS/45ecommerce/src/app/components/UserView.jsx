@@ -5,6 +5,7 @@ import EcommerceCard from "./EcommerceCard";
 import "./style.scss";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
 
 const getProductsData = async (page = 0) => {
   try {
@@ -13,14 +14,14 @@ const getProductsData = async (page = 0) => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch products");
+      toast.error("failed to fetch...");
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching products:", error);
-    throw error;
+    toast.error(error);
+    return false;
   }
 };
 
