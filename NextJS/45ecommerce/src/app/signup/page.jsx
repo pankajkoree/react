@@ -47,51 +47,87 @@ const Signup = () => {
   }, [user]);
 
   return (
-    <div className="relative flex flex-col justify-center items-center w-[30%] left-[35%] top-5 text-2xl border-2 border-yellow-300 rounded-lg">
-      <p>{loading ? "on process..." : ""}</p>
-      <h1>Signup</h1>
+    <div className="flex items-center justify-center p-5">
+      <div className="bg-white dark:bg-gray-800 hover:shadow-md hover:shadow-green-400 border-2 border-gray-700 transition-all duration-300 animate-border-animatio rounded-lg p-8 w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-6 dark:text-white">
+          Create an Account
+        </h1>
 
-      <form className="relative flex flex-col justify-center p-5 gap-4 w-full">
-        <Label className="relative flex text-xl left-[5%]">Username</Label>
-        <Input
-          type="text"
-          placeholder="username"
-          value={user.user}
-          className="relative left-[5%] w-[90%] text-xl"
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-        />
-        <Label className="relative flex text-xl left-[5%]">Email</Label>
-        <Input
-          type="email"
-          placeholder="email"
-          value={user.email}
-          className="relative left-[5%] w-[90%] text-xl"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-        <Label className="relative flex text-xl left-[5%]">Password</Label>
-        <Input
-          type="password"
-          placeholder="password"
-          value={user.password}
-          className="relative left-[5%] w-[90%] text-xl"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
-        <Button
-          className="relative left-[5%] w-[90%] text-xl"
-          variant="default"
-          size="lg"
-          type="submit"
-          onClick={onSignUp}
-        >
-          {buttonDisabled ? "No signup" : "Signup"}
-        </Button>
-        <p className="text-center text-[16px]">
-          Already have an account?{" "}
-          <Link href={`/login`} className="text-blue-400">
-            Sign in
-          </Link>
-        </p>
-      </form>
+        <form className="space-y-6" onSubmit={onSignUp}>
+          <div>
+            <Label
+              htmlFor="username"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Username
+            </Label>
+            <Input
+              id="username"
+              type="text"
+              placeholder="Enter your username"
+              value={user.username}
+              className="mt-1 border rounded-lg p-3 w-full focus:ring-yellow-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
+              required
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={user.email}
+              className="mt-1 border rounded-lg p-3 w-full focus:ring-yellow-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              required
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Password
+            </Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              value={user.password}
+              className="mt-1 border rounded-lg p-3 w-full focus:ring-yellow-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              required
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className={`w-full p-3 text-lg font-semibold text-white bg-yellow-400 rounded-lg ${
+              buttonDisabled || loading
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-yellow-500"
+            }`}
+            disabled={buttonDisabled || loading}
+          >
+            {loading ? "Signing up..." : "Sign Up"}
+          </Button>
+
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+            Already have an account?{" "}
+            <Link href="/login" className="text-yellow-500 hover:underline">
+              Sign in
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
