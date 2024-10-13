@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const middleware = (request) => {
   const path = request.nextUrl.pathname;
 
-  // Paths that are public and don't require authentication
+  // Public paths that don't require authentication
   const isPublicPath =
     path === "/" ||
     path === "/login" ||
@@ -22,16 +22,10 @@ export const middleware = (request) => {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  return NextResponse.next(); // Continue to the requested page if the conditions above are not met
+  // Allow access to the public path or if the user has a valid token
+  return NextResponse.next();
 };
 
 export const config = {
-  matcher: [
-    "/login",
-    "/signup",
-    "/verifyEmail",
-    "/profile",
-    "/cart",
-    "/someOtherProtectedPath",
-  ],
+  matcher: "/:path*", // Apply the middleware to all routes
 };
