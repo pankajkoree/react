@@ -14,12 +14,14 @@ module.exports = {
       keyframes: {
         border: {
           "0%": { borderColor: "#bde4e4" },
-          "50%": { borderColor: "#67adf3" },
-          "100%": { borderColor: "#b8fad9" },
+          "25%": { borderColor: "#67adf3" }, // First transition point
+          "50%": { borderColor: "#b8fad9" }, // Halfway through
+          "75%": { borderColor: "#67adf3" }, // Approaching the end
+          "100%": { borderColor: "#bde4e4" }, // Back to start
         },
       },
       animation: {
-        "border-animation": "border 2s linear infinite",
+        "border-spin": "border 10s linear infinite", // Slower 10s animation for full rotation
       },
       colors: {
         background: "hsl(var(--background))",

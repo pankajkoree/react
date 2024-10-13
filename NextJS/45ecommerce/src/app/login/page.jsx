@@ -15,60 +15,95 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const onLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post("/api/users/login", user);
       toast.success("Login successful");
       router.push("/profile");
     } catch (error) {
       toast.error("Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="relative flex flex-col justify-center items-center w-[30%] left-[35%] top-5 text-2xl border-2 border-yellow-300 rounded-lg">
-      <h1>Login Page</h1>
-
-      <form className="relative flex flex-col justify-center items-center p-5 gap-4 w-full">
-        <Label className="relative w-[90%] text-left text-xl">Email</Label>
-        <Input
-          type="email"
-          placeholder="email"
-          value={user.email}
-          className="relative w-[90%] text-xl"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-        <Label className="relative w-[90%] text-left text-xl">Password</Label>
-        <Input
-          type="password"
-          placeholder="password"
-          value={user.password}
-          className="relative w-[90%] text-xl"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
-        <Button
-          className="relative w-[90%] text-xl"
-          variant="default"
-          size="lg"
-          onClick={onLogin}
-        >
+    <div className="flex flex-col items-center justify-center p-5 ">
+      <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-full max-w-sm hover:shadow-md hover:shadow-green-400 border-2 border-gray-700 transition-all duration-300 animate-border-animation">
+        <h1 className="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">
           Login
-        </Button>
-        <p className="relative text-[16px]">
-          Forgot{" "}
-          <Link href={`/forgotCredentials`} className="text-blue-500">
-            username/password?
-          </Link>
-        </p>
-        <p className="relative text-[16px]">
-          Don't have an account?{" "}
-          <Link href={`/signup`} className="text-blue-500">
-            Sign up
-          </Link>
-        </p>
-      </form>
+        </h1>
+
+        <form className="flex flex-col gap-4" onSubmit={onLogin}>
+          <div>
+            <Label
+              htmlFor="email"
+              className="text-lg font-semibold text-gray-900 dark:text-white"
+            >
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={user.email}
+              className="mt-1 border rounded-lg p-2 focus:outline-none focus:ring focus:ring-yellow-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              required
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="password"
+              className="text-lg font-semibold text-gray-900 dark:text-white"
+            >
+              Password
+            </Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              value={user.password}
+              className="mt-1 border rounded-lg p-2 focus:outline-none focus:ring focus:ring-yellow-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              required
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className={`mt-4 w-full text-xl ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            variant="default"
+            size="lg"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </Button>
+
+          <p className="text-sm text-center mt-4 text-gray-700 dark:text-gray-300">
+            Forgot{" "}
+            <Link
+              href={`/forgotCredentials`}
+              className="text-blue-500 hover:underline"
+            >
+              username/password?
+            </Link>
+          </p>
+          <p className="text-sm text-center text-gray-700 dark:text-gray-300">
+            Don't have an account?{" "}
+            <Link href={`/signup`} className="text-blue-500 hover:underline">
+              Sign up
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
