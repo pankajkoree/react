@@ -13,6 +13,7 @@ const ProfilePage = () => {
   const logout = async () => {
     try {
       const res = await axios.get("/api/users/logout");
+      localStorage.removeItem("user");
       toast.success("Logout successfully...");
       router.push("/login");
     } catch (error) {
