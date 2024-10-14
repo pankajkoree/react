@@ -110,9 +110,10 @@ const Signup = () => {
 
           <Button
             type="submit"
-            className={`w-full p-3 text-lg font-semibold text-white bg-yellow-400 rounded-lg ${
+            variant="default"
+            className={`w-full ${
               buttonDisabled || loading
-                ? "opacity-50 cursor-not-allowed"
+                ? "cursor-not-allowed"
                 : "hover:bg-yellow-500"
             }`}
             disabled={buttonDisabled || loading}
