@@ -6,15 +6,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
-  const router = useRouter();
+  const { login } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
   const [loading, setLoading] = useState(false);
 
   const onLogin = async (e) => {
@@ -22,10 +23,16 @@ const LoginPage = () => {
     setLoading(true);
     try {
       const response = await axios.post("/api/users/login", user);
-      toast.success("Login successful");
-      router.push("/profile");
+      console.log("API Response:", response.data);
+      if (response.status === 200 && response.data.user) {
+        login(response.data.user);
+        toast.success("Login successful");
+      } else {
+        toast.error("Failed to retrieve valid user data");
+      }
     } catch (error) {
       toast.error("Invalid credentials");
+      console.error("Login error:", error);
     } finally {
       setLoading(false);
     }
