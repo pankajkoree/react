@@ -16,12 +16,7 @@ import lightMode from "../assets/light-mode.png";
 import { useRouter } from "next/navigation";
 
 const NavigationBar = () => {
-  const localstorageData = localStorage.getItem("user");
-  if (localstorageData) {
-    console.log(localstorageData);
-  } else {
-    console.log("no data");
-  }
+  const user = JSON.parse(localStorage.getItem("user"));
   const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -160,7 +155,7 @@ const NavigationBar = () => {
               className="relative w-[36px] h-[36px]"
             />
           )}
-          <p>login</p>
+          <p>{user && user.id ? user.username : "login"}</p>
         </div>
       </div>
     </nav>
