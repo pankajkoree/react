@@ -7,10 +7,16 @@ import toast from "react-hot-toast";
 const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
   const router = useRouter();
   let floorRating = Math.floor(rating);
+  let productIds = [];
 
   const addedToCart = () => {
-    localStorage.setItem("cart",id);
-    router.push("/carts");
+    // Add the current product id to the productIds array
+    productIds.push(id);
+
+    // Save the updated productIds array to localStorage
+    localStorage.setItem("cart", JSON.stringify(productIds));
+
+    // Show a success toast
     toast.success("added to cart", {
       style: {
         border: "1px solid purple",
