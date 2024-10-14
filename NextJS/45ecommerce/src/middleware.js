@@ -1,19 +1,20 @@
 import { NextResponse } from "next/server";
 
 export const middleware = (request) => {
-  const user = JSON.stringify(localStorage.getItem("user"));
+  const token = request.cookies.get("token");
   const path = request.nextUrl.pathname;
 
-  console.log(`Path: ${path}`);
+  console.log("Token:", token);
+  console.log("Path:", path);
 
+  // Check if the user is trying to access the /carts page
   if (path === "/carts") {
-    // keep a condition for the login state to be maintained if the user is login direct user to carts else redirect to login
-    if (user.loggedIn == true) {
-      const cartUrl = new URL("/carts", request.url);
-      return NextResponse.redirect(cartUrl);
+    if (token?.value) {
+      // Token exists, allow access to /carts
+      return NextResponse.next();
     } else {
-      const loginUrl = new URL("/login", request.url);
-      return NextResponse.redirect(loginUrl);
+      // Token doesn't exist, redirect to login
+      return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 

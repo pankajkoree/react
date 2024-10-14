@@ -16,13 +16,21 @@ import lightMode from "../assets/light-mode.png";
 import { useRouter } from "next/navigation";
 
 const NavigationBar = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(null);
   const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const addDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark");
@@ -31,14 +39,9 @@ const NavigationBar = () => {
     }
   }, [isDarkMode]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsDarkMode(document.body.classList.contains("dark"));
-    }
-  }, []);
-
   const gotoLogin = () => {
-    if (user.loggedIn == true) {
+    if (user && user.loggedIn) {
+      // Check if user and user.loggedIn are defined
       router.push("/profile");
     } else {
       router.push("/login");
@@ -79,7 +82,6 @@ const NavigationBar = () => {
       </div>
 
       {/* div to implement search box */}
-
       <div className="relative flex flex-row gap-2">
         <Input
           placeholder="search for products"
@@ -100,7 +102,7 @@ const NavigationBar = () => {
         )}
       </div>
 
-      {/* div to have,theme, login, cart */}
+      {/* div to have, theme, login, cart */}
       <div className="relative flex flex-row justify-end items-center right-12 gap-12">
         {/* theme div */}
         <div
@@ -110,13 +112,13 @@ const NavigationBar = () => {
           {isDarkMode ? (
             <Image
               src={darkMode}
-              alt="cart"
+              alt="dark mode"
               className="relative w-[36px] h-[36px]"
             />
           ) : (
             <Image
               src={lightMode}
-              alt="cart"
+              alt="light mode"
               className="relative w-[36px] h-[36px]"
             />
           )}
