@@ -38,7 +38,11 @@ const NavigationBar = () => {
   }, []);
 
   const gotoLogin = () => {
-    router.push("/login");
+    if (user.loggedIn == true) {
+      router.push("/profile");
+    } else {
+      router.push("/login");
+    }
   };
 
   const gotoMainPage = () => {
