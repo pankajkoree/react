@@ -6,7 +6,7 @@ export const middleware = (request) => {
   console.log(`Path: ${path}`);
 
   if (path === "/carts") {
-    // keep a condition for the login state to be maintainer if the user is login direct user to carts else redirect to login
+    // keep a condition for the login state to be maintained if the user is login direct user to carts else redirect to login
     const loginUrl = new URL("/login", request.url);
     return NextResponse.redirect(loginUrl);
   }
