@@ -8,8 +8,10 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
   const { login } = useAuth();
   const [user, setUser] = useState({
     email: "",
@@ -27,6 +29,7 @@ const LoginPage = () => {
       if (response.status === 200 && response.data.user) {
         login(response.data.user);
         toast.success("Login successful");
+        router.push("/profile");
       } else {
         toast.error("Failed to retrieve valid user data");
       }
