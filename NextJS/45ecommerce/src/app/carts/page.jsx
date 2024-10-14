@@ -28,7 +28,7 @@ const Cart = () => {
   });
 
   const cartItem = localStorage.getItem("cart");
-
+  console.log(cartItem)
   useEffect(() => {
     if (data && cartItem) {
       const foundProduct = data.results.find(

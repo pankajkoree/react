@@ -10,13 +10,10 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
   let productIds = [];
 
   const addedToCart = () => {
-    // Add the current product id to the productIds array
     productIds.push(id);
 
-    // Save the updated productIds array to localStorage
-    localStorage.setItem("cart", JSON.stringify(productIds));
+    localStorage.setItem("cart", productIds);
 
-    // Show a success toast
     toast.success("added to cart", {
       style: {
         border: "1px solid purple",
