@@ -34,8 +34,7 @@ const LoginPage = () => {
         toast.error("Failed to retrieve valid user data");
       }
     } catch (error) {
-      toast.error("Invalid credentials");
-      console.error("Login error:", error);
+      toast.error("Invalid credentials", error);
     } finally {
       setLoading(false);
     }
