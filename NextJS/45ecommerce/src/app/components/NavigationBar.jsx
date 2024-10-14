@@ -16,6 +16,12 @@ import lightMode from "../assets/light-mode.png";
 import { useRouter } from "next/navigation";
 
 const NavigationBar = () => {
+  const localstorageData = localStorage.getItem("user");
+  if (localstorageData) {
+    console.log(localstorageData);
+  } else {
+    console.log("no data");
+  }
   const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
