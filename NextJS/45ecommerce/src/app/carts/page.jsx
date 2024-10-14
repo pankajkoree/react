@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
 
-const page = () => {
+const Cart = () => {
+  const cartItem = localStorage.getItem("cart");
+  
+  console.log(cartItem);
   return <h1>Cart Page</h1>;
 };
 
-export default page;
+export default Cart;

@@ -9,6 +9,7 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
   let floorRating = Math.floor(rating);
 
   const addedToCart = () => {
+    localStorage.setItem("cart",id);
     router.push("/carts");
     toast.success("added to cart", {
       style: {
@@ -49,7 +50,7 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
   return (
     <div
       className="border rounded-lg p-4 shadow-md shadow-indigo-400 dark:shadow-slate-400 dark:shadow-md dark:hover:shadow-lg dark:bg-silver-800 hover:shadow-lg transition-transform duration-200 ease-in-out hover:shadow-green-400 hover:scale-105 overflow-hidden dark:hover:shadow-green-500"
-      onDoubleClick={gotoProduct}
+      onClick={gotoProduct}
     >
       {/* Product thumbnail */}
       <div className="h-48 w-full mb-4">
