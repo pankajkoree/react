@@ -25,7 +25,6 @@ const ProfilePage = () => {
     const res = await axios.post("api/users/me");
     setData(res.data.data.username);
   };
-  console.log(data);
   return (
     <div className="relative flex flex-col items-center mb-8">
       <h1>Profile page</h1>
