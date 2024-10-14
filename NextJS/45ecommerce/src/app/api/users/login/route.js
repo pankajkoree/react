@@ -33,6 +33,7 @@ export const POST = async (request) => {
       id: user._id,
       username: user.username,
       email: user.email,
+      loggedIn: true,
     };
 
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
@@ -48,6 +49,7 @@ export const POST = async (request) => {
         id: user._id,
         username: user.username,
         email: user.email,
+        loggedIn: true,
       },
     });
 
