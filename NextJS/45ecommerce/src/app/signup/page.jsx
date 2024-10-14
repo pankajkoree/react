@@ -108,22 +108,13 @@ const Signup = () => {
             />
           </div>
 
-          <Button
-            type="submit"
-            variant="default"
-            className={`w-full ${
-              buttonDisabled || loading
-                ? "cursor-not-allowed"
-                : "hover:bg-yellow-500"
-            }`}
-            disabled={buttonDisabled || loading}
-          >
+          <Button type="submit" variant="auth" className="w-full">
             {loading ? "Signing up..." : "Sign Up"}
           </Button>
 
           <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
             Already have an account?{" "}
-            <Link href="/login" className="text-yellow-500 hover:underline">
+            <Link href="/login" className="hover:underline text-blue-400">
               Sign in
             </Link>
           </p>

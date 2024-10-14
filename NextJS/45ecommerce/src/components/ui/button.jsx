@@ -19,7 +19,7 @@ const buttonVariants = cva(
         fetch:
           "bg-green-400 text-white text-xl shadow-sm hover:bg-green-800/90",
           auth:
-          "bg-green-400 text-white text-xl shadow-sm hover:bg-green-800",
+          "bg-green-800 text-white text-xl shadow-sm hover:bg-green-800",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
