@@ -25,10 +25,14 @@ const ProfilePage = () => {
     const res = await axios.post("api/users/me");
     setData(res.data.data.username);
   };
+
+  const gotoCart = () => {
+    router.push("/carts");
+  };
   return (
     <div className="relative flex flex-col items-center mb-8">
       <h1>Profile page</h1>
-      <h2>
+      <h2 onLoad={onGetUserData}>
         {data === "nodata" ? (
           "no data"
         ) : (
@@ -39,8 +43,8 @@ const ProfilePage = () => {
       </h2>
       <br />
       <br />
-      <Button variant="fetch" onClick={onGetUserData}>
-        Get User Details
+      <Button variant="fetch" onClick={gotoCart}>
+        Cart
       </Button>
       <br />
       <br />
