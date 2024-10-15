@@ -81,7 +81,7 @@ const Cart = () => {
                   height={120}
                   className="drop-shadow-xl"
                   style={{
-                    filter: "drop-shadow(0 4px 6px rgba(255, 255, 255, 0.7))",
+                    filter: "drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3))",
                   }}
                 />
               )}
