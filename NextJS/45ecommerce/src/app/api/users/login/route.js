@@ -11,8 +11,6 @@ export const POST = async (request) => {
     const reqBody = await request.json();
     const { email, password } = reqBody;
 
-    console.log(reqBody);
-
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -21,7 +19,6 @@ export const POST = async (request) => {
         { status: 400 }
       );
     }
-    console.log("User exists");
 
     const validPassword = await bcryptjs.compare(password, user.password);
     if (!validPassword) {
