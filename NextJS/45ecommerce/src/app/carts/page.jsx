@@ -70,7 +70,7 @@ const Cart = () => {
     <div>
       {specificProduct ? (
         cartItem ? (
-          <div className="relative flex xl:m-4 xl:p-2 xl:w-[80%] xl:left-[10%] xl:shadow-md xl:shadow-blue-600 ">
+          <div className="relative flex xl:m-4 xl:p-4 xl:w-[80%] xl:left-[10%] xl:shadow-md dark:hover:xl:shadow-blue-600 dark:border dark:border-green-300">
             {/* product thumbnail */}
             <div className="relative flex w-[30%] justify-center">
               {specificProduct?.thumbnail && (
@@ -86,7 +86,7 @@ const Cart = () => {
                 />
               )}
             </div>
-            <div className="relative flex flex-col bg-red-300">
+            <div className="relative flex flex-col">
               <h2>{specificProduct.title}</h2>
               <h3>{specificProduct.description}</h3>
               <p>{specificProduct.availabilityStatus}</p>
