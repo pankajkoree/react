@@ -88,41 +88,49 @@ const Cart = () => {
     <div>
       {specificProduct ? (
         cartItem ? (
-          <div className="relative flex border border-purple-300 hover:shadow-green-400 xl:m-4 xl:p-4 xl:w-[80%] xl:left-[10%] xl:shadow-md dark:hover:xl:shadow-green-600 dark:border dark:border-purple-300">
+          <div className="relative flex border border-purple-300 hover:shadow-green-400 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md dark:hover:xl:shadow-green-600 dark:border dark:border-purple-300">
             {/* product thumbnail */}
-            <div className="relative flex w-[30%] justify-center">
+            <div className="relative flex min-w-[40%] justify-center">
               {specificProduct?.thumbnail && (
                 <Image
                   src={specificProduct.thumbnail}
                   alt={specificProduct.title || "Product Image"}
                   width={200}
-                  height={120}
+                  height={120} // Keep height value consistent for ratio, or omit for automatic
                   className="drop-shadow-xl"
                   style={{
                     filter: "drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3))",
                   }}
+                  layout="responsive"
                 />
               )}
             </div>
-            <div className="relative flex flex-col gap-4">
-              <h2>{specificProduct.title}</h2>
-              <h3>{specificProduct.description}</h3>
-              <h3>${specificProduct.price}</h3>
-              <p>{specificProduct.availabilityStatus}</p>
+
+            <div className="relative flex flex-col gap-4 p-2">
+              <h2 className="xl:text-2xl xl:font-bold">
+                {specificProduct.title}
+              </h2>
+              <h3 className="xl:text-xl ">{specificProduct.description}</h3>
+              <h3 className="xl:text-2xl xl:font-bold">
+                ${specificProduct.price}
+              </h3>
+              <p className="text-cyan-400">
+                {specificProduct.availabilityStatus}
+              </p>
               <div>
                 <p>
                   Quantity : <Button onClick={decreaseQuantity}>-</Button>{" "}
                   <span>{productquantity}</span>
                   <Button onClick={increaseQuantity}>+</Button>{" "}
                 </p>
-                <Button
-                  variant="delete"
-                  className="text-xl hover:text-white"
-                  onClick={deleteProduct}
-                >
-                  Delete
-                </Button>
               </div>
+              <Button
+                variant="delete"
+                className="text-xl hover:text-white"
+                onClick={deleteProduct}
+              >
+                Delete
+              </Button>
               <Button
                 variant="buy"
                 className="text-xl hover:text-white"
