@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -42,7 +43,25 @@ const Cart = () => {
 
   console.log(specificProduct);
 
-  if (isFetching) return "fetching the data";
+  const [productquantity, setProductQuantity] = useState(1);
+  const increaseQuantity = () => {
+    setProductQuantity(() => productquantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setProductQuantity(() => productquantity - 1);
+  };
+
+  const deleteProduct = () => {
+    localStorage.removeItem("cart");
+  };
+
+  if (isFetching)
+    return (
+      <div className="relative flex justify-center top-8 text-xl">
+        <h1>Fetching the items...</h1>
+      </div>
+    );
 
   if (isLoading) return "Loading...";
 
@@ -50,49 +69,42 @@ const Cart = () => {
   return (
     <div>
       {specificProduct ? (
-        <div className="cart-card flex p-4 border rounded-lg m-4 shadow-md">
-          <div className="cart-card__image flex-shrink-0">
-            <img
-              src="https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
-              alt="Eyeshadow Palette"
-              className="w-24 h-24 object-cover rounded-md"
-            />
-          </div>
-
-          <div className="cart-card__details flex flex-col justify-between ml-4">
-            <h2 className="font-semibold text-lg">
-              Eyeshadow Palette with Mirror
-            </h2>
-            <p className="text-sm text-gray-500">by Glamour Beauty</p>
-
-            <div className="flex items-center justify-between">
-              <p className="text-gray-700">
-                Price: <span className="font-bold">$19.99</span>
-              </p>
-              <p className="text-red-500">Discount: 5.5%</p>
+        cartItem ? (
+          <div className="relative flex xl:m-4 xl:p-2 xl:w-[80%] xl:left-[10%] xl:shadow-md xl:shadow-blue-600 ">
+            {/* product thumbnail */}
+            <div className="relative flex w-[30%] justify-center bg-green-300">
+              {specificProduct?.thumbnail && (
+                <Image
+                  src={specificProduct.thumbnail}
+                  alt={specificProduct.title || "Product Image"}
+                  width={200}
+                  height={120}
+                />
+              )}
             </div>
-
-            <div className="flex items-center mt-2">
-              <label htmlFor="quantity" className="mr-2 text-gray-700">
-                Qty:
-              </label>
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                defaultValue={1}
-                min={1}
-                className="w-16 border px-2 py-1 rounded-md"
-              />
+            <div className="relative flex flex-col bg-red-300">
+              <h2>{specificProduct.title}</h2>
+              <h3>{specificProduct.description}</h3>
+              <p>{specificProduct.availabilityStatus}</p>
+              <div>
+                <p>
+                  Quantity : <Button onClick={decreaseQuantity}>-</Button>{" "}
+                  <span>{productquantity}</span>
+                  <Button onClick={increaseQuantity}>+</Button>{" "}
+                </p>
+                <Button onClick={deleteProduct}>Delete</Button>
+              </div>
             </div>
-
-            <button className="mt-2 bg-red-500 text-white py-1 px-4 rounded-lg hover:bg-red-600 transition">
-              Remove
-            </button>
           </div>
-        </div>
+        ) : (
+          <div className="relative flex justify-center top-8 text-xl">
+            <h1>Cart is Empty</h1>
+          </div>
+        )
       ) : (
-        "fetching the data"
+        <div className="relative flex justify-center top-8 text-xl">
+          <h1>Fetching the items...</h1>
+        </div>
       )}
     </div>
   );
