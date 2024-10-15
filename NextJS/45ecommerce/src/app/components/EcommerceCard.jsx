@@ -63,7 +63,10 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
           alt={alt}
           width={1920}
           height={1080}
-          className="object-contain h-full w-full transition-transform duration-200 ease-in-out hover:scale-125"
+          className="object-contain h-full w-full transition-transform duration-200 ease-in-out hover:scale-125 drop-shadow-xl"
+          style={{
+            filter: "drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3))",
+          }}
         />
       </div>
 
