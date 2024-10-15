@@ -25,10 +25,19 @@ const NavigationBar = () => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      const isDark = storedTheme === "true";
+      setIsDarkMode(isDark);
+      document.body.classList.toggle("dark", isDark);
+    }
   }, []);
 
   const addDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    const newDarkMode = !isDarkMode;
+    localStorage.setItem("theme", newDarkMode);
+    setIsDarkMode(newDarkMode);
   };
 
   useEffect(() => {
@@ -84,7 +93,7 @@ const NavigationBar = () => {
       <div className="relative flex flex-row gap-2 items-center">
         <Input
           placeholder="search for products"
-          className="relative flex h-[44px] text-xl border-2 border-gray-700 transition-all duration-300 dark:border-transparent dark:hover:border-blue-500 dark:animate-border-animation"
+          className="relative flex h-[44px] text-xl border-2 border-gray-700 transition-all duration-300 dark:border-2 dark:hover:border-blue-500 dark:animate-border-animation"
         />
         {/* Hide search icon on mobile and tablet */}
         {isDarkMode ? (
