@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        white: "0 4px 6px rgba(255, 255, 255, 0.7)",
+      },
       keyframes: {
         border: {
           "0%": { borderColor: "#bde4e4" },

@@ -72,13 +72,17 @@ const Cart = () => {
         cartItem ? (
           <div className="relative flex xl:m-4 xl:p-2 xl:w-[80%] xl:left-[10%] xl:shadow-md xl:shadow-blue-600 ">
             {/* product thumbnail */}
-            <div className="relative flex w-[30%] justify-center bg-green-300">
+            <div className="relative flex w-[30%] justify-center">
               {specificProduct?.thumbnail && (
                 <Image
                   src={specificProduct.thumbnail}
                   alt={specificProduct.title || "Product Image"}
                   width={200}
                   height={120}
+                  className="drop-shadow-xl"
+                  style={{
+                    filter: "drop-shadow(0 4px 6px rgba(255, 255, 255, 0.7))",
+                  }}
                 />
               )}
             </div>
