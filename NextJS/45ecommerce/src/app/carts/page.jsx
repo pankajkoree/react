@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const getProductsData = async () => {
   try {
@@ -22,6 +24,7 @@ const getProductsData = async () => {
 };
 
 const Cart = () => {
+  const router = useRouter();
   const [specificProduct, setSpecificProduct] = useState({});
 
   const { isLoading, error, data, isFetching } = useQuery({
