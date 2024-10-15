@@ -41,7 +41,6 @@ const NavigationBar = () => {
 
   const gotoLogin = () => {
     if (user && user.loggedIn) {
-      // Check if user and user.loggedIn are defined
       router.push("/profile");
     } else {
       router.push("/login");
