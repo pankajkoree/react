@@ -1,13 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+
+const getProductsData = async () => {
+  try {
+    let response = await fetch(
+      `http://localhost:3000/api/products/getProducts`
+    );
+    if (!response.ok) {
+      toast.error("failed to fetch...");
+    }
+    response = await response.json();
+    return response;
+  } catch (error) {
+    toast.error(error);
+    return false;
+  }
+};
 
 const BuyNowPage = () => {
-  const [quantity, setQuantity] = useState(1);
+  const [specificProduct, setSpecificProduct] = useState({});
 
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-  };
+  const { isLoading, error, data, isFetching } = useQuery({
+    queryKey: ["getProducts"],
+    queryFn: getProductsData,
+  });
+  const buyProductId = localStorage.getItem("buyProduct");
+
+  useEffect(() => {
+    if (data && buyProductId) {
+      const foundProduct = data.results.find(
+        (product) => product._id === buyProductId
+      );
+
+      if (foundProduct) {
+        setSpecificProduct(foundProduct);
+      }
+    }
+  }, [buyProductId, data]);
 
   const handlePurchase = () => {
     // Logic for purchase (e.g., redirect to payment page or API call)
@@ -15,37 +46,26 @@ const BuyNowPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100 py-8">
-      <div className="w-full max-w-lg bg-white shadow-md rounded-lg p-8">
+    <div className="relative xl:w-[40%] xl:left-[30%] py-8">
+      <div className="relative border-red-600 shadow-md rounded-lg p-8">
         <h1 className="text-3xl font-semibold mb-4 text-center">Buy Now</h1>
 
         {/* Product Details */}
-        <div className="mb-6">
+        <div className="mb-6 relative flex flex-col items-center">
           <img
-            src="/path/to/product-image.jpg"
+            loading="lazy"
+            src={specificProduct.thumbnail}
             alt="Product Image"
-            className="w-full h-64 object-cover rounded-md mb-4"
+            width={200}
+            height={120}
+            className="object-cover rounded-md mb-4"
+            layout="responsive"
           />
-          <h2 className="text-2xl font-semibold">Product Name</h2>
+          <h2 className="text-2xl font-semibold">{specificProduct.title}</h2>
           <p className="text-lg text-gray-700 mb-4">
-            Product description goes here...
+            {specificProduct.description}{" "}
           </p>
           <span className="text-xl font-bold">$99.99</span>
-        </div>
-
-        {/* Quantity Selector */}
-        <div className="flex items-center justify-between mb-6">
-          <label htmlFor="quantity" className="text-lg">
-            Quantity:
-          </label>
-          <input
-            type="number"
-            id="quantity"
-            value={quantity}
-            min="1"
-            onChange={handleQuantityChange}
-            className="w-20 text-center border border-gray-300 rounded-md p-2"
-          />
         </div>
 
         {/* Purchase Button */}
