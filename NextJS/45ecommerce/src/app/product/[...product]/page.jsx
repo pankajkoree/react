@@ -154,7 +154,7 @@ const SpecificProductPage = ({ params }) => {
               </tbody>
             </table>
             {/* Buttons */}
-            <div className="flex flex-col gap-4 w-[50%]">
+            <div className="flex flex-col gap-4">
               <Button
                 variant="carting"
                 className="text-2xl p-4 dark:hover:text-white"
