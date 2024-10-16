@@ -10,7 +10,6 @@ const ProfilePage = () => {
   const router = useRouter();
   const [data, setData] = useState("nodata");
 
-
   const logout = async () => {
     try {
       const res = await axios.get("/api/users/logout");
@@ -24,7 +23,7 @@ const ProfilePage = () => {
 
   const onGetUserData = async () => {
     const res = await axios.post("api/users/me");
-    console.log(res)
+    console.log(res);
     setData(res.data.data.username);
   };
   onGetUserData();
@@ -33,9 +32,9 @@ const ProfilePage = () => {
     id: res.data.data._id,
     deliveryAddress: "",
     productName: "",
-    productPrice:"",
-    
-  })
+    quantity: "",
+    productPrice: "",
+  });
 
   const gotoCart = () => {
     router.push("/carts");
