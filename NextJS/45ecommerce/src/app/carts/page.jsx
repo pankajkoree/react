@@ -95,7 +95,7 @@ const Cart = () => {
     <div>
       {specificProduct ? (
         cartItem ? (
-          <div className="relative flex border border-purple-300 hover:shadow-green-400 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md dark:hover:xl:shadow-green-600 dark:border dark:border-purple-300">
+          <div className="relative flex border border-purple-300 hover:shadow-green-400 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md dark:hover:xl:shadow-green-300">
             {/* product thumbnail */}
             <div className="relative flex min-w-[40%] justify-center">
               {specificProduct?.thumbnail && (
@@ -176,6 +176,9 @@ const Cart = () => {
           <h1>Fetching the items...</h1>
         </div>
       )}
+      <div className="relative flex border border-purple-300 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md">
+        total: $500
+      </div>
     </div>
   );
 };
