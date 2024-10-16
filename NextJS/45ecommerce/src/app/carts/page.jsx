@@ -99,7 +99,7 @@ const Cart = () => {
                   src={specificProduct.thumbnail}
                   alt={specificProduct.title || "Product Image"}
                   width={200}
-                  height={120} // Keep height value consistent for ratio, or omit for automatic
+                  height={120}
                   className="drop-shadow-xl"
                   style={{
                     filter: "drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3))",
@@ -117,14 +117,30 @@ const Cart = () => {
               <h3 className="xl:text-2xl xl:font-bold">
                 ${specificProduct.price}
               </h3>
-              <p className="text-cyan-400">
+              <p className="text-green-400">
                 {specificProduct.availabilityStatus}
               </p>
               <div>
-                <p>
-                  Quantity : <Button onClick={decreaseQuantity}>-</Button>{" "}
-                  <span>{productquantity}</span>
-                  <Button onClick={increaseQuantity}>+</Button>{" "}
+                <p className="xl:text-xl xl:text-center">
+                  Quantity :{" "}
+                  <Button
+                    variant="outline"
+                    className="xl:text-2xl"
+                    onClick={decreaseQuantity}
+                  >
+                    -
+                  </Button>{" "}
+                  <span className="xl:text-2xl">
+                    {" "}
+                    {` ${productquantity} `}{" "}
+                  </span>{" "}
+                  <Button
+                    variant="outline"
+                    className="xl:text-2xl"
+                    onClick={increaseQuantity}
+                  >
+                    +
+                  </Button>{" "}
                 </p>
               </div>
               <Button
