@@ -12,9 +12,16 @@ export const middleware = (request) => {
     }
   }
 
+  if (path === "/buyNow") {
+    if (token?.value) {
+      return NextResponse.next();
+    } else {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
   return NextResponse.next();
 };
 
 export const config = {
-  matcher: ["/", "/carts", "/login"],
+  matcher: ["/", "/carts", "/login", "/buyNow"],
 };
