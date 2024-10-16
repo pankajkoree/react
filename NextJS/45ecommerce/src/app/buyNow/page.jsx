@@ -92,7 +92,7 @@ const BuyNowPage = () => {
   const handlePurchase = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/products/orderedProducts");
+      await axios.post("/api/products/orderedProducts", productDetails);
       toast.success("ordered successfully");
       router.push("/");
     } catch (error) {

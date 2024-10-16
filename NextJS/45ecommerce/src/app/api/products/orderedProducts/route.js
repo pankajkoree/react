@@ -4,8 +4,11 @@ import Order from "@/models/orderModel";
 
 connect();
 
-export const POST = async () => {
+export const POST = async (req) => {
   try {
+    const { id, deliveryAddress, productName, quantity, productPrice } =
+      await req.json(); // parse the request body
+
     const orderedProduct = new Order({
       id,
       deliveryAddress,
@@ -18,7 +21,7 @@ export const POST = async () => {
     console.log(orderDetails);
 
     return NextResponse.json({
-      message: "product ordered successfully",
+      message: "Product ordered successfully",
       success: true,
       orderDetails,
     });
