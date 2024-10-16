@@ -10,6 +10,7 @@ export const POST = async () => {
       id,
       deliveryAddress,
       productName,
+      quantity,
       productPrice,
     });
 
