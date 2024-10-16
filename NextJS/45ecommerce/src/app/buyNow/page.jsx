@@ -1,7 +1,9 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const getProductsData = async () => {
   try {
@@ -20,6 +22,7 @@ const getProductsData = async () => {
 };
 
 const BuyNowPage = () => {
+  const router = useRouter();
   const [specificProduct, setSpecificProduct] = useState({});
 
   const { isLoading, error, data, isFetching } = useQuery({
@@ -41,30 +44,30 @@ const BuyNowPage = () => {
   }, [buyProductId, data]);
 
   const handlePurchase = () => {
-    // Logic for purchase (e.g., redirect to payment page or API call)
-    alert(`Purchased ${quantity} item(s)!`);
+    toast.success("item ordered...");
+    router.push("/");
   };
 
   return (
-    <div className="relative xl:w-[40%] xl:left-[30%] py-8">
-      <div className="relative border-red-600 shadow-md rounded-lg p-8">
+    <div className="py-8">
+      <div className="relative xl:w-[40%] xl:left-[30%] xl:border p-8">
         <h1 className="text-3xl font-semibold mb-4 text-center">Buy Now</h1>
 
         {/* Product Details */}
-        <div className="mb-6 relative flex flex-col items-center">
-          <img
-            loading="lazy"
-            src={specificProduct.thumbnail}
-            alt="Product Image"
-            width={200}
-            height={120}
-            className="object-cover rounded-md mb-4"
-            layout="responsive"
-          />
-          <h2 className="text-2xl font-semibold">{specificProduct.title}</h2>
-          <p className="text-lg text-gray-700 mb-4">
-            {specificProduct.description}{" "}
-          </p>
+        <div className="mb-6">
+          <div className="relative flex justify-center">
+            <img
+              loading="lazy"
+              src={specificProduct.thumbnail}
+              alt="Product Image"
+              width={200}
+              height={120}
+              className="object-cover rounded-md mb-4"
+              layout="responsive"
+            />
+          </div>
+          <h2 className="text-2xl font-bold">{specificProduct.title}</h2>
+          <p className="text-gray-700 mb-4">{specificProduct.description} </p>
           <span className="text-xl font-bold">$99.99</span>
         </div>
 
