@@ -46,11 +46,14 @@ const Cart = () => {
 
   console.log(specificProduct);
 
+  // quantity
   const [productquantity, setProductQuantity] = useState(1);
+  // increase quantity button event
   const increaseQuantity = () => {
     setProductQuantity(() => productquantity + 1);
   };
 
+  // decrease quantity button event
   const decreaseQuantity = () => {
     if (productquantity === 1) {
       toast.error("item quantity can't be less than 1");
@@ -59,10 +62,12 @@ const Cart = () => {
     }
   };
 
+  // delete button click event
   const deleteProduct = () => {
     localStorage.removeItem("cart");
   };
 
+  // buy now button click event
   const addedToBuyNow = () => {
     toast.success("item ordered", {
       style: {
@@ -80,6 +85,13 @@ const Cart = () => {
 
     router.push("/buyNow");
   };
+
+  // for calculating the total amount in the cart
+  const [total, setTotal] = useState(0);
+  useEffect(() => {
+    const amount = productquantity * specificProduct?.price;
+    setTotal(amount);
+  }, [productquantity, specificProduct]);
 
   if (isFetching)
     return (
@@ -177,7 +189,7 @@ const Cart = () => {
         </div>
       )}
       <div className="relative flex border border-purple-300 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md">
-        total: $500
+        <h2>Total : ${total}</h2>
       </div>
     </div>
   );
