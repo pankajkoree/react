@@ -140,18 +140,18 @@ const Cart = () => {
                 <p className="xl:text-xl xl:text-center">
                   Quantity :{" "}
                   <Button
-                    variant="outline"
+                    variant="quantity"
                     className="xl:text-2xl"
                     onClick={decreaseQuantity}
                   >
                     -
                   </Button>{" "}
-                  <span className="xl:text-2xl">
+                  <span className="xl:text-2xl xl:p-2">
                     {" "}
                     {` ${productquantity} `}{" "}
                   </span>{" "}
                   <Button
-                    variant="outline"
+                    variant="quantity"
                     className="xl:text-2xl"
                     onClick={increaseQuantity}
                   >
