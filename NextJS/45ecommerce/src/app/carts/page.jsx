@@ -189,7 +189,7 @@ const Cart = () => {
         </div>
       )}
       <div className="relative flex border border-purple-300 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md">
-        <h2>Total : ${total}</h2>
+        <h2 className="xl:ml-auto xl:text-xl">Total : ${total}</h2>
       </div>
     </div>
   );
