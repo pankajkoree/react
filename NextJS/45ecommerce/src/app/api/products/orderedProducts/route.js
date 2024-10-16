@@ -4,7 +4,7 @@ import Order from "@/models/orderModel";
 
 connect();
 
-export const POST = async (request) => {
+export const POST = async () => {
   try {
     const orderedProduct = new Order({
       id,
