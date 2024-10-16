@@ -25,10 +25,11 @@ const LoginPage = () => {
     setLoading(true);
     try {
       const response = await axios.post("/api/users/login", user);
+      // console.log(response);
       if (response.status === 200 && response.data.user) {
         login(response.data.user);
         toast.success("Login successful");
-        router.push(`/profile`);
+        router.push(`/profile/${response.data.user.id}`);
       } else {
         toast.error("Failed to retrieve valid user data");
       }
