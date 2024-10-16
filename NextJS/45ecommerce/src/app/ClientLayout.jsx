@@ -11,19 +11,11 @@ const queryClient = new QueryClient();
 export default function ClientLayout({ children }) {
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Navigation */}
       <NavigationBar />
-
-      {/* Main Content */}
       <main className="flex-grow">{children}</main>
-
-      {/* Footer */}
       <Footer />
+      <Toaster position="bottom-left" />
 
-      {/* Toast notifications */}
-      <Toaster position="bottom-right" />
-
-      {/* React Query Devtools */}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
