@@ -78,11 +78,6 @@ const BuyNowPage = () => {
     }
   }, [specificProduct, productquantity]);
 
-  const handlePurchase = () => {
-    toast.success("Item ordered...");
-    router.push("/");
-  };
-
   const increaseQuantity = () => {
     setProductQuantity((prev) => prev + 1);
   };
@@ -92,6 +87,16 @@ const BuyNowPage = () => {
       toast.error("Item quantity can't be less than 1");
     } else {
       setProductQuantity((prev) => prev - 1);
+    }
+  };
+  const handlePurchase = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/api/products/orderedProducts");
+      toast.success("ordered successfully");
+      router.push("/");
+    } catch (error) {
+      toast.error("order failed");
     }
   };
 
