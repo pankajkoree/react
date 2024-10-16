@@ -52,7 +52,11 @@ const Cart = () => {
   };
 
   const decreaseQuantity = () => {
-    setProductQuantity(() => productquantity - 1);
+    if (productquantity === 1) {
+      toast.error("item quantity can't be less than 1");
+    } else {
+      setProductQuantity(() => productquantity - 1);
+    }
   };
 
   const deleteProduct = () => {
