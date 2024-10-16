@@ -26,15 +26,6 @@ const ProfilePage = () => {
     console.log(res);
     setData(res.data.data.username);
   };
-  onGetUserData();
-
-  const [productDetais, setProductDetails] = useState({
-    id: res.data.data._id,
-    deliveryAddress: "",
-    productName: "",
-    quantity: "",
-    productPrice: "",
-  });
 
   const gotoCart = () => {
     router.push("/carts");

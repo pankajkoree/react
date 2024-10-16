@@ -41,7 +41,7 @@ const BuyNowPage = () => {
     productPrice: 0,
   });
 
-  const { isLoading, error, data, isFetching } = useQuery({
+  const { data } = useQuery({
     queryKey: ["getProducts"],
     queryFn: getProductsData,
   });
