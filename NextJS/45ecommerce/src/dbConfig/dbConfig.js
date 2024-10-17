@@ -1,8 +1,22 @@
 import mongoose from "mongoose";
 
 export async function connect() {
+  const mongoUri = process.env.MONGO_URI;
+
+  if (!mongoUri) {
+    console.error(
+      "MongoDB connection URI is not defined. Please set MONGO_URI in your environment variables."
+    );
+    process.exit(1);
+  }
+
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(mongoUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 20000, // Increase timeout to 20 seconds
+      socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
+    });
 
     const connection = mongoose.connection;
 
