@@ -15,12 +15,12 @@ const getProductsData = async () => {
       `http://localhost:3000/api/products/getProducts`
     );
     if (!response.ok) {
-      toast.error("failed to fetch...");
+      toast.error("Failed to fetch...");
     }
     response = await response.json();
     return response;
   } catch (error) {
-    toast.error(error);
+    toast.error(error.message);
     return false;
   }
 };
@@ -33,9 +33,11 @@ const onGetUserData = async () => {
 const BuyNowPage = () => {
   const router = useRouter();
   const [specificProduct, setSpecificProduct] = useState({});
+  const [productQuantity, setProductQuantity] = useState(1);
   const [productDetails, setProductDetails] = useState({
     id: "",
     deliveryAddress: "",
+    orderedDate: new Date().toISOString(), // Initialize orderedDate here
     productName: "",
     quantity: 1,
     productPrice: 0,
@@ -45,6 +47,7 @@ const BuyNowPage = () => {
     queryKey: ["getProducts"],
     queryFn: getProductsData,
   });
+
   const buyProductId = localStorage.getItem("buyProduct");
 
   useEffect(() => {
@@ -52,52 +55,51 @@ const BuyNowPage = () => {
       const foundProduct = data.results.find(
         (product) => product._id === buyProductId
       );
-
       if (foundProduct) {
         setSpecificProduct(foundProduct);
       }
     }
   }, [buyProductId, data]);
 
-  const [productquantity, setProductQuantity] = useState(1);
-
   useEffect(() => {
     const updateProductDetails = async () => {
       const result = await onGetUserData();
-      setProductDetails({
+      setProductDetails((prev) => ({
+        ...prev,
         id: result.data._id,
-        deliveryAddress: "",
-        orderedDate: Date.now(),
         productName: specificProduct?.title || "",
-        quantity: productquantity,
-        productPrice: specificProduct?.price * productquantity || 0,
-      });
+        quantity: productQuantity,
+        productPrice: specificProduct?.price * productQuantity || 0,
+        orderedDate: new Date().toISOString(), // Update orderedDate every time specificProduct changes
+      }));
     };
 
     if (specificProduct && specificProduct._id) {
       updateProductDetails();
     }
-  }, [specificProduct, productquantity]);
+  }, [specificProduct, productQuantity]);
 
   const increaseQuantity = () => {
     setProductQuantity((prev) => prev + 1);
   };
 
   const decreaseQuantity = () => {
-    if (productquantity === 1) {
+    if (productQuantity === 1) {
       toast.error("Item quantity can't be less than 1");
     } else {
       setProductQuantity((prev) => prev - 1);
     }
   };
+
   const handlePurchase = async (e) => {
     e.preventDefault();
+
     try {
       await axios.post("/api/products/orderedProducts", productDetails);
-      toast.success("ordered successfully");
+      toast.success("Ordered successfully");
       router.push("/");
     } catch (error) {
-      toast.error("order failed");
+      toast.error("Order failed");
     }
   };
 
@@ -131,7 +133,7 @@ const BuyNowPage = () => {
               >
                 -
               </Button>{" "}
-              <span className="xl:text-2xl xl:p-2">{productquantity}</span>{" "}
+              <span className="xl:text-2xl xl:p-2">{productQuantity}</span>{" "}
               <Button
                 variant="quantity"
                 className="xl:text-2xl"
@@ -157,7 +159,7 @@ const BuyNowPage = () => {
         <Input
           id="deliveryAddress"
           type="text"
-          placeholder="delivery address..."
+          placeholder="Delivery address..."
           value={productDetails.deliveryAddress}
           onChange={(e) =>
             setProductDetails({
