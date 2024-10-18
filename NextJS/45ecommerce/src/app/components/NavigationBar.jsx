@@ -14,6 +14,7 @@ import userColor from "../assets/user-color.png";
 import darkMode from "../assets/dark-mode.png";
 import lightMode from "../assets/light-mode.png";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const NavigationBar = () => {
   const [user, setUser] = useState(null);
@@ -49,16 +50,25 @@ const NavigationBar = () => {
     }
   }, [isDarkMode]);
 
-  const onGetUserData = async () => {
-    const res = await axios.post("/api/users/me");
-    setData(res.data.data.username);
-  };
+  // Only fetch user data if user is logged in
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        if (user && user.loggedIn) {
+          const res = await axios.post("/api/users/me");
+          setData(res.data.data.username);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error.message);
+      }
+    };
+
+    fetchUserData();
+  }, [user]);
 
   const gotoLogin = () => {
-    onGetUserData();
-    console.log(data);
     if (user && user.loggedIn) {
-      // router.push("/profile");
+      router.push(`/profile/${data}`);
     } else {
       router.push("/login");
     }
