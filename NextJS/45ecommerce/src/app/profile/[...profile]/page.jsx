@@ -38,6 +38,9 @@ const ProfilePage = () => {
   const gotoCart = () => {
     router.push("/carts");
   };
+  const gotoOrder = () => {
+    router.push("/orders");
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -117,7 +120,10 @@ const ProfilePage = () => {
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={toggleMenu}
+                onClick={() => {
+                  gotoOrder();
+                  toggleMenu();
+                }}
               >
                 Orders
               </Button>
