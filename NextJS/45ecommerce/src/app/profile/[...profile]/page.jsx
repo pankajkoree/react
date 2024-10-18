@@ -27,7 +27,7 @@ const ProfilePage = () => {
     try {
       const res = await axios.post("/api/users/me");
 
-      setData(res.data); // Set fetched data
+      setData(res.data);
 
       setShowUserIcon(true);
     } catch (error) {

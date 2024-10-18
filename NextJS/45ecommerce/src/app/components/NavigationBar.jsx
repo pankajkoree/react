@@ -50,7 +50,6 @@ const NavigationBar = () => {
     }
   }, [isDarkMode]);
 
-  // Only fetch user data if user is logged in
   useEffect(() => {
     const fetchUserData = async () => {
       try {
