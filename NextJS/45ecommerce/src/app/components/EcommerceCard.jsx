@@ -34,19 +34,6 @@ const EcommerceCard = ({ id, src, alt, title, price, rating }) => {
     buyProductId.push(id);
 
     localStorage.setItem("buyProduct", buyProductId);
-    // toast.success("item ordered", {
-    //   style: {
-    //     border: "1px solid purple",
-    //     padding: "8px",
-    //     color: "#ffffff",
-    //     background: "#19f57c",
-    //     fontSize: "16px",
-    //   },
-    //   iconTheme: {
-    //     primary: "#3177ff",
-    //     secondary: "#FFFAEE",
-    //   },
-    // });
 
     router.push("/buyNow");
   };
