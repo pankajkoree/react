@@ -34,7 +34,6 @@ const ProfilePage = () => {
       toast.error("Failed to fetch user data");
     }
   };
-  console.log(data);
 
   const gotoCart = () => {
     router.push("/carts");
