@@ -6,11 +6,13 @@ let client;
 export async function connectToCassandra() {
   if (!client) {
     // Resolve the secure connect bundle path
-    const bundlePath = path.resolve(process.env.CASSANDRA_SECURE_CONNECT_BUNDLE_PATH);
-    
+    const bundlePath = path.resolve(
+      process.env.CASSANDRA_SECURE_CONNECT_BUNDLE_PATH
+    );
+
     // Log the resolved path to the console
     console.log("Resolved secure connect bundle path:", bundlePath);
-    
+
     client = new cassandra.Client({
       cloud: {
         secureConnectBundle: bundlePath, // Use the resolved path
