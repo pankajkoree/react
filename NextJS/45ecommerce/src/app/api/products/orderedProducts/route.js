@@ -7,8 +7,7 @@ connect();
 export const POST = async (req) => {
   try {
     const { id, deliveryAddress, productName, quantity, productPrice } =
-      await req.json(); // parse the request body
-
+      await req.json();
     const orderedProduct = new Order({
       id,
       deliveryAddress,
