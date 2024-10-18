@@ -9,6 +9,10 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: [true, "please provide the address"],
   },
+  orderedDate: {
+    type: String,
+    required: true,
+  },
   productName: {
     type: String,
     required: [true, "please provide the product name"],

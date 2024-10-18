@@ -6,11 +6,18 @@ connect();
 
 export const POST = async (req) => {
   try {
-    const { id, deliveryAddress, productName, quantity, productPrice } =
-      await req.json();
+    const {
+      id,
+      deliveryAddress,
+      orderedDate,
+      productName,
+      quantity,
+      productPrice,
+    } = await req.json();
     const orderedProduct = new Order({
       id,
       deliveryAddress,
+      orderedDate,
       productName,
       quantity,
       productPrice,
