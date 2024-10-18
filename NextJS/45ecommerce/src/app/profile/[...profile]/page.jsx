@@ -63,6 +63,7 @@ const ProfilePage = () => {
             <Button
               variant="link"
               className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={gotoOrder}
             >
               Orders
             </Button>
