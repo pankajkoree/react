@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 
 const NavigationBar = () => {
   const [user, setUser] = useState(null);
+  const [data, setData] = useState("nodata");
   const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -48,9 +49,16 @@ const NavigationBar = () => {
     }
   }, [isDarkMode]);
 
+  const onGetUserData = async () => {
+    const res = await axios.post("/api/users/me");
+    setData(res.data.data.username);
+  };
+
   const gotoLogin = () => {
+    onGetUserData();
+    console.log(data);
     if (user && user.loggedIn) {
-      router.push("/profile");
+      // router.push("/profile");
     } else {
       router.push("/login");
     }

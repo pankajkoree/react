@@ -33,7 +33,6 @@ const UserView = () => {
     keepPreviousData: true,
   });
 
-  console.log(data);
 
   const cells = 4;
   const cellsArray = [];
