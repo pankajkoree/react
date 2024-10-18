@@ -14,8 +14,8 @@ export async function connect() {
     await mongoose.connect(mongoUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 20000, // Increase timeout to 20 seconds
-      socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
+      serverSelectionTimeoutMS: 20000,
+      socketTimeoutMS: 45000,
     });
 
     const connection = mongoose.connection;
