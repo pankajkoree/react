@@ -67,6 +67,7 @@ const BuyNowPage = () => {
       setProductDetails({
         id: result.data._id,
         deliveryAddress: "",
+        orderedDate: Date.now(),
         productName: specificProduct?.title || "",
         quantity: productquantity,
         productPrice: specificProduct?.price * productquantity || 0,
