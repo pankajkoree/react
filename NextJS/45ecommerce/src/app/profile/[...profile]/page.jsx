@@ -3,14 +3,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiUser } from "react-icons/fi";
 
 const ProfilePage = () => {
   const router = useRouter();
-  const [data, setData] = useState("nodata");
+  const [data, setData] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showUserIcon, setShowUserIcon] = useState(false);
 
   const logout = async () => {
     try {
@@ -24,9 +24,17 @@ const ProfilePage = () => {
   };
 
   const onGetUserData = async () => {
-    const res = await axios.post("/api/users/me");
-    setData(res.data.data.username);
+    try {
+      const res = await axios.post("/api/users/me");
+
+      setData(res.data); // Set fetched data
+
+      setShowUserIcon(true);
+    } catch (error) {
+      toast.error("Failed to fetch user data");
+    }
   };
+  console.log(data);
 
   const gotoCart = () => {
     router.push("/carts");
@@ -41,24 +49,25 @@ const ProfilePage = () => {
       {/* Main Content Area */}
       <div className="flex flex-grow">
         {/* Sidebar for larger screens */}
-        <div className="hidden xl:h-[800px] lg:flex flex-col w-1/4 bg-gray-100 dark:bg-gray-900 p-6 space-y-6">
+        <div className="hidden xl:h-[800px] lg:h-[800px] lg:flex flex-col w-1/4 bg-gray-100 dark:bg-gray-900 p-6 space-y-6">
           <nav className="space-y-8">
             <Button
               variant="link"
-              className="w-full text-left xl:text-2xl xl:h-[60px]"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
               onClick={gotoCart}
             >
               Carts
             </Button>
             <Button
               variant="link"
-              className="w-full text-left xl:text-2xl xl:h-[60px]"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
             >
               Orders
             </Button>
             <Button
               variant="link"
-              className="w-full text-left xl:text-2xl xl:h-[60px]"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={onGetUserData}
             >
               Personal Details
             </Button>
@@ -66,7 +75,7 @@ const ProfilePage = () => {
           <div className="mt-auto">
             <Button
               variant="destructive"
-              className="w-full xl:text-2xl xl:h-[60px]"
+              className="w-full xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
               onClick={logout}
             >
               Logout
@@ -116,7 +125,10 @@ const ProfilePage = () => {
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={toggleMenu}
+                onClick={() => {
+                  onGetUserData();
+                  toggleMenu();
+                }}
               >
                 Personal Details
               </Button>
@@ -148,15 +160,41 @@ const ProfilePage = () => {
           <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
             Profile Page
           </h1>
+          {showUserIcon && (
+            <FiUser className="text-5xl text-gray-900 dark:text-white mb-4" />
+          )}
           <h2 className="text-2xl font-semibold mb-4">
-            {data === "nodata" ? (
-              "No data available"
+            {data ? (
+              Object.keys(data).length === 0 ? (
+                "No data available"
+              ) : (
+                <p>{data.data.username}</p>
+              )
             ) : (
-              <Button variant="link">
-                <Link href={`/profile/${data}`}>{data}</Link>
-              </Button>
+              "No data available"
             )}
           </h2>
+          {data && (
+            <div className="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white text-center">
+                User Details
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                <span className="font-bold">Email:</span> {data.data.email}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <span className="font-bold">User ID:</span> {data.data._id}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <span className="font-bold">Admin:</span>{" "}
+                {data.data.isAdmin ? "Yes" : "No"}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <span className="font-bold">Verified:</span>{" "}
+                {data.data.isVerified ? "Yes" : "No"}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
