@@ -1,21 +1,35 @@
-import mongoose from "mongoose";
+import cassandra from "cassandra-driver";
+import path from "path";
 
-export async function connect() {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
+let client;
 
-    const connection = mongoose.connection;
-
-    connection.on("connected", () => {
-      console.log("MongoDB connected successfully");
+export async function connectToCassandra() {
+  if (!client) {
+    // Resolve the secure connect bundle path
+    const bundlePath = path.resolve(process.env.CASSANDRA_SECURE_CONNECT_BUNDLE_PATH);
+    
+    // Log the resolved path to the console
+    console.log("Resolved secure connect bundle path:", bundlePath);
+    
+    client = new cassandra.Client({
+      cloud: {
+        secureConnectBundle: bundlePath, // Use the resolved path
+      },
+      credentials: {
+        username: process.env.CASSANDRA_CLIENT_ID,
+        password: process.env.CASSANDRA_CLIENT_SECRET,
+      },
+      keyspace: process.env.CASSANDRA_KEYSPACE,
     });
-    connection.on("error", (err) => {
-      console.log("MongoDB connection error: " + err);
-      process.exit(1);
-    });
-  } catch (error) {
-    console.log("Something went wrong during MongoDB connection: ");
-    console.error(error);
-    process.exit(1);
+
+    try {
+      await client.connect();
+      console.log("Cassandra connected successfully");
+    } catch (error) {
+      console.error("Error connecting to Cassandra:", error);
+      throw new Error("Could not connect to Cassandra");
+    }
   }
+
+  return client;
 }
