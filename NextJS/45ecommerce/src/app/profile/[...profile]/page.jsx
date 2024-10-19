@@ -12,7 +12,6 @@ const ProfilePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showUserIcon, setShowUserIcon] = useState(false);
 
-  // Save data to localStorage efficiently
   useEffect(() => {
     if (data) {
       localStorage.setItem("usersData", JSON.stringify(data));
