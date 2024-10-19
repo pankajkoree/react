@@ -13,6 +13,9 @@ export const POST = async (req) => {
       productName,
       quantity,
       productPrice,
+      returnPolicy,
+      productDescription,
+      productThumbnail,
     } = await req.json();
     const orderedProduct = new Order({
       id,
@@ -21,6 +24,9 @@ export const POST = async (req) => {
       productName,
       quantity,
       productPrice,
+      returnPolicy,
+      productDescription,
+      productThumbnail,
     });
 
     const orderDetails = await orderedProduct.save();

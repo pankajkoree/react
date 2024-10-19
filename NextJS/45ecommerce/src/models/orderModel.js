@@ -25,6 +25,18 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: [true, "please provide the price"],
   },
+  returnPolicy: {
+    type: String,
+    required: true,
+  },
+  productDescription: {
+    type: String,
+    required: true,
+  },
+  productThumbnail: {
+    type: String,
+    required: true,
+  },
 });
 
 const Order = mongoose.models.orders || mongoose.model("orders", orderSchema);

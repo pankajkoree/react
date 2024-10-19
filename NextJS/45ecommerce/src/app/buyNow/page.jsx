@@ -36,11 +36,14 @@ const BuyNowPage = () => {
   const [productQuantity, setProductQuantity] = useState(1);
   const [productDetails, setProductDetails] = useState({
     id: "",
-    deliveryAddress: "",
+    deliveryAddress: "", // Ensure this is initialized as an empty string
     orderedDate: new Date().toLocaleString(),
     productName: "",
     quantity: 1,
     productPrice: 0,
+    returnPolicy: specificProduct.returnPolicy || "",
+    productDescription: specificProduct.description || "",
+    productThumbnail: specificProduct.thumbnail || "",
   });
 
   const { data } = useQuery({
@@ -66,19 +69,22 @@ const BuyNowPage = () => {
       const result = await onGetUserData();
       const currentDate = new Date().toLocaleString();
 
-      setProductDetails((prev) => ({
-        ...prev,
-        id: result.data._id,
-        productName: specificProduct?.title || "",
-        quantity: productQuantity,
-        productPrice: specificProduct?.price * productQuantity || 0,
-        orderedDate: currentDate,
-      }));
+      if (specificProduct && specificProduct._id) {
+        setProductDetails((prevDetails) => ({
+          ...prevDetails,
+          id: result.data._id,
+          productName: specificProduct?.title || "",
+          quantity: productQuantity,
+          productPrice: specificProduct?.price * productQuantity || 0,
+          orderedDate: currentDate,
+          returnPolicy: specificProduct?.returnPolicy || "",
+          productDescription: specificProduct?.description || "",
+          productThumbnail: specificProduct?.thumbnail || "",
+        }));
+      }
     };
 
-    if (specificProduct && specificProduct._id) {
-      updateProductDetails();
-    }
+    updateProductDetails();
   }, [specificProduct, productQuantity]);
 
   const increaseQuantity = () => {
@@ -110,7 +116,6 @@ const BuyNowPage = () => {
       <div className="relative xl:w-[40%] xl:left-[30%] xl:border p-8">
         <h1 className="text-3xl font-semibold mb-4 text-center">Buy Now</h1>
 
-        {/* Product Details */}
         <div className="mb-6">
           <div className="relative flex justify-center">
             <img
@@ -162,7 +167,7 @@ const BuyNowPage = () => {
           id="deliveryAddress"
           type="text"
           placeholder="Delivery address..."
-          value={productDetails.deliveryAddress}
+          value={productDetails.deliveryAddress || ""} // Ensure it always has a value
           onChange={(e) =>
             setProductDetails({
               ...productDetails,
@@ -174,7 +179,6 @@ const BuyNowPage = () => {
       </div>
 
       <div className="relative flex xl:top-8 xl:w-[40%] xl:left-[30%] xl:border">
-        {/* Purchase Button */}
         <button
           onClick={handlePurchase}
           className="w-full bg-blue-500 text-white text-lg font-semibold py-3 rounded-md hover:bg-blue-600 transition duration-300"
