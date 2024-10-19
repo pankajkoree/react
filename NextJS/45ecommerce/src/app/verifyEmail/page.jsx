@@ -28,7 +28,7 @@ const VerifyEmail = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center mt-4 py-2">
       <h1 className="text-4xl mb-4">Verify Email</h1>
 
       {/* Input box for token */}
