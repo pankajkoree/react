@@ -8,7 +8,6 @@ const VerifyEmail = () => {
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState(false);
 
-  // Function to handle email verification
   const verifyUserEmail = async () => {
     try {
       const response = await axios.post("/api/users/verifyEmail", { token });
@@ -21,7 +20,6 @@ const VerifyEmail = () => {
     }
   };
 
-  // If token is in the URL, set it automatically
   useEffect(() => {
     const urlToken = window.location.search.split("=")[1];
     if (urlToken) {
