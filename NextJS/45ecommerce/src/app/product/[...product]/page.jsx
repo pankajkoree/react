@@ -25,9 +25,14 @@ const getProductsData = async () => {
 const SpecificProductPage = ({ params }) => {
   const router = useRouter();
   const [specificProduct, setSpecificProduct] = useState({});
+  let productIds = [];
+  let buyProductId = [];
 
   const addedToCart = () => {
-    router.push("/carts");
+    productIds.push(specificProduct._id);
+
+    localStorage.setItem("cart", productIds);
+
     toast.success("added to cart", {
       style: {
         border: "1px solid purple",
@@ -44,20 +49,9 @@ const SpecificProductPage = ({ params }) => {
   };
 
   const addedToBuyNow = () => {
-    toast.success("item ordered", {
-      style: {
-        border: "1px solid purple",
-        padding: "8px",
-        color: "#ffffff",
-        background: "#19f57c",
-        fontSize: "16px",
-      },
-      iconTheme: {
-        primary: "#3177ff",
-        secondary: "#FFFAEE",
-      },
-    });
+    buyProductId.push(specificProduct._id);
 
+    localStorage.setItem("buyProduct", buyProductId);
     router.push("/buyNow");
   };
 
