@@ -1,3 +1,4 @@
+import axios from "axios";
 import { NextResponse } from "next/server";
 
 export const middleware = (request) => {
@@ -19,6 +20,7 @@ export const middleware = (request) => {
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
+
   return NextResponse.next();
 };
 
