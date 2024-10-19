@@ -22,6 +22,7 @@ const ProfilePage = () => {
     try {
       await axios.get("/api/users/logout");
       localStorage.removeItem("usersData");
+      localStorage.removeItem("user");
       toast.success("Logout successfully...");
       router.push("/login");
     } catch (error) {
