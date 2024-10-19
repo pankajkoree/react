@@ -42,6 +42,10 @@ const ProfilePage = () => {
     router.push("/orders");
   };
 
+  const gotoVerifyEmail = () => {
+    router.push("/verifyEmail");
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -66,6 +70,13 @@ const ProfilePage = () => {
               onClick={gotoOrder}
             >
               Orders
+            </Button>
+            <Button
+              variant="link"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={gotoVerifyEmail}
+            >
+              Verify Email
             </Button>
             <Button
               variant="link"
@@ -127,6 +138,16 @@ const ProfilePage = () => {
                 }}
               >
                 Orders
+              </Button>
+              <Button
+                variant="link"
+                className="w-full text-left"
+                onClick={() => {
+                  gotoVerifyEmail();
+                  toggleMenu();
+                }}
+              >
+                Verify Email
               </Button>
               <Button
                 variant="link"
