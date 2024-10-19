@@ -9,7 +9,7 @@ const OrderDetails = () => {
   useEffect(() => {
     const fetchOrderData = async () => {
       try {
-        const response = await axios.get("/api/orders/12345");
+        const response = await axios.get("/api/products/getOrderedProducts");
         setOrderData(response.data);
       } catch (error) {
         console.error("Error fetching order data:", error.message);
@@ -19,6 +19,8 @@ const OrderDetails = () => {
     fetchOrderData();
   }, []);
 
+  console.log(orderData);
+
   if (!orderData) {
     return <p>Loading order details...</p>;
   }
@@ -27,65 +29,53 @@ const OrderDetails = () => {
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">Order Details</h1>
 
-      {/* List of products */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
-        {orderData.products.map((product) => (
+      {/* List of orders */}
+      <div className="flex flex-col items-center gap-6">
+        {orderData.orders.map((order) => (
           <div
-            key={product.id}
-            className="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
+            key={order._id}
+            className="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 w-full max-w-4xl"
+            style={{ width: "60%", margin: "0 auto" }}
           >
-            {/* Product Thumbnail */}
-            <Image
-              src={product.thumbnail || placeholderImage}
-              alt={product.title}
-              width={200}
-              height={200}
-              className="rounded-lg mb-4"
-            />
+            {/* Product Information */}
+            <div className="flex flex-col md:flex-row items-start gap-4">
+              {/* Thumbnail */}
+              <Image
+                src="/path-to-placeholder-image.jpg"
+                alt={order.productName}
+                width={150}
+                height={150}
+                className="rounded-lg"
+              />
 
-            {/* Product Title */}
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-              {product.title}
-            </h2>
+              {/* Product Details */}
+              <div className="flex flex-col gap-2">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {order.productName}
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300">
+                  Quantity: {order.quantity}
+                </p>
+                <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Price: ${order.productPrice}
+                </p>
+              </div>
+            </div>
 
-            {/* Product Description */}
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              {product.description}
-            </p>
-
-            {/* Product Price */}
-            <p className="text-lg font-semibold text-gray-900 dark:text-white">
-              Price: ${product.price.toFixed(2)}
-            </p>
+            {/* Delivery Address */}
+            <div className="mt-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                Delivery Address
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                {order.deliveryAddress}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                Ordered Date: {order.orderedDate}
+              </p>
+            </div>
           </div>
         ))}
-      </div>
-
-      {/* Delivery Address */}
-      <div className="mt-10 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Delivery Address
-        </h2>
-        <p className="text-gray-700 dark:text-gray-300">
-          <span className="font-bold">Name:</span>{" "}
-          {orderData.deliveryAddress.name}
-        </p>
-        <p className="text-gray-700 dark:text-gray-300">
-          <span className="font-bold">Street:</span>{" "}
-          {orderData.deliveryAddress.street}
-        </p>
-        <p className="text-gray-700 dark:text-gray-300">
-          <span className="font-bold">City:</span>{" "}
-          {orderData.deliveryAddress.city}
-        </p>
-        <p className="text-gray-700 dark:text-gray-300">
-          <span className="font-bold">Postal Code:</span>{" "}
-          {orderData.deliveryAddress.postalCode}
-        </p>
-        <p className="text-gray-700 dark:text-gray-300">
-          <span className="font-bold">Country:</span>{" "}
-          {orderData.deliveryAddress.country}
-        </p>
       </div>
     </div>
   );
