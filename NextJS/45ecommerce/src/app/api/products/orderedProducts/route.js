@@ -30,7 +30,6 @@ export const POST = async (req) => {
     });
 
     const orderDetails = await orderedProduct.save();
-    console.log(orderDetails);
 
     return NextResponse.json({
       message: "Product ordered successfully",
