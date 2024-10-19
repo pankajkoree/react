@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
@@ -12,10 +12,17 @@ const ProfilePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showUserIcon, setShowUserIcon] = useState(false);
 
+  // Save data to localStorage efficiently
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem("usersData", JSON.stringify(data));
+    }
+  }, [data]);
+
   const logout = async () => {
     try {
       await axios.get("/api/users/logout");
-      localStorage.removeItem("user");
+      localStorage.removeItem("usersData");
       toast.success("Logout successfully...");
       router.push("/login");
     } catch (error) {
@@ -26,9 +33,7 @@ const ProfilePage = () => {
   const onGetUserData = async () => {
     try {
       const res = await axios.post("/api/users/me");
-
       setData(res.data);
-
       setShowUserIcon(true);
     } catch (error) {
       toast.error("Failed to fetch user data");
@@ -38,6 +43,7 @@ const ProfilePage = () => {
   const gotoCart = () => {
     router.push("/carts");
   };
+
   const gotoOrder = () => {
     router.push("/orders");
   };
