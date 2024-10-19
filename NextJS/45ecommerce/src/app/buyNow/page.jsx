@@ -37,7 +37,7 @@ const BuyNowPage = () => {
   const [productDetails, setProductDetails] = useState({
     id: "",
     deliveryAddress: "",
-    orderedDate: new Date().toISOString(), // Initialize orderedDate here
+    orderedDate: new Date().toISOString(),
     productName: "",
     quantity: 1,
     productPrice: 0,
