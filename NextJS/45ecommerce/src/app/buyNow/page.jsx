@@ -36,7 +36,7 @@ const BuyNowPage = () => {
   const [productQuantity, setProductQuantity] = useState(1);
   const [productDetails, setProductDetails] = useState({
     id: "",
-    deliveryAddress: "", // Ensure this is initialized as an empty string
+    deliveryAddress: "",
     orderedDate: new Date().toLocaleString(),
     productName: "",
     quantity: 1,
@@ -167,7 +167,7 @@ const BuyNowPage = () => {
           id="deliveryAddress"
           type="text"
           placeholder="Delivery address..."
-          value={productDetails.deliveryAddress || ""} // Ensure it always has a value
+          value={productDetails.deliveryAddress || ""}
           onChange={(e) =>
             setProductDetails({
               ...productDetails,
