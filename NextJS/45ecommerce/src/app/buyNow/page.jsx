@@ -37,7 +37,7 @@ const BuyNowPage = () => {
   const [productDetails, setProductDetails] = useState({
     id: "",
     deliveryAddress: "",
-    orderedDate: new Date().toISOString(),
+    orderedDate: new Date().toLocaleString(),
     productName: "",
     quantity: 1,
     productPrice: 0,
@@ -64,13 +64,15 @@ const BuyNowPage = () => {
   useEffect(() => {
     const updateProductDetails = async () => {
       const result = await onGetUserData();
+      const currentDate = new Date().toLocaleString();
+
       setProductDetails((prev) => ({
         ...prev,
         id: result.data._id,
         productName: specificProduct?.title || "",
         quantity: productQuantity,
         productPrice: specificProduct?.price * productQuantity || 0,
-        orderedDate: new Date().toISOString(), // Update orderedDate every time specificProduct changes
+        orderedDate: currentDate,
       }));
     };
 
