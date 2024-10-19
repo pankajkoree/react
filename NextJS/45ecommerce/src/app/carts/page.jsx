@@ -44,8 +44,6 @@ const Cart = () => {
     }
   }, [data, cartItem]);
 
-  console.log(specificProduct);
-
   // quantity
   const [productquantity, setProductQuantity] = useState(1);
   // increase quantity button event
@@ -86,7 +84,6 @@ const Cart = () => {
     router.push("/buyNow");
   };
 
-  // for calculating the total amount in the cart
   const [total, setTotal] = useState(0);
   useEffect(() => {
     const amount = productquantity * specificProduct?.price;
@@ -104,12 +101,12 @@ const Cart = () => {
 
   if (error) return "Error occurred: " + error.message;
   return (
-    <div>
+    <div className="container mx-auto p-2">
       {specificProduct ? (
         cartItem ? (
-          <div className="relative flex border border-purple-300 hover:shadow-green-400 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md dark:hover:xl:shadow-green-300">
+          <div className="relative flex flex-col sm:flex-row border border-purple-300 hover:shadow-green-400 sm:xl:m-4 sm:xl:p-4 sm:xl:w-[60%] sm:xl:left-[20%] sm:xl:shadow-md dark:hover:xl:shadow-green-300 p-2 mx-2">
             {/* product thumbnail */}
-            <div className="relative flex min-w-[40%] justify-center">
+            <div className="relative flex justify-center sm:min-w-[40%] mb-4 sm:mb-0">
               {specificProduct?.thumbnail && (
                 <Image
                   src={specificProduct.thumbnail}
@@ -125,34 +122,33 @@ const Cart = () => {
               )}
             </div>
 
-            <div className="relative flex flex-col gap-4 p-2">
-              <h2 className="xl:text-2xl xl:font-bold">
+            <div className="flex flex-col gap-4 sm:p-2">
+              <h2 className="text-lg sm:text-2xl font-bold">
                 {specificProduct.title}
               </h2>
-              <h3 className="xl:text-xl ">{specificProduct.description}</h3>
-              <h3 className="xl:text-2xl xl:font-bold">
+              <h3 className="text-base sm:text-xl">
+                {specificProduct.description}
+              </h3>
+              <h3 className="text-lg sm:text-2xl font-bold">
                 ${specificProduct.price}
               </h3>
               <p className="text-green-400">
                 {specificProduct.availabilityStatus}
               </p>
               <div>
-                <p className="xl:text-xl xl:text-center">
-                  Quantity :{" "}
+                <p className="text-base sm:text-xl text-center">
+                  Quantity:{" "}
                   <Button
                     variant="quantity"
-                    className="xl:text-2xl"
+                    className="text-lg sm:text-2xl"
                     onClick={decreaseQuantity}
                   >
                     -
                   </Button>{" "}
-                  <span className="xl:text-2xl xl:p-2">
-                    {" "}
-                    {` ${productquantity} `}{" "}
-                  </span>{" "}
+                  <span className="text-lg sm:text-2xl p-2">{` ${productquantity} `}</span>{" "}
                   <Button
                     variant="quantity"
-                    className="xl:text-2xl"
+                    className="text-lg sm:text-2xl"
                     onClick={increaseQuantity}
                   >
                     +
@@ -161,14 +157,14 @@ const Cart = () => {
               </div>
               <Button
                 variant="delete"
-                className="text-xl hover:text-white"
+                className="text-base sm:text-xl hover:text-white"
                 onClick={deleteProduct}
               >
                 Delete
               </Button>
               <Button
                 variant="buy"
-                className="text-xl hover:text-white"
+                className="text-base sm:text-xl hover:text-white"
                 onClick={(e) => {
                   e.stopPropagation();
                   addedToBuyNow();
@@ -188,9 +184,10 @@ const Cart = () => {
           <h1>Fetching the items...</h1>
         </div>
       )}
+
       {cartItem ? (
-        <div className="relative flex border border-purple-300 xl:m-4 xl:p-4 xl:w-[60%] xl:left-[20%] xl:shadow-md">
-          <h2 className="xl:ml-auto xl:text-xl">{`Total : ${total}`}</h2>
+        <div className="relative flex border border-purple-300 sm:xl:m-4 sm:xl:p-4 sm:xl:w-[60%] sm:xl:left-[20%] sm:xl:shadow-md mx-2 top-2 p-2">
+          <h2 className="ml-auto text-lg sm:text-xl">{`Total: ${total}`}</h2>
         </div>
       ) : (
         " "
