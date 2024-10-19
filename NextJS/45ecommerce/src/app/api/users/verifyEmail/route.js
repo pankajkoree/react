@@ -6,7 +6,6 @@ connect();
 
 export const POST = async (request) => {
   try {
-    n;
     const reqBody = await request.json();
     const { token } = reqBody;
 
