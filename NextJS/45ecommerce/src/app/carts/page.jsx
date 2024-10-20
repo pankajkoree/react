@@ -67,20 +67,6 @@ const Cart = () => {
 
   // buy now button click event
   const addedToBuyNow = () => {
-    toast.success("item ordered", {
-      style: {
-        border: "1px solid purple",
-        padding: "8px",
-        color: "#ffffff",
-        background: "#19f57c",
-        fontSize: "16px",
-      },
-      iconTheme: {
-        primary: "#3177ff",
-        secondary: "#FFFAEE",
-      },
-    });
-
     router.push("/buyNow");
   };
 
@@ -187,7 +173,7 @@ const Cart = () => {
 
       {cartItem ? (
         <div className="relative flex border border-purple-300 sm:xl:m-4 sm:xl:p-4 sm:xl:w-[60%] sm:xl:left-[20%] sm:xl:shadow-md mx-2 top-2 p-2">
-          <h2 className="ml-auto text-lg sm:text-xl">{`Total: ${total}`}</h2>
+          <h2 className="ml-auto text-lg sm:text-xl">{`Total: $ ${total}`}</h2>
         </div>
       ) : (
         " "
