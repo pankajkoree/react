@@ -19,14 +19,17 @@ const ProfilePage = () => {
   }, [data]);
 
   const logout = async () => {
-    try {
-      await axios.get("/api/users/logout");
-      localStorage.removeItem("usersData");
-      localStorage.removeItem("user");
-      toast.success("Logout successfully...");
-      router.push("/login");
-    } catch (error) {
-      toast.error(error.message);
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      try {
+        await axios.get("/api/users/logout");
+        localStorage.removeItem("usersData");
+        localStorage.removeItem("user");
+        toast.success("Logout successfully...");
+        router.push("/login");
+      } catch (error) {
+        toast.error(error.message);
+      }
     }
   };
 
@@ -62,7 +65,7 @@ const ProfilePage = () => {
       <div className="flex flex-grow">
         {/* Sidebar for larger screens */}
         <div className="hidden xl:h-[800px] lg:h-[800px] lg:flex flex-col w-1/4 bg-gray-100 dark:bg-gray-900 p-6 space-y-6">
-          <nav className="space-y-8">
+          <nav className="space-y-8 mt-4">
             <Button
               variant="link"
               className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
