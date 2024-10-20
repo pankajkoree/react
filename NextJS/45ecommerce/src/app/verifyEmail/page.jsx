@@ -52,9 +52,6 @@ const VerifyEmail = () => {
       {verified && (
         <div className="mt-4">
           <h2 className="text-2xl text-green-500">Email Verified!</h2>
-          <Link href="/login" className="text-blue-500 underline text-center">
-            Go to Login
-          </Link>
         </div>
       )}
 
