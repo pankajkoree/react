@@ -60,7 +60,7 @@ const AdminPage = () => {
               className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
               onClick={() => handleSectionChange("User Details")}
             >
-              User Details
+              Users
             </Button>
           </nav>
           <div className="mt-auto">
@@ -85,8 +85,8 @@ const AdminPage = () => {
           <div
             className={`fixed top-0 left-0 z-40 w-2/3 max-w-xs bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg transform ${
               menuOpen
-                ? "translate-x-0 translate-y-32"
-                : "-translate-x-full translate-y-32"
+                ? "translate-x-0 translate-y-20"
+                : "-translate-x-full translate-y-20"
             } transition-transform duration-300 ease-in-out p-6`}
           >
             <button
@@ -99,30 +99,30 @@ const AdminPage = () => {
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("Carts")}
+                onClick={() => handleSectionChange("products")}
               >
-                Carts
+                Products
               </Button>
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("Orders")}
+                onClick={() => handleSectionChange("add new products")}
+              >
+                Add new products
+              </Button>
+              <Button
+                variant="link"
+                className="w-full text-left"
+                onClick={() => handleSectionChange("orders")}
               >
                 Orders
               </Button>
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("Verify Email")}
+                onClick={() => handleSectionChange("users")}
               >
-                Verify Email
-              </Button>
-              <Button
-                variant="link"
-                className="w-full text-left"
-                onClick={() => handleSectionChange("Personal Details")}
-              >
-                Personal Details
+                Users
               </Button>
             </nav>
             <div className="w-full relative flex top-4">
