@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios"; // Import axios for API calls
 import { Button } from "@/components/ui/button";
 import { FiMenu, FiUser } from "react-icons/fi";
 import { useRouter } from "next/navigation";
@@ -10,14 +11,25 @@ const AdminPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showUserIcon, setShowUserIcon] = useState(false);
   const [selectedSection, setSelectedSection] = useState("Admin");
+  const [orderData, setOrderData] = useState([]); // State for order data
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleSectionChange = (section) => {
+  const handleSectionChange = async (section) => {
     setSelectedSection(section);
     toggleMenu();
+
+    if (section === "Orders") {
+      // Fetch order data when "Orders" is selected
+      try {
+        const response = await axios.get("/api/products/getOrderedProducts");
+        setOrderData(response.data.orders || []); // Assuming the response has an 'orders' property
+      } catch (error) {
+        console.error("Error fetching order data:", error.message);
+      }
+    }
   };
 
   const exitFromAdmin = () => {
@@ -99,28 +111,28 @@ const AdminPage = () => {
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("products")}
+                onClick={() => handleSectionChange("Products")}
               >
                 Products
               </Button>
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("add new products")}
+                onClick={() => handleSectionChange("Add new products")}
               >
                 Add new products
               </Button>
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("orders")}
+                onClick={() => handleSectionChange("Orders")}
               >
                 Orders
               </Button>
               <Button
                 variant="link"
                 className="w-full text-left"
-                onClick={() => handleSectionChange("users")}
+                onClick={() => handleSectionChange("Users")}
               >
                 Users
               </Button>
@@ -145,7 +157,7 @@ const AdminPage = () => {
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col items-center justify-center w-full lg:w-3/4 p-6">
+        <div className="flex flex-col w-full lg:w-3/4 p-6">
           <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
             {selectedSection} Page
           </h1>
@@ -153,7 +165,25 @@ const AdminPage = () => {
             <FiUser className="text-5xl text-gray-900 dark:text-white mb-4" />
           )}
 
-          <div className="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4"></div>
+          <div className="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4">
+            {selectedSection === "Orders" && orderData.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {orderData.map((order) => (
+                  <div key={order._id} className="border p-4 rounded-lg shadow">
+                    <h2 className="font-semibold">{order.productName}</h2>
+                    <p>Quantity: {order.quantity}</p>
+                    <p>Price: ${order.productPrice}</p>
+                    <p>Delivery Address: {order.deliveryAddress}</p>
+                    <p>Ordered Date: {order.orderedDate}</p>
+                  </div>
+                ))}
+              </div>
+            ) : selectedSection === "Orders" ? (
+              <p>No orders found.</p>
+            ) : (
+              <p>Select a section to see details.</p>
+            )}
+          </div>
         </div>
       </div>
     </div>
