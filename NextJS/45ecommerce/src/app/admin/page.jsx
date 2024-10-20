@@ -9,9 +9,10 @@ import { useRouter } from "next/navigation";
 const AdminPage = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showUserIcon, setShowUserIcon] = useState(false);
   const [selectedSection, setSelectedSection] = useState("Admin");
-  const [orderData, setOrderData] = useState([]); 
+  const [orderData, setOrderData] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [productData, setProductData] = useState([]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -22,12 +23,30 @@ const AdminPage = () => {
     toggleMenu();
 
     if (section === "Orders") {
-      // Fetch order data when "Orders" is selected
       try {
         const response = await axios.get("/api/products/getOrderedProducts");
-        setOrderData(response.data.orders || []); // Assuming the response has an 'orders' property
+        setOrderData(response.data.orders || []);
       } catch (error) {
         console.error("Error fetching order data:", error.message);
+      }
+    }
+
+    if (section === "Users") {
+      try {
+        const response = await axios.get("/api/users/getUser");
+        setUserData(response.data.users || []);
+      } catch (error) {
+        console.error("Error fetching user data:", error.message);
+      }
+    }
+
+    if (section === "Products") {
+      try {
+        const response = await axios.get("/api/products/getProducts");
+        console.log(response);
+        setProductData(response.data.results || []);
+      } catch (error) {
+        console.error("Error fetching product data:", error.message);
       }
     }
   };
@@ -70,7 +89,7 @@ const AdminPage = () => {
             <Button
               variant="link"
               className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
-              onClick={() => handleSectionChange("User Details")}
+              onClick={() => handleSectionChange("Users")}
             >
               Users
             </Button>
@@ -161,12 +180,57 @@ const AdminPage = () => {
           <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
             {selectedSection} Page
           </h1>
-          {showUserIcon && (
-            <FiUser className="text-5xl text-gray-900 dark:text-white mb-4" />
-          )}
 
           <div className="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4">
-            {selectedSection === "Orders" && orderData.length > 0 ? (
+            {selectedSection === "Products" && productData.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {productData.map((product) => (
+                  <div
+                    key={product._id}
+                    className="border p-4 rounded-lg shadow"
+                  >
+                    <h2 className="font-semibold">{product.title}</h2>
+                    <p>
+                      <b> Price:</b> ${product.price}
+                    </p>
+                    <p>
+                      <b> Description: </b>
+                      {product.description}
+                    </p>
+                    <p>
+                      <b> tock:</b> {product.stock}
+                    </p>
+                    <p>
+                      <b> Category:</b> {product.category}
+                    </p>
+                    <p>
+                      <b> Rating:</b> {product.rating}
+                    </p>
+                    <p>
+                      <b> Brand:</b> {product.brand}
+                    </p>
+                    <p>
+                      <b> SKU: </b>
+                      {product.sku}
+                    </p>
+                    <p>
+                      <b> Warranty:</b> {product.warrantyInformation}
+                    </p>
+                    <p>
+                      <b> Return Policy: </b>
+                      {product.returnPolicy}
+                    </p>
+                    <img
+                      src={product.thumbnail}
+                      alt={product.title}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : selectedSection === "Products" ? (
+              <p>No products found.</p>
+            ) : selectedSection === "Orders" && orderData.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {orderData.map((order) => (
                   <div key={order._id} className="border p-4 rounded-lg shadow">
@@ -180,6 +244,19 @@ const AdminPage = () => {
               </div>
             ) : selectedSection === "Orders" ? (
               <p>No orders found.</p>
+            ) : selectedSection === "Users" && userData.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {userData.map((user) => (
+                  <div key={user._id} className="border p-4 rounded-lg shadow">
+                    <h2 className="font-semibold">{user.username}</h2>
+                    <p>Email: {user.email}</p>
+                    <p>Verified: {user.isVerified ? "Yes" : "No"}</p>
+                    <p>Admin: {user.isAdmin ? "Yes" : "No"}</p>
+                  </div>
+                ))}
+              </div>
+            ) : selectedSection === "Users" ? (
+              <p>No users found.</p>
             ) : (
               <p>Select a section to see details.</p>
             )}
