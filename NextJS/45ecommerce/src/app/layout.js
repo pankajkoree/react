@@ -1,7 +1,7 @@
-import ClientLayout from "./ClientLayout";
 import "../../src/app/globals.css";
 import Head from "next/head";
 import { AuthProvider } from "../../src/app/context/AuthContext";
+import ClientLayout from "./ClientLayout";
 
 export const metadata = {
   title: "Ecommerce App",
