@@ -106,8 +106,8 @@ const NavigationBar = () => {
 
       <div className="relative flex flex-row gap-2 items-center text-center overflow-hidden">
         {/* Sliding message */}
-        <div class="sliding-message-container">
-          <span class="sliding-message">
+        <div className="sliding-message-container">
+          <span className="sliding-message">
             Welcome to the junior shopping site
           </span>
         </div>
