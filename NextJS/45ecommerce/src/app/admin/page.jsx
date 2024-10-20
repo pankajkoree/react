@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import axios from "axios"; // Import axios for API calls
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { FiMenu, FiUser } from "react-icons/fi";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ const AdminPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showUserIcon, setShowUserIcon] = useState(false);
   const [selectedSection, setSelectedSection] = useState("Admin");
-  const [orderData, setOrderData] = useState([]); // State for order data
+  const [orderData, setOrderData] = useState([]); 
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
