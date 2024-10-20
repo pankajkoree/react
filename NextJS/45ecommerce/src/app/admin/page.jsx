@@ -5,6 +5,7 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { FiMenu, FiUser } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const AdminPage = () => {
   const router = useRouter();
@@ -13,6 +14,14 @@ const AdminPage = () => {
   const [orderData, setOrderData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [productData, setProductData] = useState([]);
+  const [newProduct, setNewProduct] = useState({
+    price: "",
+    title: "",
+    description: "",
+    category: "",
+    stock: "",
+    thumbnail: "",
+  });
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -27,7 +36,7 @@ const AdminPage = () => {
         const response = await axios.get("/api/products/getOrderedProducts");
         setOrderData(response.data.orders || []);
       } catch (error) {
-        console.error("Error fetching order data:", error.message);
+        toast.error("Error fetching order data:", error.message);
       }
     }
 
@@ -36,18 +45,50 @@ const AdminPage = () => {
         const response = await axios.get("/api/users/getUser");
         setUserData(response.data.users || []);
       } catch (error) {
-        console.error("Error fetching user data:", error.message);
+        toast.error("Error fetching user data:", error.message);
       }
     }
 
     if (section === "Products") {
       try {
         const response = await axios.get("/api/products/getProducts");
-        console.log(response);
         setProductData(response.data.results || []);
       } catch (error) {
-        console.error("Error fetching product data:", error.message);
+        toast.error("Error fetching product data:", error.message);
       }
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
+  };
+
+  const handleAddProduct = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "/api/products/addproducts",
+        newProduct
+      );
+      if (response.data.success) {
+        toast.success("Product added successfully!");
+        setNewProduct({
+          price: "",
+          title: "",
+          description: "",
+          category: "",
+          stock: "",
+          thumbnail: "",
+        });
+      } else {
+        toast.error("Error adding product: " + response.data.error);
+      }
+    } catch (error) {
+      toast.error("Error adding product:", error.message);
     }
   };
 
@@ -258,7 +299,67 @@ const AdminPage = () => {
             ) : selectedSection === "Users" ? (
               <p>No users found.</p>
             ) : (
-              <p>Select a section to see details.</p>
+              selectedSection === "Add new products" && (
+                <form onSubmit={handleAddProduct} className="space-y-4">
+                  <h2 className="text-xl font-bold">Add New Product</h2>
+                  <input
+                    type="text"
+                    name="title"
+                    value={newProduct.title}
+                    onChange={handleInputChange}
+                    placeholder="Product Title"
+                    required
+                    className="p-2 border border-gray-300 rounded w-full"
+                  />
+                  <input
+                    type="text"
+                    name="price"
+                    value={newProduct.price}
+                    onChange={handleInputChange}
+                    placeholder="Price"
+                    required
+                    className="p-2 border border-gray-300 rounded w-full"
+                  />
+                  <textarea
+                    name="description"
+                    value={newProduct.description}
+                    onChange={handleInputChange}
+                    placeholder="Description"
+                    required
+                    className="p-2 border border-gray-300 rounded w-full"
+                  ></textarea>
+                  <input
+                    type="text"
+                    name="category"
+                    value={newProduct.category}
+                    onChange={handleInputChange}
+                    placeholder="Category"
+                    required
+                    className="p-2 border border-gray-300 rounded w-full"
+                  />
+                  <input
+                    type="text"
+                    name="stock"
+                    value={newProduct.stock}
+                    onChange={handleInputChange}
+                    placeholder="Stock Quantity"
+                    required
+                    className="p-2 border border-gray-300 rounded w-full"
+                  />
+                  <input
+                    type="text"
+                    name="thumbnail"
+                    value={newProduct.thumbnail}
+                    onChange={handleInputChange}
+                    placeholder="Thumbnail URL"
+                    required
+                    className="p-2 border border-gray-300 rounded w-full"
+                  />
+                  <Button type="submit" className="w-full mt-4">
+                    Add Product
+                  </Button>
+                </form>
+              )
             )}
           </div>
         </div>
