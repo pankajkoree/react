@@ -45,7 +45,7 @@ const OrderDetails = () => {
           filteredOrders.map((order) => (
             <div
               key={order._id}
-              className="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 w-full max-w-4xl"
+              className="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 w-full max-w-4xl border border-green-200"
               style={{ width: "60%", margin: "0 auto" }}
             >
               {/* Product Information */}
