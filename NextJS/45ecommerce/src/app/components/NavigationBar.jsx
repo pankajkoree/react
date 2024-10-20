@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import logowhite from "../assets/logo-white.png";
 import logoblack from "../assets/logo-black.png";
-import { Input } from "@/components/ui/input";
 import cartBlack from "../assets/cart-black.png";
 import cartColor from "../assets/cart-color.png";
 import userBlack from "../assets/user-black.png";
@@ -13,6 +12,7 @@ import darkMode from "../assets/dark-mode.png";
 import lightMode from "../assets/light-mode.png";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import "./slider.scss";
 
 const NavigationBar = () => {
   const [user, setUser] = useState(null);
@@ -104,12 +104,13 @@ const NavigationBar = () => {
         )}
       </div>
 
-      {/* div to implement search box */}
-      <div className="relative flex flex-row gap-2 items-center">
-        <Input
-          placeholder="search for products"
-          className="relative flex h-[44px] text-base sm:text-[16px] md:text-xl border-2 border-gray-700 transition-all duration-300 dark:border-2 dark:hover:border-blue-500 dark:animate-border-animation"
-        />
+      <div className="relative flex flex-row gap-2 items-center text-center overflow-hidden">
+        {/* Sliding message */}
+        <div class="sliding-message-container">
+          <span class="sliding-message">
+            Welcome to the junior shopping site
+          </span>
+        </div>
       </div>
 
       {/* div to have, theme, login, cart */}
