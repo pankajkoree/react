@@ -1,143 +1,163 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { FiMenu, FiUser } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
-const AdminLayout = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [activeContent, setActiveContent] = useState("dashboard");
+const AdminPage = () => {
+  const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showUserIcon, setShowUserIcon] = useState(false);
+  const [selectedSection, setSelectedSection] = useState("Admin");
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
-  const renderContent = () => {
-    switch (activeContent) {
-      case "addProduct":
-        return <div>Add Product Form</div>; // Replace with actual Add Product component
-      case "updateProduct":
-        return <div>Update Product Form</div>; // Replace with actual Update Product component
-      case "orderDetails":
-        return <div>Order Details Table</div>; // Replace with actual Fetch Order Details component
-      case "userDetails":
-        return <div>User Details Table</div>; // Replace with actual Fetch User Details component
-      default:
-        return <div>Welcome to the Admin Dashboard!</div>;
+  const handleSectionChange = (section) => {
+    setSelectedSection(section);
+    toggleMenu();
+  };
+
+  const exitFromAdmin = () => {
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      router.push("/");
     }
   };
 
-  useEffect(() => {
-    // Close the sidebar when window resizes back to large
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsSidebarOpen(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <div className="flex flex-col xl:h-[800px] lg:h-[800px] md:h-[800px] mt-4">
-      {/* Main content wrapper */}
-      <div className="flex flex-1">
-        {/* Sidebar for larger screens (hidden on mobile) */}
-        <div
-          className={`hidden lg:flex lg:fixed inset-y-0 left-0 lg:static lg:w-1/5 z-40 bg-gray-800 text-white p-5 transition-transform duration-300 ease-in-out`}
-          style={{ maxHeight: "calc(100vh - 8rem)" }} // To account for header and footer
-        >
-          <nav className="flex flex-col space-y-4">
-            <button
-              onClick={() => setActiveContent("addProduct")}
-              className="text-lg font-semibold hover:text-gray-300"
+    <div className="flex flex-col">
+      {/* Main Content Area */}
+      <div className="flex flex-grow">
+        {/* Sidebar for larger screens */}
+        <div className="hidden min-h-screen lg:flex flex-col w-1/4 bg-gray-100 dark:bg-gray-900 p-6 space-y-6">
+          <nav className="space-y-8">
+            <Button
+              variant="link"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={() => handleSectionChange("Products")}
             >
-              Add Product
-            </button>
-            <button
-              onClick={() => setActiveContent("updateProduct")}
-              className="text-lg font-semibold hover:text-gray-300"
+              Products
+            </Button>
+            <Button
+              variant="link"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={() => handleSectionChange("Add new products")}
             >
-              Update Product
-            </button>
-            <button
-              onClick={() => setActiveContent("orderDetails")}
-              className="text-lg font-semibold hover:text-gray-300"
+              Add new Products
+            </Button>
+            <Button
+              variant="link"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={() => handleSectionChange("Orders")}
             >
-              Fetch Order Details
-            </button>
-            <button
-              onClick={() => setActiveContent("userDetails")}
-              className="text-lg font-semibold hover:text-gray-300"
+              Orders
+            </Button>
+            <Button
+              variant="link"
+              className="w-full text-left xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={() => handleSectionChange("User Details")}
             >
-              Fetch User Details
-            </button>
-            <button
-              onClick={() => console.log("Logout")}
-              className="mt-auto text-lg font-semibold hover:text-gray-300"
+              User Details
+            </Button>
+          </nav>
+          <div className="mt-auto">
+            <Button
+              variant="destructive"
+              className="w-full xl:text-2xl xl:h-[60px] lg:text-xl lg:h-[50px]"
+              onClick={exitFromAdmin}
             >
               Logout
-            </button>
-          </nav>
+            </Button>
+          </div>
         </div>
 
-        {/* Menu Icon for Mobile */}
+        {/* Mobile navigation */}
         <div className="lg:hidden p-4">
-          <button onClick={toggleSidebar} className="text-3xl">
-            <FaBars />
+          {/* Menu icon for mobile */}
+          <button onClick={toggleMenu} className="text-3xl">
+            <FiMenu />
           </button>
+
+          {/* Sliding menu for mobile */}
+          <div
+            className={`fixed top-0 left-0 z-40 w-2/3 max-w-xs bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg transform ${
+              menuOpen
+                ? "translate-x-0 translate-y-32"
+                : "-translate-x-full translate-y-32"
+            } transition-transform duration-300 ease-in-out p-6`}
+          >
+            <button
+              onClick={toggleMenu}
+              className="text-xl mb-4 self-end text-gray-800 dark:text-gray-200"
+            >
+              Close
+            </button>
+            <nav className="space-y-4">
+              <Button
+                variant="link"
+                className="w-full text-left"
+                onClick={() => handleSectionChange("Carts")}
+              >
+                Carts
+              </Button>
+              <Button
+                variant="link"
+                className="w-full text-left"
+                onClick={() => handleSectionChange("Orders")}
+              >
+                Orders
+              </Button>
+              <Button
+                variant="link"
+                className="w-full text-left"
+                onClick={() => handleSectionChange("Verify Email")}
+              >
+                Verify Email
+              </Button>
+              <Button
+                variant="link"
+                className="w-full text-left"
+                onClick={() => handleSectionChange("Personal Details")}
+              >
+                Personal Details
+              </Button>
+            </nav>
+            <div className="w-full relative flex top-4">
+              <Button
+                variant="destructive"
+                className="w-full"
+                onClick={exitFromAdmin}
+              >
+                Logout
+              </Button>
+            </div>
+          </div>
+
+          {menuOpen && (
+            <div
+              onClick={toggleMenu}
+              className="fixed inset-0 bg-black opacity-30 z-30"
+            />
+          )}
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 lg:ml-1/5 p-8">{renderContent()}</div>
+        <div className="flex flex-col items-center justify-center w-full lg:w-3/4 p-6">
+          <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+            {selectedSection} Page
+          </h1>
+          {showUserIcon && (
+            <FiUser className="text-5xl text-gray-900 dark:text-white mb-4" />
+          )}
 
-        {/* Sidebar Overlay for Mobile (only displayed when isSidebarOpen is true) */}
-        {isSidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black opacity-50 lg:hidden"
-            onClick={toggleSidebar}
-          ></div>
-        )}
-      </div>
-
-      {/* Mobile Sidebar with auto height based on content (only for mobile devices) */}
-      {isSidebarOpen && (
-        <div className="fixed top-0 left-0 bg-gray-800 text-white p-5 lg:hidden z-50 transition-transform duration-300 ease-in-out w-[40%] overflow-y-auto">
-          <nav className="flex flex-col space-y-4">
-            <button
-              onClick={() => setActiveContent("addProduct")}
-              className="text-lg font-semibold hover:text-gray-300"
-            >
-              Add Product
-            </button>
-            <button
-              onClick={() => setActiveContent("updateProduct")}
-              className="text-lg font-semibold hover:text-gray-300"
-            >
-              Update Product
-            </button>
-            <button
-              onClick={() => setActiveContent("orderDetails")}
-              className="text-lg font-semibold hover:text-gray-300"
-            >
-              Fetch Order Details
-            </button>
-            <button
-              onClick={() => setActiveContent("userDetails")}
-              className="text-lg font-semibold hover:text-gray-300"
-            >
-              Fetch User Details
-            </button>
-            <button
-              onClick={() => console.log("Logout")}
-              className="mt-auto text-lg font-semibold hover:text-gray-300"
-            >
-              Logout
-            </button>
-          </nav>
+          <div className="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4"></div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
-export default AdminLayout;
+export default AdminPage;
