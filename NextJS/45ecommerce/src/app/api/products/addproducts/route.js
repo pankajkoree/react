@@ -1,17 +1,15 @@
-import { connect } from "@/dbConfig/dbConfig"; 
-import Product from "@/models/productModel"; 
+import { connect } from "@/dbConfig/dbConfig";
+import Product from "@/models/productModel";
 import { NextResponse } from "next/server";
 
 connect();
 
 export const POST = async (request) => {
   try {
-    const productData = await request.json(); // Parse the incoming JSON data
+    const productData = await request.json();
 
-    // Create a new product instance
     const newProduct = new Product(productData);
 
-    // Save the product to the database
     await newProduct.save();
 
     return NextResponse.json(
