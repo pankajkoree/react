@@ -153,7 +153,6 @@ const NavigationBar = () => {
               className="relative w-[36px] h-[36px]"
             />
           )}
-          {/* Hide cart text on mobile and tablet */}
           <p className="hidden lg:block">cart</p>
         </div>
 
