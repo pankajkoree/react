@@ -1,0 +1,4 @@
+10/22/2024, 11:43:45 PM - Application started 
+10/22/2024, 11:43:45 PM - Application event occured 
+10/22/2024, 11:43:50 PM - Current memory usage: 43.63 
+10/22/2024, 11:43:55 PM - Current memory usage: 43.67 
