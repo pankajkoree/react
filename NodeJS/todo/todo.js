@@ -1,9 +1,10 @@
 // file system as fs
 
 const fs = require("fs");
+const path = require("path");
 const { argv } = require("process");
 
-const filePath = "./tasks.json";
+const filePath = path.join(__dirname, "tasks.json");
 
 const loadTasks = () => {
   try {
