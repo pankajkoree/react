@@ -29,4 +29,4 @@ setInterval(() => {
 }, 5000);
 
 logger.log("Application started");
-logger.log("Application event occured");
+logger.log("Events : ");
