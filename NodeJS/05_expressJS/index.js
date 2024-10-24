@@ -35,11 +35,14 @@ app.get("/getContact/:id", (req, res) => {
 
 // Update contact by ID API
 app.put("/getContact/:id", (req, res) => {
+  console.log("PUT request received with data:", req.body); // Log the request body
+
   const contact = contacts.find(
     (contact) => contact.id === parseInt(req.params.id)
   );
 
   if (!contact) {
+    console.log("Contact not found with ID:", req.params.id); // Log if contact not found
     return res.status(404).send("Contact not found");
   }
 
@@ -47,13 +50,21 @@ app.put("/getContact/:id", (req, res) => {
 
   // Validate if both contactName and contactNumber are present
   if (!contactName || !contactNumber) {
+    console.log("Invalid input data:", req.body); // Log invalid data
     return res
       .status(400)
       .send("Both contact name and contact number are required");
   }
 
+  // Log contact before updating
+  console.log("Contact before update:", contact);
+
+  // Update the contact
   contact.contactName = contactName;
   contact.contactNumber = contactNumber;
+
+  // Log contact after updating
+  console.log("Contact after update:", contact);
 
   res.status(200).send({
     message: "Contact updated",
