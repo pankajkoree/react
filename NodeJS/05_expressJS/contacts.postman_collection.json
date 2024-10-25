@@ -1,0 +1,127 @@
+{
+  "info": {
+    "_postman_id": "1a2e342e-4d5b-4d1f-abb6-ca343c42bb01",
+    "name": "contacts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36487960"
+  },
+  "item": [
+    {
+      "name": "add contact",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"contactName\": \"test\",\r\n  \"contactNumber\": \"6465454514\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{contacts}}/add",
+          "host": ["{{contacts}}"],
+          "path": ["add"]
+        },
+        "description": "This endpoint allows you to add a new contact via an HTTP POST request to {{contacts}}/add.\n\n### Request Body\n\n- The request should have a raw body of type JSON, with the following parameters:\n    \n    - `contactName` (string): The name of the contact.\n        \n    - `contactNumber` (string): The phone number of the contact.\n        \n\n### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n  \"id\": 0,\n  \"contactName\": \"\",\n  \"contactNumber\": \"\"\n}\n\n ```\n\nThis JSON schema represents the structure of the response object, where:\n\n- `id` (number): The unique identifier of the added contact.\n    \n- `contactName` (string): The name of the added contact.\n    \n- `contactNumber` (string): The phone number of the added contact."
+      },
+      "response": []
+    },
+    {
+      "name": "get all contact",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"contactName\": \"John Doe\",\r\n  \"contactNumber\": \"1234567890\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{contacts}}/getContact",
+          "host": ["{{contacts}}"],
+          "path": ["getContact"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get contact with id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"contactName\": \"John Doe\",\r\n  \"contactNumber\": \"1234567890\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{contacts}}/getContact/2",
+          "host": ["{{contacts}}"],
+          "path": ["getContact", "2"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update contact with id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"contactName\": \"pankaj\",\r\n  \"contactNumber\": \"9653050975\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{contacts}}/getContact/1",
+          "host": ["{{contacts}}"],
+          "path": ["getContact", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete contact with id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"contactName\": \"monu\",\r\n  \"contactNumber\": \"9653050975\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{contacts}}/getContact/3",
+          "host": ["{{contacts}}"],
+          "path": ["getContact", "3"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
