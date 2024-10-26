@@ -1,0 +1,8 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/add\",\"status\":\"200\",\"responseTime\":\"1.739\"}","timestamp":"2024-10-26T17:23:40.819Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/add\",\"status\":\"200\",\"responseTime\":\"0.625\"}","timestamp":"2024-10-26T17:23:58.325Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/add\",\"status\":\"200\",\"responseTime\":\"0.267\"}","timestamp":"2024-10-26T17:24:02.374Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/getContact\",\"status\":\"200\",\"responseTime\":\"0.373\"}","timestamp":"2024-10-26T17:24:07.688Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/getContact/2\",\"status\":\"200\",\"responseTime\":\"0.591\"}","timestamp":"2024-10-26T17:24:17.662Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PUT\",\"url\":\"/getContact/1\",\"status\":\"200\",\"responseTime\":\"1.201\"}","timestamp":"2024-10-26T17:24:31.859Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"DELETE\",\"url\":\"/getContact/3\",\"status\":\"200\",\"responseTime\":\"0.424\"}","timestamp":"2024-10-26T17:24:41.414Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/add\",\"status\":\"200\",\"responseTime\":\"2.182\"}","timestamp":"2024-10-26T17:29:33.449Z"}
