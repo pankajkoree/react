@@ -1,7 +1,7 @@
 import express from "express";
 
 // import the module for morgan and logger file
-import logger from "./logger";
+import logger from "./logger.js";
 import morgan from "morgan";
 
 const app = express();
