@@ -45,12 +45,6 @@ app.put("/getContact/:id", (req, res) => {
 
   const { contactName, contactNumber } = req.body;
 
-  if (!contactName || !contactNumber) {
-    return res
-      .status(400)
-      .send("Both contact name and contact number are required");
-  }
-
   contact.contactName = contactName;
   contact.contactNumber = contactNumber;
 
