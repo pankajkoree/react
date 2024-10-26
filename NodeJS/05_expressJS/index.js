@@ -1,4 +1,6 @@
 import express from "express";
+import logger from "./logger";
+import morgan from "morgan";
 
 const app = express();
 const port = 4000;
