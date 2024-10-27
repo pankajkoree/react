@@ -1,6 +1,7 @@
 import { app } from "./app.js";
 import logger from "./logger.js";
 import morgan from "morgan";
+import connectDB from "./db/index.js";
 
 const morganFormat = ":method :url :status :response-time ms";
 
@@ -22,6 +23,12 @@ app.use(
   })
 );
 
-app.listen(PORT, () => {
-  console.log(`Server is running at port ${PORT}`);
-});
+connectDB
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running at port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(`MongoDB connection error : ${error}`);
+  });
