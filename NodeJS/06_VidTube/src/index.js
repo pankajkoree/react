@@ -1,23 +1,11 @@
 import { app } from "./app.js";
 import logger from "./logger.js";
 import morgan from "morgan";
-import dotenv from "dotenv";
-import cors from "cors";
-import express from "express";
 
-dotenv.config();
+const morganFormat = ":method :url :status :response-time ms";
 
 // port
 const PORT = process.env.PORT;
-
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-  })
-);
-
-const morganFormat = ":method :url :status :response-time ms";
 
 app.use(
   morgan(morganFormat, {
@@ -34,20 +22,6 @@ app.use(
     },
   })
 );
-
-app.use(
-  express.json({
-    limit: "16kb",
-  })
-);
-
-app.use(
-  express.urlencoded({
-    extended: true,
-    limit: "16kb",
-  })
-);
-app.use(express.static("public"));
 
 app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
