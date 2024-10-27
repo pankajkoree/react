@@ -1,8 +1,13 @@
+import { app } from "./app.js";
+
 import logger from "./logger.js";
 import morgan from "morgan";
 
+import dotenv from "dotenv";
+dotenv.config();
 
-console.log("hello");
+
+const PORT = process.env.PORT;
 
 const morganFormat = ":method :url :status :response-time ms";
 
@@ -21,3 +26,7 @@ app.use(
     },
   })
 );
+
+app.listen(PORT, () => {
+  console.log(`Server is running at port ${PORT}`);
+});
