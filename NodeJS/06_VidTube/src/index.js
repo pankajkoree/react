@@ -4,7 +4,6 @@ import morgan from "morgan";
 
 const morganFormat = ":method :url :status :response-time ms";
 
-
 const PORT = process.env.PORT;
 
 app.use(
