@@ -1,10 +1,6 @@
-import express from "express";
 import logger from "./logger.js";
 import morgan from "morgan";
 
-const app = express();
-
-app.use(express.json());
 
 console.log("hello");
 
