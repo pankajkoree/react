@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// port
 const PORT = process.env.PORT;
 
 const morganFormat = ":method :url :status :response-time ms";
