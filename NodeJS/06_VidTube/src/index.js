@@ -1,11 +1,9 @@
 import { app } from "./app.js";
-
 import logger from "./logger.js";
 import morgan from "morgan";
-
 import dotenv from "dotenv";
-dotenv.config();
 
+dotenv.config();
 
 const PORT = process.env.PORT;
 

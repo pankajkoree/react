@@ -15,3 +15,4 @@ ReactJSFreshStart/10form/src/.env
 .env
 NodeJS/06_VidTube/.prettierignore
 NodeJS/06_VidTube/.prettierrc
+NodeJS/06_VidTube/.env.sample
