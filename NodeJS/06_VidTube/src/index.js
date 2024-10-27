@@ -23,6 +23,7 @@ app.use(
   })
 );
 
+// to only run when the connection with mongoDB is successful
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
