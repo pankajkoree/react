@@ -20,7 +20,7 @@ app.use(
         logger.info(JSON.stringify(logObject));
       },
     },
-  })
+  }),
 );
 
 // to only run when the connection with mongoDB is successful
