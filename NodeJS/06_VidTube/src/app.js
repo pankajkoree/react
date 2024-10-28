@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import { cookieParser } from "cookie-parser";
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.use(
   })
 );
 app.use(express.static("public"));
+
+app.use(cookieParser());
 
 // routes
 import healthCheckRouter from "./routes/healthCheck.route.js";
