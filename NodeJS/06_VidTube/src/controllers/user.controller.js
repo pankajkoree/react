@@ -1,4 +1,4 @@
-import path from "path"; // Import path module
+import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -86,7 +86,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
     const user = await User.create({
       fullname,
       coverImage: coverImage?.url || "",
-      avatar: avatarImage?.url || "", // Add the avatar image URL
+      avatar: avatarImage?.url || "",
       email,
       password,
       username: username.toLowerCase(),
