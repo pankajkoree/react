@@ -15,6 +15,23 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+const generateAccessAndRefreshToken = async (userId) => {
+  const user = await User.findById(userId);
+
+  // todo for if user is found or not
+
+  try {
+    const accessToken = user.generateAccessToken();
+    const refreshToken = user.generateRefreshToken();
+  
+    user.refreshToken = refreshToken;
+    await user.save({ validateBeforeSave: false });
+    return {accessToken, refreshToken}
+  } catch (error) {
+    
+  }
+};
+
 const registerUser = asyncHandler(async (req, res, next) => {
   const { fullname, email, username, password } = req.body;
 
