@@ -7,6 +7,8 @@
 ```js
 // arrays
 
+// arrays
+
 class MyArray {
   constructor() {
     this.arrayLength = 0;
@@ -33,8 +35,20 @@ class MyArray {
     if (this.arrayLength <= 0) {
       return `underflow`;
     }
+    let poppedElement = this.arrayData[this.arrayLength - 1];
     this.arrayLength = this.arrayLength - 1;
-    return this.arrayData[this.arrayLength];
+    this.arrayData.length = this.arrayLength;
+    return poppedElement;
+  }
+
+  // to search an item in array
+  search(value) {
+    for (let i = 0; i < this.arrayLength; i++) {
+      if (this.arrayData[i] === value) {
+        return `${value} found at position ${i + 1}`;
+      }
+    }
+    return `value not found`;
   }
 }
 
@@ -51,4 +65,17 @@ console.log(arrayObject.arrayLength);
 // get
 console.log(arrayObject.get(5));
 console.log(arrayObject.get(4));
+
+// pop
+console.log(arrayObject.pop());
+console.log(arrayObject.arrayData);
+console.log(arrayObject.arrayLength);
+
+arrayObject.push(13);
+arrayObject.push(8);
+arrayObject.push(3);
+console.log(arrayObject.arrayData);
+
+console.log(arrayObject.search(19));
+console.log(arrayObject.search(13));
 ```
