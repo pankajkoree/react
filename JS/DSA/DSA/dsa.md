@@ -2,8 +2,8 @@
 
 ### 1: in a record of student, find the specific student
 
-```
-@@ // problem 1: in a record of student, find the specific student
+```javascript
+// problem 1: in a record of student, find the specific student
 
 // data structures
 const studentRecords = ["aftab", "risek", "selera", "kashif"];
@@ -18,5 +18,4 @@ const findStudent = (studentRecords, studentName) => {
 };
 
 findStudent(studentRecords, "risek");
-
 ```
