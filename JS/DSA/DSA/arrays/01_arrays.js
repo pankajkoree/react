@@ -6,12 +6,14 @@ class MyArray {
     this.arrayData = [];
   }
 
+  // to push the value in the last of the array
   push(value) {
     this.arrayData[this.arrayLength] = value;
     this.arrayLength++;
     return this.arrayLength;
   }
 
+  // to display the data of the array
   get(index) {
     if (index > this.arrayLength) {
       return `index is out of range`;
@@ -19,13 +21,14 @@ class MyArray {
     return this.arrayData[index - 1];
   }
 
-  //   pop() {
-  //     if (this.arrayLength <= 0) {
-  //       return `underflow`;
-  //     }
-  //     this.arrayLength = this.arrayLength - 1;
-  //     return (this.arrayData[this.arrayLength]);
-  //   }
+  // to delete a item from the last of the array
+  pop() {
+    if (this.arrayLength <= 0) {
+      return `underflow`;
+    }
+    this.arrayLength = this.arrayLength - 1;
+    return this.arrayData[this.arrayLength];
+  }
 }
 
 const arrayObject = new MyArray();
