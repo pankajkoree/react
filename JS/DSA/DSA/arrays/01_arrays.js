@@ -30,6 +30,7 @@ class MyArray {
     this.arrayLength = this.arrayLength - 1;
     this.arrayData.length = this.arrayLength;
     let data = this.arrayData;
+    console.log(poppedElement)
     return `Popped Element : ${poppedElement} Array Data : ${data}`;
   }
 }
