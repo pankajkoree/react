@@ -41,6 +41,21 @@ class MyArray {
     }
     return `value not found`;
   }
+
+  // to sort the array items
+  sort() {
+    let temp;
+    for (let i = 0; i < this.arrayLength; i++) {
+      for (let j = i + 1; j < this.arrayLength; j++) {
+        if (this.arrayData[i] > this.arrayData[j]) {
+          temp = this.arrayData[i];
+          this.arrayData[i] = this.arrayData[j];
+          this.arrayData[j] = temp;
+        }
+      }
+    }
+    return this.arrayData;
+  }
 }
 
 const arrayObject = new MyArray();
@@ -69,3 +84,5 @@ console.log(arrayObject.arrayData);
 
 console.log(arrayObject.search(19));
 console.log(arrayObject.search(13));
+
+console.log(arrayObject.sort());
