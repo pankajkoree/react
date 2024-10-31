@@ -26,8 +26,11 @@ class MyArray {
     if (this.arrayLength <= 0) {
       return `underflow`;
     }
+    let poppedElement = this.arrayData[this.arrayLength - 1];
     this.arrayLength = this.arrayLength - 1;
-    return this.arrayData[this.arrayLength];
+    this.arrayData.length = this.arrayLength;
+    let data = this.arrayData;
+    return `Popped Element : ${poppedElement} Array Data : ${data}`;
   }
 }
 
@@ -44,3 +47,6 @@ console.log(arrayObject.arrayLength);
 // get
 console.log(arrayObject.get(5));
 console.log(arrayObject.get(4));
+
+// pop
+console.log(arrayObject.pop());
