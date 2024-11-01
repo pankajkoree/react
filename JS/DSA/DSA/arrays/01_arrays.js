@@ -97,6 +97,9 @@ class MyArray {
 
   // insert() - add the element at the specific index of the array
   insert(index, value) {
+    if (index > this.arrayLength) {
+      return `index out of range`;
+    }
     this.arrayLength += 1;
     for (let i = this.arrayLength - 1; i > index; i--) {
       this.arrayData[i] = this.arrayData[i - 1];
