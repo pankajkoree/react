@@ -15,10 +15,10 @@ class MyArray {
 
   // to display the data of the array
   get(index) {
-    if (index > this.arrayLength) {
+    if (index >= this.arrayLength || index < 0) {
       return `index is out of range`;
     }
-    return this.arrayData[index - 1];
+    return this.arrayData[index];
   }
 
   // to delete a item from the last of the array
@@ -73,7 +73,7 @@ class MyArray {
 
   // delete() - removes the element using the index value
   delete(index) {
-    if (this.arrayLength <= 0) {
+    if (index >= this.arrayLength || index < 0) {
       return `underflow`;
     }
     let deletedElement = this.arrayData[index];
@@ -118,7 +118,7 @@ console.log(arrayObject.arrayLength);
 
 // get
 console.log(arrayObject.get(5));
-console.log(arrayObject.get(4));
+console.log(arrayObject.get(3));
 
 // pop
 console.log(arrayObject.pop());
