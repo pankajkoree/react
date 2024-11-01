@@ -25,6 +25,7 @@ _The Junior Shopping Site is an online eCommerce platform designed specifically 
 👉 [click the link to open the files](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce)
 
 ### Technologies
+
 - [NextJS](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs/installation)
 - [MongoDB](https://www.mongodb.com/)
@@ -35,10 +36,24 @@ _The Junior Shopping Site is an online eCommerce platform designed specifically 
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 - [JWT](https://www.npmjs.com/package/jsonwebtoken)
 
+### Flow structure
 
-### Flow
+### User perspective
 
 ![alt text](image.png)
 
 👉 [Signup](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce/src/app/signup)
 
+👉 [Login](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce/src/app/login)
+
+👉 [Profile](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce/src/app/profile/%5B...profile%5D)
+
+👉 [Add to cart](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce/src/app/carts)
+
+👉 [Buy now](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce/src/app/buyNow)
+
+### Admin perspective
+
+![alt text](image-1.png)
+
+👉 [Admin code](https://github.com/pankajkoree/react/blob/main/NextJS/45ecommerce/src/app/admin/page.jsx)
