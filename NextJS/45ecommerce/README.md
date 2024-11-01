@@ -24,4 +24,15 @@ _The Junior Shopping Site is an online eCommerce platform designed specifically 
 
 👉 [click the link to open the files](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce)
 
-#
+### Technologies
+- [NextJS](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [MongoDB](https://www.mongodb.com/)
+- [React Query](https://tanstack.com/)
+- [Node mailer](https://nodemailer.com/)
+- [ShadCN UI](https://ui.shadcn.com/)
+- [React-hot-toast](https://react-hot-toast.com/)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [JWT](https://www.npmjs.com/package/jsonwebtoken)
+
+
