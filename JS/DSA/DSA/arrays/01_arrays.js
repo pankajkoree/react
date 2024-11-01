@@ -56,6 +56,36 @@ class MyArray {
     }
     return this.arrayData;
   }
+
+  // shift() - removes the element from the beginning of the array
+  shift() {
+    if (this.arrayLength <= 0) {
+      return `underflow`;
+    }
+    let shiftedElement = this.arrayData[0];
+    for (let i = 0; i < this.arrayLength; ++i) {
+      this.arrayData[i] = this.arrayData[i + 1];
+    }
+    this.arrayLength = this.arrayLength - 1;
+    this.arrayData.length = this.arrayLength;
+    return shiftedElement;
+  }
+
+  // delete() - removes the element using the index value
+  delete(index) {
+    if (this.arrayLength <= 0) {
+      return `underflow`;
+    }
+    let deletedElement = this.arrayData[index];
+    for (let i = index; i < this.arrayLength; ++i) {
+      this.arrayData[i] = this.arrayData[i + 1];
+    }
+    this.arrayLength = this.arrayLength - 1;
+    this.arrayData.length = this.arrayLength;
+    return deletedElement;
+  }
+
+  //unshift() - add the element in the beginning of the array
 }
 
 const arrayObject = new MyArray();
@@ -86,3 +116,11 @@ console.log(arrayObject.search(19));
 console.log(arrayObject.search(13));
 
 console.log(arrayObject.sort());
+
+console.log(arrayObject.shift());
+console.log(arrayObject.arrayData);
+console.log(arrayObject.arrayLength);
+
+console.log(arrayObject.delete(2));
+console.log(arrayObject.arrayData);
+console.log(arrayObject.arrayLength);
