@@ -20,4 +20,8 @@ _The Junior Shopping Site is an online eCommerce platform designed specifically 
 8. Would you like to use Turbopack for next dev? » No / Yes -> No
 9. Would you like to customize the import alias (@/\* by default)? » No / Yes -> Yes
 
-### Prerequisites
+### Clone the repository
+
+👉 [click the link to open the files](https://github.com/pankajkoree/react/tree/main/NextJS/45ecommerce)
+
+#
