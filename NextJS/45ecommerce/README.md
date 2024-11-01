@@ -36,3 +36,6 @@ _The Junior Shopping Site is an online eCommerce platform designed specifically 
 - [JWT](https://www.npmjs.com/package/jsonwebtoken)
 
 
+### Flow
+
+![alt text](image.png)
