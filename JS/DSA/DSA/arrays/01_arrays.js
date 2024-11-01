@@ -85,7 +85,25 @@ class MyArray {
     return deletedElement;
   }
 
-  //unshift() - add the element in the beginning of the array
+  // unshift() - add the element in the beginning of the array
+  unshift(value) {
+    for (let i = this.arrayLength; i > 0; i--) {
+      this.arrayData[i] = this.arrayData[i - 1];
+    }
+    this.arrayLength++;
+    this.arrayData[0] = value;
+    return this.arrayData;
+  }
+
+  // insert() - add the element at the specific index of the array
+  insert(index, value) {
+    this.arrayLength += 1;
+    for (let i = this.arrayLength - 1; i > index; i--) {
+      this.arrayData[i] = this.arrayData[i - 1];
+    }
+    this.arrayData[index] = value;
+    return this.arrayData;
+  }
 }
 
 const arrayObject = new MyArray();
@@ -112,15 +130,29 @@ arrayObject.push(8);
 arrayObject.push(3);
 console.log(arrayObject.arrayData);
 
+// search
 console.log(arrayObject.search(19));
 console.log(arrayObject.search(13));
 
+// sort()
 console.log(arrayObject.sort());
 
+// shift
 console.log(arrayObject.shift());
 console.log(arrayObject.arrayData);
 console.log(arrayObject.arrayLength);
 
+// delete
 console.log(arrayObject.delete(2));
+console.log(arrayObject.arrayData);
+console.log(arrayObject.arrayLength);
+
+// unshift()
+console.log(arrayObject.unshift(8));
+console.log(arrayObject.arrayData);
+console.log(arrayObject.arrayLength);
+
+// insert()
+console.log(arrayObject.insert(3, 1));
 console.log(arrayObject.arrayData);
 console.log(arrayObject.arrayLength);
