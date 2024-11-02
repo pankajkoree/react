@@ -104,3 +104,39 @@ console.log(isPalindrome(-121));
 console.log(isPalindrome(121));
 console.log(isPalindrome(124));
 ```
+
+### capitalize first letter of the word
+
+```js
+// problem 5: capitalize first letter of the word
+function capitalizeFirstLetter(value) {
+  let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let resultArray = [];
+  let result = "";
+
+  function customPush(arr, value) {
+    arr[arr.length] = value;
+  }
+
+  for (let i = 0; i < value.length; i++) {
+    if (i === 0) {
+      for (let j = 0; j < lowerCase.length; j++) {
+        if (value[0] === lowerCase[j]) {
+          customPush(resultArray, upperCase[j]);
+        }
+      }
+    } else {
+      customPush(resultArray, value[i]);
+    }
+  }
+
+  for (let i = 0; i < resultArray.length; i++) {
+    result += resultArray[i];
+  }
+
+  return result;
+}
+
+console.log(capitalizeFirstLetter("hello"));
+```
