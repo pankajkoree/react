@@ -40,7 +40,6 @@ function reverseInteger(value) {
   // absolute value of the negative number
   value = Math.abs(value);
 
-  console.log(value);
   let reversedInteger = 0;
   while (value > 0) {
     let lastDigit = value % 10;
@@ -54,3 +53,25 @@ function reverseInteger(value) {
 }
 
 console.log(reverseInteger(-123));
+
+// problem 4: palindrome of the number
+function isPalindrome(value) {
+  if (value < 0) {
+    return false;
+  }
+
+  let originalValue = value;
+  let palindromeValue = 0;
+
+  while (value > 0) {
+    let lastDigit = value % 10;
+    palindromeValue = palindromeValue * 10 + lastDigit;
+    value = Math.floor(value / 10);
+  }
+  return originalValue === palindromeValue;
+}
+
+console.log(isPalindrome(-123));
+console.log(isPalindrome(-121));
+console.log(isPalindrome(121));
+console.log(isPalindrome(124));
