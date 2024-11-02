@@ -44,3 +44,29 @@ console.log(stringPalindromeChecker("apple"));
 console.log(stringPalindromeChecker("eye"));
 console.log(stringPalindromeChecker("dribble"));
 ```
+
+### reversing the integer
+
+```js
+// problem 3: reversing the integer
+
+function reverseInteger(value) {
+  let isNegative = value < 0;
+  // absolute value of the negative number
+  value = Math.abs(value);
+
+  console.log(value);
+  let reversedInteger = 0;
+  while (value > 0) {
+    let lastDigit = value % 10;
+    reversedInteger = reversedInteger * 10 + lastDigit;
+    value = Math.floor(value / 10);
+  }
+  if (isNegative) {
+    return -reversedInteger;
+  }
+  return reversedInteger;
+}
+
+console.log(reverseInteger(-123));
+```
