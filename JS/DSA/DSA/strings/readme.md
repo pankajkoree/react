@@ -1,4 +1,4 @@
-# Strings
+# [Strings](https://github.com/pankajkoree/react/blob/main/JS/DSA/DSA/strings/strings.js)
 
 ## **_JavaScript String is a sequence of characters, typically used to represent text. It is enclosed in single or double quotes and supports various methods for text manipulation._**
 
