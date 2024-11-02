@@ -26,6 +26,8 @@ console.log(reverseString(originalString));
 
 ### checking the palindrome of the string
 
+![palindrome of the string](image-2.png)
+
 ```js
 // problem 2: checking the palindrome of the string
 
@@ -48,6 +50,8 @@ console.log(stringPalindromeChecker("dribble"));
 ```
 
 ### reversing the integer
+
+![reverse of the integer](image-3.png)
 
 ```js
 // problem 3: reversing the integer
@@ -74,6 +78,8 @@ console.log(reverseInteger(-123));
 ```
 
 ### palindrome of the number
+
+![palindrome of the number](image-4.png)
 
 ```js
 // problem 4: palindrome of the number
