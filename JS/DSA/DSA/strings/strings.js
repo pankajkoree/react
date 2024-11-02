@@ -83,21 +83,19 @@ function capitalizeFirstLetter(value) {
   let resultArray = [];
   let result = "";
 
-  function push(someValue) {
-    resultArray[resultArray.length] = someValue;
-    resultArray.length++;
+  function customPush(arr, value) {
+    arr[arr.length] = value;
   }
-  push();
 
   for (let i = 0; i < value.length; i++) {
     if (i === 0) {
       for (let j = 0; j < lowerCase.length; j++) {
         if (value[0] === lowerCase[j]) {
-          push(upperCase[j]);
+          customPush(resultArray, upperCase[j]);
         }
       }
     } else {
-      push(value[i]);
+      customPush(resultArray, value[i]);
     }
   }
 
