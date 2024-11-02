@@ -6,6 +6,8 @@
 
 ### reversing the string
 
+![reverse of the string](image-1.png)
+
 ```js
 // problem 1: reverse the string
 
