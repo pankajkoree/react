@@ -1,6 +1,6 @@
 # Arrays
 
-## Array is a linear data structure where all elements are arranged sequentially. It is a collection of elements of same data type stored at contiguous memory locations.
+## **_Array is a linear data structure where all elements are arranged sequentially. It is a collection of elements of same data type stored at contiguous memory locations._**
 
 ![alt text](image.png)
 
@@ -169,6 +169,7 @@ console.log(arrayObject.arrayLength);
 ```
 
 ## Deep Copy Vs Shallow Copy
+
 👉 https://github.com/pankajkoree/react/blob/main/JS/DSA/DSA/arrays/01_problem.js
 
 ```js
@@ -213,8 +214,8 @@ console.log(nextArray[0]);
 ```
 
 ## problem 1: in a record of student, find the specific student
-👉 https://github.com/pankajkoree/react/blob/main/JS/DSA/DSA/arrays/01_problemSearch.js
 
+👉 https://github.com/pankajkoree/react/blob/main/JS/DSA/DSA/arrays/01_problemSearch.js
 
 ```js
 // problem 1: in a record of student, find the specific student
@@ -235,6 +236,7 @@ findStudent(studentRecords, "risek");
 ```
 
 ## problem 2: to iterate over the item, using nested loop for O(n^2)
+
 👉 https://github.com/pankajkoree/react/blob/main/JS/DSA/DSA/arrays/02_problem.js
 
 ```js
