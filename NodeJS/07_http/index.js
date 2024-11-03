@@ -1,8 +1,12 @@
 import http from "http";
 import fs from "fs";
+import url from "url";
 
 const server = http.createServer((req, res) => {
   const log = `${new Date()} : request on url ${req.url} \n`;
+  // parsing the url to get the values
+  const myUrl = url.parse(req.url, true);
+  console.log(myUrl);
   fs.appendFile("log.txt", log, (err, data) => {
     switch (req.url) {
       case "/":
