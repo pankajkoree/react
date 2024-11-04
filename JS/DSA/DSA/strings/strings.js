@@ -110,7 +110,7 @@ function capitalizeFirstLetter(value) {
 console.log(capitalizeFirstLetter("hello"));
 
 // problem 5: capitalize first letter of each word in the sentence
-function capitalizeFirstLetter(value) {
+function capitalizeFirstLetterOfWord(value) {
   let lowerCase = "abcdefghijklmnopqrstuvwxyz";
   let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let resultArray = [];
@@ -140,7 +140,7 @@ function capitalizeFirstLetter(value) {
   return result;
 }
 
-console.log(capitalizeFirstLetter("hello pankaj"));
+console.log(capitalizeFirstLetterOfWord("hello pankaj"));
 
 // till n, fizz for divisible of 3, buzz for divisible of 5 and fizzbuzz for divisible of both 3 and 5
 const fizzBuzz = (n) => {
