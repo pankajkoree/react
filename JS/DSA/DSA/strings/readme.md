@@ -140,3 +140,67 @@ function capitalizeFirstLetter(value) {
 
 console.log(capitalizeFirstLetter("hello"));
 ```
+
+### capitalize first letter of each word in the sentence
+
+```js
+function capitalizeFirstLetterOfWord(value) {
+  let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let resultArray = [];
+  let result = "";
+
+  function customPush(arr, value) {
+    arr[arr.length] = value;
+  }
+
+  for (let i = 0; i < value.length; i++) {
+    if (i === 0 || value[i - 1] === " ") {
+      for (let j = 0; j < lowerCase.length; j++) {
+        if (value[i] === lowerCase[j]) {
+          customPush(resultArray, upperCase[j]);
+          break;
+        }
+      }
+    } else {
+      customPush(resultArray, value[i]);
+    }
+  }
+
+  for (let i = 0; i < resultArray.length; i++) {
+    result += resultArray[i];
+  }
+
+  return result;
+}
+
+console.log(capitalizeFirstLetterOfWord("hello pankaj"));
+```
+
+### till n, fizz for divisible of 3, buzz for divisible of 5 and fizzbuzz for divisible of both 3 and 5
+
+```js
+const fizzBuzz = (n) => {
+  let resultArray = [];
+
+  function customPush(arr, value) {
+    arr[arr.length] = value;
+  }
+  for (let i = 1; i <= n; i++) {
+    customPush(resultArray, i);
+  }
+  for (let i = 1; i <= n; i++) {
+    if (resultArray[i] % 3 === 0 && resultArray[i] % 5 === 0) {
+      resultArray[i] = "fizzbuzz";
+    } else if (resultArray[i] % 3 === 0) {
+      resultArray[i] = "fizz";
+    } else if (resultArray[i] % 5 === 0) {
+      resultArray[i] = "buzz";
+    }
+  }
+
+  return resultArray;
+};
+
+console.log(fizzBuzz(20));
+```
