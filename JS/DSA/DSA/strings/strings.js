@@ -144,17 +144,25 @@ console.log(capitalizeFirstLetter("hello pankaj"));
 
 // till n, fizz for divisible of 3, buzz for divisible of 5 and fizzbuzz for divisible of both 3 and 5
 const fizzBuzz = (n) => {
+  let resultArray = [];
+
+  function customPush(arr, value) {
+    arr[arr.length] = value;
+  }
   for (let i = 1; i <= n; i++) {
-    if (i % 3 == 0) {
-      return "fizz";
-    } else if (i % 5 === 0) {
-      return "buzz";
-    } else if (i % 3 === 0 && i % 5 === 0) {
-      return "fizzbuzz";
-    } else {
-      return i;
+    customPush(resultArray, i);
+  }
+  for (let i = 1; i <= n; i++) {
+    if (resultArray[i] % 3 === 0 && resultArray[i] % 5 === 0) {
+      resultArray[i] = "fizzbuzz";
+    } else if (resultArray[i] % 3 === 0) {
+      resultArray[i] = "fizz";
+    } else if (resultArray[i] % 5 === 0) {
+      resultArray[i] = "buzz";
     }
   }
+
+  return resultArray;
 };
 
-console.log(fizzBuzz(5));
+console.log(fizzBuzz(20));
