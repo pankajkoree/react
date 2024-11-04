@@ -141,3 +141,20 @@ function capitalizeFirstLetter(value) {
 }
 
 console.log(capitalizeFirstLetter("hello pankaj"));
+
+// till n, fizz for divisible of 3, buzz for divisible of 5 and fizzbuzz for divisible of both 3 and 5
+const fizzBuzz = (n) => {
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 == 0) {
+      return "fizz";
+    } else if (i % 5 === 0) {
+      return "buzz";
+    } else if (i % 3 === 0 && i % 5 === 0) {
+      return "fizzbuzz";
+    } else {
+      return i;
+    }
+  }
+};
+
+console.log(fizzBuzz(5));
