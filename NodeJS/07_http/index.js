@@ -2,7 +2,8 @@ import http from "http";
 import fs from "fs";
 import url from "url";
 
-const server = http.createServer((req, res) => {
+// using http of nodejs
+function handler(req, res) {
   const log = `${new Date()} : request on url ${req.url} \n`;
   // parsing the url to get the values
   const myUrl = url.parse(req.url, true);
@@ -23,7 +24,9 @@ const server = http.createServer((req, res) => {
         res.end("404 not found");
     }
   });
-});
+}
+
+const server = http.createServer(handler);
 
 server.listen(8000, () => {
   console.log("server started on port 8000");
