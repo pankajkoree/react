@@ -1,6 +1,13 @@
 import http from "http";
 import fs from "fs";
 import url from "url";
+import express from "express";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  return res.send("on home page using express");
+});
 
 // using http of nodejs
 function handler(req, res) {
@@ -26,7 +33,7 @@ function handler(req, res) {
   });
 }
 
-const server = http.createServer(handler);
+const server = http.createServer(app);
 
 server.listen(8000, () => {
   console.log("server started on port 8000");
