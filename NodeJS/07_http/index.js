@@ -13,7 +13,8 @@ const server = http.createServer((req, res) => {
         res.end("home page");
         break;
       case "/about":
-        res.end("about us");
+        if (req.method === "GET") res.end("get method triggered");
+        else if (req.method === "POST") res.end("success");
         break;
       case "/contact":
         res.end("contact page");
