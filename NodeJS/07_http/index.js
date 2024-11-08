@@ -5,8 +5,17 @@ import express from "express";
 
 const app = express();
 
+// express
 app.get("/", (req, res) => {
   return res.send("on home page using express");
+});
+
+app.get("/about", (req, res) => {
+  return res.send("on about page using express");
+});
+
+app.get("/contact", (req, res) => {
+  return res.send("on contact page using express");
 });
 
 // using http of nodejs
