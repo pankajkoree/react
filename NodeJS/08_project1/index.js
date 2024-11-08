@@ -1,5 +1,5 @@
 import express from "express";
-import { promises as fs } from "fs";
+import { promises as fs, stat } from "fs";
 
 const app = express();
 const PORT = 8000;
@@ -50,6 +50,23 @@ app.get("/api/users/:id", async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: "Error reading data" });
   }
+});
+
+app.post("/api/users", (req, res) => {
+  // TODO
+  return res.json({ status: "pending" });
+});
+
+// this route is common, so it is being merged with the get
+app.patch("/api/users/:id", (req, res) => {
+  // TODO
+  return res.json({ status: "pending" });
+});
+
+// this route is common, so it is being merged with the get
+app.delete("/api/users/:id", (req, res) => {
+  // TODO
+  return res.json({ status: "pending" });
 });
 
 // Start the server
