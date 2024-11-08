@@ -1,0 +1,6 @@
+# Version - ^4.21.2
+
+^ -> install all recommended and minor updates
+4 -> the major/breaking updates
+21 -> recommended updates
+2 -> minor bugs fixes
