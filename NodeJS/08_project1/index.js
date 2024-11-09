@@ -6,7 +6,7 @@ const PORT = 8000;
 
 // middleware/plugin
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(express.json());
 
 // Function to fetch users data from the JSON file
 async function fetchUsers() {
@@ -82,6 +82,38 @@ app.post("/api/users", async (req, res) => {
   } catch (error) {
     console.error("Error writing to file:", error);
     return res.status(500).json({ message: "Error saving user data" });
+  }
+});
+
+// PUT route to update an existing user by ID
+app.put("/api/users/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const updatedData = req.body;
+    const users = await fetchUsers(); // Fetch current users
+
+    // Find the user by ID
+    const userIndex = users.findIndex((user) => user.id === id);
+
+    if (userIndex === -1) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update user with new data
+    users[userIndex] = { ...users[userIndex], ...updatedData };
+
+    // Write the updated users array back to the file
+    await fs.writeFile(
+      "./MOCK_DATA.json",
+      JSON.stringify(users, null, 2),
+      "utf-8"
+    );
+
+    // Respond with the updated user data
+    return res.json({ status: "success", user: users[userIndex] });
+  } catch (error) {
+    console.error("Error updating user:", error);
+    return res.status(500).json({ message: "Error updating user data" });
   }
 });
 
