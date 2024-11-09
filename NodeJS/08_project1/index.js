@@ -1,8 +1,11 @@
 import express from "express";
-import { promises as fs, stat } from "fs";
+import { promises as fs } from "fs";
 
 const app = express();
 const PORT = 8000;
+
+// middleware/plugin
+app.use(express.urlencoded({ extended: false }));
 
 // Function to fetch users data from the JSON file
 async function fetchUsers() {
@@ -41,40 +44,25 @@ app.get("/api/users", async (req, res) => {
 });
 
 // getting user data based on id
-app
-  .get("/api/users/:id", async (req, res) => {
-    try {
-      const id = Number(req.params.id);
-      const users = await fetchUsers();
-      const user = users.find((user) => user.id === id);
-      return res.json(user);
-    } catch (error) {
-      return res.status(500).json({ message: "Error reading data" });
-    }
-  })
-  .put((req, res) => {
-    return res.json({ status: "pending" });
-  })
-  .delete((req, res) => {
-    return res.json({ status: "pending" });
-  });
-
-app.post("/api/users", (req, res) => {
-  // TODO
-  return res.json({ status: "pending" });
+app.get("/api/users/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const users = await fetchUsers();
+    const user = users.find((user) => user.id === id);
+    return res.json(user);
+  } catch (error) {
+    return res.status(500).json({ message: "Error reading data" });
+  }
 });
 
-// this route is common, so it is being merged with the get
-// app.patch("/api/users/:id", (req, res) => {
-//   // TODO
-//   return res.json({ status: "pending" });
-// });
-
-// this route is common, so it is being merged with the get
-// app.delete("/api/users/:id", (req, res) => {
-//   // TODO
-//   return res.json({ status: "pending" });
-// });
+app.post("/api/users", async (req, res) => {
+  const body = req.body;
+  const users = await fetchUsers();
+  users.push({ ...body, id: users.length + 1 });
+  fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
+    return res.json({ status: "success", id: users.length + 1 });
+  });
+});
 
 // Start the server
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
