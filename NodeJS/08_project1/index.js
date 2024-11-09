@@ -117,5 +117,36 @@ app.put("/api/users/:id", async (req, res) => {
   }
 });
 
+// DELETE route to remove a user by ID
+app.delete("/api/users/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const users = await fetchUsers(); // Fetch current users
+
+    // Find the user by ID and filter them out
+    const updatedUsers = users.filter((user) => user.id !== id);
+
+    if (users.length === updatedUsers.length) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Write the updated users array back to the file
+    await fs.writeFile(
+      "./MOCK_DATA.json",
+      JSON.stringify(updatedUsers, null, 2),
+      "utf-8"
+    );
+
+    // Respond with success message
+    return res.json({
+      status: "success",
+      message: `User with id ${id} deleted`,
+    });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    return res.status(500).json({ message: "Error deleting user" });
+  }
+});
+
 // Start the server
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

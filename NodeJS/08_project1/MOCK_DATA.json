@@ -7998,13 +7998,5 @@
     "email": "aformrr@baidu.com",
     "gender": "Male",
     "job_title": "Teacher"
-  },
-  {
-    "first_name": "UpdatedFirstName",
-    "last_name": "UpdatedLastName",
-    "email": "pankaj@pankaj.com",
-    "gender": "male",
-    "job_title": "fullstack",
-    "id": 1001
   }
 ]
