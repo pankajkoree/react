@@ -8000,8 +8000,8 @@
     "job_title": "Teacher"
   },
   {
-    "first_name": "pankaj",
-    "last_name": "koree",
+    "first_name": "UpdatedFirstName",
+    "last_name": "UpdatedLastName",
     "email": "pankaj@pankaj.com",
     "gender": "male",
     "job_title": "fullstack",
