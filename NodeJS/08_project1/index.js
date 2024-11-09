@@ -6,6 +6,7 @@ const PORT = 8000;
 
 // middleware/plugin
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json()); // Middleware to parse JSON request bodies
 
 // Function to fetch users data from the JSON file
 async function fetchUsers() {
@@ -18,22 +19,22 @@ async function fetchUsers() {
   }
 }
 
-// route to get the only users name as html
+// Route to get the users' names as HTML
 app.get("/users", async (req, res) => {
   try {
     const users = await fetchUsers();
     const htmlData = `
-        <ul>
-          ${users.map((user) => `<li>${user.first_name}</li>`)}
-        </ul>
-      `;
+      <ul>
+        ${users.map((user) => `<li>${user.first_name}</li>`).join("")}
+      </ul>
+    `;
     return res.send(htmlData);
   } catch (error) {
-    return res.status(500).json({ message: "data fetching error..." });
+    return res.status(500).json({ message: "Data fetching error..." });
   }
 });
 
-// Route to get users data as only json
+// Route to get users data as JSON
 app.get("/api/users", async (req, res) => {
   try {
     const users = await fetchUsers();
@@ -43,25 +44,45 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-// getting user data based on id
+// Route to get user data based on ID
 app.get("/api/users/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
     const users = await fetchUsers();
     const user = users.find((user) => user.id === id);
-    return res.json(user);
+    if (user) {
+      return res.json(user);
+    } else {
+      return res.status(404).json({ message: "User not found" });
+    }
   } catch (error) {
     return res.status(500).json({ message: "Error reading data" });
   }
 });
 
+// POST route to add a new user
 app.post("/api/users", async (req, res) => {
-  const body = req.body;
-  const users = await fetchUsers();
-  users.push({ ...body, id: users.length + 1 });
-  fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
-    return res.json({ status: "success", id: users.length + 1 });
-  });
+  try {
+    const body = req.body;
+    const users = await fetchUsers(); // Fetch current users
+
+    // Add new user with a unique ID
+    const newUser = { ...body, id: users.length + 1 };
+    users.push(newUser);
+
+    // Write the updated users array back to the file
+    await fs.writeFile(
+      "./MOCK_DATA.json",
+      JSON.stringify(users, null, 2),
+      "utf-8"
+    );
+
+    // Respond with success and the new user ID
+    return res.json({ status: "success", id: newUser.id });
+  } catch (error) {
+    console.error("Error writing to file:", error);
+    return res.status(500).json({ message: "Error saving user data" });
+  }
 });
 
 // Start the server
