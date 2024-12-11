@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+// function handler for accessing data
 const getProductsData = async () => {
   try {
     let response = await fetch(
