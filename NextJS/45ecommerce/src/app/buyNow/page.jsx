@@ -26,6 +26,7 @@ const getProductsData = async () => {
   }
 };
 
+// profile details
 const onGetUserData = async () => {
   let res = await axios.post("api/users/me");
   return res.data;
