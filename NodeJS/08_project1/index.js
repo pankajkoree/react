@@ -8,6 +8,7 @@ const PORT = 8000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 // Function to fetch users data from the JSON file
 async function fetchUsers() {
   try {
@@ -18,6 +19,8 @@ async function fetchUsers() {
     throw error;
   }
 }
+
+// if not fetching data from local source such as JSON one, and integrating mongoDB database, then we need to create a database in MongoDB and connect it here
 
 // Route to get the users' names as HTML
 app.get("/users", async (req, res) => {
