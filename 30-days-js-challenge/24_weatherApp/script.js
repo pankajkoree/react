@@ -9,7 +9,7 @@ const fiveDayURL =
 
 const cityInput = document.querySelector("#searchCity");
 const searchCityButton = document.querySelector("#searchCityButton");
-const temperaturValue = document.querySelector(".temp");
+const temperatureValue = document.querySelector(".temp");
 const updateCityName = document.querySelector(".city");
 const weatherImage = document.querySelector("#weatherImage");
 
@@ -21,7 +21,7 @@ async function checkWeather(city) {
   console.log(defaultCityName);
   let temperature = Math.floor(data.main.temp - 273.15) + `°C`;
   console.log(temperature);
-  temperaturValue.textContent = temperature;
+  temperatureValue.textContent = temperature;
 
   updateCityName.textContent = defaultCityName;
   const weatherName = document.querySelector("#weatherType");
