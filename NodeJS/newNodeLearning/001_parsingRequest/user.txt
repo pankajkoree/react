@@ -1,1 +1,1 @@
-hello
+{"username":"ritik khan","gender":"male"}

@@ -1,9 +1,6 @@
-const http = require("http");
 const fs = require("fs");
 
-const server = http.createServer((req, res) => {
-  // console.log(req.url, req.method, req.headers);
-
+const userRequest = (req, res) => {
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");
@@ -35,7 +32,7 @@ const server = http.createServer((req, res) => {
     });
 
     req.on("end", () => {
-      const complete = Buffer.concat(completeData);
+      const complete = Buffer.concat(completeData).toString();
       // or we can write above line as const complete = Buffer.concat(completeData).toString() so that it would be converted into the readable string
       console.log(`Complete data = ${complete}`);
 
@@ -59,9 +56,6 @@ const server = http.createServer((req, res) => {
   res.write("<body><h1>Like / Share / Subscribe</h1></body>");
   res.write("</html>");
   res.end();
-});
+};
 
-const PORT = 3001;
-server.listen(PORT, () => {
-  console.log(`Server running on address http://localhost:${PORT}`);
-});
+module.exports = userRequest;
