@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
     req.url.toLowerCase() === "/submit-details" &&
     req.method == "POST"
   ) {
-    fs.writeFileSync("user.txt", "Prashant Jain");
+    fs.writeFileSync("user.txt", "hello");
     res.statusCode = 302;
     res.setHeader("Location", "/");
   }
