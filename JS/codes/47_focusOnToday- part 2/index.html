@@ -3,68 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Focus on Today - project 1</title>
+    <title>Focus on Today - Project 1</title>
     <script src="script.js" defer></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="global.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <h1 class="title">Focus on <span>Today</span></h1>
-      <div class="app-container">
-        <h2 class="subtitle">
-          <span>Today</span>
-          <img src="/images/sun_svg.svg" alt="sun images" class="sun-icon" />
-        </h2>
-        <p class="progress-label">Raise the bar by completing your goals!</p>
-        <div class="progress-bar">
-          <div class="progress-value">
-            <span> 2/3 completed </span>
-          </div>
-          <p class="error-label">Please set all the 3 goals!</p>
-        </div>
 
-        <div class="goal-container">
-          <div class="custom-checkbox">
-            <img src="./images/tick.svg" class="check-icon" alt="tick mark" />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#b9cfe8] font-[Poppins] m-0">
+    <main class="px-4 pb-8">
+      <h1
+        class="text-[4rem] text-center text-[#48a300] font-bold md:text-[4rem] text-4xl"
+      >
+        Focus on <span class="text-[#61481c]">Today</span>
+      </h1>
+
+      <div
+        class="bg-[#fbfbfb] max-w-[660px] mx-auto rounded-[15px] p-8 shadow-md"
+      >
+        <h2 class="text-2xl font-semibold">
+          <span>Today</span>
+          <img
+            src="/images/sun_svg.svg"
+            alt="sun"
+            class="inline-block align-middle ml-4 w-6 h-6"
+          />
+        </h2>
+
+        <p class="text-sm text-gray-500 mb-5">
+          Raise the bar by completing your goals!
+        </p>
+
+        <!-- Progress Bar -->
+        <div
+          class="h-[30px] bg-[#b9cfe8] rounded-[15px] relative overflow-hidden"
+        >
+          <div
+            class="h-full bg-[#3bce42] rounded-[15px] flex items-center text-[10px] text-[#eeeee8] font-medium transition-all duration-400"
+            style="width: 0"
+          >
+            <span class="pl-5 whitespace-nowrap">2/3 completed</span>
+          </div>
+        </div>
+        <p class="text-xs text-red-500 mt-2 hidden error-label">
+          Please set all the 3 goals!
+        </p>
+
+        <!-- Goal Inputs -->
+        <div
+          class="goal-container flex items-center border border-black/10 rounded-[17px] h-[82px] px-[22px] mt-10 mb-[42px]"
+        >
+          <div
+            class="custom-checkbox w-6 h-6 border border-black/10 rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <img
+              src="./images/tick.svg"
+              class="check-icon hidden"
+              alt="tick mark"
+            />
           </div>
           <input
             type="text"
-            class="goal-input"
+            class="goal-input flex-grow border-none outline-none pl-5 font-medium text-base"
             id="first"
             placeholder="Add new goal"
           />
         </div>
-        <div class="goal-container">
-          <div class="custom-checkbox">
-            <img src="./images/tick.svg" class="check-icon" alt="tick mark" />
+
+        <div
+          class="goal-container flex items-center border border-black/10 rounded-[17px] h-[82px] px-[22px] mb-[42px]"
+        >
+          <div
+            class="custom-checkbox w-6 h-6 border border-black/10 rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <img
+              src="./images/tick.svg"
+              class="check-icon hidden"
+              alt="tick mark"
+            />
           </div>
           <input
             type="text"
-            class="goal-input"
+            class="goal-input flex-grow border-none outline-none pl-5 font-medium text-base"
             id="second"
             placeholder="Add new goal"
           />
         </div>
-        <div class="goal-container">
-          <div class="custom-checkbox">
-            <img src="./images/tick.svg" class="check-icon" alt="tick mark" />
+
+        <div
+          class="goal-container flex items-center border border-black/10 rounded-[17px] h-[82px] px-[22px] mb-[42px]"
+        >
+          <div
+            class="custom-checkbox w-6 h-6 border border-black/10 rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <img
+              src="./images/tick.svg"
+              class="check-icon hidden"
+              alt="tick mark"
+            />
           </div>
           <input
             type="text"
-            class="goal-input"
+            class="goal-input flex-grow border-none outline-none pl-5 font-medium text-base"
             id="third"
             placeholder="Add new goal"
           />
         </div>
-        <p class="quote">“Move one step ahead, today!”</p>
-        <footer class="footer">Made with ❤️ by pankaj</footer>
+
+        <p class="text-center font-medium">“Move one step ahead, today!”</p>
+        <footer class="text-center text-gray-500 text-xs mt-16">
+          Made with ❤️ by pankaj
+        </footer>
       </div>
     </main>
   </body>
