@@ -1,21 +1,8 @@
 const http = require("http");
 const fs = require("fs");
-const { buffer } = require("stream/consumers");
 
 const server = http.createServer((req, res) => {
   // console.log(req.url, req.method, req.headers);
-
-  let completeData = [];
-  req.on("data", (chunk) => {
-    console.log(`Chunk = ${chunk}`);
-    completeData.push(chunk);
-  });
-
-  req.on("end", () => {
-    const complete = Buffer.concat(completeData);
-    // or we can write above line as const complete = Buffer.concat(completeData).toString() so that it would be converted into the readable string
-    console.log(`Complete data = ${complete}`);
-  });
 
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
@@ -41,7 +28,28 @@ const server = http.createServer((req, res) => {
     req.url.toLowerCase() === "/submit-details" &&
     req.method == "POST"
   ) {
-    fs.writeFileSync("user.txt", "hello");
+    let completeData = [];
+    req.on("data", (chunk) => {
+      console.log(`Chunk = ${chunk}`);
+      completeData.push(chunk);
+    });
+
+    req.on("end", () => {
+      const complete = Buffer.concat(completeData);
+      // or we can write above line as const complete = Buffer.concat(completeData).toString() so that it would be converted into the readable string
+      console.log(`Complete data = ${complete}`);
+
+      const params = new URLSearchParams(complete);
+      // const bodyObject = {};
+      // for (const [key, val] of params.entries()) {
+      //   bodyObject[key] = val;
+      // }
+
+      const bodyObject = Object.fromEntries(params); // do the same exact thing as above object and for loop, game of looping on object
+      console.log(bodyObject);
+      fs.writeFileSync("user.txt", JSON.stringify(bodyObject));
+    });
+
     res.statusCode = 302;
     res.setHeader("Location", "/");
   }
