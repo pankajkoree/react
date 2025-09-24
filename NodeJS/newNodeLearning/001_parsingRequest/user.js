@@ -4,7 +4,7 @@ const userRequest = (req, res) => {
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");
-    res.write("<head><title>Complete Coding</title></head>");
+    res.write("<head><title>Node js learning</title></head>");
     res.write("<body><h1>Enter Your Details:</h1>");
     res.write('<form action="/submit-details" method="POST">');
     res.write(
@@ -52,7 +52,7 @@ const userRequest = (req, res) => {
   }
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
-  res.write("<head><title>Complete Coding</title></head>");
+  res.write("<head><title>Node js learning</title></head>");
   res.write("<body><h1>Like / Share / Subscribe</h1></body>");
   res.write("</html>");
   res.end();
