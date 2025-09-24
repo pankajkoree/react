@@ -1,8 +1,21 @@
 const http = require("http");
 const fs = require("fs");
+const { buffer } = require("stream/consumers");
 
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method, req.headers);
+  // console.log(req.url, req.method, req.headers);
+
+  let completeData = [];
+  req.on("data", (chunk) => {
+    console.log(`Chunk = ${chunk}`);
+    completeData.push(chunk);
+  });
+
+  req.on("end", () => {
+    const complete = Buffer.concat(completeData);
+    // or we can write above line as const complete = Buffer.concat(completeData).toString() so that it would be converted into the readable string
+    console.log(`Complete data = ${complete}`);
+  });
 
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
