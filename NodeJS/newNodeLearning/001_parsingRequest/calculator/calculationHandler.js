@@ -1,3 +1,5 @@
+const { sumHandler } = require("./sum");
+
 const calculationHandler = (req, res) => {
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
@@ -25,7 +27,7 @@ const calculationHandler = (req, res) => {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home page</title>
+    <title>calculator page</title>
   </head>
   <body>
   <h1>Calculator</h1>
@@ -51,6 +53,8 @@ const calculationHandler = (req, res) => {
 
         `);
     return res.end();
+  } else if (req.url === "/calculate-result" && req.method === "POST") {
+    return sumHandler(req, res);
   } else {
     res.setHeader("Content-Type", "text/html");
     res.write(`
