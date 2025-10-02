@@ -8,4 +8,6 @@ hostRouter.get("/add-home", homeController.getAddHome);
 
 hostRouter.post("/add-home", homeController.postAddHome);
 
+hostRouter.get("/hostHomes", homeController.getHostHomes);
+
 exports.hostRouter = hostRouter;

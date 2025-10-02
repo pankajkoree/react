@@ -12,3 +12,12 @@ exports.postAddHome = (req, res, next) => {
   res.render("host/homeAdded", { pageTitle: "Home Added Successfully" });
 };
 
+exports.getHostHomes = (req, res, next) => {
+  homeModel.fetchAllThings((registeredHomes) =>
+    res.render("host/hostHomeList", {
+      registeredHomes,
+      pageTitle: "Host Home list",
+      currentPage: "hostHomeList",
+    })
+  );
+};
