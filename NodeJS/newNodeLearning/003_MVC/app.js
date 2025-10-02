@@ -20,7 +20,7 @@ app.use("/host", hostRouter);
 
 app.use(express.static(path.join(rootDir, "public")));
 
-const errorController = require("./controllers/error");
+const errorController = require("./controllers/errorController");
 
 app.use(errorController.errorController);
 
