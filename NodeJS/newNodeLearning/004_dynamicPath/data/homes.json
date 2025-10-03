@@ -1,60 +1,34 @@
 [
   {
+    "id": "1",
     "houseName": "old house",
     "price": "1999",
     "location": "mumbai",
     "rating": "5",
-    "photoUrl": "old pic"
+    "photoUrl": "/house1.png"
   },
   {
+    "id": "2",
     "houseName": "manvat",
     "price": "2000",
     "location": "delhi",
     "rating": "5",
-    "photoUrl": "not known"
+    "photoUrl": "/house2.png"
   },
   {
+    "id": "3",
     "houseName": "mannat",
     "price": "5000",
     "location": "juhu",
     "rating": "5",
-    "photoUrl": "none"
+    "photoUrl": "/house3.png"
   },
-
   {
+    "id": "4",
     "houseName": "complete",
     "price": "1200",
     "location": "deurali",
     "rating": "3",
-    "photoUrl": "no no"
-  },
-  {
-    "houseName": "old house",
-    "price": "1999",
-    "location": "mumbai",
-    "rating": "5",
-    "photoUrl": "old pic"
-  },
-  {
-    "houseName": "manvat",
-    "price": "2000",
-    "location": "delhi",
-    "rating": "5",
-    "photoUrl": "not known"
-  },
-  {
-    "houseName": "mannat",
-    "price": "5000",
-    "location": "juhu",
-    "rating": "5",
-    "photoUrl": "none"
-  },
-
-  {
-    "houseName": "complete",
-    "price": "1200",
-    "location": "deurali",
-    "rating": "3",
-    "photoUrl": "no no"
+    "photoUrl": "/house4.png"
   }
 ]

@@ -39,3 +39,22 @@ exports.getFavourites = (req, res, next) => {
     });
   });
 };
+
+exports.getHomeDetails = (req, res, next) => {
+  const homeId = req.params.homeId;
+  console.log(homeId);
+  homeModel.findById(homeId, (home) => {
+    if (!home) {
+      console.log("Home not found");
+      res.redirect("/homes");
+    } else {
+      console.log("Home details found ", home);
+
+      res.render("store/homeDetails", {
+        home,
+        pageTitle: "home details",
+        currentPage: "Home",
+      });
+    }
+  });
+};

@@ -23,6 +23,8 @@ module.exports = class Home {
   // }
 
   save() {
+    this.id = Math.floor(Math.random() * 10000 + 1).toString();
+    console.log(this.id);
     Home.fetchAllThings((registeredHomes) => {
       registeredHomes.push(this);
       const homeDataPath = path.join(rootDirectory, "data", "homes.json");
@@ -42,5 +44,12 @@ module.exports = class Home {
     fs.readFile(homeDataPath, (err, data) =>
       callback(!err ? JSON.parse(data) : [])
     );
+  }
+
+  static findById(homeId, callback) {
+    Home.fetchAllThings((homes) => {
+      const homeFound = homes.find((home) => home.id === homeId);
+      callback(homeFound);
+    });
   }
 };
