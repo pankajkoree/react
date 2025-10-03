@@ -2,15 +2,17 @@
 const express = require("express");
 const storeRouter = express.Router();
 
-const homeController = require("../controllers/storeController");
+const storeController = require("../controllers/storeController");
 
-storeRouter.get("/", homeController.getHomes);
+storeRouter.get("/", storeController.getHomes);
 
-storeRouter.get("/store/homeList", homeController.getHomesList);
+storeRouter.get("/store/homeList", storeController.getHomesList);
 
-storeRouter.get("/store/bookings", homeController.getBookings);
-storeRouter.get("/store/favourites", homeController.getFavourites);
+storeRouter.get("/store/bookings", storeController.getBookings);
+storeRouter.get("/store/favourites", storeController.getFavourites);
 
-storeRouter.get("/home/:homeId", homeController.getHomeDetails);
+storeRouter.get("/home/:homeId", storeController.getHomeDetails);
+
+storeRouter.post("/store/favourites", storeController.postAddToFavourites);
 
 module.exports = storeRouter;
