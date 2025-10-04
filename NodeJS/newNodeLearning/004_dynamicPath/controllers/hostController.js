@@ -1,7 +1,30 @@
 const homeModel = require("../models/homes");
 
 exports.getAddHome = (req, res, next) => {
-  res.render("host/addHome", { pageTitle: "Add Home to airbnb" });
+  res.render("host/editHome", {
+    pageTitle: "Add Home to airbnb",
+    currentPage: "addHome",
+    editing: false,
+  });
+};
+
+exports.getEditHomes = (req, res, next) => {
+  const homeId = req.params.homeId;
+  const editing = req.query.editing === "true";
+
+  homeModel.findById(homeId, (home) => {
+    if (!home) {
+      console.log("Home not found while editing homes");
+      return res.redirect("/host/hostHomeList");
+    }
+    console.log(homeId, editing, home);
+    res.render("host/editHome", {
+      editing: editing,
+      home: home,
+      pageTitle: "Add Home to airbnb",
+      currentPage: "addHome",
+    });
+  });
 };
 
 exports.postAddHome = (req, res, next) => {

@@ -30,5 +30,13 @@
     "location": "deurali",
     "rating": "3",
     "photoUrl": "/house4.png"
+  },
+  {
+    "houseName": "Bunker",
+    "price": "500",
+    "location": "jata sukai",
+    "rating": "-5",
+    "photoUrl": "/house5.png",
+    "id": "644"
   }
 ]
