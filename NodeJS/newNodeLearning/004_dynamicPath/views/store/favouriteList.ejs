@@ -36,6 +36,10 @@
 
                   </div>
                 </div>
+
+                <form action="/favourites/delete/<%= home.id %>" method="POST">
+                  <button class="p-2 bg-red-300 hover:bg-red-600 font-bold">Remove from favourite</button>
+                </form>
               </div>
             </div>
             <% }) %>
