@@ -17,7 +17,6 @@ exports.getEditHomes = (req, res, next) => {
       console.log("Home not found while editing homes");
       return res.redirect("/host/hostHomeList");
     }
-    console.log(homeId, editing, home);
     res.render("host/editHome", {
       editing: editing,
       home: home,
@@ -32,7 +31,16 @@ exports.postAddHome = (req, res, next) => {
   const home = new homeModel(houseName, price, location, rating, photoUrl);
   home.save();
 
-  res.render("host/homeAdded", { pageTitle: "Home Added Successfully" });
+  res.redirect("/host/hostHomes");
+};
+
+exports.postEditHomes = (req, res, next) => {
+  const { id, houseName, price, location, rating, photoUrl } = req.body;
+  const home = new homeModel(houseName, price, location, rating, photoUrl);
+  home.id = id;
+
+  home.save();
+  res.redirect("/host/hostHomes");
 };
 
 exports.getHostHomes = (req, res, next) => {
