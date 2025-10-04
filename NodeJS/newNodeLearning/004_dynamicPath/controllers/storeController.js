@@ -55,6 +55,16 @@ exports.postAddToFavourites = (req, res, next) => {
   });
 };
 
+exports.postRemoveFromFavourite = (req, res, next) => {
+  const homeId = req.params.homeId;
+  favouritesModel.deleteById(homeId, (error) => {
+    if (error) {
+      console.log("Error while removing from favourite : ", error);
+    }
+    res.redirect("/store/favourites");
+  });
+};
+
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;
   console.log(homeId);
