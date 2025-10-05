@@ -37,9 +37,9 @@
                   </div>
                 </div>
                 <div class="flex gap-2">
-                  <a href="/host/editHome/<%= home.id %>?editing=true"
+                  <a href="/host/editHome/<%= home._id %>?editing=true"
                     class="bg-blue-300 hover:bg-blue-500 p-2 font-bold hover:cursor-pointer">Edit</a>
-                  <form action="/host/deleteHome/<%= home.id %>" method="POST">
+                  <form action="/host/deleteHome/<%= home._id %>" method="POST">
                     <button class="bg-red-300 hover:bg-red-500 p-2 font-bold hover:cursor-pointer">Delete</button>
                   </form>
                 </div>

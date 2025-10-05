@@ -1,11 +1,29 @@
-const mysql = require("mysql2");
+const mongo = require("mongodb");
+
+const mongoClient = mongo.MongoClient;
+
 require("dotenv").config();
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
+let _database;
 
-module.exports = pool.promise();
+const mongoDBConnect = (callback) => {
+  mongoClient
+    .connect(process.env.MONGO_URI)
+    .then((client) => {
+      callback();
+      _database = client.db("airbnb");
+    })
+    .catch((error) => {
+      console.log("Error while connecting to the database : ", error);
+    });
+};
+
+const getDatabase = () => {
+  if (!_database) {
+    throw new Error("Unable to connect to the database");
+  }
+  return _database;
+};
+
+exports.mongoDBConnect = mongoDBConnect;
+exports.getDatabase = getDatabase;

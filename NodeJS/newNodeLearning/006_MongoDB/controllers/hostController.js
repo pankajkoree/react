@@ -12,24 +12,25 @@ exports.getEditHomes = (req, res, next) => {
   const homeId = req.params.homeId;
   const editing = req.query.editing === "true";
 
-  homeModel.findById(homeId, (home) => {
+  homeModel.findById(homeId).then((home) => {
     if (!home) {
-      console.log("Home not found while editing homes");
-      return res.redirect("/host/hostHomeList");
+      console.log("Home not found while editing home");
+      res.redirect("/host/hostHomes");
     }
     res.render("host/editHome", {
-      editing: editing,
       home: home,
-      pageTitle: "Add Home to airbnb",
-      currentPage: "addHome",
+      editing: editing,
+      pageTitle: "Edit your home",
+      currentPage: "hostHomeList",
     });
   });
 };
 
 exports.postAddHome = (req, res, next) => {
-  const { houseName, price, location, rating, photoUrl, description } =
+  const { _id, houseName, price, location, rating, photoUrl, description } =
     req.body;
   const home = new homeModel(
+    _id,
     houseName,
     price,
     location,
@@ -40,7 +41,7 @@ exports.postAddHome = (req, res, next) => {
   home
     .save()
     .then(() => {
-      res.redirect("/host/hostHomes");
+      res.redirect("/");
     })
     .catch((error) => {
       console.log("Error while adding home : ", error);
@@ -48,16 +49,26 @@ exports.postAddHome = (req, res, next) => {
 };
 
 exports.postEditHomes = (req, res, next) => {
-  const { id, houseName, price, location, rating, photoUrl } = req.body;
-  const home = new homeModel(houseName, price, location, rating, photoUrl);
-  home.id = id;
+  const { id, houseName, price, location, rating, photoUrl, description } =
+    req.body;
+  const home = new homeModel(
+    id,
+    houseName,
+    price,
+    location,
+    rating,
+    photoUrl,
+    description
+  );
 
-  home.save();
+  home.save().then((result) => {
+    console.log("Home updated : ", result);
+  });
   res.redirect("/host/hostHomes");
 };
 
 exports.getHostHomes = (req, res, next) => {
-  homeModel.fetchAllThings((registeredHomes) =>
+  homeModel.fetchAllThings().then((registeredHomes) =>
     res.render("host/hostHomeList", {
       registeredHomes,
       pageTitle: "Host Home list",
@@ -68,11 +79,12 @@ exports.getHostHomes = (req, res, next) => {
 
 exports.postDeleteHome = (req, res, next) => {
   const homeId = req.params.homeId;
-  console.log("came to delete home", homeId);
-  homeModel.deleteById(homeId, (error) => {
-    if (error) {
+  homeModel
+    .deleteById(homeId)
+    .then(() => {
+      res.redirect("/host/hostHomes");
+    })
+    .catch((error) => {
       console.log(`Error while deleting home : `, error);
-    }
-    res.redirect("/host/hostHomes");
-  });
+    });
 };
