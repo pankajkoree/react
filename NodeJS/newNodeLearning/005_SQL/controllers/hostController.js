@@ -27,11 +27,24 @@ exports.getEditHomes = (req, res, next) => {
 };
 
 exports.postAddHome = (req, res, next) => {
-  const { houseName, price, location, rating, photoUrl } = req.body;
-  const home = new homeModel(houseName, price, location, rating, photoUrl);
-  home.save();
-
-  res.redirect("/host/hostHomes");
+  const { houseName, price, location, rating, photoUrl, description } =
+    req.body;
+  const home = new homeModel(
+    houseName,
+    price,
+    location,
+    rating,
+    photoUrl,
+    description
+  );
+  home
+    .save()
+    .then(() => {
+      res.redirect("/host/hostHomes");
+    })
+    .catch((error) => {
+      console.log("Error while adding home : ", error);
+    });
 };
 
 exports.postEditHomes = (req, res, next) => {
