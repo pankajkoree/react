@@ -2,7 +2,7 @@ const homeModel = require("../models/homes");
 const favouritesModel = require("../models/favourites");
 
 exports.getHomes = (req, res, next) => {
-  homeModel.fetchAllThings().then((registeredHomes) => {
+  homeModel.find().then((registeredHomes) => {
     res.render("store/index", {
       registeredHomes,
       pageTitle: "Airbnb Homes",
@@ -12,7 +12,7 @@ exports.getHomes = (req, res, next) => {
 };
 
 exports.getHomesList = (req, res, next) => {
-  homeModel.fetchAllThings().then((registeredHomes) => {
+  homeModel.find().then((registeredHomes) => {
     res.render("store/homeList", {
       registeredHomes,
       pageTitle: "Home lis",
@@ -22,7 +22,7 @@ exports.getHomesList = (req, res, next) => {
 };
 
 exports.getBookings = (req, res, next) => {
-  homeModel.fetchAllThings().then((registeredHomes) => {
+  homeModel.find().then((registeredHomes) => {
     res.render("store/bookings", {
       registeredHomes,
       pageTitle: "Bookings",
@@ -32,9 +32,9 @@ exports.getBookings = (req, res, next) => {
 };
 
 exports.getFavourites = (req, res, next) => {
-  favouritesModel.getFavourites().then((favourite) => {
+  favouritesModel.find().then((favourite) => {
     favourite = favourite.map((fav) => fav.houseId);
-    homeModel.fetchAllThings().then((registeredHomes) => {
+    homeModel.find().then((registeredHomes) => {
       const favouriteHomes = registeredHomes.filter((home) =>
         favourite.includes(home._id.toString())
       );
@@ -49,7 +49,7 @@ exports.getFavourites = (req, res, next) => {
 
 exports.postAddToFavourites = (req, res, next) => {
   const homeId = req.body.id;
-  const favouriteModel = new favouritesModel(homeId);
+  const favouriteModel = new favouritesModel({ homeId });
   favouriteModel
     .save()
     .then(() => {

@@ -9,7 +9,8 @@ const storeRouter = require("./routes/storeRouter");
 const { hostRouter } = require("./routes/hostRouter");
 const rootDir = require("./utils/pathUtil");
 const errorController = require("./controllers/errorController");
-const { mongoDBConnect } = require("./utils/databaseUtil");
+const { default: mongoose } = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 app.use(express.urlencoded());
@@ -25,7 +26,7 @@ app.use(errorController.errorController);
 
 const PORT = 3000;
 
-mongoDBConnect(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on address http://localhost:${PORT}`);
   });
