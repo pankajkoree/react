@@ -47,31 +47,65 @@ exports.getFavourites = (req, res, next) => {
   });
 };
 
-exports.postAddToFavourites = (req, res, next) => {
+// it works for adding to fav but for exisitng it not so theres next one
+// exports.postAddToFavourites = (req, res, next) => {
+//   const homeId = req.body.id;
+
+//   if (!homeId) {
+//     console.log("Home id not found");
+//     return res.redirect("/store/favourites");
+//   }
+
+//   const favouriteModel = new favouritesModel({ houseId: homeId });
+//   favouriteModel
+//     .save()
+//     .then(() => {
+//       console.log("Added to favourites");
+//     })
+//     .catch((error) => {
+//       console.log("Error while adding to favourites : ", error);
+//     })
+//     .finally(() => {
+//       res.redirect("/store/favourites");
+//     });
+// };
+
+exports.postAddToFavourites = async (req, res, next) => {
   const homeId = req.body.id;
-  const favouriteModel = new favouritesModel({ homeId });
-  favouriteModel
-    .save()
-    .then(() => {
-      console.log("Added to favourites");
-    })
-    .catch((error) => {
-      console.log("Error while adding to favourites : ", error);
-    })
-    .finally(() => {
-      res.redirect("/store/favourites");
+
+  if (!homeId) {
+    console.log("Home id not found");
+    return res.redirect("/store/favourites");
+  }
+
+  try {
+    const existingFavourite = await favouritesModel.findOne({
+      houseId: homeId,
     });
+
+    if (existingFavourite) {
+      console.log("⚠️ Already marked as favourite:", homeId);
+    } else {
+      const favourite = new favouritesModel({ houseId: homeId });
+      await favourite.save();
+      console.log("✅ Added to favourites:", homeId);
+    }
+  } catch (error) {
+    console.log("Error while adding to favourites:", error);
+  } finally {
+    res.redirect("/store/favourites");
+  }
 };
 
 exports.postRemoveFromFavourite = (req, res, next) => {
   const homeId = req.params.homeId;
   favouritesModel
-    .deleteById(homeId)
+    .deleteOne({ houseId: homeId })
     .then((result) => {
       console.log(
         "Favourite removed with home id : ",
         homeId,
-        "result : ",
+        "and result : ",
         result
       );
     })
