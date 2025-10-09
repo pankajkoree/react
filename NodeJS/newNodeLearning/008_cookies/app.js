@@ -7,6 +7,7 @@ const express = require("express");
 //Local Module
 const storeRouter = require("./routes/storeRouter");
 const { hostRouter } = require("./routes/hostRouter");
+const { authRouter } = require("./routes/authRouter");
 const rootDir = require("./utils/pathUtil");
 const errorController = require("./controllers/errorController");
 const { default: mongoose } = require("mongoose");
@@ -14,6 +15,20 @@ require("dotenv").config();
 
 const app = express();
 app.use(express.urlencoded());
+
+// this spliting things can be different for different people, do it according to your request
+app.use((req, res, next) => {
+  req.isLoggedIn = req.get("Cookie")
+    ? req.get("Cookie").split("=")[2] === "true"
+    : false;
+
+  console.log(req.isLoggedIn);
+
+  next();
+});
+
+app.use(authRouter);
+
 app.use(express.static(path.join(rootDir, "public")));
 
 app.set("view engine", "ejs");

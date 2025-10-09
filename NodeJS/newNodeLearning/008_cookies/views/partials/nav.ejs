@@ -4,22 +4,38 @@
       <li>
         <a href="/" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">airbnb</a>
       </li>
-      <li>
-        <a href="/store/homeList" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Home list</a>
-      </li>
 
-      <li>
-        <a href="/store/bookings" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Bookings</a>
-      </li>
-      <li>
-        <a href="/store/favourites" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Favourites</a>
-      </li>
-      <li>
-        <a href="/host/hostHomes" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Host Homes</a>
-      </li>
-      <li>
-        <a href="/host/addHome" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Add Home</a>
-      </li>
+      <% if (isLoggedIn) { %>
+        <li>
+          <a href="/store/homeList" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Home list</a>
+        </li>
+
+        <li>
+          <a href="/store/bookings" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Bookings</a>
+        </li>
+        <li>
+          <a href="/store/favourites" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Favourites</a>
+        </li>
+        <li>
+          <a href="/host/hostHomes" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Host Homes</a>
+        </li>
+        <li>
+          <a href="/host/addHome" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Add Home</a>
+        </li>
+
+        <%}%>
+          <li>
+            <% if (!isLoggedIn) {%>
+              <a href="/login" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">login</a>
+
+              <% } else { %>
+
+                <form action="/logout" method="POST">
+                  <button type="submit"
+                    class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Logout</button>
+                </form>
+                <% } %>
+          </li>
     </ul>
   </nav>
 </header>
