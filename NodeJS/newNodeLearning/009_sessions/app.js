@@ -6,26 +6,30 @@ const express = require("express");
 
 //Local Module
 const storeRouter = require("./routes/storeRouter");
+// import storeRouter from "./routes/storeRouter";
 const { hostRouter } = require("./routes/hostRouter");
 const { authRouter } = require("./routes/authRouter");
 const rootDir = require("./utils/pathUtil");
 const errorController = require("./controllers/errorController");
 const { default: mongoose } = require("mongoose");
 require("dotenv").config();
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 const app = express();
 app.use(express.urlencoded());
-
-// this spliting things can be different for different people, do it according to your request
-app.use((req, res, next) => {
-  req.isLoggedIn = req.get("Cookie")
-    ? req.get("Cookie").split("=")[2] === "true"
-    : false;
-
-  console.log(req.isLoggedIn);
-
-  next();
+const store = new MongoDBStore({
+  uri: process.env.MONGO_URI,
+  collection: "sessions",
 });
+app.use(
+  session({
+    secret: "airbnbreplica",
+    resave: false,
+    saveUninitialized: true,
+    store: store,
+  })
+);
 
 app.use(authRouter);
 
