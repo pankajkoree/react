@@ -1,4 +1,6 @@
 const { check, validationResult } = require("express-validator");
+const User = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 exports.getSignup = (req, res, next) => {
   res.render("auth/signup", {
@@ -35,15 +37,17 @@ exports.postSignup = [
 
   check("password")
     .isLength({ min: 8 })
-    .withMessage("password should be minimum 8 characters long")
-    .matches(/A-Z/)
-    .withMessage("password should contain uppercase letters")
-    .matches(/a-z/)
-    .withMessage("passowrd should contain lowercase letters")
-    .matches(/0-9/)
-    .withMessage("password should contain numbers")
-    .matches(/[!@&]/)
-    .withMessage("password should contain special characters")
+    .withMessage("Password should be at least 8 characters long")
+    .matches(/[A-Z]/)
+    .withMessage("Password should contain at least one uppercase letter")
+    .matches(/[a-z]/)
+    .withMessage("Password should contain at least one lowercase letter")
+    .matches(/[0-9]/)
+    .withMessage("Password should contain at least one number")
+    .matches(/[!@#$%^&*(),.?":{}|<>]/)
+    .withMessage(
+      "Password should contain at least one special character (!, @, or &)"
+    )
     .trim(),
 
   check("confirmPassword")
@@ -82,7 +86,30 @@ exports.postSignup = [
         oldInput: { firstName, lastName, email, password, userType },
       });
     }
-    res.redirect("/login");
+    bcrypt
+      .hash(password, 12)
+      .then((hashdedPassword) => {
+        const user = new User({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: hashdedPassword,
+          userType: userType,
+        });
+        user.save().then(() => {
+          console.log("signup successfully");
+          res.redirect("/login");
+        });
+      })
+      .catch((error) => {
+        return res.status(422).render("auth/signup", {
+          pageTitle: "signup",
+          currentPage: "signup",
+          isLoggedIn: false,
+          errors: [error.message],
+          oldInput: { firstName, lastName, email, password, userType },
+        });
+      });
   },
 ];
 
@@ -91,12 +118,37 @@ exports.getLogin = (req, res, next) => {
     pageTitle: "login",
     currentPage: "login",
     isLoggedIn: false,
+    errors: [],
+    oldInput: { email: "" },
   });
 };
 
-exports.postLogin = (req, res, next) => {
-  console.log("login successful");
+exports.postLogin = async (req, res, next) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.status(422).render("auth/login", {
+      pageTitle: "login",
+      currentPage: "login",
+      isLoggedIn: false,
+      errors: ["User doesn't exist"],
+      oldInput: { email },
+    });
+  }
+
+  const isCorrectPassword = await bcrypt.compare(password, user.password);
+  if (!isCorrectPassword) {
+    return res.status(422).render("auth/login", {
+      pageTitle: "login",
+      currentPage: "login",
+      isLoggedIn: false,
+      errors: ["Invalid password"],
+      oldInput: { email },
+    });
+  }
   req.session.isLoggedIn = true;
+  req.session.user = user;
+  await req.session.save();
   res.redirect("/");
 };
 
