@@ -8,6 +8,7 @@ exports.getHomes = (req, res, next) => {
       pageTitle: "Airbnb Homes",
       currentPage: "Home",
       isLoggedIn: req.session.isLoggedIn,
+      user: req.session.user,
     });
   });
 };
@@ -19,6 +20,7 @@ exports.getHomesList = (req, res, next) => {
       pageTitle: "Home lis",
       currentPage: "homeList",
       isLoggedIn: req.session.isLoggedIn,
+      user: req.session.user,
     });
   });
 };
@@ -30,6 +32,7 @@ exports.getBookings = (req, res, next) => {
       pageTitle: "Bookings",
       currentPage: "bookings",
       isLoggedIn: req.session.isLoggedIn,
+      user: req.session.user,
     });
   });
 };
@@ -45,6 +48,7 @@ exports.getFavourites = (req, res, next) => {
         pageTitle: "Favourites",
         currentPage: "favourites",
         isLoggedIn: req.session.isLoggedIn,
+        user: req.session.user,
       });
     });
 };
@@ -105,6 +109,7 @@ exports.getHomeDetails = (req, res, next) => {
         pageTitle: "home details",
         currentPage: "Home",
         isLoggedIn: req.session.isLoggedIn,
+        user: req.session.user,
       });
     }
   });

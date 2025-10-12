@@ -14,6 +14,7 @@ exports.getSignup = (req, res, next) => {
       email: "",
       password: "",
       userType: "",
+      user: {},
     },
   });
 };
@@ -84,6 +85,7 @@ exports.postSignup = [
         isLoggedIn: false,
         errors: errors.array().map((err) => err.msg),
         oldInput: { firstName, lastName, email, password, userType },
+        user: {},
       });
     }
     bcrypt
@@ -108,6 +110,7 @@ exports.postSignup = [
           isLoggedIn: false,
           errors: [error.message],
           oldInput: { firstName, lastName, email, password, userType },
+          user: {},
         });
       });
   },
@@ -120,6 +123,7 @@ exports.getLogin = (req, res, next) => {
     isLoggedIn: false,
     errors: [],
     oldInput: { email: "" },
+    user: {},
   });
 };
 
@@ -133,6 +137,7 @@ exports.postLogin = async (req, res, next) => {
       isLoggedIn: false,
       errors: ["User doesn't exist"],
       oldInput: { email },
+      user: {},
     });
   }
 
@@ -144,6 +149,7 @@ exports.postLogin = async (req, res, next) => {
       isLoggedIn: false,
       errors: ["Invalid password"],
       oldInput: { email },
+      user: {},
     });
   }
   req.session.isLoggedIn = true;

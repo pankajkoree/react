@@ -1,45 +1,92 @@
-<header class="bg-red-500 text-white p-4 shadow-md">
-  <nav class="container mx-auto flex justify-between items-center">
-    <ul class="flex space-x-4">
-      <li>
-        <a href="/" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">airbnb</a>
-      </li>
+<header class="bg-red-500 text-white shadow-md">
+  <nav class="container mx-auto flex justify-between items-center py-3 px-6">
+    <!-- Left: Brand + Links -->
+    <div class="flex items-center gap-8">
+      <!-- Brand -->
+      <a
+        href="/"
+        class="text-2xl font-bold tracking-wide hover:text-red-100 transition duration-300"
+      >
+        airbnb
+      </a>
 
       <% if (isLoggedIn) { %>
+      <!-- Left nav links -->
+      <% if (user && user.userType === 'guest') { %>
+      <ul
+        class="flex flex-wrap items-center gap-4 sm:gap-6 text-xl font-medium"
+      >
         <li>
-          <a href="/store/homeList" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Home list</a>
+          <a
+            href="/store/homeList"
+            class="py-2 px-3 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Home list</a
+          >
+        </li>
+        <li>
+          <a
+            href="/store/bookings"
+            class="py-2 px-3 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Bookings</a
+          >
+        </li>
+        <li>
+          <a
+            href="/store/favourites"
+            class="py-2 px-3 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Favourites</a
+          >
         </li>
 
+        <% } else { %>
         <li>
-          <a href="/store/bookings" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Bookings</a>
+          <a
+            href="/host/hostHomes"
+            class="py-2 px-3 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Host Homes</a
+          >
         </li>
         <li>
-          <a href="/store/favourites" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Favourites</a>
+          <a
+            href="/host/addHome"
+            class="py-2 px-3 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Add Home</a
+          >
         </li>
-        <li>
-          <a href="/host/hostHomes" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Host Homes</a>
-        </li>
-        <li>
-          <a href="/host/addHome" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Add Home</a>
-        </li>
+        <% } %>
+      </ul>
+      <% } %>
+    </div>
 
-        <%}%>
-          <li>
-            <% if (!isLoggedIn) {%>
-              <a href="/login" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Login</a>
-          </li>
-          <li>
-            <a href="/signup" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">Sign Up</a>
-          </li>
-          <% } else { %>
-            <li>
-              <form action="/logout" method="POST">
-                <button type="submit"
-                  class="hover:bg-red-400 py-2 px-4 rounded transition duration-300 hover:cursor-pointer">Logout</button>
-              </form>
-            </li>
-            <% } %>
-
-    </ul>
+    <!-- Right: Auth buttons -->
+    <div>
+      <% if (isLoggedIn) { %>
+      <form action="/logout" method="POST">
+        <button
+          type="submit"
+          class="py-2 px-4 text-xl rounded hover:bg-red-400 hover:text-white transition duration-300 cursor-pointer font-medium"
+        >
+          Logout
+        </button>
+      </form>
+      <% } else { %>
+      <ul class="flex items-center gap-4 text-xl font-medium">
+        <li>
+          <a
+            href="/login"
+            class="py-2 px-4 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            href="/signup"
+            class="py-2 px-4 rounded hover:bg-red-400 hover:text-white transition duration-300"
+            >Sign Up</a
+          >
+        </li>
+      </ul>
+      <% } %>
+    </div>
   </nav>
 </header>
