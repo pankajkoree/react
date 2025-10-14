@@ -31,14 +31,14 @@ exports.getEditHomes = (req, res, next) => {
 };
 
 exports.postAddHome = (req, res, next) => {
-  const { houseName, price, location, rating, photoUrl, description } =
+  const { houseName, price, location, rating, photo, description } =
     req.body;
   const home = new homeModel({
     houseName,
     price,
     location,
     rating,
-    photoUrl,
+    photo,
     description,
   });
   home
@@ -53,7 +53,7 @@ exports.postAddHome = (req, res, next) => {
 };
 
 exports.postEditHomes = (req, res, next) => {
-  const { id, houseName, price, location, rating, photoUrl, description } =
+  const { id, houseName, price, location, rating, photo, description } =
     req.body;
 
   homeModel
@@ -62,7 +62,7 @@ exports.postEditHomes = (req, res, next) => {
       price,
       location,
       rating,
-      photoUrl,
+      photo,
       description,
     })
     .then((result) => {
