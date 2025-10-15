@@ -1,4 +1,5 @@
 const homeModel = require("../models/homes");
+const fs = require("fs");
 
 exports.getAddHome = (req, res, next) => {
   res.render("host/editHome", {
@@ -31,9 +32,13 @@ exports.getEditHomes = (req, res, next) => {
 };
 
 exports.postAddHome = (req, res, next) => {
-  const { houseName, price, location, rating, photo, description } = req.body;
-  console.log(houseName, price, location, rating, photo, description);
-  console.log(req.file)
+  const { houseName, price, location, rating, description } = req.body;
+  console.log(houseName, price, location, rating, description);
+  console.log(req.file);
+  if (!req.file) {
+    return res.status(400).send("invalid image type");
+  }
+  const photo = req.file.path;
   const home = new homeModel({
     houseName,
     price,
@@ -54,8 +59,7 @@ exports.postAddHome = (req, res, next) => {
 };
 
 exports.postEditHomes = (req, res, next) => {
-  const { id, houseName, price, location, rating, photo, description } =
-    req.body;
+  const { id, houseName, price, location, rating, description } = req.body;
 
   homeModel
     .findByIdAndUpdate(id, {
@@ -63,13 +67,28 @@ exports.postEditHomes = (req, res, next) => {
       price,
       location,
       rating,
-      photo,
       description,
     })
     .then((result) => {
-      console.log("Home updated : ", result);
+      if (req.file) {
+        fs.unlink(result.photo, (err) => {
+          if (err) {
+            console.log("error while deleting files : ", err);
+          }
+        });
+        result.photo = req.file.path;
+        return result.save();
+      }
+      return result;
+    })
+    .then((ress) => {
+      console.log("Home updated : ", ress);
+      res.redirect("/host/hostHomes");
+    })
+    .catch((err) => {
+      console.log("error while updating homes : ", err);
+      return res.status(500).send("failed to update home");
     });
-  res.redirect("/host/hostHomes");
 };
 
 exports.getHostHomes = (req, res, next) => {

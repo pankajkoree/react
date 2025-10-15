@@ -22,11 +22,4 @@ const homeSchema = mongoose.Schema({
   },
 });
 
-// homeSchema.pre("findOneAndDelete", async function (next) {
-//   console.log("Came to pre hook while deleting a home");
-//   const homeId = this.getQuery()._id;
-//   await favouritesModel.deleteMany({ houseId: homeId });
-//   next();
-// });
-
 module.exports = mongoose.model("Home", homeSchema);

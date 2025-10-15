@@ -7,7 +7,7 @@
         <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">
           <%= editing ? "Edit" :"Register" %> Your Home on AirBnB
         </h1>
-        <form action="/host/<%= editing ? " editHome" : "addHome" %>" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
+        <form action="/host/<%= editing ? "editHome" : "addHome" %>" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="id" value="<%= editing ? home._id :"" %>">
           <input type="text" name="houseName" placeholder="Enter your House Name"
             value="<%= editing ? home.houseName :"" %>"

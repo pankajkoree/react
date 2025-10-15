@@ -21,7 +21,7 @@ const app = express();
 app.use(express.urlencoded());
 
 const store = new MongoDBStore({
-  uri: process.env.MONGO_URL,
+  uri: process.env.MONGO_URI,
   collection: "sessions",
 });
 
@@ -35,20 +35,33 @@ const randomString = (length) => {
 };
 
 // multerOptions is the destination of the image saving folder
-
-const fileStorageOptions = multer.diskStorage({
-  destination: (req, file, cb) => {
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
     cb(null, "uploads/");
   },
-  filename: (req, file, cb) => {
-    cb(null, randomString(10) + "-" + file.originalname);
+  filename: function (req, file, cb) {
+    cb(null, randomString(10) + "~" + file.originalname);
   },
 });
+
+const fileFilter = (req, file, cb) => {
+  if (["image/jpg", "image/jpeg", "image/png"].includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
 const multerOptions = {
-  fileStorageOptions,
+  storage,
+  fileFilter,
 };
 app.use(multer(multerOptions).single("photo"));
 app.use(express.static(path.join(rootDir, "public")));
+app.use("/uploads", express.static(path.join(rootDir, "uploads")));
+app.use("/host/uploads", express.static(path.join(rootDir, "uploads")));
+app.use("/store/uploads", express.static(path.join(rootDir, "uploads")));
+app.use("/home/uploads", express.static(path.join(rootDir, "uploads")));
 app.use(
   session({
     secret: "airbnbreplica",
@@ -70,7 +83,7 @@ app.use(errorController.errorController);
 
 const PORT = 3000;
 
-mongoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on address http://localhost:${PORT}`);
   });
