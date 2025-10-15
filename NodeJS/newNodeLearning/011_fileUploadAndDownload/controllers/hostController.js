@@ -25,14 +25,15 @@ exports.getEditHomes = (req, res, next) => {
       pageTitle: "Edit your home",
       currentPage: "hostHomeList",
       isLoggedIn: req.session.isLoggedIn,
-    user: req.session.user,
+      user: req.session.user,
     });
   });
 };
 
 exports.postAddHome = (req, res, next) => {
-  const { houseName, price, location, rating, photo, description } =
-    req.body;
+  const { houseName, price, location, rating, photo, description } = req.body;
+  console.log(houseName, price, location, rating, photo, description);
+  console.log(req.file)
   const home = new homeModel({
     houseName,
     price,
@@ -78,7 +79,7 @@ exports.getHostHomes = (req, res, next) => {
       pageTitle: "Host Home list",
       currentPage: "hostHomeList",
       isLoggedIn: req.session.isLoggedIn,
-    user: req.session.user,
+      user: req.session.user,
     })
   );
 };
