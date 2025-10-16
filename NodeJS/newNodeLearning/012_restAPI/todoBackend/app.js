@@ -1,6 +1,3 @@
-// Core Module
-const path = require("path");
-
 // External Module
 const express = require("express");
 
@@ -8,10 +5,16 @@ const express = require("express");
 const errorController = require("./controllers/errorController");
 const { default: mongoose } = require("mongoose");
 require("dotenv").config();
+const todoRouter = require("./routes/todoRouter");
+const cors = require("cors");
 
 const app = express();
-app.use(express.urlencoded());
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.use(todoRouter);
 
 app.use(errorController.errorController);
 
