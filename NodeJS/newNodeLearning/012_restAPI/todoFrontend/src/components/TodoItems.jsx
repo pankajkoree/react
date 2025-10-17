@@ -1,18 +1,54 @@
 import TodoItem from "./TodoItem";
-import styles from "./TodoItems.module.css";
 
-const TodoItems = ({ todoItems, onDeleteClick }) => {
-  console.log(todoItems);
+const TodoItems = ({ todoItems, onDeleteClick, onCompleteClick }) => {
+  const pending = todoItems.filter((t) => t.completed === false);
+  const completed = todoItems.filter((t) => t.completed === true);
+
   return (
-    <div className={styles.itemsContainer}>
-      {todoItems.map((item) => (
-        <TodoItem
-          key={item.id}
-          todoDate={item.dueDate}
-          todoName={item.name}
-          onDeleteClick={onDeleteClick}
-        ></TodoItem>
-      ))}
+    <div className="mt-8 space-y-8">
+      {/* Pending Tasks Section */}
+      {pending.length > 0 && (
+        <div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-3">
+            ⏳ Pending Tasks
+          </h2>
+          <div className="space-y-3">
+            {pending.map((item) => (
+              <TodoItem
+                key={item.id}
+                id={item.id}
+                todoName={item.name}
+                todoDate={item.dueDate}
+                completed={item.completed}
+                onDeleteClick={onDeleteClick}
+                onCompleteClick={onCompleteClick}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Completed Tasks Section */}
+      {completed.length > 0 && (
+        <div>
+          <h2 className="text-xl font-semibold text-gray-500 mb-3">
+            ✅ Completed Tasks
+          </h2>
+          <div className="space-y-3">
+            {completed.map((item) => (
+              <TodoItem
+                key={item.id}
+                id={item.id}
+                todoName={item.name}
+                todoDate={item.dueDate}
+                completed={item.completed}
+                onDeleteClick={onDeleteClick}
+                onCompleteClick={onCompleteClick}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

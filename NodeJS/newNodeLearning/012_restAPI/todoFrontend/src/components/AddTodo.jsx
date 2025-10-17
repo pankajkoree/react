@@ -1,48 +1,43 @@
 import { useState } from "react";
 
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState();
-  const [dueDate, setDueDate] = useState();
+  const [task, setTask] = useState("");
+  const [date, setDate] = useState("");
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-
-  const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
-
-  const handleAddButtonClicked = () => {
-    onNewItem(todoName, dueDate);
-    setDueDate("");
-    setTodoName("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (task && date) {
+      onNewItem(task, date);
+      setTask("");
+      setDate("");
+    }
   };
 
   return (
-    <div className="container text-center">
-      <div className="row kg-row">
-        <div className="col-6">
-          <input
-            type="text"
-            placeholder="Enter Todo Here"
-            value={todoName}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div className="col-4">
-          <input type="date" value={dueDate} onChange={handleDateChange} />
-        </div>
-        <div className="col-2">
-          <button
-            type="button"
-            className="btn btn-success kg-button"
-            onClick={handleAddButtonClicked}
-          >
-            Add
-          </button>
-        </div>
-      </div>
-    </div>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col sm:flex-row gap-3 mt-6"
+    >
+      <input
+        type="text"
+        placeholder="Enter task"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <button
+        type="submit"
+        className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow"
+      >
+        Add
+      </button>
+    </form>
   );
 }
 

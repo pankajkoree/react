@@ -22,8 +22,6 @@ export const getTodoItem = async () => {
     const response = await axios.get("http://localhost:3000/api/todos");
     if (response.status === 200) {
       const todos = response.data.todoItems || [];
-      console.log("Items : ", todos);
-      console.log(todos.map(mapServerDataToLocalItemData));
       return todos.map(mapServerDataToLocalItemData);
     } else {
       console.log("items not dound");
