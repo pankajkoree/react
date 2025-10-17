@@ -19,10 +19,12 @@ export const addTodoItem = async (task, date) => {
 
 export const getTodoItem = async () => {
   try {
-    const respose = await axios.get("http://localhost:3000/api/todos");
-    if (respose.status === 200) {
-      console.log("Items : ", respose);
-      return mapServerDataToLocalItemData(respose.data.dataItem);
+    const response = await axios.get("http://localhost:3000/api/todos");
+    if (response.status === 200) {
+      const todos = response.data.todoItems || [];
+      console.log("Items : ", todos);
+      console.log(todos.map(mapServerDataToLocalItemData));
+      return todos.map(mapServerDataToLocalItemData);
     } else {
       console.log("items not dound");
     }
@@ -32,10 +34,35 @@ export const getTodoItem = async () => {
 };
 
 export const markedCompleted = async (id) => {
-  const response = await axios.put(
-    `http://localhost:3000/api/todos/${id}/completed`
-  );
-  
+  try {
+    const response = await axios.put(
+      `http://localhost:3000/api/todos/${id}/completed`
+    );
+    if (response.status === 200) {
+      console.log("marked as completed");
+      return markedCompleted(response.data.dataItem);
+    } else {
+      console.log("not completed");
+    }
+  } catch (error) {
+    console.log("Unable to mark completed : ", error);
+  }
+};
+
+export const deleteTodoItem = async (id) => {
+  try {
+    const response = await axios.delete(
+      `http://localhost:3000/api/todos/${id}`
+    );
+    if (response.status) {
+      console.log("todo deleted");
+      return id;
+    } else {
+      console.log("unable to delete the todo");
+    }
+  } catch (error) {
+    console.log("Unable to delete todo : ", error);
+  }
 };
 
 const mapServerDataToLocalItemData = (serverData) => {

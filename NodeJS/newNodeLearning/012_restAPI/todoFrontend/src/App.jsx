@@ -3,11 +3,16 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
-import { useState } from "react";
-import { addTodoItem } from "./services/todoItemServices";
+import { useEffect, useState } from "react";
+import { addTodoItem, getTodoItem } from "./services/todoItemServices";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
+  useEffect(() => {
+    getTodoItem().then((items) => {
+      setTodoItems(items);
+    });
+  }, []);
 
   const handleNewItem = async (itemName, itemDueDate) => {
     const item = await addTodoItem(itemName, itemDueDate);

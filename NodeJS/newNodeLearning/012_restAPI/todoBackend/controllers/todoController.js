@@ -15,7 +15,7 @@ exports.getTodo = async (req, res, next) => {
   try {
     const todoItems = await todo.find();
     if (todoItems) {
-      return res.status(208).json({ todoItems });
+      return res.status(200).json({ todoItems });
     } else {
       return res.status(404).json({ message: "Todo not found" });
     }
